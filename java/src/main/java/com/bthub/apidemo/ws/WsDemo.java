@@ -13,6 +13,7 @@ import com.bthub.apidemo.rest.RestServiceImpl;
 public class WsDemo {
 	private static String uri = "ws://" + HOST + "/api/realtime?X-API-TOKEN=";
 
+	
 	public static void main(String[] args) throws Exception {
 		RestServiceImpl service = new RestServiceImpl();
 		String token = service.getToken("API01", "1qaz1qaz");
