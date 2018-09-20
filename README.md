@@ -33,12 +33,14 @@ api说明共分以下几个部分
 POST /api/v1/operator/login
 
 PARAMETER DATA
+
 | NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
 |:---------|:---------|:-------|:---------|:--------|:-------------|
 | loginId  | Y        | string |          | 用户名   |              |
 | password | Y        | string |          | 密码     |              |
 
 RESPONSE DATA
+
 | NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
 |:---------|:---------|:-------|:---------|:--------|:-------------|
 | token    | Y        | string |   token  | -       |              |
