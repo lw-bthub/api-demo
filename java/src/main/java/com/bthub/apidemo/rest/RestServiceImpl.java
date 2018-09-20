@@ -21,7 +21,7 @@ public class RestServiceImpl {
 	}
 
 	public String login(String loginId, String password) throws IOException {
-		URL url = new URL("http://192.168.1.215:8081/api/v1/operator/login?loginId=" + loginId + "&password=" + password);
+		URL url = new URL("http://192.168.1.198:8082/api/v1/operator/login?loginId=" + loginId + "&password=" + password);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestMethod("POST");
 		InputStream inputStream = con.getInputStream();
@@ -29,7 +29,7 @@ public class RestServiceImpl {
 	}
 
 	public String cps(String token) throws IOException {
-		URL url = new URL("http://192.168.1.215:8081/api/v1/market/cps");
+		URL url = new URL("http://192.168.1.198:8082/api/v1/market/cps");
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
@@ -37,7 +37,7 @@ public class RestServiceImpl {
 	}
 
 	public String symbols(String token) throws IOException {
-		URL url = new URL("http://192.168.1.215:8081/api/v1/market/symbols");
+		URL url = new URL("http://192.168.1.198:8082/api/v1/market/symbols");
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
@@ -48,7 +48,7 @@ public class RestServiceImpl {
 		String template = "{\"cpId\": %s,\"orderPrice\": %s,\"orderType\": \"%s\",\"orderVolume\": %s,\"side\": \"%s\",\"symbolId\": %s,\"timeInForce\": \"%s\"}";
 		String json = String.format(template, cpId, orderPrice, orderType, orderVolume, side, symbolId, timeInForce);
 		System.out.println("place order json: " + json);
-		URL url = new URL("http://192.168.1.215:8081/api/v1/trades/place");
+		URL url = new URL("http://192.168.1.198:8082/api/v1/trades/place");
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestMethod("POST");
 		con.setRequestProperty("X-API-TOKEN", token);
@@ -59,7 +59,7 @@ public class RestServiceImpl {
 	}
 
 	public String cpExecutionDetail(String token, long orderId) throws IOException {
-		URL url = new URL("http://192.168.1.215:8081/api/v1/trades/cpExecutionDetail?orderId=" + orderId);
+		URL url = new URL("http://192.168.1.198:8082/api/v1/trades/cpExecutionDetail?orderId=" + orderId);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
@@ -78,7 +78,7 @@ public class RestServiceImpl {
 			params += String.format("pageNo=%s&", pageNo);
 		}
 		params += String.format("from=%s&to=%s", from, to);
-		URL url = new URL("http://192.168.1.215:8081/api/v1/trades/cpExecutionHistory?" + params);
+		URL url = new URL("http://192.168.1.198:8082/api/v1/trades/cpExecutionHistory?" + params);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
@@ -100,7 +100,7 @@ public class RestServiceImpl {
 			params += String.format("status=%s&", status);
 		}
 		params += String.format("from=%s&to=%s", from, to);
-		URL url = new URL("http://192.168.1.215:8081/api/v1/trades/cpOrderHistory?" + params);
+		URL url = new URL("http://192.168.1.198:8082/api/v1/trades/cpOrderHistory?" + params);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
@@ -108,7 +108,7 @@ public class RestServiceImpl {
 	}
 
 	public String orderDetail(String token, long sourceId) throws IOException {
-		URL url = new URL("http://192.168.1.215:8081/api/v1/trades/orderDetail?sourceId=" + sourceId);
+		URL url = new URL("http://192.168.1.198:8082/api/v1/trades/orderDetail?sourceId=" + sourceId);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
@@ -130,7 +130,7 @@ public class RestServiceImpl {
 			params += String.format("status=%s&", status);
 		}
 		params += String.format("from=%s&to=%s", from, to);
-		URL url = new URL("http://192.168.1.215:8081/api/v1/trades/orderHistory?" + params);
+		URL url = new URL("http://192.168.1.198:8082/api/v1/trades/orderHistory?" + params);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
