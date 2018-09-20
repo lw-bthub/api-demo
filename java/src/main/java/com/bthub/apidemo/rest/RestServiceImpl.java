@@ -2,13 +2,23 @@ package com.bthub.apidemo.rest;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class RestServiceImpl {
+	private final ObjectMapper mapper = new ObjectMapper();
+
+	@SuppressWarnings("rawtypes")
+	public String getToken(String loginId, String password) throws IOException {
+		String json = this.login("API01", "1qaz1qaz");
+		Map readValue = mapper.readValue(json, Map.class);
+		return (String) ((Map) readValue.get("data")).get("token");
+	}
 
 	public String login(String loginId, String password) throws IOException {
 		URL url = new URL("http://192.168.1.215:8081/api/v1/operator/login?loginId=" + loginId + "&password=" + password);
@@ -34,14 +44,16 @@ public class RestServiceImpl {
 		return IOUtils.toString(inputStream, "utf8");
 	}
 
-	public String placeOrder(String token, int cpId, double orderPrice, String orderType, BigDecimal orderVolume, String side, int symbolId, String timeInForce) throws IOException {
+	public String placeOrder(String token, int cpId, double orderPrice, String orderType, double orderVolume, String side, int symbolId, String timeInForce) throws IOException {
 		String template = "{\"cpId\": %s,\"orderPrice\": %s,\"orderType\": \"%s\",\"orderVolume\": %s,\"side\": \"%s\",\"symbolId\": %s,\"timeInForce\": \"%s\"}";
 		String json = String.format(template, cpId, orderPrice, orderType, orderVolume, side, symbolId, timeInForce);
+		System.out.println("place order json: " + json);
 		URL url = new URL("http://192.168.1.215:8081/api/v1/trades/place");
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
-		IOUtils.write(json, con.getOutputStream(), "utf8");
-		con.setRequestProperty("X-API-TOKEN", token);
 		con.setRequestMethod("POST");
+		con.setRequestProperty("X-API-TOKEN", token);
+		con.setDoOutput(true);
+		IOUtils.write(json, con.getOutputStream(), "utf8");
 		InputStream inputStream = con.getInputStream();
 		return IOUtils.toString(inputStream, "utf8");
 	}
