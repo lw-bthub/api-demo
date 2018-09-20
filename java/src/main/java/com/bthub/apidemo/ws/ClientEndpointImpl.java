@@ -1,6 +1,7 @@
 package com.bthub.apidemo.ws;
 
 import javax.websocket.ClientEndpoint;
+import javax.websocket.CloseReason;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -12,22 +13,23 @@ public class ClientEndpointImpl {
 
 	@OnOpen
 	public void onOpen(Session session) {
-		System.out.println("Session is open.");
+		System.out.println(String.format("Session[%s] is open.", session));
 	}
 
 	@OnMessage
-	public void onMessage(String message) {
-		System.out.println("Client onMessage: " + message);
+	public void onMessage(Session session, String message) {
+		System.out.println(String.format("Session[%s] client onMessage: [%s]", session, message));
 	}
 
 	@OnError
-	public void onError(Throwable t) {
+	public void onError(Session session, Throwable t) {
+		System.out.println(String.format("Session[%s] error", session));
 		t.printStackTrace();
 	}
 
 	@OnClose
-	public void onClose() {
-		System.out.println("Session is closed.");
+	public void onClose(Session session, CloseReason closeReason) {
+		System.out.println(String.format("Session[%s] is closed. ref: [%s]", session, closeReason));
 	}
 
 }

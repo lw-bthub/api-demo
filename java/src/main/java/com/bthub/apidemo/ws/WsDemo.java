@@ -1,5 +1,7 @@
 package com.bthub.apidemo.ws;
 
+import static com.bthub.apidemo.common.Consts.HOST;
+
 import java.net.URI;
 
 import javax.websocket.ContainerProvider;
@@ -9,9 +11,7 @@ import javax.websocket.WebSocketContainer;
 import com.bthub.apidemo.rest.RestServiceImpl;
 
 public class WsDemo {
-	// ws://192.168.1.198:8082/api/realtime?X-API-TOKEN=
-	// ws://192.168.1.215:8081/api/realtime?X-API-TOKEN=
-	private static String uri = "ws://192.168.1.198:8082/api/realtime?X-API-TOKEN=";
+	private static String uri = "ws://" + HOST + "/api/realtime?X-API-TOKEN=";
 
 	public static void main(String[] args) throws Exception {
 		RestServiceImpl service = new RestServiceImpl();
@@ -21,9 +21,9 @@ public class WsDemo {
 		URI r = URI.create(uri + token);
 		Session session = container.connectToServer(ClientEndpointImpl.class, r);
 		// Quote推送
-		session.getBasicRemote().sendText("subscribe:apiQuote:65547");
+		session.getBasicRemote().sendText("subscribe:apiQuote:65537");
 		// 交易结果推送
-		session.getBasicRemote().sendText("subscribe:apiOrder");
+		session.getBasicRemote().sendText("subscribe:apiOrder:65537");
 
 		Thread.sleep(Long.MAX_VALUE);
 	}
