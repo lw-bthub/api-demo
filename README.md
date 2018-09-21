@@ -32,25 +32,25 @@ api说明共分以下几个部分
 ### 登陆接口
 POST /api/v1/operator/login  
 
-PARAMETER DATA
+***请求参数***
 
 | NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |  
 |:---------|:---------|:-------|:---------|:--------|:-------------|  
-| loginId  | Y        | string |          | 用户名   |              |  
-| password | Y        | string |          | 密码     |              |  
+| loginId  | Y        | String |          | 用户名   |             |  
+| password | Y        | String |          | 密码     |             |  
 
 
-RESPONSE DATA
+***返回参数***
 
 | NAME     | TYPE   | DESCRIBE |  
 |:---------|:-------|:---------|  
-| token    | string |   token  |  
+| token    | String |   token  |  
 
-result sample
+***返回参数示例***
 ```
 {
   "data": {
-    "token": "eVc4NkVRbkRYb09kOFBt"
+    "token": "ZElHYkFsRktuZDduUG1udzI2V1lldyIsImFsZyI6IkEyNTZHQ01LVyIsIml2IjoicjZzLU83TGlYTUFYVEVxeSJ9.92p5f4TRYGPa16VZQgE1_FlhYwx6YCLeUlh-rlE3o_8.-wL8D1uL3GEEE3kj.qmBbSsSy92nYBt4WOLbU5MCH1NPbXO6k6_b5uGEG63xcQJ-Ny9K1VCMRtChQRol6l6fb5rNobNnOFAgeYzy2cqkje4HgUlL3BSRNlDj7G6W-60MwM2af7U2xshESv8LqLux2GZxPzCBmJz__HgluDxJwX2qNsMvOjM5k7Ckce8E1vHRJA18pkMzAL41HMFyzaf67Mp2SgXIaFHXVKVxdsOI.Gi2YOwudddsfdsafdsafa"
   },
   "result": "SUCCESS",
   "type": "API"
@@ -62,26 +62,25 @@ GET /api/v1/market/cps
 Headers:
 X-IDCM-APIKEY:（token，通过登录接口获得.）
 
-NO PARAMETER DATA
-
-RESPONSE DATA
+***返回参数***
 
 | NAME          | TYPE   | DESCRIBE |  
 |:--------------|:-------|:---------|  
 | id            | short | ID       |  
-| abbreviation  | String | 名称缩写  |  
-| tradingEnabled| boolean | 交易限制  |  
-result sample
+| name          | String | 名称缩写 |  
+| tradingEnabled| boolean | 交易限制 |  
+
+***返回参数示例***
 ```
 {
   "data": [
     {
-      "abbreviation": "NT_XX1",
+      "name": "NT_XX1",
       "id": 257,
       "tradingEnabled": true
     },
     {
-      "abbreviation": "NT_XX2",
+      "name": "NT_XX2",
       "id": 258,
       "tradingEnabled": true
     }
@@ -97,20 +96,18 @@ GET  /api/v1/market/symbols
 Headers:
 X-IDCM-APIKEY:（token，通过登录接口获得.）
 
-NO PARAMETER DATA
-
-RESPONSE DATA
+***返回参数***
 
 | NAME               | TYPE   | DESCRIBE     | 
 |:-------------------|:-------|:-------------|
 | id                 | int    | ID           | 
 | name               | String | 名称         | 
-| tradingMaxVolume   | double | 交易最大数量  |
-| tradingMinVolume   | double | 交易最小数量  |
-| tradingPriceScale  | byte | 交易精度      |
-| tradingVolumeScale | byte | 交易精度      |
+| tradingMaxVolume   | BigDecimal | 交易最大数量  |
+| tradingMinVolume   | BigDecimal | 交易最小数量  |
+| tradingPriceScale  | byte | 价格精度      |
+| tradingVolumeScale | byte | 交易量精度      |
 
-result sample
+***返回参数示例***
 ```
 {
   "data": [
@@ -142,19 +139,19 @@ POST /api/v1/trades/place
 Headers:
 X-IDCM-APIKEY:（token，通过登录接口获得.）
 
-PARAMETER DATA
+***请求参数***
 
-| NAME               | REQUIRED | TYPE   | DESCRIBE     | DEFAULT | VALUES RANGE |
-|:-------------------|:---------|:-------|:-------------|:--------|:-------------|
-| cpId            | Y        | short   | CP ID        | -       |              |
-| orderPrice            | Y        | double   | 价格        | -       |              |
-| orderType            | Y        | string   | 类型        | -       |              |
-| orderVolume            | Y        | double   | 数量        | -       |              |
-| side            | Y        | string   |  买卖方向        | -       |              |
-| symbolId            | Y        | int   | Symbol ID        | -       |              |
-| timeInForce            | Y        | String   | 过期类型        | -       |              |
+| NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |  
+|:---------|:---------|:-------|:---------|:--------|:-------------|  
+| cpId     | Y        | Short |        CP ID   |             |  
+| orderPrice | Y      | BigDecimal|    挂单价格     |             |  
+| orderType | Y       | String |       挂单类型     |             | 
+| orderVolume | Y     | BigDecimal |   挂单数量     |             | 
+| side | Y            | String |       买卖方向     |             | 
+| symbolId | Y        | Integer |      货币对ID     |             | 
+| timeInForce | Y     | String |       过期类型     |             | 
  
-result sample
+***返回参数示例***
 ```
 {
   "data": {
@@ -175,45 +172,45 @@ GET  /api/v1/trades/cpExecutionDetail
 Headers:
 X-IDCM-APIKEY:（token，通过登录接口获得.）
 
-PARAMETER DATA
+***请求参数***
 
 | NAME               | REQUIRED | TYPE   | DESCRIBE     | DEFAULT | VALUES RANGE |
 |:-------------------|:---------|:-------|:-------------|:--------|:-------------|
-| orderId            | Y        | long   | 订单ID        | -       |              |
+| orderId            | Y        | Long   | 订单ID        | -       |              |
 
-RESPONSE DATA
+***返回参数***
 
-| NAME          | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
-|:--------------|:---------|:-------|:---------|:--------|:-------------|
-| accountId     | Y        | long | 账户ID    | -       |              |
-| commission        | Y        | double | 手续费      |        |              |
-| cpId      | Y        | short | CP ID  |        |              |
-| executeAmount      | Y        | double | 约定量  |        |              |
-| executeComment     | Y        | string | 备注    | -       |              |
-| executePrice     | Y        | double | 约定价格    | -       |              |
-| executeTime     | Y        | long | 约定时间    | -       |              |
-| executeVolume     | Y        | double | 月定量    | -       |              |
-| id     | Y        | long | ID    | -       |              |
-| orderId     | Y        | long | 订单ID    | -       |              |
-| side     | Y        | string | 买卖方向    | -       |              |
-| symbolId     | Y        | int | 货币对ID    | -       |              |
+| NAME           | TYPE   | DESCRIBE |
+|:-------------- |:-------|:---------|
+| accountId      | long   | 账户ID    | 
+| commission     | double | 手续费  | 
+| cpId           | short  | CP ID    | 
+| executeAmount  | BigDecimal | 约定总量  | 
+| executeComment | String | 约定备注    | 
+| executePrice   | BigDecimal | 约定价格 |
+| executeTime    | long   | 约定时间    |
+| executeVolume  | BigDecimal | 约定数量    |
+| id             | long   | ID        | 
+| orderId        | long   | 订单ID    | 
+| side           | String | 买卖方向  |
+| symbolId       | int    | 货币对ID    |
 
-result sample
+***返回参数示例***
 ```
 {
   "data": {
     "executions": [
       {
         "accountId": "0",
-        "commission": "0.127800000000",
+        "commission": "0.628542600000",
         "cpId": 257,
-        "executeAmount": "127.800000000000",
+        "executeAmount": "628.542600000000",
         "executeComment": "CommissionAsset: USDT",
-        "executePrice": "6390.000000000000",
-        "executeTime": "1537409484740",
-        "executeVolume": "0.020000000000",
-        "id": "720040235022424617",
-        "orderId": "720040228848408617",
+        "executePrice": "6413.700000000000",
+        "executeTime": "1537450673000",
+        "executeVolume": "0.098000000000",
+        "id": "720385747089113129",
+        "orderId": "720385741233864233",
         "side": -1,
         "symbolId": 65537
       }
@@ -230,52 +227,45 @@ GET /api/v1/trades/orderDetail
 Headers:
 X-IDCM-APIKEY:（token，通过登录接口获得.）
 
-PARAMETER DATA
+***请求参数***
 
 | NAME               | REQUIRED | TYPE   | DESCRIBE     | DEFAULT | VALUES RANGE |
 |:-------------------|:---------|:-------|:-------------|:--------|:-------------|
-| sourceId           | Y        | Long   | 父订单ID        | -       |              |
+| sourceId           | Y        | Long   | 父订单ID     | -       |              |
 
-RESPONSE DATA
+***返回参数***
 
-| NAME          | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
-|:--------------|:---------|:-------|:---------|:--------|:-------------|  
-| pageCount     | Y        | string | 总页数    | -       |              |  
-| pageNo        | Y        | string | 页码      |        |              |  
-| pageSize      | Y        | string | 每页数量  |        |              |  
-| total         | Y        | string | 总条数  |        |              |  
-| accountId     | Y        | string | 账户ID  |        |              |  
-| commission    | Y        | string | 手续费  |        |              |  
-| cpId          | Y        | string | CP ID  |        |              |  
-| executeAmount | Y        | string | 约定量  |        |              |  
-| executeTime   | Y        | string | 约定时间  |        |              |  
-| executeVolume  | Y        | string | 约定数量  |        |              |  
-| id             | Y       | string |  ID  |        |              |  
-| orderComment   | Y        | string | 备注  |        |              |  
-| orderResult    | Y        | string | 结果  |        |              |  
-| orderTime      | Y        | string | 挂单时间  |        |              |  
-| orderType      | Y        | string | 挂单类型  |        |              |  
-| orderVolume      | Y        | string | 挂单数量  |        |              |  
-| pendingVolume      | Y        | string | 执行数量  |        |              |  
-| side           | Y        | string | 买卖方向  |        |              |
-| sourceId      | Y        | string | 父订单ID  |        |              |
-| status        | Y        | string | 状态  |        |              |
-| symbolId      | Y        | string | SYMBOL ID  |        |              |
-| timeInForce      | Y        | string | 过期类型  |        |              |
+| NAME           | TYPE   | DESCRIBE | 
+|:-------------- |:-------|:---------| 
+| pageCount     | int    | 总页数    |
+| pageNo        | int    | 页码      |
+| pageSize      | int    | 每页数量  |
+| total         | int    | 总条数    | 
+| accountId      | short | 账户ID  |  
+| commission     | BigDecimal | 手续费  |  
+| cpId           | short | CP ID  |   
+| executeAmount  | BigDecimal | 约定总量  |  
+| executeTime    | long | 约定时间  | 
+| executeVolume  | BigDecimal | 约定数量    
+| id             | long |  ID  |     
+| orderComment   | String | 备注  |   
+| orderResult    | String | 结果  |   
+| orderTime      | long | 挂单时间|    
+| orderType      | String | 挂单类型|    
+| orderPrice     | BigDecimal | 挂单价格|   
+| orderVolume    | BigDecimal | 挂单数量|    
+| pendingVolume  | BigDecimal | 执行数量|    
+| side           | String | 买卖方向|  
+| sourceId       | long | 父订单ID  |
+| status         | String | 状态  |    
+| symbolId       | int | 货币对ID  |
+| timeInForce    | String | 过期类型 |
+| accountId      | String | 账户ID  | 
+| executeComment | String | 约定备  |
+| executePrice   | String | 约定价格 |
+| orderId        | String | 订单ID  |
 
-| accountId      | Y        | string | 账户ID  |        |              |
-| symbolId       | Y        | string | SYMBOL ID  |        |              |
-| commission      | Y        | string | 手续费  |        |              |
-| cpId           | Y        | string | CP ID  |        |              |
-| executeAmount   | Y        | string | 约定量  |        |              |
-| executeComment    | Y        | string | 约定备注  |        |              |
-| executePrice    | Y        | string | 约定价格  |        |              |
-| executeTime      | Y        | string | 约定时间  |        |              |
-| executeVolume    | Y        | string | 约定数量  |        |              |
-| id              | Y      | string | ID  |        |              |
-| orderId          | Y        | string | 订单ID  |        |              |
-
-result sample
+***返回参数示例***
 ```
 {
   "data": {
@@ -330,46 +320,47 @@ GET  /api/v1/trades/cpOrderHistory
 Headers:
 X-IDCM-APIKEY:（token，通过登录接口获得.）
 
-PARAMETER DATA
+***请求参数***
 
 | NAME               | REQUIRED | TYPE   | DESCRIBE     | DEFAULT | VALUES RANGE |
 |:-------------------|:---------|:-------|:-------------|:--------|:-------------|
-| cpId               | Y        | Long   | CP ID        | -       |              |
-| symbolId           | Y        | Long   | SYMBOL ID    | -       |              |
-| status             | Y        | Long   | SYMBOL ID    | -       |              |
-| from               | Y        | Long   | 开始时间      | -       |              |
-| to                 | Y        | Long   | 结束时间      | -       |              |
-| pageNo             | Y        | Long   | 页码          | -       |              |
+| cpId               |         | Short   | CP ID         | -       |              |
+| symbolId           |         | Integer   | 货币对ID     | -       |              |
+| status             |         | String   | 状态     | -       |              |
+| from               | Y       | Long   | 开始时间       | -       |              |
+| to                 | Y       | Long   | 结束时间       | -       |              |
+| pageNo             |         | Integer    | 页码          | -       |               |
 
-RESPONSE DATA
+***返回参数***
 
-| NAME          | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
-|:--------------|:---------|:-------|:---------|:--------|:-------------|
-| pageCount     | Y        | string | 总页数    | -       |              |
-| pageNo        | Y        | string | 页码      |        |              |
-| pageSize      | Y        | string | 每页数量  |        |              |
-| total      | Y        | string | 总条数  |        |              |
-| accountId     | Y        | string | 账户ID    | -       |              |
-| cpId     | Y        | string | CP    | -       |              |
-| executeAmount     | Y        | string | 约定价格    | -       |              |
-| executeTime     | Y        | string | 约定时间    | -       |              |
-| executeVolume     | Y        | string | 约定数量    | -       |              |
-| id     | Y        | string | ID    | -       |              |
-| orderComment     | Y        | string | 备注    | -       |              |
-| orderPrice     | Y        | string | 挂单价格    | -       |              |
-| orderTime     | Y        | string | 挂单时间    | -       |              |
-| orderType     | Y        | string | 挂单类型    | -       |              |
-| orderVolume     | Y        | string | 挂单数量    | -       |              |
-| pendingVolume     | Y        | string | 执行数量    | -       |              |
-| rejectReason     | Y        | string | 拒绝原因   | -       |              |
-| side     | Y        | string | 买卖方向    | -       |              |
-| sourceId     | Y        | string | 父ID    | -       |              |
-| status     | Y        | string | 状态    | -       |              |
-| symbolId     | Y        | string | SYMBOL ID    | -       |              |
-| timeInForce     | Y        | string | 交易类型    | -       |              |
-| commission     | Y        | string | 手续费    | -       |              |
+| NAME          | TYPE   | DESCRIBE |
+|:--------------|:-------|:---------|
+| pageCount     | int    | 总页数    |
+| pageNo        | int    | 页码      |
+| pageSize      | int    | 每页数量  |
+| total         | int    | 总条数    | 
+| accountId     | short | 账户ID    | 
+| cpId          | short | CP  ID      |
+| executeAmount | double | 约定总量   | 
+| executeTime   | long | 约定时间    |
+| executeVolume | double | 约定数量    |
+| id            | long | ID        | 
+| orderComment  | String | 备注       | 
+| orderPrice    | BigDecimal | 挂单价格    |
+| orderResult    | String | 结果    |
+| orderTime     | long | 挂单时间    |
+| orderType     | String | 挂单类型    |
+| orderVolume   | BigDecimal | 挂单数量    |
+| pendingVolume | BigDecimal | 执行数量    |
+| rejectReason  | String | 拒绝原因   | 
+| side          | String | 买卖方向    |
+| sourceId      | long | 父订单       | 
+| status        | String | 状态       | 
+| symbolId      | int | 货币对ID  |  
+| timeInForce   | String | 过期类型   |
+| commission    | BigDecimal | 手续费     |
 
-result sample
+***返回参数示例***
 ```
 {
   "data": {
@@ -424,39 +415,38 @@ GET  /v1/trades/cpExecutionHistory
 Headers:
 X-IDCM-APIKEY:（token，通过登录接口获得.）
 
-PARAMETER DATA
+***请求参数***
 
 | NAME               | REQUIRED | TYPE   | DESCRIBE     | DEFAULT | VALUES RANGE |
 |:-------------------|:---------|:-------|:-------------|:--------|:-------------|
-| cpId               | Y        | Long   | CP ID        | -       |              |
-| symbolId           | Y        | Long   | SYMBOL ID    | -       |              |
+| cpId               |          | Short   | CP ID        | -       |              |
+| symbolId           |          | Integer   | 货币对ID    | -       |              |
 | from               | Y        | Long   | 开始时间      | -       |              |
 | to                 | Y        | Long   | 结束时间      | -       |              |
-| pageNo             | Y        | Long   | 页码          | -       |              |
+| pageNo             |          | Integer   | 页码          | -       |              |
 
-RESPONSE DATA
+***返回参数***
 
-| NAME          | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
-|:--------------|:---------|:-------|:---------|:--------|:-------------|
-| pageCount     | Y        | string | 总页数    | -       |              |
-| pageNo        | Y        | string | 页码      |        |              |
-| pageSize      | Y        | string | 每页数量  |        |              |
-| total      | Y        | string | 总条数  |        |              |
-| tradingEnabled| Y        | string | 交易限制  | -       |              |
-| accountId     | Y        | string | 账户ID    | -       |              |
-| commission    | Y        | string | 手续费    | -       |              |
-| cpId          | Y        | string | CP ID     | -       |              |
-| executeAmount | Y        | string | 交易价格  | -       |              |
-| executeComment| Y        | string | 备注      | -       |              |
-| executePrice  | Y        | string | 价格      | -       |              |
-| executeTime   | Y        | string | 时间      | -       |              |
-| executeVolume | Y        | string | 交易量    | -       |              |
-| id            | Y         | string | ID       | -       |              |
-| orderId       | Y        | string | 订单ID    | -       |              |
-| side          | Y        | string | 买卖方向   | -       |              |
-| symbolId      | Y        | string | 货币对ID   | -       |              |
+| NAME          | TYPE   | DESCRIBE | 
+|:--------------|:-------|:---------|
+| pageCount     | int    | 总页数    |
+| pageNo        | int    | 页码      |
+| pageSize      | int    | 每页数量  |
+| total         | int    | 总条数    |  
+| accountId     | long   | 账户ID    |
+| commission    | double | 手续费    |
+| cpId          | short  | CP ID     |
+| executeAmount | BigDecimal | 约定总量  |
+| executeComment| String | 备注      |
+| executePrice  | BigDecimal | 价格      |
+| executeTime   | long   | 时间      |
+| executeVolume | BigDecimal | 交易量    |
+| id            | long   | ID       | 
+| orderId       | long   | 订单ID    |
+| side          | String | 买卖方向  | 
+| symbolId      | int    | 货币对ID  |
 
-result sample
+***返回参数示例***
 ```
 {
   "data": {
