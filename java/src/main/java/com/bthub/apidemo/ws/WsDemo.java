@@ -23,7 +23,7 @@ public class WsDemo {
 		// Quote推送
 		session.getBasicRemote().sendText("subscribe:apiQuote:65537");
 		// 交易结果推送
-		session.getBasicRemote().sendText("subscribe:apiOrder:65537");
+		session.getBasicRemote().sendText("subscribe:apiOrder");
 
 		Thread.sleep(Long.MAX_VALUE);
 	}
