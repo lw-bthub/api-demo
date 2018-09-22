@@ -188,7 +188,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 | executeAmount  | BigDecimal | 成交金额  | 
 | executeComment | String | 成交备注    | 
 | executePrice   | BigDecimal | 成交价格 |
-| executeTime    | long   | 约定时间    |
+| executeTime    | long   | 成交时间    |
 | executeVolume  | BigDecimal | 成交数量    |
 | id             | long   | ID        | 
 | orderId        | long   | 订单ID    | 
