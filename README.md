@@ -166,7 +166,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 }
 ```
 
-### 获取 CP Execution 详细
+### 获取CP成交详细
 GET  /api/v1/trades/cpExecutionDetail
 
 Headers:
@@ -185,11 +185,11 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 | accountId      | long   | 账户ID    | 
 | commission     | double | 手续费  | 
 | cpId           | short  | CP ID    | 
-| executeAmount  | BigDecimal | 约定总量  | 
-| executeComment | String | 约定备注    | 
-| executePrice   | BigDecimal | 约定价格 |
+| executeAmount  | BigDecimal | 成交金额  | 
+| executeComment | String | 成交备注    | 
+| executePrice   | BigDecimal | 成交价格 |
 | executeTime    | long   | 约定时间    |
-| executeVolume  | BigDecimal | 约定数量    |
+| executeVolume  | BigDecimal | 成交数量    |
 | id             | long   | ID        | 
 | orderId        | long   | 订单ID    | 
 | side           | String | 买卖方向  |
@@ -221,7 +221,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 }
 ```
 
-### 获取 Order 详细
+### 获取订单详细
 GET /api/v1/trades/orderDetail
 
 Headers:
@@ -244,9 +244,9 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 | accountId      | short | 账户ID  |  
 | commission     | BigDecimal | 手续费  |  
 | cpId           | short | CP ID  |   
-| executeAmount  | BigDecimal | 约定总量  |  
-| executeTime    | long | 约定时间  | 
-| executeVolume  | BigDecimal | 约定数量    
+| executeAmount  | BigDecimal | 成交金额  |  
+| executeTime    | long | 成交时间  | 
+| executeVolume  | BigDecimal | 成交数量    |
 | id             | long |  ID  |     
 | orderComment   | String | 备注  |   
 | orderResult    | String | 结果  |   
@@ -261,8 +261,8 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 | symbolId       | int | 货币对ID  |
 | timeInForce    | String | 过期类型 |
 | accountId      | String | 账户ID  | 
-| executeComment | String | 约定备  |
-| executePrice   | String | 约定价格 |
+| executeComment | String | 成交备注  |
+| executePrice   | String | 成交价格 |
 | orderId        | String | 订单ID  |
 
 ***返回参数示例***
@@ -314,7 +314,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
  ```
  
 
-### 获取 Order历史 列表
+### 获取CP订单历史 列表
 GET  /api/v1/trades/cpOrderHistory
 
 Headers:
@@ -341,9 +341,9 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 | total         | int    | 总条数    | 
 | accountId     | short | 账户ID    | 
 | cpId          | short | CP  ID      |
-| executeAmount | double | 约定总量   | 
-| executeTime   | long | 约定时间    |
-| executeVolume | double | 约定数量    |
+| executeAmount | double | 成交金额   | 
+| executeTime   | long | 成交时间    |
+| executeVolume | double | 成交数量    |
 | id            | long | ID        | 
 | orderComment  | String | 备注       | 
 | orderPrice    | BigDecimal | 挂单价格    |
@@ -409,7 +409,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
  ```
 
 
-### 获取CP Execution历史 列表
+### 获取CP成交历史 列表
 GET  /v1/trades/cpExecutionHistory
 
 Headers:
@@ -436,11 +436,11 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 | accountId     | long   | 账户ID    |
 | commission    | double | 手续费    |
 | cpId          | short  | CP ID     |
-| executeAmount | BigDecimal | 约定总量  |
+| executeAmount | BigDecimal | 成交金额  |
 | executeComment| String | 备注      |
 | executePrice  | BigDecimal | 价格      |
 | executeTime   | long   | 时间      |
-| executeVolume | BigDecimal | 交易量    |
+| executeVolume | BigDecimal | 成交数量    |
 | id            | long   | ID       | 
 | orderId       | long   | 订单ID    |
 | side          | String | 买卖方向  | 
