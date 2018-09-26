@@ -10,15 +10,15 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 
-import com.bthub.apidemo.dto.Message;
+import com.bthub.apidemo.dto.WsMessage;
 import com.bthub.apidemo.dto.Quote;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ClientEndpoint
-public class ClientEndpointImpl {
+public class WsDemoEndpoint {
 	private static ObjectMapper objectMapper = new ObjectMapper();
-	private static TypeReference<Message<Quote>> QUOTE_TYPE = new TypeReference<Message<Quote>>() { };
+	private static TypeReference<WsMessage<Quote>> QUOTE_TYPE = new TypeReference<WsMessage<Quote>>() {};
 	
 	@OnOpen
 	public void onOpen(Session session) {
@@ -29,7 +29,7 @@ public class ClientEndpointImpl {
 	public void onMessage(Session session, String message) {
 		System.out.println(String.format("Session[%s] client onMessage: [%s]", session, message));
 		try {
-			Message<Quote> quote = objectMapper.readValue(message, QUOTE_TYPE);
+			WsMessage<Quote> quote = objectMapper.readValue(message, QUOTE_TYPE);
 			System.out.println(String.format("Session[%s] client onMessage: [%s]", session, quote));
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -6,6 +6,15 @@ public class Band {
 	private BigDecimal price;
 	private BigDecimal volume;
 
+	public Band() {
+	}
+
+	public Band(BigDecimal price, BigDecimal volume) {
+		super();
+		this.price = price;
+		this.volume = volume;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("Band [price=%s, volume=%s]", price, volume);

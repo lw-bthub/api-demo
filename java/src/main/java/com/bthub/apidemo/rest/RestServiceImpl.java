@@ -6,15 +6,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 
+import com.bthub.apidemo.dto.Cp;
+import com.bthub.apidemo.dto.RestMessage;
+import com.bthub.apidemo.dto.Symbol;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class RestServiceImpl {
 	private static final String PREFIX = "http://" + HOST;
-	private final ObjectMapper mapper = new ObjectMapper();
+	private static final ObjectMapper mapper = new ObjectMapper();
+	private static final TypeReference<RestMessage<List<Symbol>>> SYMBOL_TYPE = new TypeReference<RestMessage<List<Symbol>>>() {};
+	private static final TypeReference<RestMessage<List<Cp>>> CP_TYPE = new TypeReference<RestMessage<List<Cp>>>() {};
 
 	@SuppressWarnings("rawtypes")
 	public String getToken(String loginId, String password) throws IOException {
@@ -31,20 +38,20 @@ public class RestServiceImpl {
 		return IOUtils.toString(inputStream, "utf8");
 	}
 
-	public String cps(String token) throws IOException {
+	public RestMessage<List<Cp>> cps(String token) throws IOException {
 		URL url = new URL(PREFIX + "/api/v1/market/cps");
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
-		return IOUtils.toString(inputStream, "utf8");
+		return mapper.readValue(IOUtils.toString(inputStream, "utf8"), CP_TYPE);
 	}
 
-	public String symbols(String token) throws IOException {
+	public RestMessage<List<Symbol>> symbols(String token) throws IOException {
 		URL url = new URL(PREFIX + "/api/v1/market/symbols");
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
-		return IOUtils.toString(inputStream, "utf8");
+		return mapper.readValue(IOUtils.toString(inputStream, "utf8"), SYMBOL_TYPE);
 	}
 
 	public String placeOrder(String token, int cpId, double orderPrice, String orderType, double orderVolume, String side, int symbolId, String timeInForce) throws IOException {

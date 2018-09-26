@@ -1,6 +1,6 @@
 package com.bthub.apidemo.dto;
 
-public class Message<T> {
+public class WsMessage<T> {
 	private String event;
 	private T data;
 

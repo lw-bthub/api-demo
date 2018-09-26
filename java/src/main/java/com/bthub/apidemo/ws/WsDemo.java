@@ -19,7 +19,7 @@ public class WsDemo {
 
 		WebSocketContainer container = ContainerProvider.getWebSocketContainer();
 		URI r = URI.create(uri + token);
-		Session session = container.connectToServer(ClientEndpointImpl.class, r);
+		Session session = container.connectToServer(WsDemoEndpoint.class, r);
 		// Quote推送
 		session.getBasicRemote().sendText("subscribe:apiQuote:65537");
 		// 交易结果推送
