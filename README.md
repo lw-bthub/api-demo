@@ -546,8 +546,8 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 
 | CMD               | DESCRIBE |
 |:-------------------|:---------|
-| subscribe:apiOrder |  订阅约定        | 
-| unsubscribe:apiOrder| 取消订阅约定       | 
+| subscribe:apiOrder |  订阅订单成交结果        | 
+| unsubscribe:apiOrder| 取消订阅订单成交结果       | 
 | subscribe:apiQuote:symbolId|  订阅行情深度      | 
 | unsubscribe:apiOrder:symbolId| 取消订阅行情深度| 
  
@@ -586,7 +586,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
  }
  ```
  
- ***约定推送返回参数***
+ ***订单成交推送返回参数***
   
   | NAME           | TYPE   | DESCRIBE |
   |:-------------- |:-------|:---------|
@@ -608,7 +608,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
   | timeInForce   | String | 过期类型(TimeInForce)    |
   | orderComment  | String | 备注       | 
    
-  ***约定推送返回参数示例***
+  ***订单成交结果推送返回参数示例***
   ```
   {
   	"event": "API_ORDER",
