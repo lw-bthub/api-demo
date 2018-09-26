@@ -50,12 +50,12 @@ public class PriceBoard {
 				newAsks.add(new Ticker(cpName, price, commissionPrice, band.getVolume()));
 			}
 		}
-		newBids.sort(Comparator.comparing(Ticker::getCommissionPrice));
-		newAsks.sort(Comparator.comparing(Ticker::getCommissionPrice));
-		System.out.println("bids");
-		newBids.stream().forEach(System.out::println);
+		newBids.sort(Comparator.comparing(Ticker::getCommissionPrice).reversed());
+		newAsks.sort(Comparator.comparing(Ticker::getCommissionPrice).reversed());
 		System.out.println("asks");
 		newAsks.stream().forEach(System.out::println);
+		System.out.println("bids");
+		newBids.stream().forEach(System.out::println);
 	}
 
 }
