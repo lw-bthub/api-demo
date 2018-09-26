@@ -41,9 +41,11 @@ public class PriceBoardDemo {
 		// 交易结果推送
 		session.getBasicRemote().sendText("subscribe:apiOrder");
 
-		Thread.sleep(10*1000);
-		priceBoard.print();
-		Thread.sleep(Long.MAX_VALUE);
+		while (true) {
+			Thread.sleep(10 * 1000);
+			priceBoard.print();
+		}
+		
 	}
-	
+
 }
