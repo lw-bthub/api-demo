@@ -131,6 +131,8 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 
 ***请求参数***
 
+RequestBody:（order）
+
 | NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |  
 |:---------|:---------|:-------|:---------|:--------|:-------------|  
 | cpId     | Y        | Short |        CP ID   |             |  
@@ -141,6 +143,19 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 | orderType | Y       | String |       挂单类型(OrderType)     |             | 
 | timeInForce | Y     | String |       过期类型(TimeInForce)     |             | 
  
+***请求参数示例***
+```
+{
+  "cpId": 1231,
+  "symbolId": 312,
+  "orderPrice": 1.2,
+  "orderVolume": 0.02,
+  "side": "BUY",
+  "orderType": "LIMIT",
+  "timeInForce": "IOC"
+}
+```
+
  ***返回参数***
  
  | NAME               | TYPE   | DESCRIBE     | 
