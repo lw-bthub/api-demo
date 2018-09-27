@@ -1,6 +1,6 @@
 api说明共分以下几个部分
 
-# 枚举值表
+## 枚举值表
 ##### OrderStatus:
     [PENDING:1,EXCUTING:3,EXECUTED:4,EXPIRED:5,REJECTED:7,CANCELLED:9,UKNOWN:99]
 
@@ -18,6 +18,8 @@ api说明共分以下几个部分
 
 ##### OrderType
     [LIMIT:3,MARKET:5]
+
+## Restful API
 
 ### 登陆接口
 POST /api/v1/operator/login  
@@ -537,7 +539,8 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 ```
 
 
-### WEBSOCKET
+## WEBSOCKET API
+
 ws://127.0.0.1:8082/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z
 
 X-IDCM-APIKEY:（token，通过登录接口获得.）
