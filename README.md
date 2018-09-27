@@ -1,5 +1,3 @@
-api说明共分以下几个部分
-
 ## 枚举值表
 ##### OrderStatus:
     [PENDING:1,EXCUTING:3,EXECUTED:4,EXPIRED:5,REJECTED:7,CANCELLED:9,UKNOWN:99]
