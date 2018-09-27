@@ -141,17 +141,65 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 | orderType | Y       | String |       挂单类型(OrderType)     |             | 
 | timeInForce | Y     | String |       过期类型(TimeInForce)     |             | 
  
+ ***返回参数***
+ 
+ | NAME               | TYPE   | DESCRIBE     | 
+ |:-------------------|:-------|:-------------|
+ | id| int    | ID| 
+ | cpId| short| CP ID|
+ | symbolId      | int    | 货币对ID  |
+ | executeAmount | BigDecimal | 成交金额  |
+ | executeVolume | BigDecimal | 成交数量    |
+ | orderVolume   | BigDecimal | 挂单数量    |
+ | pendingVolume | BigDecimal | 执行数量    |
+ | side          | String | 买卖方向(Side)  | 
+ | orderType     | String | 挂单类型(OrderType)    |
+ | sourceId      | long | 父订单       | 
+ | status        | String | 状态(OrderStatus)       | 
+ | timeInForce   | String | 过期类型(TimeInForce)    |
+ | orderTime     | long | 挂单时间    |
+ | executeTime   | long   | 时间      |
+ 
 ***返回参数示例***
 ```
 {
   "data": {
-    "data": {
-      "orderPrice": "INVALID",
-      "orderVolume": "UNDERFLOW"
-    },
-    "type": "VALIDATION"
+    "orders": [{
+      "cpId": 0,
+      "executeAmount": "0",
+      "executeTime": "0",
+      "executeVolume": "0",
+      "id": "725255741425850921",
+      "orderTime": "1538031221678",
+      "orderType": 5,
+      "orderVolume": "0.01",
+      "pendingVolume": "0.00000000",
+      "side": -1,
+      "sourceId": "0",
+      "status": 1,
+      "symbolId": 65537,
+      "timeInForce": 1
+    }, {
+      "commission": "0.0001",
+      "cpId": 259,
+      "executeAmount": "0",
+      "executeTime": "0",
+      "executeVolume": "0",
+      "id": "725255741425851433",
+      "orderComment": "725255735840965653.0",
+      "orderTime": "1538031221678",
+      "orderType": 5,
+      "orderVolume": "0.01000000",
+      "pendingVolume": "0.00000000",
+      "side": -1,
+      "sourceId": "725255741425850921",
+      "status": 1,
+      "symbolId": 65537,
+      "timeInForce": 1
+    }],
+    "result": "SUCCESS"
   },
-  "result": "INVALID_DATA",
+  "result": "SUCCESS",
   "type": "API"
 }
 ```
