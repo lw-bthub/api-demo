@@ -14,9 +14,6 @@
 ##### OrderResult
     [NONE:1,FILLED:3,PARTIAL::5]
 
-##### OrderType
-    [LIMIT:3,MARKET:5]
-
 ## Restful API
 
 ### 登陆接口
