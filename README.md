@@ -135,7 +135,7 @@ RequestBody:（order）
 
 | NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |  
 |:---------|:---------|:-------|:---------|:--------|:-------------|  
-| cpId     | Y        | Short |        CP ID   |             |  
+| cpId     |         | Short |        CP ID   |             |  
 | symbolId | Y        | Integer |      货币对ID     |             | 
 | orderPrice | Y      | BigDecimal|    挂单价格     |             |  
 | orderVolume | Y     | BigDecimal |   挂单数量     |             | 
