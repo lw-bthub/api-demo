@@ -47,7 +47,7 @@ POST /api/v1/operator/login
 GET /api/v1/market/cps
 
 Headers:
-X-IDCM-APIKEY:（token，通过登录接口获得.）
+X-API-TOKEN:（token，通过登录接口获得.）
 
 ***返回参数***
 
@@ -81,7 +81,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 GET  /api/v1/market/symbols
 
 Headers:
-X-IDCM-APIKEY:（token，通过登录接口获得.）
+X-API-TOKEN:（token，通过登录接口获得.）
 
 ***返回参数***
 
@@ -124,7 +124,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 POST /api/v1/trades/place
 
 Headers:
-X-IDCM-APIKEY:（token，通过登录接口获得.）
+X-API-TOKEN:（token，通过登录接口获得.）
 
 ***请求参数***
 
@@ -220,7 +220,7 @@ RequestBody:（order）
 GET  /api/v1/trades/cpExecutionDetail
 
 Headers:
-X-IDCM-APIKEY:（token，通过登录接口获得.）
+X-API-TOKEN:（token，通过登录接口获得.）
 
 ***请求参数***
 
@@ -275,7 +275,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 GET /api/v1/trades/orderDetail
 
 Headers:
-X-IDCM-APIKEY:（token，通过登录接口获得.）
+X-API-TOKEN:（token，通过登录接口获得.）
 
 ***请求参数***
 
@@ -367,7 +367,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
  GET  /api/v1/trades/orderHistory
  
  Headers:
- X-IDCM-APIKEY:（token，通过登录接口获得.）
+ X-API-TOKEN:（token，通过登录接口获得.）
  
  ***请求参数***
  
@@ -450,7 +450,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 GET  /api/v1/trades/cpOrderHistory
 
 Headers:
-X-IDCM-APIKEY:（token，通过登录接口获得.）
+X-API-TOKEN:（token，通过登录接口获得.）
 
 ***请求参数***
 
@@ -534,7 +534,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 GET  /v1/trades/cpExecutionHistory
 
 Headers:
-X-IDCM-APIKEY:（token，通过登录接口获得.）
+X-API-TOKEN:（token，通过登录接口获得.）
 
 ***请求参数***
 
@@ -601,7 +601,7 @@ X-IDCM-APIKEY:（token，通过登录接口获得.）
 
 ws://127.0.0.1:8082/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z
 
-X-IDCM-APIKEY:（token，通过登录接口获得.）
+X-API-TOKEN:（token，通过登录接口获得.）
 
 ***请求指令***
 
