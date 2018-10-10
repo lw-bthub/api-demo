@@ -485,7 +485,6 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | executeVolume | double | 成交数量    |
 | orderVolume   | BigDecimal | 挂单数量    |
 | pendingVolume | BigDecimal | 执行数量    |
-| rejectReason  | String | 拒绝原因   | 
 | sourceId      | long | 父订单       | 
 | orderTime     | long | 挂单时间    |
 | executeTime   | long | 成交时间    |
@@ -607,8 +606,8 @@ X-API-TOKEN:（token，通过登录接口获得.）
 
 | CMD               | DESCRIBE |
 |:-------------------|:---------|
-| subscribe:apiOrder |  订阅订单成交结果        | 
-| unsubscribe:apiOrder| 取消订阅订单成交结果       | 
+| subscribe:apiOrder:symbolId |  订阅订单成交结果        | 
+| unsubscribe:apiOrder:symbolId| 取消订阅订单成交结果       | 
 | subscribe:apiQuote:symbolId|  订阅行情深度      | 
 | unsubscribe:apiOrder:symbolId| 取消订阅行情深度| 
  
