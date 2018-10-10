@@ -606,8 +606,8 @@ X-API-TOKEN:（token，通过登录接口获得.）
 
 | CMD               | DESCRIBE |
 |:-------------------|:---------|
-| subscribe:apiOrder:symbolId |  订阅订单成交结果        | 
-| unsubscribe:apiOrder:symbolId| 取消订阅订单成交结果       | 
+| subscribe:apiOrder |  订阅订单成交结果        | 
+| unsubscribe:apiOrder| 取消订阅订单成交结果       | 
 | subscribe:apiQuote:symbolId|  订阅行情深度      | 
 | unsubscribe:apiOrder:symbolId| 取消订阅行情深度| 
  
