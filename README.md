@@ -1,22 +1,35 @@
-## 枚举值表
-##### OrderStatus:
-    [PENDING:1,EXCUTING:3,EXECUTED:4,EXPIRED:5,REJECTED:7,CANCELLED:9,UKNOWN:99]
+# Web Socket Streams for Binance (2018-07-18)
+# General WSS information
+* The base endpoint is: **wss://stream.binance.com:9443**
+* Streams can be access either in a single raw stream or a combined stream
+* Raw streams are accessed at **/ws/\<streamName\>**
+* Combined streams are accessed at **/stream?streams=\<streamName1\>/\<streamName2\>/\<streamName3\>**
+* Combined stream events are wrapped as follows: **{"stream":"\<streamName\>","data":\<rawPayload\>}**
+* All symbols for streams are **lowercase**
+* A single connection to **stream.binance.com** is only valid for 24 hours; expect to be disconnected at the 24 hour mark
 
-##### Side:
-    [BUY:1,SELL:-1]
+# **RestfulApi 接口列表**
 
-##### TimeInForce:
-    [IOC:1,GTC:3]
+请务必在header中设置user agent为 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36'
 
-##### OrderType:
-    [LIMIT:3,MARKET:5]
+symbol 规则： 基础币种+计价币种。如BTC/USDT，symbol为btcusdt；ETH/BTC， symbol为ethbtc。以此类推
 
-##### OrderResult
-    [NONE:1,FILLED:3,PARTIAL::5]
+| 请求方法|类型| 描述| 
+|:-------|:-------------|:-------------|
+| [/api/v1/operator/login](#Mark1) | POST| 登陆接口  | 
+| [/api/v1/market/cps](#Mark2) | GET | 获取CP列表  | 
+| [/api/v1/market/symbols](#Mark3) | GET| 获取symbol列表  | 
+| [/api/v1/trades/place](#Mark4) | POST| 交易  | 
+| [/api/v1/trades/cpExecutionDetail](#Mark5) | GET | 获取CP成交详细  | 
+| [/api/v1/trades/orderDetail](#Mark6) | GET | 获取订单详细  | 
+| [/api/v1/trades/orderHistory](#Mark7) | GET | 获取订单历史 列表  | 
+| [/api/v1/trades/cpOrderHistory](#Mark8) | GET | 获取CP订单历史 列表  | 
+| [/api/v1/trades/cpExecutionHistory](#Mark9) | GET | 获取CP成交历史 列表  | 
+
 
 ## Restful API
 
-### 登陆接口
+<span id="Mark1">### 登陆接口</span>
 POST /api/v1/operator/login  
 
 ***请求参数***
@@ -43,7 +56,7 @@ POST /api/v1/operator/login
   "type": "API"
 }
 ```
-### 获取CP列表
+<span id="Mark2">### 获取CP列表</span>
 GET /api/v1/market/cps
 
 Headers:
@@ -77,7 +90,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
-### 获取symbol列表
+<span id="Mark3">### 获取symbol列表</span>
 GET  /api/v1/market/symbols
 
 Headers:
@@ -120,7 +133,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
-### 交易
+<span id="Mark4">### 交易</span>
 POST /api/v1/trades/place
 
 Headers:
@@ -216,7 +229,7 @@ RequestBody:（order）
 }
 ```
 
-### 获取CP成交详细
+<span id="Mark5">### 获取CP成交详细</span>
 GET  /api/v1/trades/cpExecutionDetail
 
 Headers:
@@ -271,7 +284,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
-### 获取订单详细
+<span id="Mark6">### 获取订单详细</span>
 GET /api/v1/trades/orderDetail
 
 Headers:
@@ -363,7 +376,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
  ```
  
- ### 获取订单历史 列表
+ <span id="Mark7">### 获取订单历史 列表</span>
  GET  /api/v1/trades/orderHistory
  
  Headers:
@@ -446,7 +459,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
   ```
  
 
-### 获取CP订单历史 列表
+<span id="Mark8">### 获取CP订单历史 列表</span>
 GET  /api/v1/trades/cpOrderHistory
 
 Headers:
@@ -529,8 +542,8 @@ X-API-TOKEN:（token，通过登录接口获得.）
  ```
 
 
-### 获取CP成交历史 列表
-GET  /v1/trades/cpExecutionHistory
+<span id="Mark9">### 获取CP成交历史 列表</span>
+GET  /api/v1/trades/cpExecutionHistory
 
 Headers:
 X-API-TOKEN:（token，通过登录接口获得.）
