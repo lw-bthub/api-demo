@@ -21,12 +21,8 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 | [/api/v1/trades/cpOrderHistory](#Mark8)     | GET  | 获取CP订单历史列表信息 |
 | [/api/v1/trades/cpExecutionHistory](#Mark9) | GET  | 获取CP成交历史列表信息 |
 
-<a href="#jump" target="_self">说明文字</a>
-
 ## Restful API
-
-<div id="Mark1"></div>
-### 登陆接口
+### 登陆接口<div id="Mark1"></div> 
 POST /api/v1/operator/login
 
 ***请求参数***
@@ -54,7 +50,7 @@ POST /api/v1/operator/login
 }
 ```
 
-<span id="Mark2">### 获取CP列表</span>
+### 获取CP列表<div id="Mark2"></div>
 GET /api/v1/market/cps
 
 Headers:
@@ -89,7 +85,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
-<span id="Mark3">### 获取symbol列表</span>
+### 获取symbol列表<div id="Mark3"></div>
 GET  /api/v1/market/symbols
 
 Headers:
@@ -133,7 +129,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
-<span id="Mark4">### 交易</span>
+### 交易<div id="Mark4"></div>
 POST /api/v1/trades/place
 
 Headers:
@@ -231,7 +227,7 @@ RequestBody:（order）
 }
 ```
 
-<span id="Mark5">### 获取CP成交详细</span>
+### 获取CP成交详细<div id="Mark5"></div>
 GET  /api/v1/trades/cpExecutionDetail
 
 Headers:
@@ -287,7 +283,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
-<span id="Mark6">### 获取订单详细</span>
+### 获取订单详细<div id="Mark6"></div>
 GET /api/v1/trades/orderDetail
 
 Headers:
@@ -380,7 +376,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
- <span id="Mark7">### 获取订单历史 列表</span>
+ ### 获取订单历史列表<div id="Mark7"></div>
  GET  /api/v1/trades/orderHistory
 
  Headers:
@@ -463,7 +459,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
  }
 ```
 
-<span id="Mark8">### 获取CP订单历史 列表</span>
+### 获取CP订单历史列表<div id="Mark8"></div>
 GET  /api/v1/trades/cpOrderHistory
 
 Headers:
@@ -546,7 +542,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
-<span id="Mark9">### 获取CP成交历史 列表</span>
+### 获取CP成交历史列表<div id="Mark9"></div>
 GET  /api/v1/trades/cpExecutionHistory
 
 Headers:
