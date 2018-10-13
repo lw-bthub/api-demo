@@ -50,7 +50,7 @@ POST /api/v1/operator/login
 }
 ```
 
-### 获取CP列表<div id="Mark2"></div>
+### 获取CP列表信息<div id="Mark2"></div>
 GET /api/v1/market/cps
 
 Headers:
@@ -85,7 +85,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
-### 获取symbol列表<div id="Mark3"></div>
+### 获取symbol列表信息<div id="Mark3"></div>
 GET  /api/v1/market/symbols
 
 Headers:
@@ -376,7 +376,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
- ### 获取订单历史列表<div id="Mark7"></div>
+ ### 获取订单历史列表信息<div id="Mark7"></div>
  GET  /api/v1/trades/orderHistory
 
  Headers:
@@ -459,7 +459,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
  }
 ```
 
-### 获取CP订单历史列表<div id="Mark8"></div>
+### 获取CP订单历史列表信息<div id="Mark8"></div>
 GET  /api/v1/trades/cpOrderHistory
 
 Headers:
@@ -542,7 +542,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
-### 获取CP成交历史列表<div id="Mark9"></div>
+### 获取CP成交历史列表信息<div id="Mark9"></div>
 GET  /api/v1/trades/cpExecutionHistory
 
 Headers:
