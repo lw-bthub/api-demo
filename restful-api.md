@@ -26,7 +26,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 ## Restful API
 
 ### 登陆接口
-<span id="Mark1">POST /api/v1/operator/login</span>
+<div id="Mark1">POST /api/v1/operator/login</div>
 
 ***请求参数***
 
@@ -611,4 +611,3 @@ X-API-TOKEN:（token，通过登录接口获得.）
 	"type": "API"
 }
 ```
-<span id = "jump"><font color="red">跳转到这里：</font></span>
