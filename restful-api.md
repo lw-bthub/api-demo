@@ -145,9 +145,9 @@ RequestBody:（order）
 | symbolId    | Y        | Integer    | 货币对ID              |         |              |
 | orderPrice  | Y        | BigDecimal | 挂单价格              |         |              |
 | orderVolume | Y        | BigDecimal | 挂单数量              |         |              |
-| side        | Y        | String     | 买卖方向(Side)        |         |              |
-| orderType   | Y        | String     | 挂单类型(OrderType)   |         |              |
-| timeInForce | Y        | String     | 过期类型(TimeInForce) |         |              |
+| side        | Y        | String     | [买卖方向(Side)https://github.com/lw-bthub/api-demo/blob/master/enum.md        |         |              |
+| orderType   | Y        | String     | [挂单类型(OrderType)https://github.com/lw-bthub/api-demo/blob/master/enum.md   |         |              |
+| timeInForce | Y        | String     | [过期类型(TimeInForce)https://github.com/lw-bthub/api-demo/blob/master/enum.md |         |              |
 
 ***请求参数示例***
 
@@ -174,11 +174,11 @@ RequestBody:（order）
 | executeVolume | BigDecimal | 成交数量              |
 | orderVolume   | BigDecimal | 挂单数量              |
 | pendingVolume | BigDecimal | 执行数量              |
-| side          | String     | 买卖方向(Side)        |
-| orderType     | String     | 挂单类型(OrderType)   |
+| side          | String     | [买卖方向(Side)https://github.com/lw-bthub/api-demo/blob/master/enum.md        |
+| orderType     | String     | [挂单类型(OrderType)https://github.com/lw-bthub/api-demo/blob/master/enum.md   |
 | sourceId      | long       | 父订单                |
-| status        | String     | 状态(OrderStatus)     |
-| timeInForce   | String     | 过期类型(TimeInForce) |
+| status        | String     | [状态(OrderStatus)https://github.com/lw-bthub/api-demo/blob/master/enum.md     |
+| timeInForce   | String     | [过期类型(TimeInForce)https://github.com/lw-bthub/api-demo/blob/master/enum.md |
 | orderTime     | long       | 挂单时间              |
 | executeTime   | long       | 时间                  |
 
@@ -248,7 +248,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | symbolId       | int        | 货币对ID       |
 | accountId      | long       | 账户ID         |
 | orderId        | long       | 订单ID         |
-| side           | String     | 买卖方向(Side) |
+| side           | String     | [买卖方向(Side)https://github.com/lw-bthub/api-demo/blob/master/enum.md |
 | executeAmount  | BigDecimal | 成交金额       |
 | executePrice   | BigDecimal | 成交价格       |
 | executeVolume  | BigDecimal | 成交数量       |
@@ -309,10 +309,10 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | accountId      | short      | 账户ID                |
 | sourceId       | long       | 父订单ID              |
 | orderId        | String     | 订单ID                |
-| side           | String     | 买卖方向(Side)        |
-| status         | String     | 状态(OrderStatus)     |
-| orderResult    | String     | 结果(OrderResult)     |
-| orderType      | String     | 挂单类型(OrderType)   |
+| side           | String     | [买卖方向(Side)https://github.com/lw-bthub/api-demo/blob/master/enum.md        |
+| status         | String     | [状态(OrderStatus)https://github.com/lw-bthub/api-demo/blob/master/enum.md     |
+| orderResult    | String     | [结果(OrderResult)https://github.com/lw-bthub/api-demo/blob/master/enum.md     |
+| orderType      | String     | [挂单类型(OrderType)https://github.com/lw-bthub/api-demo/blob/master/enum.md   |
 | orderPrice     | BigDecimal | 挂单价格              |
 | executePrice   | String     | 成交价格              |
 | executeAmount  | BigDecimal | 成交金额              |
@@ -322,7 +322,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | executeComment | String     | 成交备注              |
 | executeTime    | long       | 成交时间              |
 | orderTime      | long       | 挂单时间              |
-| timeInForce    | String     | 过期类型(TimeInForce) |
+| timeInForce    | String     | [过期类型(TimeInForce)https://github.com/lw-bthub/api-demo/blob/master/enum.md |
 | commission     | BigDecimal | 手续费                |
 | orderComment   | String     | 备注                  |
 
@@ -387,7 +387,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | :------- | :------- | :------ | :---------------- | :------ | :----------- |
 | cpId     |          | Short   | CP ID             | -       |              |
 | symbolId |          | Integer | 货币对ID          | -       |              |
-| status   |          | String  | 状态(OrderStatus) | -       |              |
+| status   |          | String  | [状态(OrderStatus)https://github.com/lw-bthub/api-demo/blob/master/enum.md | -       |              |
 | from     | Y        | Long    | 开始时间          | -       |              |
 | to       | Y        | Long    | 结束时间          | -       |              |
 | pageNo   |          | Integer | 页码              | -       |              |
@@ -405,10 +405,10 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | symbolId      | int        | 货币对ID              |
 | accountId     | short      | 账户ID                |
 | sourceId      | long       | 父订单ID              |
-| side          | String     | 买卖方向(Side)        |
-| status        | String     | 状态(OrderStatus)     |
-| orderResult   | String     | 结果(OrderResult)     |
-| orderType     | String     | 挂单类型(OrderType)   |
+| side          | String     | [买卖方向(Side)https://github.com/lw-bthub/api-demo/blob/master/enum.md        |
+| status        | String     | [状态(OrderStatus)https://github.com/lw-bthub/api-demo/blob/master/enum.md     |
+| orderResult   | String     | [结果(OrderResult)https://github.com/lw-bthub/api-demo/blob/master/enum.md     |
+| orderType     | String     | [挂单类型(OrderType)https://github.com/lw-bthub/api-demo/blob/master/enum.md   |
 | orderPrice    | BigDecimal | 挂单价格              |
 | executeAmount | double     | 成交金额              |
 | orderVolume   | BigDecimal | 挂单数量              |
@@ -416,7 +416,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | executeVolume | double     | 成交数量              |
 | executeTime   | long       | 成交时间              |
 | orderTime     | long       | 挂单时间              |
-| timeInForce   | String     | 过期类型(TimeInForce) |
+| timeInForce   | String     | [过期类型(TimeInForce)https://github.com/lw-bthub/api-demo/blob/master/enum.md |
 | commission    | BigDecimal | 手续费                |
 | rejectReason  | String     | 拒绝原因              |
 | orderComment  | String     | 备注                  |
@@ -470,7 +470,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | :------- | :------- | :------ | :---------------- | :------ | :----------- |
 | cpId     |          | Short   | CP ID             | -       |              |
 | symbolId |          | Integer | 货币对ID          | -       |              |
-| status   |          | String  | 状态(OrderStatus) | -       |              |
+| status   |          | String  | [状态(OrderStatus)https://github.com/lw-bthub/api-demo/blob/master/enum.md | -       |              |
 | from     | Y        | Long    | 开始时间          | -       |              |
 | to       | Y        | Long    | 结束时间          | -       |              |
 | pageNo   |          | Integer | 页码              | -       |              |
@@ -488,10 +488,10 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | symbolId      | int        | 货币对ID              |
 | accountId     | short      | 账户ID                |
 | sourceId      | long       | 父订单ID              |
-| side          | String     | 买卖方向(Side)        |
-| status        | String     | 状态(OrderStatus)     |
-| orderType     | String     | 挂单类型(OrderType)   |
-| orderResult   | String     | 结果(OrderResult)     |
+| side          | String     | [买卖方向(Side)https://github.com/lw-bthub/api-demo/blob/master/enum.md        |
+| status        | String     | [状态(OrderStatus)https://github.com/lw-bthub/api-demo/blob/master/enum.md     |
+| orderType     | String     | [挂单类型(OrderType)https://github.com/lw-bthub/api-demo/blob/master/enum.md   |
+| orderResult   | String     | [结果(OrderResult)https://github.com/lw-bthub/api-demo/blob/master/enum.md     |
 | executeAmount | double     | 成交金额              |
 | orderPrice    | BigDecimal | 挂单价格              |
 | executeVolume | double     | 成交数量              |
@@ -499,7 +499,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | pendingVolume | BigDecimal | 执行数量              |
 | orderTime     | long       | 挂单时间              |
 | executeTime   | long       | 成交时间              |
-| timeInForce   | String     | 过期类型(TimeInForce) |
+| timeInForce   | String     | [过期类型(TimeInForce)https://github.com/lw-bthub/api-demo/blob/master/enum.md |
 | commission    | BigDecimal | 手续费                |
 | rejectReason  | String     | 拒绝原因              |
 | orderComment  | String     | 备注                  |
@@ -569,7 +569,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | symbolId       | int        | 货币对ID       |
 | accountId      | long       | 账户ID         |
 | orderId        | long       | 订单ID         |
-| side           | String     | 买卖方向(Side) |
+| side           | String     | [买卖方向(Side)https://github.com/lw-bthub/api-demo/blob/master/enum.md |
 | executePrice   | BigDecimal | 价格           |
 | executeVolume  | BigDecimal | 成交数量       |
 | executeAmount  | BigDecimal | 成交金额       |
