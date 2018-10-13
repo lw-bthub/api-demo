@@ -497,7 +497,6 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | executeVolume | double     | 成交数量              |
 | orderVolume   | BigDecimal | 挂单数量              |
 | pendingVolume | BigDecimal | 执行数量              |
-| sourceId      | long       | 父订单                |
 | orderTime     | long       | 挂单时间              |
 | executeTime   | long       | 成交时间              |
 | timeInForce   | String     | 过期类型(TimeInForce) |
