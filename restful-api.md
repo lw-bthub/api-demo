@@ -29,8 +29,8 @@ POST /api/v1/operator/login
 
 | NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
 | :------- | :------- | :----- | :------- | :------ | :----------- |
-| loginId  | Y        | String |          | 用户名  |              |
-| password | Y        | String |          | 密码    |              |
+| loginId  | Y        | String | 用户名    |         |              |
+| password | Y        | String | 密码      |         |              |
 
 ***返回参数***
 
