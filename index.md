@@ -8,6 +8,6 @@ BTHub为用户提供了一整套简单而又强大的开发工具，旨在帮助
 
 | Name                                                         | Description                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
-| [rest-api.md](https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md) | Rest Api 接口文档                            |
-| [web-socket-streams.md](https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-socket-streams.md) | Websokcet 接口文档                 |
-| [enum.md](https://github.com/binance-exchange/binance-official-api-docs/blob/master/wapi-api.md) |  Enum                 |
+| [rest-api.md](https://github.com/lw-bthub/api-demo/blob/master/restful-api.md) | Rest Api 接口文档                            |
+| [web-socket-streams.md](https://github.com/lw-bthub/api-demo/blob/master/websocket.md) | Websokcet 接口文档                 |
+| [enum.md](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |  Enum                 |
