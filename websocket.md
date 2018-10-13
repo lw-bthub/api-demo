@@ -83,7 +83,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | symbolId      | int        | 货币对ID              |
 | accountId     | long       | 账户ID                |
 | sourceId      | long       | 父订单                |
-| side          | String     | [买卖方向(Side)]("https://github.com/lw-bthub/api-demo/blob/master/enum.md")        |
+| side11111111          | String     | [买卖方向(Side)]("https://github.com/lw-bthub/api-demo/blob/master/enum.md")        |
 | status        | String     | [状态(OrderStatus)]("https://github.com/lw-bthub/api-demo/blob/master/enum.md")     |
 | orderType     | String     | [挂单类型(OrderType)]("https://github.com/lw-bthub/api-demo/blob/master/enum.md")   |
 | executeAmount | BigDecimal | 成交金额              |
