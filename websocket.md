@@ -34,6 +34,9 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | NAME       | TYPE   | DESCRIBE        |
 | :--------- | :----- | :-------------- |
 | event      | String | 事件(API_QUOTE) |
+| commission | double | 手续费          |
+| cpId       | short  | CP ID           |
+| symbolId   | int    | 货币对ID        |
 | price | double | 价格          |
 | volume| short  | 数量           |
 
