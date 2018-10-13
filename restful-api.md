@@ -319,7 +319,6 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | executeVolume  | BigDecimal | 成交数量              |
 | orderVolume    | BigDecimal | 挂单数量              |
 | pendingVolume  | BigDecimal | 执行数量              |
-| accountId      | String     | 账户ID                |
 | executeComment | String     | 成交备注              |
 | executeTime    | long       | 成交时间              |
 | orderTime      | long       | 挂单时间              |
