@@ -15,11 +15,12 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 | [/api/v1/market/cps](#Mark2)                | GET  | 获取CP列表信息         |
 | [/api/v1/market/symbols](#Mark3)            | GET  | 获取SYMBOL列表信息     |
 | [/api/v1/trades/place](#Mark4)              | POST | 投递交易               |
-| [/api/v1/trades/cpExecutionDetail](#Mark5)  | GET  | 获取CP成交详细         |
-| [/api/v1/trades/orderDetail](#Mark6)        | GET  | 获取订单详细           |
 | [/api/v1/trades/orderHistory](#Mark7)       | GET  | 获取订单历史列表信息   |
+| [/api/v1/trades/orderDetail](#Mark6)        | GET  | 获取订单详细           |
 | [/api/v1/trades/cpOrderHistory](#Mark8)     | GET  | 获取CP订单历史列表信息 |
 | [/api/v1/trades/cpExecutionHistory](#Mark9) | GET  | 获取CP成交历史列表信息 |
+| [/api/v1/trades/cpExecutionDetail](#Mark5)  | GET  | 获取CP成交详细         |
+| [/v1/market/cpAccountInfo](#Mark10)  | GET  | 获取CP账户信息         |
 
 ## Restful API
 ### 登陆接口<div id="Mark1"></div> 
@@ -604,5 +605,62 @@ X-API-TOKEN:（token，通过登录接口获得.）
 	},
 	"result": "SUCCESS",
 	"type": "API"
+}
+```
+
+### 获取CP账户信息<div id="Mark10"></div> 
+GET /v1/market/cpAccountInfo
+
+Headers:
+X-API-TOKEN:（token，通过登录接口获得.）
+
+***请求参数***
+
+| NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
+| :------- | :------- | :----- | :------- | :------ | :----------- |
+| cpId  | Y        | Short | CP ID    |         |              |
+
+***返回参数***
+
+| NAME  | TYPE   | DESCRIBE |
+| :---- | :----- | :------- |
+| cpId | short | CP ID    |
+| tradeable | boolean | 是否可交易    |
+| currency | String | 货币    |
+| free | BigDecimal | 可用金额    |
+| frozen | BigDecimal | 冻结金额    |
+
+***返回参数示例***
+
+```
+{
+  "data": {
+    "balance": [
+      {
+        "currency": "USDT",
+        "free": "0.10232629",
+        "frozen": "0.10232629"
+      },
+      {
+        "currency": "BTC",
+        "free": "0.00548746",
+        "frozen": "0.00548746"
+      },
+      {
+        "currency": "ETH",
+        "free": "0",
+        "frozen": "0"
+      },
+      {
+        "currency": "XRP",
+        "free": "0",
+        "frozen": "0"
+      }
+    ],
+    "cpId": 257,
+    "tradeable": true
+  },
+  "result": "SUCCESS",
+  "type": "API"
 }
 ```
