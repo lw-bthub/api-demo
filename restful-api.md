@@ -20,7 +20,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 | [/api/v1/trades/cpOrderHistory](#Mark8)     | GET  | 获取CP订单历史列表信息 |
 | [/api/v1/trades/cpExecutionHistory](#Mark9) | GET  | 获取CP成交历史列表信息 |
 | [/api/v1/trades/cpExecutionDetail](#Mark5)  | GET  | 获取CP成交详细         |
-| [/v1/market/cpAccountInfo](#Mark10)  | GET  | 获取CP账户信息         |
+| [/api/v1/market/cpAccountInfo](#Mark10)  | GET  | 获取CP账户信息         |
 
 ## Restful API
 ### 登陆接口<div id="Mark1"></div> 
@@ -509,35 +509,35 @@ X-API-TOKEN:（token，通过登录接口获得.）
 
 ```
 {
-	"data": {
-		"pageCount": 3,
-		"pageNo": 1,
-		"pageSize": 100,
-		"records": [{
-		        "id": "724051456730076713",
-				"accountId": 0,
-				"commission": "0.999900000000",
-				"cpId": 257,
-				"executeAmount": "64.2598",
-				"executeTime": "1537887660365",
-				"executeVolume": "0.01",
-				"orderComment": "724051448010349077.0",
-				"orderResult": 3,
-				"orderTime": "1537887659755",
-				"orderType": 5,
-				"orderVolume": "0.01",
-				"pendingVolume": "0",
-				"side": -1,
-				"sourceId": "0",
-				"status": 4,
-				"symbolId": 65537,
-				"timeInForce": 1
-			}
-		],
-		"total": 273
-	},
-	"result": "SUCCESS",
-	"type": "API"
+  "data": {
+    "pageCount": 3,
+    "pageNo": 1,
+    "pageSize": 100,
+    "records": [{
+            "id": "724051456730076713",
+        "accountId": 0,
+        "commission": "0.999900000000",
+        "cpId": 257,
+        "executeAmount": "64.2598",
+        "executeTime": "1537887660365",
+        "executeVolume": "0.01",
+        "orderComment": "724051448010349077.0",
+        "orderResult": 3,
+        "orderTime": "1537887659755",
+        "orderType": 5,
+        "orderVolume": "0.01",
+        "pendingVolume": "0",
+        "side": -1,
+        "sourceId": "0",
+        "status": 4,
+        "symbolId": 65537,
+        "timeInForce": 1
+      }
+    ],
+    "total": 273
+  },
+  "result": "SUCCESS",
+  "type": "API"
 }
 ```
 
@@ -582,34 +582,34 @@ X-API-TOKEN:（token，通过登录接口获得.）
 
 ```
 {
-	"data": {
-		"pageCount": 2,
-		"pageNo": 1,
-		"pageSize": 100,
-		"records": [{
-				"accountId": "0",
-				"commission": "0.0642598",
-				"cpId": 257,
-				"executeAmount": "64.2598",
-				"executePrice": "6425.98",
-				"executeTime": "1537887660365",
-				"executeVolume": "0.01",
-				"id": "724051462744709161",
-				"orderId": "724051456730076713",
-				"side": -1,
-				"symbolId": 65537
-				"executeComment": "CommissionAsset: USDT",
-			}
-		],
-		"total": 1
-	},
-	"result": "SUCCESS",
-	"type": "API"
+  "data": {
+    "pageCount": 2,
+    "pageNo": 1,
+    "pageSize": 100,
+    "records": [{
+        "accountId": "0",
+        "commission": "0.0642598",
+        "cpId": 257,
+        "executeAmount": "64.2598",
+        "executePrice": "6425.98",
+        "executeTime": "1537887660365",
+        "executeVolume": "0.01",
+        "id": "724051462744709161",
+        "orderId": "724051456730076713",
+        "side": -1,
+        "symbolId": 65537
+        "executeComment": "CommissionAsset: USDT",
+      }
+    ],
+    "total": 1
+  },
+  "result": "SUCCESS",
+  "type": "API"
 }
 ```
 
 ### 获取CP账户信息<div id="Mark10"></div> 
-GET /v1/market/cpAccountInfo
+GET /api/v1/market/cpAccountInfo
 
 Headers:
 X-API-TOKEN:（token，通过登录接口获得.）
