@@ -15,7 +15,7 @@
 ##### TimeInForce:
 
 ```
-[IOC:1,GTC:3]
+[IOC:1]
 ```
 
 ##### OrderType:
