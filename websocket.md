@@ -2,8 +2,8 @@
 
 WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务器全双工通信，使得数据可以快速地双向传播。通过一次简单的握手就可以建立客户端和服务器连接，服务器根据业务规则可以主动推送信息给客户端。
 
-- Websocket请求地址 
-  生产环境：**wss://trade.bthub.com:444** 
+- Websocket请求地址   
+  生产环境：**wss://trade.bthub.com:444**   
   测试环境：**wss://demo.bthub.com:444** 
 - Websocket请求需要进行登录认证才可以访问。
 - 创建连接且登陆后才可发送相应的指令进行消息的订阅和取消订阅。
