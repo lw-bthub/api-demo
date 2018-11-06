@@ -14,8 +14,8 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 | [unsubscribe:apiOrder](#订阅订单成交结果)           | 取消订阅订单成交结果 |
 | [subscribe:apiQuote:symbolId](#订阅行情深度)    | 订阅行情深度         |
 | [unsubscribe:apiOrder:symbolId](#订阅行情深度)  | 取消订阅行情深度     |
-| [subscribe:apiAggregatedQuote](#订阅聚合行情深度)    | 订阅聚合行情深度         |
-| [unsubscribe:apiAggregatedQuote](#订阅聚合行情深度)  | 取消订阅聚合行情深度     |
+| [subscribe:apiAggregatedQuote:symbolId](#订阅聚合行情深度)    | 订阅聚合行情深度         |
+| [unsubscribe:apiAggregatedQuote:symbolId](#订阅聚合行情深度)  | 取消订阅聚合行情深度     |
 
 
 ## WEBSOCKET API
