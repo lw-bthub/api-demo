@@ -4,8 +4,8 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 
 
 - 在线API 接口测试工具
-
-    http://trade.bthub.com:444/swagger-ui.html
+    生产环境：https://trade.bthub.com:444/swagger-ui.html    
+    测试环境：https://demo.bthub.com:444/swagger-ui.html     
 
 ## 接口列表
 
