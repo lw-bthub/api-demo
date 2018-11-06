@@ -3,15 +3,15 @@
 REST，即Representational State Transfer的缩写，是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，正得到越来越多网站的采用。
 
 
-- 在线API 接口测试工具   
-    生产环境: https://trade.bthub.com:444/swagger-ui.html     
-    测试环境: https://demo.bthub.com:444/swagger-ui.html    
+- 在线API 接口测试工具
+
+    http://trade.bthub.com:444/swagger-ui.html
 
 ## 接口列表
 
 | 请求方法                                    | 类型 | 描述                   |
 | :------------------------------------------ | :--- | :--------------------- |
-| [/api/v1/operator/login](#Mark1)            | POST | 登陆                   |
+| [/api/v1/operator/login](#登陆接口)            | POST | 登陆                   |
 | [/api/v1/market/cps](#Mark2)                | GET  | 获取CP列表信息         |
 | [/api/v1/market/symbols](#Mark3)            | GET  | 获取SYMBOL列表信息     |
 | [/api/v1/trades/place](#Mark4)              | POST | 投递交易               |
@@ -509,35 +509,35 @@ X-API-TOKEN:（token，通过登录接口获得.）
 
 ```
 {
-  "data": {
-    "pageCount": 3,
-    "pageNo": 1,
-    "pageSize": 100,
-    "records": [{
-            "id": "724051456730076713",
-        "accountId": 0,
-        "commission": "0.999900000000",
-        "cpId": 257,
-        "executeAmount": "64.2598",
-        "executeTime": "1537887660365",
-        "executeVolume": "0.01",
-        "orderComment": "724051448010349077.0",
-        "orderResult": 3,
-        "orderTime": "1537887659755",
-        "orderType": 5,
-        "orderVolume": "0.01",
-        "pendingVolume": "0",
-        "side": -1,
-        "sourceId": "0",
-        "status": 4,
-        "symbolId": 65537,
-        "timeInForce": 1
-      }
-    ],
-    "total": 273
-  },
-  "result": "SUCCESS",
-  "type": "API"
+	"data": {
+		"pageCount": 3,
+		"pageNo": 1,
+		"pageSize": 100,
+		"records": [{
+		        "id": "724051456730076713",
+				"accountId": 0,
+				"commission": "0.999900000000",
+				"cpId": 257,
+				"executeAmount": "64.2598",
+				"executeTime": "1537887660365",
+				"executeVolume": "0.01",
+				"orderComment": "724051448010349077.0",
+				"orderResult": 3,
+				"orderTime": "1537887659755",
+				"orderType": 5,
+				"orderVolume": "0.01",
+				"pendingVolume": "0",
+				"side": -1,
+				"sourceId": "0",
+				"status": 4,
+				"symbolId": 65537,
+				"timeInForce": 1
+			}
+		],
+		"total": 273
+	},
+	"result": "SUCCESS",
+	"type": "API"
 }
 ```
 
@@ -582,29 +582,29 @@ X-API-TOKEN:（token，通过登录接口获得.）
 
 ```
 {
-  "data": {
-    "pageCount": 2,
-    "pageNo": 1,
-    "pageSize": 100,
-    "records": [{
-        "accountId": "0",
-        "commission": "0.0642598",
-        "cpId": 257,
-        "executeAmount": "64.2598",
-        "executePrice": "6425.98",
-        "executeTime": "1537887660365",
-        "executeVolume": "0.01",
-        "id": "724051462744709161",
-        "orderId": "724051456730076713",
-        "side": -1,
-        "symbolId": 65537
-        "executeComment": "CommissionAsset: USDT",
-      }
-    ],
-    "total": 1
-  },
-  "result": "SUCCESS",
-  "type": "API"
+	"data": {
+		"pageCount": 2,
+		"pageNo": 1,
+		"pageSize": 100,
+		"records": [{
+				"accountId": "0",
+				"commission": "0.0642598",
+				"cpId": 257,
+				"executeAmount": "64.2598",
+				"executePrice": "6425.98",
+				"executeTime": "1537887660365",
+				"executeVolume": "0.01",
+				"id": "724051462744709161",
+				"orderId": "724051456730076713",
+				"side": -1,
+				"symbolId": 65537
+				"executeComment": "CommissionAsset: USDT",
+			}
+		],
+		"total": 1
+	},
+	"result": "SUCCESS",
+	"type": "API"
 }
 ```
 
