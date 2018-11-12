@@ -7,7 +7,7 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
     测试环境：wss://demo.bthub.com:444     
 - Websocket请求需要进行登录认证才可以访问。
 - 创建连接且登陆后才可发送相应的指令进行消息的订阅和取消订阅。
-- 创建连接后需要定时向服务器发送""(空字符串),用来保持连接.频率:20s以内.
+- 创建连接后需要定时向服务器发送ping,用来保持连接.频率:30分
 
 ## 接口列表
 
@@ -19,6 +19,7 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 | [unsubscribe:apiOrder:symbolId](#订阅行情深度)  | 取消订阅行情深度   (symbolId:货币对ID)  |
 | [subscribe:apiAggregatedQuote](#订阅聚合行情深度)    | 订阅聚合行情深度     (symbolId:货币对ID)    |
 | [unsubscribe:apiAggregatedQuote](#订阅聚合行情深度)  | 取消订阅聚合行情深度   (symbolId:货币对ID)  |
+| [ping](#保持空闲连接)| 心跳命令 |
 
 
 ## WEBSOCKET API
