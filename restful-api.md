@@ -3,8 +3,8 @@
 REST，即Representational State Transfer的缩写，是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，正得到越来越多网站的采用。
 
 - API访问地址    
-    生产环境：https://trade.bthub.com/  
-    测试环境：https://demo.bthub.com/     
+    生产环境：https://trade.bthub.com:444/  
+    测试环境：https://demo.bthub.com:444/     
 - API测试工具    
     生产环境：https://trade.bthub.com:444/swagger-ui.html    
     测试环境：https://demo.bthub.com:444/swagger-ui.html     
