@@ -16,7 +16,7 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 | [subscribe:apiOrder](#订阅订单成交结果)             | 订阅订单成交结果     |
 | [unsubscribe:apiOrder](#订阅订单成交结果)           | 取消订阅订单成交结果 |
 | [subscribe:apiQuote:symbolId](#订阅行情深度)    | 订阅行情深度     (symbolId:货币对ID)    |
-| [unsubscribe:apiOrder:symbolId](#订阅行情深度)  | 取消订阅行情深度   (symbolId:货币对ID)  |
+| [unsubscribe:apiQuote:symbolId](#订阅行情深度)  | 取消订阅行情深度   (symbolId:货币对ID)  |
 | [subscribe:apiAggregatedQuote:symbolId](#订阅聚合行情深度)    | 订阅聚合行情深度     (symbolId:货币对ID)    |
 | [unsubscribe:apiAggregatedQuote:symbolId](#订阅聚合行情深度)  | 取消订阅聚合行情深度   (symbolId:货币对ID)  |
 | [ping](#保持空闲连接)| 心跳命令 |
@@ -33,7 +33,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 | 请求指令                      | 描述             |
 | :---------------------------- | :--------------- |
 | subscribe:apiQuote:symbolId   | 订阅行情深度     |
-| unsubscribe:apiOrder:symbolId | 取消订阅行情深度 |
+| unsubscribe:apiQuote:symbolId | 取消订阅行情深度 |
 
  ***汇率推送返回参数***
 
