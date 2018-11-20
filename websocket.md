@@ -15,10 +15,10 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 | :---------------------------- | -------------------- |
 | [subscribe:apiOrder](#订阅订单成交结果)             | 订阅订单成交结果     |
 | [unsubscribe:apiOrder](#订阅订单成交结果)           | 取消订阅订单成交结果 |
-| [subscribe:apiQuote:symbol](#订阅行情深度)    | 订阅行情深度     (symbol:货币对名称)    |
-| [unsubscribe:apiQuote:symbol](#订阅行情深度)  | 取消订阅行情深度   (symbol:货币对名称)  |
-| [subscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)    | 订阅聚合行情深度     (symbol:货币对名称)    |
-| [unsubscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)  | 取消订阅聚合行情深度   (symbol:货币对名称)  |
+| [subscribe:apiQuote:symbol](#订阅行情深度)    | 订阅行情深度     (symbol:币对名称)    |
+| [unsubscribe:apiQuote:symbol](#订阅行情深度)  | 取消订阅行情深度   (symbol:币对名称)  |
+| [subscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)    | 订阅聚合行情深度     (symbol:币对名称)    |
+| [unsubscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)  | 取消订阅聚合行情深度   (symbol:币对名称)  |
 | [ping](#保持空闲连接)| 心跳命令 |
 
 
@@ -43,7 +43,7 @@ X-API-TOKEN:token(通过login获得）
 | event      | string | 事件(API_QUOTE) |
 | commission | number | 手续费          |
 | cp         | string | 交易对手名称                |
-| symbol     | string | 交易币种名称              |
+| symbol     | string | 交易币对名称              |
 | price      | number | 价格          |
 | volume     | number  | 数量           |
 
