@@ -57,8 +57,9 @@ POST /api/v1/operator/login
 ### 获取交易对手列表信息
 GET /api/v1/market/cps
 
-Headers:
-X-API-TOKEN:（token，通过登录接口获得.）
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
 
 ***返回参数***
 
