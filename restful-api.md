@@ -22,7 +22,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 | [/api/v1/trades/orderHistory](#获取订单历史列表信息)       | GET  | 获取订单历史列表信息   |
 | [/api/v1/trades/cpOrderHistory](#获取cp订单历史列表信息)     | GET  | 获取CP订单历史列表信息 |
 | [/api/v1/trades/cpExecutionHistory](#获取cp成交历史列表信息) | GET  | 获取CP成交历史列表信息 |
-| [/api/v1/trades/cpExecutionDetail](#获取cp成交详细)  | GET  | 获取CP成交详细         |
+| [/api/v1/trades/cpExecutionDetail](#获取CP订单成交详情)  | GET  | 获取CP成交详细         |
 | [/api/v1/market/cpAccountInfo](#获取交易账户信息)  | GET  | 获取交易账户信息         |
 
 ## Restful API
