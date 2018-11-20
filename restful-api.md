@@ -107,8 +107,8 @@ X-API-TOKEN:token（通过login获得）
 | NAME               | TYPE       | DESCRIBE     |
 | :----------------- | :--------- | :----------- |
 | name               | string     | 交易币对名称         |
-| tradingMaxVolume   | nubmer     | 交易最大数量 |
-| tradingMinVolume   | nubmer     | 交易最小数量 |
+| tradingMaxVolume   | number     | 交易最大数量 |
+| tradingMinVolume   | number     | 交易最小数量 |
 | tradingPriceScale  | integer    | 价格精度     |
 | tradingVolumeScale | integer    | 交易量精度   |
 
@@ -250,8 +250,8 @@ RequestBody:（order）
 | :---------- | :------- | :--------- | :-------------------- | :------ | :----------- |
 | cp          |          | string     | 交易对手名称            |         |              |
 | symbol      | Y        | string     | 交易币对名称            |         |              |
-| orderPrice  | Y        | nubmer     | 订单价格               |         |              |
-| orderVolume | Y        | nubmer     | 订单数量               |         |              |
+| orderPrice  | Y        | number     | 订单价格               |         |              |
+| orderVolume | Y        | number     | 订单数量               |         |              |
 | side        | Y        | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)        |         |              |
 | orderType   | Y        | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |         |              |
 | timeInForce | Y        | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |         |              |
@@ -278,10 +278,10 @@ RequestBody:（order）
 | cpOrderId     | integer    | CP 订单ID                    |
 | cp            | string     | 交易对手名称                |
 | symbol        | string     | 交易币对名称              |
-| executeAmount | nubmer     | 成交金额              |
-| executeVolume | nubmer     | 成交数量              |
-| orderVolume   | nubmer     | 订单数量              |
-| pendingVolume | nubmer     | 未成交数量              |
+| executeAmount | number     | 成交金额              |
+| executeVolume | number     | 成交数量              |
+| orderVolume   | number     | 订单数量              |
+| pendingVolume | number     | 未成交数量              |
 | side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)        |
 | orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |
 | status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
@@ -364,10 +364,10 @@ X-API-TOKEN:token（通过login获得）
 | cpOrderId     | integer    | CP 订单ID                    |
 | cp            | string     | 交易对手名称                |
 | symbol        | string     | 交易币对名称              |
-| executeAmount | nubmer     | 成交金额              |
-| executeVolume | nubmer     | 成交数量              |
-| orderVolume   | nubmer     | 订单数量              |
-| pendingVolume | nubmer     | 未成交数量              |
+| executeAmount | number     | 成交金额              |
+| executeVolume | number     | 成交数量              |
+| orderVolume   | number     | 订单数量              |
+| pendingVolume | number     | 未成交数量              |
 | side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)        |
 | orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |
 | status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
@@ -479,11 +479,11 @@ X-API-TOKEN:token（通过login获得）
 | symbol         | string     | 交易币对名称       |
 | orderId        | integer    | 父订单ID         |
 | side           | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
-| executeAmount  | nubmer     | 成交金额       |
-| executePrice   | nubmer     | 成交价格       |
-| executeVolume  | nubmer     | 成交数量       |
+| executeAmount  | number     | 成交金额       |
+| executePrice   | number     | 成交价格       |
+| executeVolume  | number     | 成交数量       |
 | executeTime    | integer    | 成交时间       |
-| commission     | nubmer     | 手续费         |
+| commission     | number     | 手续费         |
 | executeComment | string     | 成交备注       |
 
 ***返回参数示例***
@@ -546,15 +546,15 @@ X-API-TOKEN:token（通过login获得）
 | status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
 | orderResult   | string     | [结果(OrderResult)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
 | orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |
-| orderPrice    | nubmer     | 订单价格              |
-| executeAmount | nubmer     | 成交金额              |
-| orderVolume   | nubmer     | 订单数量              |
-| pendingVolume | nubmer     | 未成交数量              |
-| executeVolume | nubmer     | 成交数量              |
+| orderPrice    | number     | 订单价格              |
+| executeAmount | number     | 成交金额              |
+| orderVolume   | number     | 订单数量              |
+| pendingVolume | number     | 未成交数量              |
+| executeVolume | number     | 成交数量              |
 | executeTime   | integer    | 成交时间              |
 | orderTime     | integer    | 订单时间              |
 | timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
-| commission    | nubmer     | 手续费                |
+| commission    | number     | 手续费                |
 | rejectReason  | string     | 拒绝原因              |
 | orderComment  | string     | 备注                  |
 
@@ -660,15 +660,15 @@ X-API-TOKEN:token（通过login获得）
 | status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
 | orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |
 | orderResult   | string     | [结果(OrderResult)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
-| executeAmount | nubmer     | 成交金额              |
-| orderPrice    | nubmer     | 订单价格              |
-| executeVolume | nubmer     | 成交数量              |
-| orderVolume   | nubmer     | 订单数量              |
-| pendingVolume | nubmer     | 未成交数量              |
+| executeAmount | number     | 成交金额              |
+| orderPrice    | number     | 订单价格              |
+| executeVolume | number     | 成交数量              |
+| orderVolume   | number     | 订单数量              |
+| pendingVolume | number     | 未成交数量              |
 | orderTime     | integer    | 订单时间              |
 | executeTime   | integer    | 成交时间              |
 | timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
-| commission    | nubmer     | 手续费                |
+| commission    | number     | 手续费                |
 | rejectReason  | string     | 拒绝原因              |
 | orderComment  | string     | 备注                  |
 
@@ -776,11 +776,11 @@ X-API-TOKEN:token（通过login获得）
 | symbol         | string     | 交易币对名称    |
 | cpOrderId      | integer       | CP订单ID         |
 | side           | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
-| executePrice   | nubmer     | 价格           |
-| executeVolume  | nubmer     | 成交数量       |
-| executeAmount  | nubmer     | 成交金额       |
+| executePrice   | number     | 价格           |
+| executeVolume  | number     | 成交数量       |
+| executeAmount  | number     | 成交金额       |
 | executeTime    | integer       | 成交时间       |
-| commission     | nubmer     | 手续费         |
+| commission     | number     | 手续费         |
 | executeComment | string     | 备注           |
 
 ***返回参数示例***
@@ -859,8 +859,8 @@ X-API-TOKEN:token（通过login获得）
 | cp     | string | 交易对手名称    |
 | tradeable | boolean | 是否可交易    |
 | currency | string | 币种    |
-| free | nubmer | 可用金额    |
-| frozen | nubmer | 冻结金额    |
+| free | number | 可用金额    |
+| frozen | number | 冻结金额    |
 
 ***返回参数示例***
 
