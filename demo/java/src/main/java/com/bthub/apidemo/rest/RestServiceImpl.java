@@ -1,6 +1,11 @@
 package com.bthub.apidemo.rest;
 
-import static com.bthub.apidemo.common.Consts.HOST;
+import com.bthub.apidemo.dto.Cp;
+import com.bthub.apidemo.dto.RestMessage;
+import com.bthub.apidemo.dto.Symbol;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,14 +14,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
-import com.bthub.apidemo.dto.CpAccount;
-import org.apache.commons.io.IOUtils;
-
-import com.bthub.apidemo.dto.Cp;
-import com.bthub.apidemo.dto.RestMessage;
-import com.bthub.apidemo.dto.Symbol;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static com.bthub.apidemo.common.Consts.HOST;
 
 public class RestServiceImpl {
 	private static final String PREFIX = "http://" + HOST;
@@ -39,12 +37,12 @@ public class RestServiceImpl {
 		return IOUtils.toString(inputStream, "utf8");
 	}
 
-	public RestMessage<List<CpAccount>> cpAccount(String token, String cp) throws IOException {
-		URL url = new URL(PREFIX + "/api/v1/market/cpAccountInfo");
+	public String cpAccount(String token, String cp) throws IOException {
+		URL url = new URL(PREFIX + "/api/v1/market/cpAccountInfo?cp="+cp);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
-		return mapper.readValue(IOUtils.toString(inputStream, "utf8"), CP_TYPE);
+		return IOUtils.toString(inputStream, "utf8");
 	}
 
 
@@ -64,9 +62,9 @@ public class RestServiceImpl {
 		return mapper.readValue(IOUtils.toString(inputStream, "utf8"), SYMBOL_TYPE);
 	}
 
-	public String placeOrder(String token, int cpId, double orderPrice, String orderType, double orderVolume, String side, int symbolId, String timeInForce) throws IOException {
-		String template = "{\"cpId\": %s,\"orderPrice\": %s,\"orderType\": \"%s\",\"orderVolume\": %s,\"side\": \"%s\",\"symbolId\": %s,\"timeInForce\": \"%s\"}";
-		String json = String.format(template, cpId, orderPrice, orderType, orderVolume, side, symbolId, timeInForce);
+	public String placeOrder(String token, String cp, double orderPrice, String orderType, double orderVolume, String side, String symbol, String timeInForce) throws IOException {
+		String template = "{\"cp\": \"%s\",\"orderPrice\": %s,\"orderType\": \"%s\",\"orderVolume\": %s,\"side\": \"%s\",\"symbol\": \"%s\",\"timeInForce\": \"%s\"}";
+		String json = String.format(template, cp, orderPrice, orderType, orderVolume, side, symbol, timeInForce);
 		System.out.println("place order json: " + json);
 		URL url = new URL(PREFIX + "/api/v1/trades/place");
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();

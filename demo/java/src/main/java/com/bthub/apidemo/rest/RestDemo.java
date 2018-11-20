@@ -4,16 +4,21 @@ public class RestDemo {
 
 	public static void main(String[] args) throws Exception {
 		RestServiceImpl service = new RestServiceImpl();
-		String token = service.getToken("API01", "1qaz1qaz");
-		System.out.println("token:"+token);
 
-		//
-		System.out.println(service.cps(token));
+		//login
+		String token = service.getToken("mhuangwei", "1qaz1qaz");
 
-		System.out.println(service.symbols(token));
+		//cpAccount
+		System.out.println("cpAccount: "+service.cpAccount(token,"huobi"));
 
+		//cps
+		System.out.println("cps: "+service.cps(token));
 
-//		System.out.println(service.placeOrder(token, 257, 6400, "LIMIT", 0.01, "SELL", 65537, "IOC"));
+		//symbols
+		System.out.println("symbols: "+service.symbols(token));
+
+		//placeOrder
+		System.out.println("placeOrder: "+service.placeOrder(token, "huobi", 6400, "MARKET", 0.01, "SELL", "BTCUSDT", "IOC"));
 	}
 
 }
