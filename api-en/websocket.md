@@ -33,8 +33,8 @@ X-API-TOKEN:token(acquired from login）
 
 | request                      | description        |
 | :---------------------------- | :--------------- |
-| subscribe:apiQuote:symbol   | subscribe market depth     |
-| unsubscribe:apiQuote:symbol | unsubscribe market depth |
+| subscribe:apiQuote:symbol   | subscribe new market quotation     |
+| unsubscribe:apiQuote:symbol | unsubscribe new market quotation |
 
  ***params of return***
 
