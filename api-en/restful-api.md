@@ -12,7 +12,7 @@
 
 | request                                    | type | description                   |
 | :------------------------------------------ | :--- | :--------------------- |
-| [/api/v1/operator/login]                   | POST | login                   |
+| [/api/v1/operator/login]#login                   | POST | login                   |
 | [/api/v1/market/cps]                       | GET  | get counter party list          |
 | [/api/v1/market/symbols]                   | GET  | get crypto pairs list       |
 | [/api/v1/trades/place]                     | POST | place orders (SOR)               |
