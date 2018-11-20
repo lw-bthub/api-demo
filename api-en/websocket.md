@@ -13,12 +13,12 @@
 
 | request                       | description                 |
 | :---------------------------- | -------------------- |
-| [subscribe:apiOrder]             | subscribe order trading result     |
-| [unsubscribe:apiOrder]           | unsubscribe order trading result |
-| [subscribe:apiQuote:symbol]    | subscribe market depth     (symbol:crypto pairs name)    |
-| [unsubscribe:apiQuote:symbol]  | unsubscribe market depth     (symbol:crypto pairs name)  |
-| [subscribe:apiAggregatedQuote:symbol]    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
-| [unsubscribe:apiAggregatedQuote:symbol]  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
+| [subscribe:apiOrder](#subscribe_order_trading_result)             | subscribe order trading result     |
+| [unsubscribe:apiOrder](#subscribe_order_trading_result)           | unsubscribe order trading result |
+| [subscribe:apiQuote:symbol](#subscribe_market_quotation)    | subscribe market quotation     (symbol:crypto pairs name)    |
+| [unsubscribe:apiQuote:symbol](#subscribe_market_quotation)  | unsubscribe market quotation     (symbol:crypto pairs name)  |
+| [subscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
+| [unsubscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
 | [ping]| heart beat |
 
 
@@ -28,13 +28,13 @@ wss://demo.bthub.com:444/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z
 
 X-API-TOKEN:token(acquired from login）
 
-### subscribe market depth
+### subscribe_market_quotation
 ***request instruction***
 
 | request                      | description        |
 | :---------------------------- | :--------------- |
-| subscribe:apiQuote:symbol   | subscribe market depth     |
-| unsubscribe:apiQuote:symbol | unsubscribe market depth |
+| subscribe:apiQuote:symbol   | subscribe new market quotation     |
+| unsubscribe:apiQuote:symbol | unsubscribe new market quotation |
 
  ***params of return***
 
@@ -92,7 +92,7 @@ X-API-TOKEN:token(acquired from login）
  }
 ```
 
-### subscribe order trading result
+### subscribe_order_trading_result
 ***order request***
 
 | request             | description                 |
@@ -176,7 +176,7 @@ X-API-TOKEN:token(acquired from login）
 ```
 
 
-### subscribe aggregation quotation
+### subscribe_aggregation_quotation
 ***request instruction***
 
 | request                      | description             |
