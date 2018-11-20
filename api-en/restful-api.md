@@ -13,15 +13,15 @@
 | request                                    | type | description                   |
 | :------------------------------------------ | :--- | :--------------------- |
 | [/api/v1/operator/login](#login)                 | POST | login                   |
-| [/api/v1/market/cps](#get_counter_party_list)                       | GET  | get counter party list          |
-| [/api/v1/market/symbols](#get_crypto_pairs_list)                   | GET  | get crypto pairs list       |
-| [/api/v1/trades/place](#place_order)                    | POST | place orders (SOR)               |
-| [/api/v1/trades/orderDetail](#get_detail_of_orders)              | GET  | get  detail  of orders         |
-| [/api/v1/trades/orderHistory](#get_history_list_of_orders)              | GET  | get history  list of orders   |
-| [/api/v1/trades/cpOrderHistory](#get_CP_history_list_of_placed_orders)            | GET  | get CP history list of placed orders |
-| [/api/v1/trades/cpExecutionHistory](#get_CP_history_list_of_executed_orders)        | GET  | get CP history list of executed orders |
-| [/api/v1/trades/cpExecutionDetail](#get_CP_detail_of_executed_order)         | GET  | get CP detail of executed orders         |
-| [/api/v1/market/cpAccountInfo](#get_account_info)             | GET  | get account info         |
+| [/api/v1/market/cps](# get counter party list)                       | GET  | get counter party list          |
+| [/api/v1/market/symbols](#get crypto pairs list)                   | GET  | get crypto pairs list       |
+| [/api/v1/trades/place](#place order)                    | POST | place orders (SOR)               |
+| [/api/v1/trades/orderDetail](#get detail of orders)              | GET  | get  detail  of orders         |
+| [/api/v1/trades/orderHistory](#get history list of orders)              | GET  | get history  list of orders   |
+| [/api/v1/trades/cpOrderHistory](#get CP history list of placed orders)            | GET  | get CP history list of placed orders |
+| [/api/v1/trades/cpExecutionHistory](#get CP history list of executed orders)        | GET  | get CP history list of executed orders |
+| [/api/v1/trades/cpExecutionDetail](#get CP detail of executed order)         | GET  | get CP detail of executed orders         |
+| [/api/v1/market/cpAccountInfo](#get account info)             | GET  | get account info         |
 
 ## Restful API
 ### login
@@ -52,7 +52,7 @@ POST /api/v1/operator/login
 }
 ```
 
-### get_counter_party_list
+### get counter party list
 GET /api/v1/market/cps
 
 request with Headers:    
@@ -93,7 +93,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### get_crypto_pairs_list
+### get crypto pairs list
 GET  /api/v1/market/symbols
 
 request with Headers:    
@@ -233,7 +233,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### place_order
+### place order
 POST /api/v1/trades/place
 
 request with Headers:    
@@ -258,7 +258,7 @@ RequestBody:（order）
 
 ```
 {
-  "cp": "binance",
+  "cp": "",
   "orderPrice": 0,
   "orderType": "MARKET",
   "orderVolume": 0.1,
@@ -335,7 +335,7 @@ RequestBody:（order）
 }
 ```
 
-### get_detail_of_orders
+### get detail of orders
 GET /api/v1/trades/orderDetail
 
 request with Headers:    
@@ -449,7 +449,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### get_CP_detail_of_executed_order 
+### get CP detail of executed order 
 GET  /api/v1/trades/cpExecutionDetail
 
 request with Headers:    
@@ -504,7 +504,7 @@ X-API-TOKEN:token（acquired from login）
 ```
 
 
- ### get_history_list_of_orders
+ ### get history list of orders
  GET  /api/v1/trades/orderHistory
 
 request with Headers:    
@@ -618,7 +618,7 @@ X-API-TOKEN:token（acquired from login）
  }
 ```
 
-### get_CP_history_list_of_placed_orders
+### get CP history list of placed orders
 GET  /api/v1/trades/cpOrderHistory
 
 request with Headers:    
@@ -738,7 +738,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### get_CP_history_list_of_executed_orders
+### get CP history list of executed orders
 GET  /api/v1/trades/cpExecutionHistory
 
 request with Headers:    
@@ -831,7 +831,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### get_account_info
+### get account info
 GET /api/v1/market/cpAccountInfo
 
 request with Headers:    
