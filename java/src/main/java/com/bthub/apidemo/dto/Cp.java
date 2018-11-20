@@ -1,7 +1,6 @@
 package com.bthub.apidemo.dto;
 
 public class Cp {
-
 	private Integer id;
 	private String name;
 	private Boolean tradingEnabled;
