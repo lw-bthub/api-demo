@@ -98,8 +98,9 @@ X-API-TOKEN:token（通过login获得）
 ### 获取交易币对列表信息
 GET  /api/v1/market/symbols
 
-Headers:
-X-API-TOKEN:（token，通过登录接口获得.）
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
 
 ***返回参数***
 
@@ -237,8 +238,9 @@ X-API-TOKEN:（token，通过登录接口获得.）
 ### 下单
 POST /api/v1/trades/place
 
-Headers:
-X-API-TOKEN:（token，通过登录接口获得.）
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
 
 ***请求参数***
 
@@ -339,8 +341,9 @@ RequestBody:（order）
 ### 获取订单详情
 GET /api/v1/trades/orderDetail
 
-Headers:
-X-API-TOKEN:（token，通过登录接口获得.）
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
 
 ***请求参数***
 
@@ -417,8 +420,9 @@ X-API-TOKEN:（token，通过登录接口获得.）
 ### 获取CP订单成交详情
 GET  /api/v1/trades/cpExecutionDetail
 
-Headers:
-X-API-TOKEN:（token，通过登录接口获得.）
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
 
 ***请求参数***
 
@@ -498,8 +502,9 @@ X-API-TOKEN:（token，通过登录接口获得.）
  ### 获取订单历史列表信息
  GET  /api/v1/trades/orderHistory
 
- Headers:
- X-API-TOKEN:（token，通过登录接口获得.）
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
 
  ***请求参数***
 
@@ -611,8 +616,9 @@ X-API-TOKEN:（token，通过登录接口获得.）
 ### 获取CP订单历史列表信息
 GET  /api/v1/trades/cpOrderHistory
 
-Headers:
-X-API-TOKEN:（token，通过登录接口获得.）
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
 
 ***请求参数***
 
@@ -730,8 +736,9 @@ X-API-TOKEN:（token，通过登录接口获得.）
 ### 获取CP成交历史列表信息
 GET  /api/v1/trades/cpExecutionHistory
 
-Headers:
-X-API-TOKEN:（token，通过登录接口获得.）
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
 
 ***请求参数***
 
@@ -822,8 +829,9 @@ X-API-TOKEN:（token，通过登录接口获得.）
 ### 获取交易账户信息
 GET /api/v1/market/cpAccountInfo
 
-Headers:
-X-API-TOKEN:（token，通过登录接口获得.）
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
 
 ***请求参数***
 
