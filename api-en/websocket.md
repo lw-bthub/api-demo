@@ -13,12 +13,12 @@
 
 | request                       | description                 |
 | :---------------------------- | -------------------- |
-| [subscribe:apiOrder](#subscribe_order_trading_result)             | subscribe order trading result     |
-| [unsubscribe:apiOrder](#subscribe_order_trading_result)           | unsubscribe order trading result |
-| [subscribe:apiQuote:symbol](#subscribe_market_quotation)    | subscribe market quotation     (symbol:crypto pairs name)    |
-| [unsubscribe:apiQuote:symbol](#subscribe_market_quotation)  | unsubscribe market quotation     (symbol:crypto pairs name)  |
-| [subscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
-| [unsubscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
+| [subscribe:apiOrder](#subscribe-order-trading-result)             | subscribe order trading result     |
+| [unsubscribe:apiOrder](#subscribe-order-trading-result)           | unsubscribe order trading result |
+| [subscribe:apiQuote:symbol](#subscribe-market-quotation)    | subscribe market quotation     (symbol:crypto pairs name)    |
+| [unsubscribe:apiQuote:symbol](#subscribe-market-quotation)  | unsubscribe market quotation     (symbol:crypto pairs name)  |
+| [subscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
+| [unsubscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
 | [ping]| heart beat |
 
 
@@ -28,7 +28,7 @@ wss://demo.bthub.com:444/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z
 
 X-API-TOKEN:token(acquired from login）
 
-### subscribe_market_quotation
+### subscribe market quotation
 ***request instruction***
 
 | request                      | description        |
@@ -92,7 +92,7 @@ X-API-TOKEN:token(acquired from login）
  }
 ```
 
-### subscribe_order_trading_result
+### subscribe order trading result
 ***order request***
 
 | request             | description                 |
@@ -176,7 +176,7 @@ X-API-TOKEN:token(acquired from login）
 ```
 
 
-### subscribe_aggregation_quotation
+### subscribe aggregation quotation
 ***request instruction***
 
 | request                      | description             |
