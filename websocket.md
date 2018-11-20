@@ -26,7 +26,7 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 
 wss://demo.bthub.com:444/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z    
 
-X-API-TOKEN:（token，通过登录接口获得.）
+X-API-TOKEN:token(通过login获得）
 
 ### 订阅行情深度
 ***汇率请求指令***
