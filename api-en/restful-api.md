@@ -13,7 +13,7 @@
 | request                                    | type | description                   |
 | :------------------------------------------ | :--- | :--------------------- |
 | [/api/v1/operator/login](#login)                 | POST | login                   |
-| [/api/v1/market/cps](#get counter party list)                       | GET  | get counter party list          |
+| [/api/v1/market/cps](# get counter party list)                       | GET  | get counter party list          |
 | [/api/v1/market/symbols](#get crypto pairs list)                   | GET  | get crypto pairs list       |
 | [/api/v1/trades/place](#place order)                    | POST | place orders (SOR)               |
 | [/api/v1/trades/orderDetail](#get detail of orders)              | GET  | get  detail  of orders         |
