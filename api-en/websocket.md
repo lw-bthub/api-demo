@@ -13,10 +13,10 @@
 
 | request                       | description                 |
 | :---------------------------- | -------------------- |
-| [subscribe:apiOrder](#subscribe_market_depth)             | subscribe order trading result     |
-| [unsubscribe:apiOrder](#subscribe_market_depth)           | unsubscribe order trading result |
-| [subscribe:apiQuote:symbol](#subscribe_order_trading_result)    | subscribe market depth     (symbol:crypto pairs name)    |
-| [unsubscribe:apiQuote:symbol](#subscribe_order_trading_result)  | unsubscribe market depth     (symbol:crypto pairs name)  |
+| [subscribe:apiOrder](#subscribe_order_trading_result)             | subscribe order trading result     |
+| [unsubscribe:apiOrder](#subscribe_order_trading_result)           | unsubscribe order trading result |
+| [subscribe:apiQuote:symbol](#subscribe_market_depth)    | subscribe market depth     (symbol:crypto pairs name)    |
+| [unsubscribe:apiQuote:symbol](#subscribe_market_depth)  | unsubscribe market depth     (symbol:crypto pairs name)  |
 | [subscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
 | [unsubscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
 | [ping]| heart beat |
