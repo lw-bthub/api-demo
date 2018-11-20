@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
+import com.bthub.apidemo.dto.CpAccount;
 import org.apache.commons.io.IOUtils;
 
 import com.bthub.apidemo.dto.Cp;
@@ -37,6 +38,15 @@ public class RestServiceImpl {
 		InputStream inputStream = con.getInputStream();
 		return IOUtils.toString(inputStream, "utf8");
 	}
+
+	public RestMessage<List<CpAccount>> cpAccount(String token, String cp) throws IOException {
+		URL url = new URL(PREFIX + "/api/v1/market/cpAccountInfo");
+		HttpURLConnection con = (HttpURLConnection) url.openConnection();
+		con.setRequestProperty("X-API-TOKEN", token);
+		InputStream inputStream = con.getInputStream();
+		return mapper.readValue(IOUtils.toString(inputStream, "utf8"), CP_TYPE);
+	}
+
 
 	public RestMessage<List<Cp>> cps(String token) throws IOException {
 		URL url = new URL(PREFIX + "/api/v1/market/cps");
