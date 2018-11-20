@@ -14,14 +14,14 @@
 | :------------------------------------------ | :--- | :--------------------- |
 | [/api/v1/operator/login](#login)                   | POST | login                   |
 | [/api/v1/market/cps](#get_counter_party_list)                       | GET  | get counter party list          |
-| [/api/v1/market/symbols](#get crypto pairs list)                   | GET  | get crypto pairs list       |
-| [/api/v1/trades/place](#place order)                     | POST | place orders (SOR)               |
-| [/api/v1/trades/orderDetail](#get detail of orders)               | GET  | get  detail  of orders         |
-| [/api/v1/trades/orderHistory](#get history list of orders)              | GET  | get history  list of orders   |
-| [/api/v1/trades/cpOrderHistory](#get CP history list of placed orders)            | GET  | get CP history list of placed orders |
-| [/api/v1/trades/cpExecutionHistory](get CP history list of executed orders)        | GET  | get CP history list of executed orders |
-| [/api/v1/trades/cpExecutionDetail](#get CP detail of executed order)         | GET  | get CP detail of executed orders         |
-| [/api/v1/market/cpAccountInfo](#get account info)             | GET  | get account info         |
+| [/api/v1/market/symbols](#get_crypto_pairs_list)                   | GET  | get crypto pairs list       |
+| [/api/v1/trades/place](#place_order)                     | POST | place orders (SOR)               |
+| [/api/v1/trades/orderDetail](#get_detail_of_orders)               | GET  | get  detail  of orders         |
+| [/api/v1/trades/orderHistory](#get_history_list_of_orders)              | GET  | get history  list of orders   |
+| [/api/v1/trades/cpOrderHistory](#get_CP_history_list_of_placed_orders)            | GET  | get CP history list of placed orders |
+| [/api/v1/trades/cpExecutionHistory](get_CP_history_list_of_executed_orders)        | GET  | get CP history list of executed orders |
+| [/api/v1/trades/cpExecutionDetail](#get_CP_detail_of_executed_order)         | GET  | get CP detail of executed orders         |
+| [/api/v1/market/cpAccountInfo](#get_account_info)             | GET  | get account info         |
 
 ## Restful API
 ### login
