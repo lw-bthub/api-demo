@@ -2,30 +2,28 @@
 
 REST，即Representational State Transfer的缩写，是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，正得到越来越多网站的采用。
 
-- API访问地址    
-    生产环境：https://trade.bthub.com:444/  
-    测试环境：https://demo.bthub.com:444/     
-- API测试工具    
-    生产环境：https://trade.bthub.com:444/swagger-ui.html    
-    测试环境：https://demo.bthub.com:444/swagger-ui.html     
+
+- 在线API 接口测试工具
+
+    http://trade.bthub.com:444/swagger-ui.html
 
 ## 接口列表
 
 | 请求方法                                    | 类型 | 描述                   |
 | :------------------------------------------ | :--- | :--------------------- |
-| [/api/v1/operator/login](#登陆接口)         | POST | 登陆                   |
-| [/api/v1/market/cps](#获取cp列表信息)       | GET  | 获取CP列表信息         |
-| [/api/v1/market/symbols](#获取symbol列表信息) | GET  | 获取SYMBOL列表信息     |
-| [/api/v1/trades/place](#交易)                | POST | 投递交易               |
-| [/api/v1/trades/orderHistory](#获取订单历史列表信息)       | GET  | 获取订单历史列表信息   |
-| [/api/v1/trades/orderDetail](#获取订单详细)        | GET  | 获取订单详细           |
-| [/api/v1/trades/cpOrderHistory](#获取cp订单历史列表信息)     | GET  | 获取CP订单历史列表信息 |
-| [/api/v1/trades/cpExecutionHistory](#获取cp成交历史列表信息) | GET  | 获取CP成交历史列表信息 |
-| [/api/v1/trades/cpExecutionDetail](#获取cp成交详细)  | GET  | 获取CP成交详细         |
-| [/api/v1/market/cpAccountInfo](#获取cp账户信息)  | GET  | 获取CP账户信息         |
+| [/api/v1/operator/login](#Mark1)            | POST | 登陆                   |
+| [/api/v1/market/cps](#Mark2)                | GET  | 获取CP列表信息         |
+| [/api/v1/market/symbols](#Mark3)            | GET  | 获取SYMBOL列表信息     |
+| [/api/v1/trades/place](#Mark4)              | POST | 投递交易               |
+| [/api/v1/trades/orderHistory](#Mark7)       | GET  | 获取订单历史列表信息   |
+| [/api/v1/trades/orderDetail](#Mark6)        | GET  | 获取订单详细           |
+| [/api/v1/trades/cpOrderHistory](#Mark8)     | GET  | 获取CP订单历史列表信息 |
+| [/api/v1/trades/cpExecutionHistory](#Mark9) | GET  | 获取CP成交历史列表信息 |
+| [/api/v1/trades/cpExecutionDetail](#Mark5)  | GET  | 获取CP成交详细         |
+| [/api/v1/market/cpAccountInfo](#Mark10)  | GET  | 获取CP账户信息         |
 
 ## Restful API
-### 登陆接口
+### 登陆接口<div id="Mark1"></div> 
 POST /api/v1/operator/login
 
 ***请求参数***
@@ -53,7 +51,7 @@ POST /api/v1/operator/login
 }
 ```
 
-### 获取CP列表信息
+### 获取CP列表信息<div id="Mark2"></div>
 GET /api/v1/market/cps
 
 Headers:
@@ -378,7 +376,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
 }
 ```
 
- ### 获取订单历史列表信息
+ ### 获取订单历史列表信息<div id="Mark7"></div>
  GET  /api/v1/trades/orderHistory
 
  Headers:
