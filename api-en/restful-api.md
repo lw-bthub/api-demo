@@ -1,4 +1,4 @@
-# RestfulApi informations(2018-11-20)
+# Restful API informations(2018-11-20)
 
 
 - API url    
