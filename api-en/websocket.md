@@ -13,12 +13,12 @@
 
 | request                       | description                 |
 | :---------------------------- | -------------------- |
-| [subscribe:apiOrder]             | subscribe order trading result     |
-| [unsubscribe:apiOrder]           | unsubscribe order trading result |
-| [subscribe:apiQuote:symbol]    | subscribe market depth     (symbol:crypto pairs name)    |
-| [unsubscribe:apiQuote:symbol]  | unsubscribe market depth     (symbol:crypto pairs name)  |
-| [subscribe:apiAggregatedQuote:symbol]    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
-| [unsubscribe:apiAggregatedQuote:symbol]  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
+| [subscribe:apiOrder](#subscribe_market_depth)             | subscribe order trading result     |
+| [unsubscribe:apiOrder](#subscribe_market_depth)           | unsubscribe order trading result |
+| [subscribe:apiQuote:symbol](#subscribe_order_trading_result)    | subscribe market depth     (symbol:crypto pairs name)    |
+| [unsubscribe:apiQuote:symbol](#subscribe_order_trading_result)  | unsubscribe market depth     (symbol:crypto pairs name)  |
+| [subscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
+| [unsubscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
 | [ping]| heart beat |
 
 
@@ -28,7 +28,7 @@ wss://demo.bthub.com:444/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z
 
 X-API-TOKEN:token(acquired from login）
 
-### subscribe market depth
+### subscribe_market_depth
 ***request instruction***
 
 | request                      | description        |
@@ -92,7 +92,7 @@ X-API-TOKEN:token(acquired from login）
  }
 ```
 
-### subscribe order trading result
+### subscribe_order_trading_result
 ***order request***
 
 | request             | description                 |
@@ -176,7 +176,7 @@ X-API-TOKEN:token(acquired from login）
 ```
 
 
-### subscribe aggregation quotation
+### subscribe_aggregation_quotation
 ***request instruction***
 
 | request                      | description             |
