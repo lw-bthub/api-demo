@@ -298,7 +298,7 @@ RequestBody:（order）
       "executeAmount": "0",
       "executeTime": "0",
       "executeVolume": "0",
-      "lpOrders": [
+      "cpOrders": [
         {
           "commission": "0.0100",
           "cp": "huobi",
@@ -376,7 +376,7 @@ X-API-TOKEN:（token，通过登录接口获得.）
       "executeAmount": "186.698210400000",
       "executeTime": "1542625677137",
       "executeVolume": "0.034770000000",
-      "lpOrders": [
+      "cpOrders": [
         {
           "commission": "0.0100",
           "cp": "binance",
