@@ -12,16 +12,16 @@
 
 | request                                    | type | description                   |
 | :------------------------------------------ | :--- | :--------------------- |
-| [/api/v1/operator/login](#login)                 | POST | login                   |
-| [/api/v1/market/cps](# get counter party list)                       | GET  | get counter party list          |
-| [/api/v1/market/symbols](#get crypto pairs list)                   | GET  | get crypto pairs list       |
-| [/api/v1/trades/place](#place order)                    | POST | place orders (SOR)               |
-| [/api/v1/trades/orderDetail](#get detail of orders)              | GET  | get  detail  of orders         |
-| [/api/v1/trades/orderHistory](#get history list of orders)              | GET  | get history  list of orders   |
-| [/api/v1/trades/cpOrderHistory](#get CP history list of placed orders)            | GET  | get CP history list of placed orders |
-| [/api/v1/trades/cpExecutionHistory](#get CP history list of executed orders)        | GET  | get CP history list of executed orders |
-| [/api/v1/trades/cpExecutionDetail](#get CP detail of executed order)         | GET  | get CP detail of executed orders         |
-| [/api/v1/market/cpAccountInfo](#get account info)             | GET  | get account info         |
+| [/api/v1/operator/login]                   | POST | login                   |
+| [/api/v1/market/cps]                       | GET  | get counter party list          |
+| [/api/v1/market/symbols]                   | GET  | get crypto pairs list       |
+| [/api/v1/trades/place]                     | POST | place orders (SOR)               |
+| [/api/v1/trades/orderDetail]               | GET  | get  detail  of orders         |
+| [/api/v1/trades/orderHistory]              | GET  | get history  list of orders   |
+| [/api/v1/trades/cpOrderHistory]            | GET  | get CP history list of placed orders |
+| [/api/v1/trades/cpExecutionHistory]        | GET  | get CP history list of executed orders |
+| [/api/v1/trades/cpExecutionDetail]         | GET  | get CP detail of executed orders         |
+| [/api/v1/market/cpAccountInfo]             | GET  | get account info         |
 
 ## Restful API
 ### login
@@ -294,22 +294,35 @@ RequestBody:（order）
 {
   "data": {
     "order": {
-      "commission": "0.0100",
-      "executeAmount": "0",
-      "executeTime": "0",
-      "executeVolume": "0",
       "cpOrders": [
         {
-          "commission": "0.0100",
-          "cp": "huobi",
+          "commission": "0.0010",
+          "cp": "okex",
+          "cpOrderId": "764537366881774633",
           "executeAmount": "0",
           "executeTime": "0",
           "executeVolume": "0",
-          "cpOrderId": "763672199088331295",
-          "orderComment": "763672193516004885.2",
-          "orderTime": "1542610820303",
+          "orderComment": "764537362455412757.0",
+          "orderTime": "1542713956341",
           "orderType": 5,
-          "orderVolume": "0.01",
+          "orderVolume": "0.03538015",
+          "pendingVolume": "0.00000000",
+          "side": 1,
+          "status": 1,
+          "symbol": "BTCUSDT",
+          "timeInForce": 1
+        },
+        {
+          "commission": "0.0010",
+          "cp": "huobi",
+          "cpOrderId": "764537366881774121",
+          "executeAmount": "0",
+          "executeTime": "0",
+          "executeVolume": "0",
+          "orderComment": "764537365559204373.0",
+          "orderTime": "1542713956341",
+          "orderType": 5,
+          "orderVolume": "0.0262",
           "pendingVolume": "0.0000",
           "side": 1,
           "status": 1,
@@ -317,12 +330,14 @@ RequestBody:（order）
           "timeInForce": 1
         }
       ],
-      "orderComment": "763672193516004885.2",
-      "orderId": "763672199088331295",
-      "orderTime": "1542610820303",
+      "executeAmount": "0",
+      "executeTime": "0",
+      "executeVolume": "0",
+      "orderId": "764537366881773609",
+      "orderTime": "1542713956341",
       "orderType": 5,
-      "orderVolume": "0.01",
-      "pendingVolume": "0.0000",
+      "orderVolume": "0.1",
+      "pendingVolume": "0.03841985",
       "side": 1,
       "status": 1,
       "symbol": "BTCUSDT",
@@ -755,7 +770,7 @@ X-API-TOKEN:token（acquired from login）
 | to       | Y        | integer  | time ended | -       |              |
 | pageNo   |          | integer  | page NO     | -       |              |
 
-***params of return***
+***返回参数***
 
 | NAME           | TYPE       | DESCRIPTION       |
 | :------------- | :--------- | :------------- |
