@@ -1,4 +1,4 @@
-# RestfulApi 接口信息(2018-10-12)
+# RestfulApi 接口信息(2018-11-20)
 
 REST，即Representational State Transfer的缩写，是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，正得到越来越多网站的采用。
 
