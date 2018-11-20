@@ -366,7 +366,6 @@ X-API-TOKEN:token（通过login获得）
 | orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |
 | status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
 | timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
-| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
 | orderTime     | integer    | 订单时间              |
 | executeTime   | integer    | 成交时间              |
 
