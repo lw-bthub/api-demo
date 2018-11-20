@@ -13,15 +13,15 @@
 | request                                    | type | description                   |
 | :------------------------------------------ | :--- | :--------------------- |
 | [/api/v1/operator/login](#login)                   | POST | login                   |
-| [/api/v1/market/cps]                       | GET  | get counter party list          |
-| [/api/v1/market/symbols]                   | GET  | get crypto pairs list       |
-| [/api/v1/trades/place]                     | POST | place orders (SOR)               |
-| [/api/v1/trades/orderDetail]               | GET  | get  detail  of orders         |
-| [/api/v1/trades/orderHistory]              | GET  | get history  list of orders   |
-| [/api/v1/trades/cpOrderHistory]            | GET  | get CP history list of placed orders |
-| [/api/v1/trades/cpExecutionHistory]        | GET  | get CP history list of executed orders |
-| [/api/v1/trades/cpExecutionDetail]         | GET  | get CP detail of executed orders         |
-| [/api/v1/market/cpAccountInfo]             | GET  | get account info         |
+| [/api/v1/market/cps](#get counter party list)                       | GET  | get counter party list          |
+| [/api/v1/market/symbols](#get crypto pairs list)                   | GET  | get crypto pairs list       |
+| [/api/v1/trades/place](#place order)                     | POST | place orders (SOR)               |
+| [/api/v1/trades/orderDetail](#get detail of orders)               | GET  | get  detail  of orders         |
+| [/api/v1/trades/orderHistory](#get history list of orders)              | GET  | get history  list of orders   |
+| [/api/v1/trades/cpOrderHistory](#get CP history list of placed orders)            | GET  | get CP history list of placed orders |
+| [/api/v1/trades/cpExecutionHistory](get CP history list of executed orders)        | GET  | get CP history list of executed orders |
+| [/api/v1/trades/cpExecutionDetail](#get CP detail of executed order)         | GET  | get CP detail of executed orders         |
+| [/api/v1/market/cpAccountInfo](#get account info)             | GET  | get account info         |
 
 ## Restful API
 ### login
