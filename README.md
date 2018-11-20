@@ -19,5 +19,5 @@ English
 | Name                                                         | Description                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
 | [rest-api.md](https://github.com/lw-bthub/api-demo/blob/master/api-en/restful-api.md) | Rest Api                             |
-| [web-socket-streams.md](https://github.com/lw-bthub/api-demo/blob/master/api-en/websocket.md) | Websokcet                  |
+| [web-socket-streams.md](https://github.com/lw-bthub/api-demo/blob/master/api-en/websocket.md) | Websocket                  |
 | [enum.md](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md) |  Enum                 |
