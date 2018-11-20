@@ -52,7 +52,7 @@ POST /api/v1/operator/login
 }
 ```
 
-### get counter party list
+### get_counter_party_list
 GET /api/v1/market/cps
 
 request with Headers:    
@@ -93,7 +93,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### get crypto pairs list
+### get_crypto_pairs_list
 GET  /api/v1/market/symbols
 
 request with Headers:    
@@ -233,7 +233,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### place order
+### place_order
 POST /api/v1/trades/place
 
 request with Headers:    
@@ -350,7 +350,7 @@ RequestBody:（order）
 }
 ```
 
-### get detail of orders
+### get_detail_of_orders
 GET /api/v1/trades/orderDetail
 
 request with Headers:    
@@ -464,7 +464,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### get CP detail of executed order 
+### get_CP_detail_of_executed_order 
 GET  /api/v1/trades/cpExecutionDetail
 
 request with Headers:    
@@ -519,7 +519,7 @@ X-API-TOKEN:token（acquired from login）
 ```
 
 
- ### get history list of orders
+ ### get_history_list_of_orders
  GET  /api/v1/trades/orderHistory
 
 request with Headers:    
@@ -633,7 +633,7 @@ X-API-TOKEN:token（acquired from login）
  }
 ```
 
-### get CP history list of placed orders
+### get_CP_history_list_of_placed_orders
 GET  /api/v1/trades/cpOrderHistory
 
 request with Headers:    
@@ -753,7 +753,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### get CP history list of executed orders
+### get_CP_history_list_of_executed_orders
 GET  /api/v1/trades/cpExecutionHistory
 
 request with Headers:    
@@ -846,7 +846,7 @@ X-API-TOKEN:token（acquired from login）
 }
 ```
 
-### get account info
+### get_account_info
 GET /api/v1/market/cpAccountInfo
 
 request with Headers:    
