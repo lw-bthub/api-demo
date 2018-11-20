@@ -4,31 +4,31 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Quote {
-	private Integer symbolId;
-	private Integer cpId;
+	private String symbol;
+	private String cp;
 	private BigDecimal commission;
 	private List<Band> asks;
 	private List<Band> bids;
 
 	@Override
 	public String toString() {
-		return String.format("Quote [symbolId=%s, cpId=%s, commission=%s, asks=%s, bids=%s]", symbolId, cpId, commission, asks, bids);
+		return String.format("Quote [symbol=%s, cp=%s, commission=%s, asks=%s, bids=%s]", symbol, cp, commission, asks, bids);
 	}
 
-	public Integer getSymbolId() {
-		return symbolId;
+	public String getSymbol() {
+		return symbol;
 	}
 
-	public void setSymbolId(Integer symbolId) {
-		this.symbolId = symbolId;
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
 	}
 
-	public Integer getCpId() {
-		return cpId;
+	public String getCp() {
+		return cp;
 	}
 
-	public void setCpId(Integer cpId) {
-		this.cpId = cpId;
+	public void setCp(String cp) {
+		this.cp = cp;
 	}
 
 	public BigDecimal getCommission() {

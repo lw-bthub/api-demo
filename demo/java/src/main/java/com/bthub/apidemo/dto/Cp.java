@@ -1,21 +1,12 @@
 package com.bthub.apidemo.dto;
 
 public class Cp {
-	private Integer id;
 	private String name;
 	private Boolean tradingEnabled;
 
 	@Override
 	public String toString() {
-		return String.format("Cp [id=%s, name=%s, tradingEnabled=%s]", id, name, tradingEnabled);
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+		return String.format("Cp [name=%s, tradingEnabled=%s]",name, tradingEnabled);
 	}
 
 	public String getName() {

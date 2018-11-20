@@ -2,7 +2,6 @@ package com.bthub.apidemo.dto;
 
 public class Symbol {
 
-	private Integer id;
 	private String name;
 	private String tradingMaxVolume;
 	private String tradingMinVolume;
@@ -11,15 +10,7 @@ public class Symbol {
 
 	@Override
 	public String toString() {
-		return String.format("Symbol [id=%s, name=%s, tradingMaxVolume=%s, tradingMinVolume=%s, tradingPriceScale=%s, tradingVolumeScale=%s]", id, name, tradingMaxVolume, tradingMinVolume, tradingPriceScale, tradingVolumeScale);
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+		return String.format("Symbol [ name=%s, tradingMaxVolume=%s, tradingMinVolume=%s, tradingPriceScale=%s, tradingVolumeScale=%s]", name, tradingMaxVolume, tradingMinVolume, tradingPriceScale, tradingVolumeScale);
 	}
 
 	public String getName() {
