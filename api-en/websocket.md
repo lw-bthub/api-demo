@@ -15,8 +15,8 @@
 | :---------------------------- | -------------------- |
 | [subscribe:apiOrder](#subscribe_order_trading_result)             | subscribe order trading result     |
 | [unsubscribe:apiOrder](#subscribe_order_trading_result)           | unsubscribe order trading result |
-| [subscribe:apiQuote:symbol](#subscribe_market_depth)    | subscribe market depth     (symbol:crypto pairs name)    |
-| [unsubscribe:apiQuote:symbol](#subscribe_market_depth)  | unsubscribe market depth     (symbol:crypto pairs name)  |
+| [subscribe:apiQuote:symbol](#subscribe_market_quotation)    | subscribe market quotation     (symbol:crypto pairs name)    |
+| [unsubscribe:apiQuote:symbol](#subscribe_market_quotation)  | unsubscribe market quotation     (symbol:crypto pairs name)  |
 | [subscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
 | [unsubscribe:apiAggregatedQuote:symbol](#subscribe_aggregation_quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
 | [ping]| heart beat |
@@ -28,7 +28,7 @@ wss://demo.bthub.com:444/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z
 
 X-API-TOKEN:token(acquired from login）
 
-### subscribe_market_depth
+### subscribe_market_quotation
 ***request instruction***
 
 | request                      | description        |
