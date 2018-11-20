@@ -19,7 +19,7 @@
 | [/api/v1/trades/orderDetail](#get_detail_of_orders)               | GET  | get  detail  of orders         |
 | [/api/v1/trades/orderHistory](#get_history_list_of_orders)              | GET  | get history  list of orders   |
 | [/api/v1/trades/cpOrderHistory](#get_CP_history_list_of_placed_orders)            | GET  | get CP history list of placed orders |
-| [/api/v1/trades/cpExecutionHistory](get_CP_history_list_of_executed_orders)        | GET  | get CP history list of executed orders |
+| [/api/v1/trades/cpExecutionHistory](#get_CP_history_list_of_executed_orders)        | GET  | get CP history list of executed orders |
 | [/api/v1/trades/cpExecutionDetail](#get_CP_detail_of_executed_order)         | GET  | get CP detail of executed orders         |
 | [/api/v1/market/cpAccountInfo](#get_account_info)             | GET  | get account info         |
 
