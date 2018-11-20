@@ -296,45 +296,39 @@ RequestBody:（order）
 {
   "data": {
     "order": {
+      "commission": "0.0100",
+      "executeAmount": "0",
+      "executeTime": "0",
+      "executeVolume": "0",
       "cpOrders": [
         {
           "commission": "0.0100",
           "cp": "huobi",
-          "cpOrderId": "764450209722804767",
           "executeAmount": "0",
           "executeTime": "0",
           "executeVolume": "0",
-          "orderComment": "764450208078263317.1",
-          "orderTime": "1542703566398",
+          "cpOrderId": "763672199088331295",
+          "orderComment": "763672193516004885.2",
+          "orderTime": "1542610820303",
           "orderType": 5,
-          "orderVolume": "0.0277",
+          "orderVolume": "0.01",
           "pendingVolume": "0.0000",
-          "side": 1,
-          "status": 1,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        },
-        {
-          "commission": "0.0100",
-          "cp": "binance",
-          "cpOrderId": "764450209722804255",
-          "executeAmount": "0",
-          "executeTime": "0",
-          "executeVolume": "0",
-          "orderComment": "764450206450859541.0",
-          "orderTime": "1542703566398",
-          "orderType": 5,
-          "orderVolume": "0.04022",
-          "pendingVolume": "0.00000",
           "side": 1,
           "status": 1,
           "symbol": "BTCUSDT",
           "timeInForce": 1
         }
       ],
-      "executeTime": "0",
-      "orderId": "0",
-      "orderTime": "0"
+      "orderComment": "763672193516004885.2",
+      "orderId": "763672199088331295",
+      "orderTime": "1542610820303",
+      "orderType": 5,
+      "orderVolume": "0.01",
+      "pendingVolume": "0.0000",
+      "side": 1,
+      "status": 1,
+      "symbol": "BTCUSDT",
+      "timeInForce": 1
     },
     "orderResult": "SUCCESS"
   },
