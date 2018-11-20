@@ -77,21 +77,21 @@ public class RestServiceImpl {
 		return IOUtils.toString(inputStream, "utf8");
 	}
 
-	public String cpExecutionDetail(String token, long orderId) throws IOException {
-		URL url = new URL(PREFIX + "/api/v1/trades/cpExecutionDetail?orderId=" + orderId);
+	public String cpExecutionDetail(String token, long cpOrderId) throws IOException {
+		URL url = new URL(PREFIX + "/api/v1/trades/cpExecutionDetail?cpOrderId=" + cpOrderId);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
 		return IOUtils.toString(inputStream, "utf8");
 	}
 
-	public String cpExecutionHistory(String token, Integer cpId, Integer symbolId, long from, long to, Integer pageNo) throws IOException {
+	public String cpExecutionHistory(String token, String cp, String symbol, long from, long to, Integer pageNo) throws IOException {
 		String params = "";
-		if (cpId != null) {
-			params += String.format("cpId=%s&", cpId);
+		if (cp != null) {
+			params += String.format("cp=%s&", cp);
 		}
-		if (symbolId != null) {
-			params += String.format("symbolId=%s&", symbolId);
+		if (symbol != null) {
+			params += String.format("symbol=%s&", symbol);
 		}
 		if (pageNo != null) {
 			params += String.format("pageNo=%s&", pageNo);
@@ -104,13 +104,13 @@ public class RestServiceImpl {
 		return IOUtils.toString(inputStream, "utf8");
 	}
 
-	public String cpOrderHistory(String token, Integer cpId, Integer symbolId, String status, long from, long to, Integer pageNo) throws IOException {
+	public String cpOrderHistory(String token, String cp, String symbol, String status, long from, long to, Integer pageNo) throws IOException {
 		String params = "";
-		if (cpId != null) {
-			params += String.format("cpId=%s&", cpId);
+		if (cp != null) {
+			params += String.format("cp=%s&", cp);
 		}
-		if (symbolId != null) {
-			params += String.format("symbolId=%s&", symbolId);
+		if (symbol != null) {
+			params += String.format("symbol=%s&", symbol);
 		}
 		if (pageNo != null) {
 			params += String.format("pageNo=%s&", pageNo);
@@ -126,21 +126,21 @@ public class RestServiceImpl {
 		return IOUtils.toString(inputStream, "utf8");
 	}
 
-	public String orderDetail(String token, long sourceId) throws IOException {
-		URL url = new URL(PREFIX + "/api/v1/trades/orderDetail?sourceId=" + sourceId);
+	public String orderDetail(String token, long orderId) throws IOException {
+		URL url = new URL(PREFIX + "/api/v1/trades/orderDetail?orderId=" + orderId);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestProperty("X-API-TOKEN", token);
 		InputStream inputStream = con.getInputStream();
 		return IOUtils.toString(inputStream, "utf8");
 	}
 
-	public String orderHistory(String token, Integer cpId, Integer symbolId, String status, long from, long to, Integer pageNo) throws IOException {
+	public String orderHistory(String token, String cp, String symbol, String status, long from, long to, Integer pageNo) throws IOException {
 		String params = "";
-		if (cpId != null) {
-			params += String.format("cpId=%s&", cpId);
+		if (cp != null) {
+			params += String.format("cp=%s&", cp);
 		}
-		if (symbolId != null) {
-			params += String.format("symbolId=%s&", symbolId);
+		if (symbol != null) {
+			params += String.format("symbol=%s&", symbol);
 		}
 		if (pageNo != null) {
 			params += String.format("pageNo=%s&", pageNo);
