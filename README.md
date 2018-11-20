@@ -4,10 +4,18 @@ bthub为用户提供了一整套简单而又强大的开发工具，旨在帮助
 
 - bthub目前提供Java Demo API请参考以下URL,其他版本Api稍后会发布。
 
-    https://github.com/lw-bthub
-
+    https://github.com/lw-bthub    
+    
+中文文档    
 | Name                                                         | Description                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
-| [rest-api.md](https://github.com/lw-bthub/api-demo/blob/master/restful-api.md) | Rest Api 接口文档                            |
-| [web-socket-streams.md](https://github.com/lw-bthub/api-demo/blob/master/websocket.md) | Websokcet 接口文档                 |
-| [enum.md](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |  Enum                 |
+| [rest-api.md](https://github.com/lw-bthub/api-demo/blob/master/api-cn/restful-api.md) | Rest Api 接口文档                            |
+| [web-socket-streams.md](https://github.com/lw-bthub/api-demo/blob/master/api-cn/websocket.md) | Websokcet 接口文档                 |
+| [enum.md](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |  Enum                 |
+
+English    
+| Name                                                         | Description                                               |
+| ------------------------------------------------------------ | --------------------------------------------------------- |
+| [rest-api.md](https://github.com/lw-bthub/api-demo/blob/master/api-en/restful-api.md) | Rest Api                             |
+| [web-socket-streams.md](https://github.com/lw-bthub/api-demo/blob/master/api-en/websocket.md) | Websokcet                  |
+| [enum.md](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md) |  Enum                 |
