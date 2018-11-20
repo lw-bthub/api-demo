@@ -4,7 +4,7 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 
 - Websocket请求地址:     
     生产环境：wss://trade.bthub.com:444    
-    测试环境：wss://demo.bthub.com:444     
+    测试环境：wss://demo.bthub.com:444    
 - Websocket请求需要进行登录认证才可以访问。
 - 创建连接且登陆后才可发送相应的指令进行消息的订阅和取消订阅。
 - 创建连接后需要定时向服务器发送ping,用来保持连接.频率:30分
@@ -15,10 +15,10 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 | :---------------------------- | -------------------- |
 | [subscribe:apiOrder](#订阅订单成交结果)             | 订阅订单成交结果     |
 | [unsubscribe:apiOrder](#订阅订单成交结果)           | 取消订阅订单成交结果 |
-| [subscribe:apiQuote:symbolId](#订阅行情深度)    | 订阅行情深度     (symbolId:货币对ID)    |
-| [unsubscribe:apiQuote:symbolId](#订阅行情深度)  | 取消订阅行情深度   (symbolId:货币对ID)  |
-| [subscribe:apiAggregatedQuote:symbolId](#订阅聚合行情深度)    | 订阅聚合行情深度     (symbolId:货币对ID)    |
-| [unsubscribe:apiAggregatedQuote:symbolId](#订阅聚合行情深度)  | 取消订阅聚合行情深度   (symbolId:货币对ID)  |
+| [subscribe:apiQuote:symbol](#订阅行情深度)    | 订阅行情深度     (symbol:货币对名称)    |
+| [unsubscribe:apiQuote:symbol](#订阅行情深度)  | 取消订阅行情深度   (symbol:货币对名称)  |
+| [subscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)    | 订阅聚合行情深度     (symbol:货币对名称)    |
+| [unsubscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)  | 取消订阅聚合行情深度   (symbol:货币对名称)  |
 | [ping](#保持空闲连接)| 心跳命令 |
 
 
@@ -32,19 +32,19 @@ X-API-TOKEN:（token，通过登录接口获得.）
 
 | 请求指令                      | 描述             |
 | :---------------------------- | :--------------- |
-| subscribe:apiQuote:symbolId   | 订阅行情深度     |
-| unsubscribe:apiQuote:symbolId | 取消订阅行情深度 |
+| subscribe:apiQuote:symbol   | 订阅行情深度     |
+| unsubscribe:apiQuote:symbol | 取消订阅行情深度 |
 
  ***汇率推送返回参数***
 
 | NAME       | TYPE   | DESCRIBE        |
 | :--------- | :----- | :-------------- |
-| event      | String | 事件(API_QUOTE) |
-| commission | double | 手续费          |
-| cpId       | short  | CP ID           |
-| symbolId   | int    | 货币对ID        |
-| price | double | 价格          |
-| volume| short  | 数量           |
+| event      | string | 事件(API_QUOTE) |
+| commission | number | 手续费          |
+| cp         | string | 交易对手名称                |
+| symbol     | string | 交易币种名称              |
+| price      | number | 价格          |
+| volume     | number  | 数量           |
 
  ***汇率推送返回参数示例***
 
@@ -53,22 +53,40 @@ X-API-TOKEN:（token，通过登录接口获得.）
  	"event": "API_QUOTE",
  	"data": {
  		"asks": [{
- 			"price": "6401.9065",
- 			"volume": "0.01966"
+ 			"price": "5379.3864",
+ 			"volume": "0.1"
  		}, {
- 			"price": "6401.9075",
- 			"volume": "0.022"
+ 			"price": "5379.3865",
+ 			"volume": "0.166"
+ 		}, {
+ 			"price": "5379.6339",
+ 			"volume": "0.001"
+ 		}, {
+ 			"price": "5385.3535",
+ 			"volume": "1.89179998"
+ 		}, {
+ 			"price": "5385.3536",
+ 			"volume": "0.001"
  		}],
  		"bids": [{
- 			"price": "6399.302",
- 			"volume": "0.8"
+ 			"price": "5376.0837",
+ 			"volume": "0.40748547"
  		}, {
- 			"price": "6399.2931",
- 			"volume": "0.048"
+ 			"price": "5376.0836",
+ 			"volume": "0.33848547"
+ 		}, {
+ 			"price": "5375.4579",
+ 			"volume": "1"
+ 		}, {
+ 			"price": "5375.4207",
+ 			"volume": "0.00885"
+ 		}, {
+ 			"price": "5375.3574",
+ 			"volume": "0.00978"
  		}],
  		"commission": "0.0001",
- 		"cpId": 259,
- 		"symbolId": 65537
+ 		"cp": "okex",
+ 		"symbol": "BTCUSDT"
  	}
  }
 ```
@@ -84,66 +102,76 @@ X-API-TOKEN:（token，通过登录接口获得.）
 
 | NAME          | TYPE       | DESCRIBE              |
 | :------------ | :--------- | :-------------------- |
-| event         | String     | 事件(API_ORDER)       |
-| id            | long       | ID                    |
-| symbolId      | int        | 货币对ID              |
-| accountId     | long       | 账户ID                |
-| sourceId      | long       | 父订单                |
-| side          | String     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)        |
-| status        | String     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
-| orderType     | String     | [挂单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |
-| executeAmount | BigDecimal | 成交金额              |
-| executeVolume | BigDecimal | 成交数量              |
-| orderVolume   | BigDecimal | 挂单数量              |
-| pendingVolume | BigDecimal | 执行数量              |
-| executeTime   | long       | 时间                  |
-| orderTime     | long       | 挂单时间              |
-| commission    | double     | 手续费                |
-| timeInForce   | String     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
-| orderComment  | String     | 备注                  |
+| event         | string     | 事件(API_ORDER)       |
+| cpOrderId     | integer    | CP 订单ID          |
+| symbol        | string     | 交易币对名称              |
+| accountId     | integer    | 账户ID                |
+| orderId       | integer    | 父订单                |
+| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)        |
+| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
+| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |
+| executeAmount | number     | 成交金额              |
+| executeVolume | number     | 成交数量              |
+| orderVolume   | number     | 订单数量              |
+| pendingVolume | number     | 未成交数量             |
+| executeTime   | integer    | 成交时间               |
+| orderTime     | integer    | 订单时间              |
+| commission    | number     | 手续费                |
+| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
+| orderResult   | string     | [结果(OrderResult)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
+| orderComment  | string     | 备注                  |
 
   ***订单成交结果推送返回参数示例***
 
 ```
   {
   	"event": "API_ORDER",
-  	"data": [{
-  		"accountId": 0,
-  		"commission": "0.9999",
-  		"cpId": 258,
-  		"executeAmount": "0",
-  		"executeTime": "0",
-  		"executeVolume": "0",
-  		"executions": [],
-  		"id": "723970960352354857",
-  		"orderComment": "723970958215745045.0",
-  		"orderTime": "1537878063839",
-  		"orderType": 5,
-  		"orderVolume": "0.0100",
-  		"pendingVolume": "0.0000",
-  		"side": -1,
-  		"sourceId": "723970960352354345",
-  		"status": 1,
-  		"symbolId": 1,
-  		"timeInForce": 1
-  	}, {
-  		"accountId": 0,
-  		"cpId": 0,
-  		"executeAmount": "0",
-  		"executeTime": "0",
-  		"executeVolume": "0",
-  		"executions": [],
-  		"id": "723970960352354345",
-  		"orderTime": "1537878063839",
+  	"data": {
+  		"executeAmount": "49.7853000000000000",
+  		"executeTime": "1542683949099",
+  		"executeVolume": "0.01000000",
+  		"lpOrders": [{
+  			"commission": "0.0100",
+  			"cp": "binance",
+  			"executeAmount": "49.7853000000000000",
+  			"executeTime": "1542683949099",
+  			"executeVolume": "0.01000000",
+  			"executions": [{
+  				"commission": "0.00001000",
+  				"cp": "binance",
+  				"cpOrderid": "764285648579336735",
+  				"executeAmount": "49.7853000000000000",
+  				"executeComment": "CommissionAsset: BTC",
+  				"executePrice": "4978.53000000",
+  				"executeTime": "1542683949099",
+  				"executeVolume": "0.01000000",
+  				"orderId": "764285640417220639",
+  				"side": 1,
+  				"symbol": "BTCUSDT"
+  			}],
+  			"lpOrderId": "764285640417220639",
+  			"orderComment": "764285633401010197.0",
+  			"orderResult": 3,
+  			"orderTime": "1542683948240",
+  			"orderType": 5,
+  			"orderVolume": "0.01000",
+  			"pendingVolume": "0.00000000",
+  			"side": 1,
+  			"status": 4,
+  			"symbol": "BTCUSDT",
+  			"timeInForce": 1
+  		}],
+  		"orderId": "764285640408831519",
+  		"orderResult": 3,
+  		"orderTime": "1542683948241",
   		"orderType": 5,
   		"orderVolume": "0.01",
-  		"pendingVolume": "0.0000",
-  		"side": -1,
-  		"sourceId": "0",
-  		"status": 1,
-  		"symbolId": 1,
+  		"pendingVolume": "0.00000000",
+  		"side": 1,
+  		"status": 4,
+  		"symbol": "BTCUSDT",
   		"timeInForce": 1
-  	}]
+  	}
   }
 ```
 ### 订阅聚合行情深度
@@ -151,18 +179,18 @@ X-API-TOKEN:（token，通过登录接口获得.）
 
 | 请求指令                      | 描述             |
 | :---------------------------- | :--------------- |
-| subscribe:apiAggregatedQuote:symbolId   | 订阅聚合行情深度     |
-| unsubscribe:apiAggregatedQuote:symbolId | 取消订阅聚合行情深度 |
+| subscribe:apiAggregatedQuote:symbol   | 订阅聚合行情深度     |
+| unsubscribe:apiAggregatedQuote:symbol | 取消订阅聚合行情深度 |
 
  ***汇率推送返回参数***
 
 | NAME       | TYPE   | DESCRIBE        |
 | :--------- | :----- | :-------------- |
-| event      | String | 事件(API_AGGREGATED_QUOTE) |
-| cpId       | short  | CP ID           |
-| symbolId   | int    | 货币对ID        |
-| price | double | 价格          |
-| volume| short  | 数量           |
+| event      | string | 事件(API_AGGREGATED_QUOTE) |
+| cp         | string | 交易对手名称                |
+| symbol     | string | 交易币对名称              |
+| price      | number | 价格          |
+| volume     | number | 数量           |
 
  ***汇率推送返回参数示例***
 
@@ -171,104 +199,104 @@ X-API-TOKEN:（token，通过登录接口获得.）
  	"event": "API_AGGREGATED_QUOTE",
  	"data": {
  		"asks": [{
- 			"cpId": 259,
- 			"price": "6489.77778",
- 			"volume": "0.04900"
+ 			"cp": "okex",
+ 			"price": "5378.18262",
+ 			"volume": "0.00100"
  		}, {
- 			"cpId": 259,
- 			"price": "6489.77808",
- 			"volume": "0.03691"
+ 			"cp": "okex",
+ 			"price": "5378.31774",
+ 			"volume": "1.00000"
  		}, {
- 			"cpId": 259,
- 			"price": "6489.77878",
- 			"volume": "0.19228"
+ 			"cp": "okex",
+ 			"price": "5378.50576",
+ 			"volume": "0.20000"
  		}, {
- 			"cpId": 259,
- 			"price": "6489.77888",
- 			"volume": "1.28800"
+ 			"cp": "okex",
+ 			"price": "5378.67577",
+ 			"volume": "1.00000"
  		}, {
- 			"cpId": 259,
- 			"price": "6489.77898",
- 			"volume": "0.00620"
+ 			"cp": "okex",
+ 			"price": "5379.02941",
+ 			"volume": "1.00000"
  		}, {
- 			"cpId": 258,
- 			"price": "6553.38384",
- 			"volume": "0.29030"
+ 			"cp": "binance",
+ 			"price": "5421.76768",
+ 			"volume": "0.01488"
  		}, {
- 			"cpId": 258,
- 			"price": "6553.39394",
- 			"volume": "0.89990"
+ 			"cp": "binance",
+ 			"price": "5422.36364",
+ 			"volume": "0.00547"
  		}, {
- 			"cpId": 257,
- 			"price": "6556.12122",
- 			"volume": "0.85028"
+ 			"cp": "binance",
+ 			"price": "5425.82829",
+ 			"volume": "1.88220"
  		}, {
- 			"cpId": 257,
- 			"price": "6556.13132",
- 			"volume": "1.61673"
- 		}, {
- 			"cpId": 257,
- 			"price": "6556.15152",
- 			"volume": "20.80000"
- 		}, {
- 			"cpId": 257,
- 			"price": "6556.17172",
- 			"volume": "0.08242"
- 		}, {
- 			"cpId": 257,
- 			"price": "6556.19192",
- 			"volume": "0.07693"
- 		}],
- 		"bids": [{
- 			"cpId": 259,
- 			"price": "6486.85874",
- 			"volume": "0.47000"
- 		}, {
- 			"cpId": 259,
- 			"price": "6486.85864",
- 			"volume": "0.10644"
- 		}, {
- 			"cpId": 259,
- 			"price": "6486.69336",
- 			"volume": "0.38500"
- 		}, {
- 			"cpId": 259,
- 			"price": "6486.56687",
- 			"volume": "0.63044"
- 		}, {
- 			"cpId": 259,
- 			"price": "6485.54138",
+ 			"cp": "binance",
+ 			"price": "5425.87879",
  			"volume": "0.50000"
  		}, {
- 			"cpId": 257,
- 			"price": "6423.60510",
- 			"volume": "0.24601"
+ 			"cp": "binance",
+ 			"price": "5427.13132",
+ 			"volume": "1.17530"
  		}, {
- 			"cpId": 257,
- 			"price": "6423.59520",
- 			"volume": "0.16851"
+ 			"cp": "huobi",
+ 			"price": "5429.43435",
+ 			"volume": "0.06310"
  		}, {
- 			"cpId": 257,
- 			"price": "6423.58530",
- 			"volume": "0.19182"
- 		}, {
- 			"cpId": 258,
- 			"price": "6422.67450",
- 			"volume": "0.00200"
- 		}, {
- 			"cpId": 258,
- 			"price": "6422.41710",
- 			"volume": "0.10000"
- 		}, {
- 			"cpId": 257,
- 			"price": "6420.26880",
- 			"volume": "10.06763"
- 		}, {
- 			"cpId": 257,
- 			"price": "6420.15000",
- 			"volume": "0.45792"
+ 			"cp": "huobi",
+ 			"price": "5429.44445",
+ 			"volume": "0.07530"
  		}],
- 		"symbolId": 65537
+ 		"bids": [{
+ 			"cp": "okex",
+ 			"price": "5376.75877",
+ 			"volume": "1.37200"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5373.53419",
+ 			"volume": "0.20828"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5373.25302",
+ 			"volume": "0.00100"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5372.76346",
+ 			"volume": "0.86400"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5372.56748",
+ 			"volume": "0.22866"
+ 		}, {
+ 			"cp": "huobi",
+ 			"price": "5318.87400",
+ 			"volume": "0.19130"
+ 		}, {
+ 			"cp": "huobi",
+ 			"price": "5317.31970",
+ 			"volume": "2.30760"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.43910",
+ 			"volume": "1.19375"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.42920",
+ 			"volume": "0.05459"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.41930",
+ 			"volume": "2.28811"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.40940",
+ 			"volume": "0.20774"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.37970",
+ 			"volume": "0.50000"
+ 		}],
+ 		"symbol": "BTCUSDT"
  	}
  }
 ```
