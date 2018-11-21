@@ -252,9 +252,9 @@ RequestBody:（order）
 | symbol      | Y        | string     | 交易币对名称            |         |              |
 | orderPrice  | Y        | number     | 订单价格               |         |              |
 | orderVolume | Y        | number     | 订单数量               |         |              |
-| side        | Y        | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)        |         |              |
-| orderType   | Y        | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |         |              |
-| timeInForce | Y        | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |         |              |
+| side        | Y        | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |         |              |
+| orderType   | Y        | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |         |              |
+| timeInForce | Y        | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |         |              |
 
 ***请求参数示例***
 
