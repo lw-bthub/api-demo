@@ -483,13 +483,12 @@ X-API-TOKEN:token（通过login获得）
 
 | NAME           | TYPE       | DESCRIBE       |
 | :------------- | :--------- | :------------- |
-| cpOrderid      | integer    | CP订单ID        |
 | cp             | string     | 交易对手名称          |
 | symbol         | string     | 交易币对名称       |
-| orderId        | integer    | 父订单ID         |
 | side           | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
 | executeAmount  | number     | 成交金额       |
 | executePrice   | number     | 成交价格       |
+| cpExecutionid  | number     | CP约定ID       |
 | executeVolume  | number     | 成交数量       |
 | executeTime    | integer    | 成交时间       |
 | commission     | number     | 手续费         |
