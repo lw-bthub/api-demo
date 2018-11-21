@@ -481,13 +481,12 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME           | TYPE       | DESCRIPTION       |
 | :------------- | :--------- | :------------- |
-| cpOrderid      | integer    | CP ORDER ID        |
 | cp             | string     | counter party name          |
 | symbol         | string     | crypto pair name       |
-| orderId        | integer    | parent order ID         |
 | side           | string     | BUY OR SELL(Side) |
 | executeAmount  | number     | executed Amount       |
 | executePrice   | number     | executed Price       |
+| cpExecutionid  | number     | CP execution ID       |
 | executeVolume  | number     | executed Volume       |
 | executeTime    | integer    | executed Time       |
 | commission     | number     | commission         |
