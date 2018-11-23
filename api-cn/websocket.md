@@ -15,8 +15,8 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 | :---------------------------- | -------------------- |
 | [subscribe:apiOrder](#订阅订单成交结果)             | 订阅订单成交结果     |
 | [unsubscribe:apiOrder](#订阅订单成交结果)           | 取消订阅订单成交结果 |
-| [subscribe:apiQuote:symbol](#订阅行情深度)    | 订阅行情深度     (symbol:币对名称)    |
-| [unsubscribe:apiQuote:symbol](#订阅行情深度)  | 取消订阅行情深度   (symbol:币对名称)  |
+| [subscribe:apiQuote:symbol](#订阅行情深度)    | 订阅市场行情深度     (symbol:币对名称)    |
+| [unsubscribe:apiQuote:symbol](#订阅行情深度)  | 取消市场订阅行情深度   (symbol:币对名称)  |
 | [subscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)    | 订阅聚合行情深度     (symbol:币对名称)    |
 | [unsubscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)  | 取消订阅聚合行情深度   (symbol:币对名称)  |
 | [ping](#保持空闲连接)| 心跳命令 |
@@ -33,8 +33,8 @@ X-API-TOKEN:token(通过login获得）
 
 | 请求指令                      | 描述             |
 | :---------------------------- | :--------------- |
-| subscribe:apiQuote:symbol   | 订阅行情深度     |
-| unsubscribe:apiQuote:symbol | 取消订阅行情深度 |
+| subscribe:apiQuote:symbol   | 订阅市场行情深度     |
+| unsubscribe:apiQuote:symbol | 取消订阅市场行情深度 |
 
  ***汇率推送返回参数***
 
@@ -179,8 +179,8 @@ X-API-TOKEN:token(通过login获得）
 
 | 请求指令                      | 描述             |
 | :---------------------------- | :--------------- |
-| subscribe:apiAggregatedQuote:symbol   | 订阅聚合行情深度     |
-| unsubscribe:apiAggregatedQuote:symbol | 取消订阅聚合行情深度 |
+| subscribe:apiAggregatedQuote:symbol   | 订阅聚合市场行情深度     |
+| unsubscribe:apiAggregatedQuote:symbol | 取消订阅聚合市场行情深度 |
 
  ***汇率推送返回参数***
 
