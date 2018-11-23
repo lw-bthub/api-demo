@@ -28,15 +28,15 @@ wss://demo.bthub.com:444/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z
 
 X-API-TOKEN:token(通过login获得）
 
-### 订阅行情深度
-***汇率请求指令***
+### 订阅市场行情深度
+***请求指令***
 
 | 请求指令                      | 描述             |
 | :---------------------------- | :--------------- |
 | subscribe:apiQuote:symbol   | 订阅市场行情深度     |
 | unsubscribe:apiQuote:symbol | 取消订阅市场行情深度 |
 
- ***汇率推送返回参数***
+ ***推送返回参数***
 
 | NAME       | TYPE   | DESCRIBE        |
 | :--------- | :----- | :-------------- |
@@ -47,7 +47,7 @@ X-API-TOKEN:token(通过login获得）
 | price      | number | 价格          |
 | volume     | number  | 数量           |
 
- ***汇率推送返回参数示例***
+ ***推送返回参数示例***
 
 ```
  {
@@ -175,14 +175,14 @@ X-API-TOKEN:token(通过login获得）
   }
 ```
 ### 订阅聚合行情深度
-***汇率请求指令***
+***请求指令***
 
 | 请求指令                      | 描述             |
 | :---------------------------- | :--------------- |
 | subscribe:apiAggregatedQuote:symbol   | 订阅聚合市场行情深度     |
 | unsubscribe:apiAggregatedQuote:symbol | 取消订阅聚合市场行情深度 |
 
- ***汇率推送返回参数***
+ ***推送返回参数***
 
 | NAME       | TYPE   | DESCRIBE        |
 | :--------- | :----- | :-------------- |
@@ -192,7 +192,7 @@ X-API-TOKEN:token(通过login获得）
 | price      | number | 价格          |
 | volume     | number | 数量           |
 
- ***汇率推送返回参数示例***
+ ***推送返回参数示例***
 
 ```
  {
