@@ -18,9 +18,9 @@
 | [subscribe:apiQuote:symbol](#subscribe-market-quotation)    | subscribe market quotation     (symbol:crypto pairs name)    |
 | [unsubscribe:apiQuote:symbol](#subscribe-market-quotation)  | unsubscribe market quotation     (symbol:crypto pairs name)  |
 | [subscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
-| [unsubscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
-| [subscribe:apiRiskPosition:all:book](#subscribe risk)    | subscribe risk    (book: book abbreviation)    |
-| [unsubscribe:apiRiskPosition:all:book](#subscribe risk)  | unsubscribe risk   (book: book abbreviation)  |
+| [unsubscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)    |
+| [subscribe:apiRiskPosition:all:book](#subscribe-risk)    | subscribe risk     (book: book abbreviation)  |
+| [unsubscribe:apiRiskPosition:all:book](#subscribe-risk)  | unsubscribe risk   (book: book abbreviation)  |
 | [ping]| heart beat |
 
 
