@@ -1,4 +1,4 @@
-# RestfulApi 接口信息(2018-11-20)
+# RestfulApi 接口信息(2018-12-28)
 
 REST，即Representational State Transfer的缩写，是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，正得到越来越多网站的采用。
 
@@ -15,15 +15,20 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 | 请求方法                                    | 类型 | 描述                   |
 | :------------------------------------------ | :--- | :--------------------- |
 | [/api/v1/operator/login](#登陆接口)         | POST | 登陆                   |
-| [/api/v1/market/cps](#获取交易对手列表信息)       | GET  | 获取交易对手列表信息         |
+| [/api/v1/market/cps](#获取交易对手列表信息)       | GET  | 获取交易列表信息         |
 | [/api/v1/market/symbols](#获取交易币对列表信息) | GET  | 获取交易币对列表信息     |
 | [/api/v1/trades/place](#下单)                | POST | 投递交易               |
-| [/api/v1/trades/orderDetail](#获取订单详情)        | GET  | 获取订单详情           |
+| [/api/v1/trades/orderDetail](#根据orderId获取订单详情)        | GET  | 根据orderId获取订单详情           |
+| [/api/v1/trades/clientOrderDetail](#根据clientOrderId获取订单详情)        | GET  | 根据clientOrderId获取订单详情           |
 | [/api/v1/trades/orderHistory](#获取订单历史列表信息)       | GET  | 获取订单历史列表信息   |
 | [/api/v1/trades/cpOrderHistory](#获取cp订单历史列表信息)     | GET  | 获取CP订单历史列表信息 |
 | [/api/v1/trades/cpExecutionHistory](#获取cp成交历史列表信息) | GET  | 获取CP成交历史列表信息 |
 | [/api/v1/trades/cpExecutionDetail](#获取CP订单成交详情)  | GET  | 获取CP成交详细         |
 | [/api/v1/market/cpAccountInfo](#获取交易账户信息)  | GET  | 获取交易账户信息         |
+| [/api/v1/risk/books](#获取账簿信息)  | GET  | 获取账簿信息         |
+| [/api/v1/risk/positions](#获取风控信息)  | GET  | 获取风控信息         |
+| [/api/v1/risk/statements](#获取结算信息)  | GET  | 获取结算信息         |
+
 
 ## Restful API
 ### 登陆接口
@@ -246,27 +251,29 @@ X-API-TOKEN:token（通过login获得）
 
 RequestBody:（order）
 
-| NAME        | REQUIRED | TYPE       | DESCRIBE              | DEFAULT | VALUES RANGE |
-| :---------- | :------- | :--------- | :-------------------- | :------ | :----------- |
-| cp          |          | string     | 交易对手名称            |         |              |
-| symbol      | Y        | string     | 交易币对名称            |         |              |
-| orderPrice  | Y        | number     | 订单价格               |         |              |
-| orderVolume | Y        | number     | 订单数量               |         |              |
-| side        | Y        | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |         |              |
-| orderType   | Y        | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |         |              |
-| timeInForce | Y        | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |         |              |
+| NAME          | REQUIRED | TYPE       | DESCRIBE              | DEFAULT | VALUES RANGE |
+| :------------ | :------- | :--------- | :-------------------- | :------ | :----------- |
+| cp            |          | string     | 交易对手名称            |         |              |
+| book          |          | string     | 账簿                    |         |              |
+| symbol        | Y        | string     | 交易币对名称            |         |              |
+| orderPrice    | Y        | number     | 订单价格               |         |              |
+| orderVolume   | Y        | number     | 订单数量               |         |              |
+| side          | Y        | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |         |              |
+| orderType     | Y        | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |         |              |
+| timeInForce   | Y        | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |         |              |
+| clientOrderId |          | string     | 客户端订单ID                    |         |              |
 
 ***请求参数示例***
 
 ```
 {
-  "cp": "",
   "orderPrice": 0,
   "orderType": "MARKET",
   "orderVolume": 0.1,
   "side": "BUY",
   "symbol": "BTCUSDT",
   "timeInForce": "IOC"
+  "clientOrderId": "1"
 }
 ```
 
@@ -289,6 +296,7 @@ RequestBody:（order）
 | orderResult   | string     | [投递结果类型(DealingResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
 | orderTime     | integer    | 订单时间              |
 | executeTime   | integer    | 成交时间                  |
+| clientOrderId | string     | 客户端订单ID                  |
 
 ***返回参数示例***
 
@@ -296,6 +304,7 @@ RequestBody:（order）
 {
   "data": {
     "order": {
+      "clientOrderId": "1"
       "cpOrders": [
         {
           "commission": "0.0010",
@@ -352,7 +361,7 @@ RequestBody:（order）
 }
 ```
 
-### 获取订单详情
+### 根据orderId获取订单详情
 GET /api/v1/trades/orderDetail
 
 请求时必须带Headers:    
@@ -383,6 +392,7 @@ X-API-TOKEN:token（通过login获得）
 | timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
 | orderTime     | integer    | 订单时间              |
 | executeTime   | integer    | 成交时间              |
+| clientOrderId | string     | 客户端订单ID              |
 
 ***返回参数示例***
 
@@ -390,6 +400,123 @@ X-API-TOKEN:token（通过login获得）
 {
   "data": {
     "order": {
+      "clientOrderId": "1"
+      "cpOrders": [
+        {
+          "commission": "0.001000000000",
+          "cp": "okex",
+          "cpOrderId": "764422647617432617",
+          "executeAmount": "162.148181169788",
+          "executeTime": "1542700281148",
+          "executeVolume": "0.034123870000",
+          "orderComment": "764422645882369557.0",
+          "orderResult": 3,
+          "orderTime": "1542700280739",
+          "orderType": 5,
+          "orderVolume": "0.034123870000",
+          "pendingVolume": "0.000000000000",
+          "side": -1,
+          "status": 4,
+          "symbol": "BTCUSDT",
+          "timeInForce": 1
+        },
+        {
+          "commission": "0.001000000000",
+          "cp": "huobi",
+          "cpOrderId": "764422647617432105",
+          "executeAmount": "101.838560000000",
+          "executeTime": "1542700281059",
+          "executeVolume": "0.021500000000",
+          "orderComment": "764422643114119701.0",
+          "orderResult": 3,
+          "orderTime": "1542700280739",
+          "orderType": 5,
+          "orderVolume": "0.021500000000",
+          "pendingVolume": "0.000000000000",
+          "side": -1,
+          "status": 4,
+          "symbol": "BTCUSDT",
+          "timeInForce": 1
+        },
+        {
+          "commission": "0.001000000000",
+          "cp": "binance",
+          "cpOrderId": "764422647617431593",
+          "executeAmount": "107.967621000000",
+          "executeTime": "1542700280829",
+          "executeVolume": "0.022850000000",
+          "orderComment": "764422647266494997.0",
+          "orderResult": 3,
+          "orderTime": "1542700280739",
+          "orderType": 5,
+          "orderVolume": "0.022850000000",
+          "pendingVolume": "0.000000000000",
+          "side": -1,
+          "status": 4,
+          "symbol": "BTCUSDT",
+          "timeInForce": 1
+        }
+      ],
+      "executeAmount": "371.954362169788",
+      "executeTime": "1542700281059",
+      "executeVolume": "0.078473870000",
+      "orderId": "764422647617431081",
+      "orderResult": 5,
+      "orderTime": "1542700280739",
+      "orderType": 5,
+      "orderVolume": "0.100000000000",
+      "pendingVolume": "0.021526130000",
+      "side": -1,
+      "status": 4,
+      "symbol": "BTCUSDT",
+      "timeInForce": 1
+    }
+  },
+  "result": "SUCCESS",
+  "type": "API"
+}
+```
+
+### 根据clientOrderId获取订单详情
+GET /api/v1/trades/clientOrderDetail
+
+request with Headers:    
+
+X-API-TOKEN:token（acquired from login）
+
+***request params***
+
+| NAME          | REQUIRED | TYPE | DESCRIPTION | DEFAULT | VALUES RANGE |
+| :------------ | :------- | :--- | :------- | :------ | :----------- |
+| clientOrderId | Y        | string | 客户端订单ID | -       |              |
+
+***params of return***
+
+| NAME          | TYPE       | DESCRIBE              |
+| :------------ | :--------- | :-------------------- |
+| orderID       | integer    | 订单ID                |
+| cpOrderId     | integer    | CP 订单ID                    |
+| cp            | string     | 交易对手名称                |
+| symbol        | string     | 交易币对名称              |
+| executeAmount | number     | 成交金额              |
+| executeVolume | number     | 成交数量              |
+| orderVolume   | number     | 订单数量              |
+| pendingVolume | number     | 未成交数量              |
+| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |
+| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |
+| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)     |
+| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
+| orderTime     | integer    | 订单时间              |
+| executeTime   | integer    | 成交时间              |
+| clientOrderId | string     | 客户端订单ID              |
+
+***example of return***
+
+```
+{
+  "data": {
+    "order": {
+      "clientOrderId": "1"
       "cpOrders": [
         {
           "commission": "0.001000000000",
@@ -931,6 +1058,223 @@ X-API-TOKEN:token（通过login获得）
     ],
     "cp": "huobi",
     "tradeable": true
+  },
+  "result": "SUCCESS",
+  "type": "API"
+}
+```
+
+### 获取账簿信息
+GET /api/v1/risk/books
+
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
+
+***返回参数***
+
+| NAME  | TYPE   | DESCRIBE |
+| :---- | :----- | :------- |
+| name | string | 账簿简称  |
+
+***返回参数示例***
+
+```
+{
+  "data": [
+    {
+      "name": "B"
+    },
+    {
+      "name": "C"
+    },
+    {
+      "name": "D"
+    }
+  ],
+  "result": "SUCCESS",
+  "type": "API"
+}
+```
+
+### 获取风控信息
+GET /api/v1/risk/positions
+
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
+
+***请求参数***
+
+| NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
+| :------- | :------- | :----- | :------- | :------ | :----------- |
+| book      | Y        | string | 账簿缩写    |         |              |
+
+***返回参数***
+
+| NAME  | TYPE   | DESCRIBE |
+| :---- | :----- | :------- |
+| books | array | 某一币对的账簿集合(根据查询条件,比如 B账簿)  |
+| book | string | 账本缩写    |
+| cps | array |  某一账簿的交易对手集合 |
+| cp | string | 交易对手缩写    |
+| floatingProfit | number | 浮动损益    |
+| openAmount | number | 金额    |
+| openVolume | number | 净头寸    |
+| symbol | string | 币对名称    |
+
+
+***返回参数示例***
+
+```
+{
+  "data": [
+    {
+      "books": [
+        {
+          "book": "B",
+          "cps": [
+            {
+              "costRate": "3750.40641464",
+              "cp": "binance",
+              "floatingProfit": "11.43150209",
+              "openAmount": "266.428871696500",
+              "openVolume": "-0.071040000000",
+              "symbol": "BTCUSDT10"
+            },
+            {
+              "costRate": "0",
+              "cp": "huobi",
+              "floatingProfit": "0",
+              "openAmount": "0.000000000000",
+              "openVolume": "0.000000000000",
+              "symbol": "BTCUSDT10"
+            },
+            {
+              "costRate": "3732.57952708",
+              "cp": "okex",
+              "floatingProfit": "4.31672038",
+              "openAmount": "113.881001371500",
+              "openVolume": "-0.030510000000",
+              "symbol": "BTCUSDT10"
+            }
+          ]
+        }
+      ],
+      "costRate": "3745.05044871",
+      "floatingProfit": "16.25007656",
+      "openAmount": "380.309873068000",
+      "openVolume": "-0.101550000000",
+      "symbol": "BTCUSDT10"
+    },
+    {
+      "books": [
+        {
+          "book": "B",
+          "cps": [
+            {
+              "costRate": "120.02809500",
+              "cp": "huobi",
+              "floatingProfit": "0.08664285",
+              "openAmount": "3.600842850000",
+              "openVolume": "-0.030000000000",
+              "symbol": "ETHUSDT"
+            }
+          ]
+        }
+      ],
+      "costRate": "120.02809500",
+      "floatingProfit": "0.09384285",
+      "openAmount": "3.600842850000",
+      "openVolume": "-0.030000000000",
+      "symbol": "ETHUSDT"
+    }
+  ],
+  "result": "SUCCESS",
+  "type": "API"
+}
+```
+
+
+
+### 获取结算信息
+GET /api/v1/risk/statements
+
+请求时必须带Headers:    
+
+X-API-TOKEN:token（通过login获得）
+
+***请求参数***
+
+| NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
+| :------- | :------- | :----- | :------- | :------ | :----------- |
+| book      |         | string | 账簿名称    |         |              |
+| symbol      |         | string | 币对名称    |         |              |
+| from      | Y        | integer | 开始日期    |         |              |
+| to      | Y        | integer | 结束日期    |         |              |
+| pageNo      |         | integer | 页码    |     1    |              |
+
+***返回参数***
+
+| NAME           | TYPE       | DESCRIBE       |
+| :------------- | :--------- | :------------- |
+| pageCount      | integer       | 总页数         |
+| pageNo         | integer       | 页码           |
+| pageSize       | integer       | 每页数量       |
+| total          | integer       | 总条数         |
+| books | array | 某一币对的账簿集合(根据查询条件,比如 B账簿)  |
+| book | string | 账本缩写    |
+| cp | string | 交易对手缩写    |
+| symbol | string | 币对名称    |
+| openAmount | number | 金额    |
+| openVolume | number | 净头寸    |
+| stateTime | integer | 结算时间    |
+| mtmPl | number |  盯市损益  |
+| mtmQuote | number |  盯市价 |
+
+
+
+***返回参数示例***
+
+```
+{
+  "data": {
+    "pageCount": 1,
+    "pageNo": 1,
+    "pageSize": 100,
+    "records": [
+      {
+        "book": "B",
+        "cp": "okex",
+        "mtmPl": "3.696945598500",
+        "mtmQuote": "4020.806600000000",
+        "openAmount": "199.393995767500",
+        "openVolume": "-0.050510000000",
+        "stateTime": "1545667217419",
+        "symbol": "BTCUSDT10"
+      },
+      {
+        "book": "B",
+        "cp": "binance",
+        "mtmPl": "8.752132224500",
+        "mtmQuote": "4020.806600000000",
+        "openAmount": "239.613091457500",
+        "openVolume": "-0.061770000000",
+        "stateTime": "1545667217418",
+        "symbol": "BTCUSDT10"
+      },
+      {
+        "book": "B",
+        "cp": "huobi",
+        "mtmPl": "0.000000000000",
+        "mtmQuote": "4020.806600000000",
+        "openAmount": "0.000000000000",
+        "openVolume": "0.000000000000",
+        "stateTime": "1545667217417",
+        "symbol": "BTCUSDT10"
+      }
+    ],
+    "total": 3
   },
   "result": "SUCCESS",
   "type": "API"
