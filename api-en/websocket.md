@@ -1,1279 +1,345 @@
-# Restful API informations(2018-12-28)
+# Websocket (2018-12-28)
 
 
-- API url    
-    live environment：https://trade.bthub.com:444/  
-    test environment：https://demo.bthub.com:444/     
-- API test tools   
-    live environment：https://trade.bthub.com:444/swagger-ui.html    
-    test environment：https://demo.bthub.com:444/swagger-ui.html 
+- Websocket url:     
+    production environment：wss://trade.bthub.com:444    
+    test environment：wss://demo.bthub.com:444    
+- Websocket request ,login required。
+- when connection is created,  login required, then can subscribe and unsubscribe
+- when connection is created,  required to send regular-'ping' to keep it alive. period:30 minutes.
+
 
 ## API LIST
 
-| request                                    | type | description                   |
-| :------------------------------------------ | :--- | :--------------------- |
-| [/api/v1/operator/login](#login)                   | POST | login                   |
-| [/api/v1/market/cps](#get-counter-party-list)                       | GET  | get counter party list          |
-| [/api/v1/market/symbols](#get-crypto-pairs-list)                   | GET  | get crypto pairs list       |
-| [/api/v1/trades/place](#place-order)                     | POST | place orders (SOR)               |
-| [/api/v1/trades/orderDetail](#get-detail-of-orders)               | GET  | get  detail  of orders         |
-| [/api/v1/trades/clientOrderDetail](#get-detail-of-client-Orders)               | GET  | get  detail  of client orders         |
-| [/api/v1/trades/orderHistory](#get-history-list-of-orders)              | GET  | get history  list of orders   |
-| [/api/v1/trades/cpOrderHistory](#get-CP-history-list-of-placed-orders)            | GET  | get CP history list of placed orders |
-| [/api/v1/trades/cpExecutionHistory](#get-CP-history-list-of-executed-orders)        | GET  | get CP history list of executed orders |
-| [/api/v1/trades/cpExecutionDetail](#get-CP-detail-of-executed-order)         | GET  | get CP detail of executed orders         |
-| [/api/v1/market/cpAccountInfo](#get-account-info)             | GET  | get account info         |
-| [/api/v1/risk/books](#get-book-info)  | GET  | get book info         |
-| [/api/v1/risk/positions](#get-risk-info)  | GET  | get risk info         |
-| [/api/v1/risk/statements](#get-statement-info)  | GET  | get statement info         |
+| request                       | description                 |
+| :---------------------------- | -------------------- |
+| [subscribe:apiOrder](#subscribe-order-trading-result)             | subscribe order trading result     |
+| [unsubscribe:apiOrder](#subscribe-order-trading-result)           | unsubscribe order trading result |
+| [subscribe:apiQuote:symbol](#subscribe-market-quotation)    | subscribe market quotation     (symbol:crypto pairs name)    |
+| [unsubscribe:apiQuote:symbol](#subscribe-market-quotation)  | unsubscribe market quotation     (symbol:crypto pairs name)  |
+| [subscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
+| [unsubscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)  |
+| [subscribe:apiRiskPosition:all:book](#subscribe risk)    | subscribe risk    (book: book abbreviation)    |
+| [unsubscribe:apiRiskPosition:all:book](#subscribe risk)  | unsubscribe risk   (book: book abbreviation)  |
+| [ping]| heart beat |
 
-## Restful API
-### login
-POST /api/v1/operator/login
 
-***request params***
+## WEBSOCKET API for creating connection
 
-| NAME     | REQUIRED | TYPE   | DESCRIPTION | DEFAULT | VALUES RANGE |
-| :------- | :------- | :----- | :------- | :------ | :----------- |
-| loginId  | Y        | string | id    |         |              |
-| password | Y        | string | password      |         |              |
+wss://demo.bthub.com:444/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z    
 
-***params of return***
+X-API-TOKEN:token(acquired from login）
 
-| NAME  | TYPE   | DESCRIPTION |
-| :---- | :----- | :------- |
-| token | string | token    |
+### subscribe market quotation
+***request instruction***
 
-***example of return***
-
-```
-{
-  "data": {
-    "token": "ZElHYkFsRktuZDduUG1udzI2V1lldyIsImFsZyI6IkEyNTZHQ01LVyIsIml2IjoicjZzLU83TGlYTUFYVEVxeSJ9.92p5f4TRYGPa16VZQgE1_FlhYwx6YCLeUlh-rlE3o_8.-wL8D1uL3GEEE3kj.qmBbSsSy92nYBt4WOLbU5MCH1NPbXO6k6_b5uGEG63xcQJ-Ny9K1VCMRtChQRol6l6fb5rNobNnOFAgeYzy2cqkje4HgUlL3BSRNlDj7G6W-60MwM2af7U2xshESv8LqLux2GZxPzCBmJz__HgluDxJwX2qNsMvOjM5k7Ckce8E1vHRJA18pkMzAL41HMFyzaf67Mp2SgXIaFHXVKVxdsOI.Gi2YOwudddsfdsafdsafa"
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-### get counter party list
-GET /api/v1/market/cps
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***params of return***
-
-| NAME           | TYPE    | DESCRIPTION |
-| :------------- | :------ | :------- |
-| name           | string  | name |
-| tradingEnabled | boolean | trading constraints |
-
-***example of return***
-
-```
-{
-  "data": [
-    {
-      "name": "binance",
-      "tradingEnabled": true
-    },
-    {
-      "name": "huobi",
-      "tradingEnabled": true
-    },
-    {
-      "name": "okex",
-      "tradingEnabled": true
-    },
-    {
-      "name": "chainup",
-      "tradingEnabled": true
-    }
-  ],
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-### get crypto pairs list
-GET  /api/v1/market/symbols
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***params of return***
-
-| NAME               | TYPE       | DESCRIPTION     |
-| :----------------- | :--------- | :----------- |
-| name               | string     | crypto pair name         |
-| tradingMaxVolume   | number     | trading Max Volume |
-| tradingMinVolume   | number     | trading Min Volume |
-| tradingPriceScale  | integer    | trading Price Scale     |
-| tradingVolumeScale | integer    | trading Volume Scale   |
-
-***example of return***
-
-```
-{
-  "data": [
-    {
-      "name": "BTCUSDT",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.01",
-      "tradingPriceScale": 5,
-      "tradingVolumeScale": 5
-    },
-    {
-      "name": "BCHUSDT",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.00001",
-      "tradingPriceScale": 2,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "ETHUSDT",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.00001",
-      "tradingPriceScale": 2,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "LTCUSDT",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.00001",
-      "tradingPriceScale": 2,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "XRPUSDT",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.1",
-      "tradingPriceScale": 5,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "EOSUSDT",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.01",
-      "tradingPriceScale": 4,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "ETCUSDT",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.01",
-      "tradingPriceScale": 4,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "BCHBTC",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.001",
-      "tradingPriceScale": 6,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "ETHBTC",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.001",
-      "tradingPriceScale": 6,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "LTCBTC",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.01",
-      "tradingPriceScale": 6,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "XRPBTC",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "1",
-      "tradingPriceScale": 8,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "EOSBTC",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.001",
-      "tradingPriceScale": 7,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "ETCBTC",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.001",
-      "tradingPriceScale": 6,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "ETCETH",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.001",
-      "tradingPriceScale": 6,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "XRPETH",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.001",
-      "tradingPriceScale": 8,
-      "tradingVolumeScale": 8
-    },
-    {
-      "name": "EOSETH",
-      "tradingMaxVolume": "100",
-      "tradingMinVolume": "0.001",
-      "tradingPriceScale": 6,
-      "tradingVolumeScale": 8
-    }
-  ],
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-### place order
-POST /api/v1/trades/place
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***request***
-
-RequestBody:（order）
-
-| NAME          | REQUIRED | TYPE       | DESCRIPTION              | DEFAULT | VALUES RANGE |
-| :------------ | :------- | :--------- | :-------------------- | :------ | :----------- |
-| cp            |          | string     | counter party name            |         |              |
-| book          |          | string     | book                    |         |              |
-| symbol        | Y        | string     | crypto pair name            |         |              |
-| orderPrice    | Y        | number     | order Price               |         |              |
-| orderVolume   | Y        | number     | order Volume               |         |              |
-| side          | Y        | string     | BUY or SELL(Side)       |         |              |
-| orderType     | Y        | string     | Order Type)   |         |              |
-| timeInForce   | Y        | string     | Time In Force) |         |              |
-| clientOrderId |          | string     | clinet order id |         |              |
-
-***example of request***
-
-```
-{
-  "cp": "",
-  "orderPrice": 0,
-  "orderType": "MARKET",
-  "orderVolume": 0.1,
-  "side": "BUY",
-  "symbol": "BTCUSDT",
-  "timeInForce": "IOC",
-  "clientOrderId": "1"
-}
-```
+| request                      | description        |
+| :---------------------------- | :--------------- |
+| subscribe:apiQuote:symbol   | subscribe new market quotation     |
+| unsubscribe:apiQuote:symbol | unsubscribe new market quotation |
 
  ***params of return***
 
-| NAME          | TYPE       | DESCRIPTION              |
-| :------------ | :--------- | :-------------------- |
-| orderID       | integer    | order ID                |
-| cpOrderId     | integer    | CP order ID                    |
-| cp            | string     | counter party name                |
-| symbol        | string     | crypto pair name              |
-| executeAmount | number     | executed Amount              |
-| executeVolume | number     | executed Volume              |
-| orderVolume   | number     | order Volume              |
-| pendingVolume | number     | pending Volume              |
-| side          | string     | BUY or SELL(Side)]       |
-| orderType     | string     | Order Type  |
-| status        | string     | Order Status     |
-| timeInForce   | string     | Time In Force |
-| orderResult   | string     | Dealing Result |
-| orderTime     | integer    | place order Time              |
-| executeTime   | integer    | executed Time                  |
-| clientOrderId | string     | clinet order id                  |
-
-***example of return***
-
-```
-{
-  "data": {
-    "order": {
-      "clientOrderId": "1"
-      "cpOrders": [
-        {
-          "commission": "0.0010",
-          "cp": "okex",
-          "cpOrderId": "764537366881774633",
-          "executeAmount": "0",
-          "executeTime": "0",
-          "executeVolume": "0",
-          "orderComment": "764537362455412757.0",
-          "orderTime": "1542713956341",
-          "orderType": 5,
-          "orderVolume": "0.03538015",
-          "pendingVolume": "0.00000000",
-          "side": 1,
-          "status": 1,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        },
-        {
-          "commission": "0.0010",
-          "cp": "huobi",
-          "cpOrderId": "764537366881774121",
-          "executeAmount": "0",
-          "executeTime": "0",
-          "executeVolume": "0",
-          "orderComment": "764537365559204373.0",
-          "orderTime": "1542713956341",
-          "orderType": 5,
-          "orderVolume": "0.0262",
-          "pendingVolume": "0.0000",
-          "side": 1,
-          "status": 1,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        }
-      ],
-      "executeAmount": "0",
-      "executeTime": "0",
-      "executeVolume": "0",
-      "orderId": "764537366881773609",
-      "orderTime": "1542713956341",
-      "orderType": 5,
-      "orderVolume": "0.1",
-      "pendingVolume": "0.03841985",
-      "side": 1,
-      "status": 1,
-      "symbol": "BTCUSDT",
-      "timeInForce": 1
-    },
-    "orderResult": "SUCCESS"
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-### get detail of orders
-GET /api/v1/trades/orderDetail
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***request params***
-
-| NAME     | REQUIRED | TYPE | DESCRIPTION | DEFAULT | VALUES RANGE |
-| :------- | :------- | :--- | :------- | :------ | :----------- |
-| orderId | Y        | integer | order ID | -       |              |
-
-***params of return***
-
-| NAME          | TYPE       | DESCRIPTION              |
-| :------------ | :--------- | :-------------------- |
-| orderID       | integer    | order ID                |
-| cpOrderId     | integer    | CP order ID                    |
-| cp            | string     | counter party name                |
-| symbol        | string     | crypto pair name              |
-| executeAmount | number     | executed Amount              |
-| executeVolume | number     | executed Volume              |
-| orderVolume   | number     | order Volume              |
-| pendingVolume | number     | pending Volume              |
-| side          | string     | BUY OR SELL(Side)        |
-| orderType     | string     | Order Type   |
-| status        | string     | Order Status     |
-| timeInForce   | string     | Time In Force) |
-| orderTime     | integer    | place order Time              |
-| executeTime   | integer    | executed Time              |
-| clientOrderId | string     | client order ID              |
-
-***example of return***
-
-```
-{
-  "data": {
-    "order": {
-      "clientOrderId": "1"
-      "cpOrders": [
-        {
-          "commission": "0.001000000000",
-          "cp": "okex",
-          "cpOrderId": "764422647617432617",
-          "executeAmount": "162.148181169788",
-          "executeTime": "1542700281148",
-          "executeVolume": "0.034123870000",
-          "orderComment": "764422645882369557.0",
-          "orderResult": 3,
-          "orderTime": "1542700280739",
-          "orderType": 5,
-          "orderVolume": "0.034123870000",
-          "pendingVolume": "0.000000000000",
-          "side": -1,
-          "status": 4,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        },
-        {
-          "commission": "0.001000000000",
-          "cp": "huobi",
-          "cpOrderId": "764422647617432105",
-          "executeAmount": "101.838560000000",
-          "executeTime": "1542700281059",
-          "executeVolume": "0.021500000000",
-          "orderComment": "764422643114119701.0",
-          "orderResult": 3,
-          "orderTime": "1542700280739",
-          "orderType": 5,
-          "orderVolume": "0.021500000000",
-          "pendingVolume": "0.000000000000",
-          "side": -1,
-          "status": 4,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        },
-        {
-          "commission": "0.001000000000",
-          "cp": "binance",
-          "cpOrderId": "764422647617431593",
-          "executeAmount": "107.967621000000",
-          "executeTime": "1542700280829",
-          "executeVolume": "0.022850000000",
-          "orderComment": "764422647266494997.0",
-          "orderResult": 3,
-          "orderTime": "1542700280739",
-          "orderType": 5,
-          "orderVolume": "0.022850000000",
-          "pendingVolume": "0.000000000000",
-          "side": -1,
-          "status": 4,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        }
-      ],
-      "executeAmount": "371.954362169788",
-      "executeTime": "1542700281059",
-      "executeVolume": "0.078473870000",
-      "orderId": "764422647617431081",
-      "orderResult": 5,
-      "orderTime": "1542700280739",
-      "orderType": 5,
-      "orderVolume": "0.100000000000",
-      "pendingVolume": "0.021526130000",
-      "side": -1,
-      "status": 4,
-      "symbol": "BTCUSDT",
-      "timeInForce": 1
-    }
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-### get detail of client orders
-GET /api/v1/trades/clientOrderDetail
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***request params***
-
-| NAME          | REQUIRED | TYPE | DESCRIPTION | DEFAULT | VALUES RANGE |
-| :------------ | :------- | :--- | :------- | :------ | :----------- |
-| clientOrderId | Y        | string | client order ID | -       |              |
-
-***params of return***
-
-| NAME          | TYPE       | DESCRIPTION              |
-| :------------ | :--------- | :-------------------- |
-| orderID       | integer    | order ID                |
-| cpOrderId     | integer    | CP order ID                    |
-| cp            | string     | counter party name                |
-| symbol        | string     | crypto pair name              |
-| executeAmount | number     | executed Amount              |
-| executeVolume | number     | executed Volume              |
-| orderVolume   | number     | order Volume              |
-| pendingVolume | number     | pending Volume              |
-| side          | string     | BUY OR SELL(Side)        |
-| orderType     | string     | Order Type   |
-| status        | string     | Order Status     |
-| timeInForce   | string     | Time In Force) |
-| orderTime     | integer    | place order Time              |
-| executeTime   | integer    | executed Time              |
-| clientOrderId | string     | client order ID              |
-
-***example of return***
-
-```
-{
-  "data": {
-    "order": {
-      "clientOrderId": "1"
-      "cpOrders": [
-        {
-          "commission": "0.001000000000",
-          "cp": "okex",
-          "cpOrderId": "764422647617432617",
-          "executeAmount": "162.148181169788",
-          "executeTime": "1542700281148",
-          "executeVolume": "0.034123870000",
-          "orderComment": "764422645882369557.0",
-          "orderResult": 3,
-          "orderTime": "1542700280739",
-          "orderType": 5,
-          "orderVolume": "0.034123870000",
-          "pendingVolume": "0.000000000000",
-          "side": -1,
-          "status": 4,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        },
-        {
-          "commission": "0.001000000000",
-          "cp": "huobi",
-          "cpOrderId": "764422647617432105",
-          "executeAmount": "101.838560000000",
-          "executeTime": "1542700281059",
-          "executeVolume": "0.021500000000",
-          "orderComment": "764422643114119701.0",
-          "orderResult": 3,
-          "orderTime": "1542700280739",
-          "orderType": 5,
-          "orderVolume": "0.021500000000",
-          "pendingVolume": "0.000000000000",
-          "side": -1,
-          "status": 4,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        },
-        {
-          "commission": "0.001000000000",
-          "cp": "binance",
-          "cpOrderId": "764422647617431593",
-          "executeAmount": "107.967621000000",
-          "executeTime": "1542700280829",
-          "executeVolume": "0.022850000000",
-          "orderComment": "764422647266494997.0",
-          "orderResult": 3,
-          "orderTime": "1542700280739",
-          "orderType": 5,
-          "orderVolume": "0.022850000000",
-          "pendingVolume": "0.000000000000",
-          "side": -1,
-          "status": 4,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        }
-      ],
-      "executeAmount": "371.954362169788",
-      "executeTime": "1542700281059",
-      "executeVolume": "0.078473870000",
-      "orderId": "764422647617431081",
-      "orderResult": 5,
-      "orderTime": "1542700280739",
-      "orderType": 5,
-      "orderVolume": "0.100000000000",
-      "pendingVolume": "0.021526130000",
-      "side": -1,
-      "status": 4,
-      "symbol": "BTCUSDT",
-      "timeInForce": 1
-    }
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-### get CP detail of executed order 
-GET  /api/v1/trades/cpExecutionDetail
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***request params***
-
-| NAME    | REQUIRED | TYPE | DESCRIPTION | DEFAULT | VALUES RANGE |
-| :------ | :------- | :--- | :------- | :------ | :----------- |
-| cpOrderId | Y        | integer | CP ORDER ID   | -       |              |
-
-***params of return***
-
-| NAME           | TYPE       | DESCRIPTION       |
-| :------------- | :--------- | :------------- |
-| cp             | string     | counter party name          |
-| symbol         | string     | crypto pair name       |
-| side           | string     | BUY OR SELL(Side) |
-| executeAmount  | number     | executed Amount       |
-| executePrice   | number     | executed Price       |
-| cpExecutionid  | number     | CP execution ID       |
-| executeVolume  | number     | executed Volume       |
-| executeTime    | integer    | executed Time       |
-| commission     | number     | commission         |
-| executeComment | string     | comment       |
-
-***example of return***
-
-```
-{
-  "data": {
-    "executions": [
-      {
-        "commission": "0.177134330000",
-        "cp": "binance",
-        "cpExecutionid": "764451245254521375",
-        "executeAmount": "177.134333600000",
-        "executeComment": "CommissionAsset: USDT",
-        "executePrice": "4408.520000000000",
-        "executeTime": "1542703689751",
-        "executeVolume": "0.040180000000",
-        "side": -1,
-        "symbol": "BTCUSDT"
-      }
-    ]
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-
- ### get history list of orders
- GET  /api/v1/trades/orderHistory
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
- ***request params***
-
-| NAME     | REQUIRED | TYPE    | DESCRIPTION          | DEFAULT | VALUES RANGE |
-| :------- | :------- | :------ | :---------------- | :------ | :----------- |
-| cp       |          | string   | counter party name             | -       |              |
-| symbol   |          | string | crypto pair name          | -       |              |
-| status   |          | string  | Order Status | -       |              |
-| from     | Y        | integer    | time started         | -       |              |
-| to       | Y        | integer    | time ended         | -       |              |
-| pageNo   |          | integer | page NO              | -       |              |
-
- ***params of return***
-
-| NAME          | TYPE       | DESCRIPTION              |
-| :------------ | :--------- | :-------------------- |
-| pageCount     | integer    | Counts of pages                |
-| pageNo        | integer    | page NO                  |
-| pageSize      | integer    | page Size              |
-| total         | integer    | total NO                |
-| cpOrderId     | integer    | CP order ID                    |
-| cp            | string     | counter party name              |
-| symbol        | string     | crypto pair name             |
-| orderId       | integer    | parent ID              |
-| side          | string     | BUY OR SELL(Side)       |
-| status        | string     | Order Status    |
-| orderResult   | string     | Order Result    |
-| orderType     | string     | Order Type   |
-| orderPrice    | number     | order Price              |
-| executeAmount | number     | executed Amount              |
-| orderVolume   | number     | order Volume              |
-| pendingVolume | number     | pending Volume              |
-| executeVolume | number     | executed Volume              |
-| executeTime   | integer    | executed Time              |
-| orderTime     | integer    | place order Time              |
-| timeInForce   | string     | Time In Force |
-| commission    | number     | commission                |
-| rejectReason  | string     | reject Reason              |
-| orderComment  | string     | comment                  |
+| NAME       | TYPE   | DESCRIBE        |
+| :--------- | :----- | :-------------- |
+| event      | string | event(API_QUOTE) |
+| commission | number | commission fee   |
+| cp         | string | counter party name      |
+| symbol     | string | crypto pairs name       |
+| price      | number | price          |
+| volume     | number  | volume           |
 
  ***example of return***
 
 ```
  {
-  "data": {
-    "pageCount": 1,
-    "pageNo": 1,
-    "pageSize": 100,
-    "records": [
-      {
-        "commission": "0.0100",
-        "cp": "binance",
-        "cpOrderid": "0",
-        "executeAmount": "45.7905",
-        "executeTime": "1542783740595",
-        "executeVolume": "0.01",
-        "orderComment": "765122751453824021.0",
-        "orderId": "765122754566440991",
-        "orderResult": 3,
-        "orderTime": "1542783739991",
-        "orderType": 5,
-        "orderVolume": "0.01",
-        "pendingVolume": "0",
-        "side": -1,
-        "status": 4,
-        "symbol": "BTCUSDT",
-        "timeInForce": 1
-      },
-      {
-        "cp": "",
-        "cpOrderid": "0",
-        "executeAmount": "0",
-        "executeTime": "0",
-        "executeVolume": "0",
-        "orderId": "765093754133560351",
-        "orderResult": 1,
-        "orderTime": "1542780282870",
-        "orderType": 5,
-        "orderVolume": "0.1",
-        "pendingVolume": "0.1",
-        "side": 1,
-        "status": 9,
-        "symbol": "BTCUSDT",
-        "timeInForce": 1
-      },
-      {
-        "cp": "",
-        "cpOrderid": "0",
-        "executeAmount": "0",
-        "executeTime": "0",
-        "executeVolume": "0",
-        "orderId": "765093385278076959",
-        "orderResult": 1,
-        "orderTime": "1542780238899",
-        "orderType": 5,
-        "orderVolume": "0.1",
-        "pendingVolume": "0.1",
-        "side": 1,
-        "status": 9,
-        "symbol": "BTCUSDT",
-        "timeInForce": 1
-      }
-    ],
-    "total": 3
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
+ 	"event": "API_QUOTE",
+ 	"data": {
+ 		"asks": [{
+ 			"price": "5379.3864",
+ 			"volume": "0.1"
+ 		}, {
+ 			"price": "5379.3865",
+ 			"volume": "0.166"
+ 		}, {
+ 			"price": "5379.6339",
+ 			"volume": "0.001"
+ 		}, {
+ 			"price": "5385.3535",
+ 			"volume": "1.89179998"
+ 		}, {
+ 			"price": "5385.3536",
+ 			"volume": "0.001"
+ 		}],
+ 		"bids": [{
+ 			"price": "5376.0837",
+ 			"volume": "0.40748547"
+ 		}, {
+ 			"price": "5376.0836",
+ 			"volume": "0.33848547"
+ 		}, {
+ 			"price": "5375.4579",
+ 			"volume": "1"
+ 		}, {
+ 			"price": "5375.4207",
+ 			"volume": "0.00885"
+ 		}, {
+ 			"price": "5375.3574",
+ 			"volume": "0.00978"
+ 		}],
+ 		"commission": "0.0001",
+ 		"cp": "okex",
+ 		"symbol": "BTCUSDT"
+ 	}
+ }
 ```
 
-### get CP history list of placed orders
-GET  /api/v1/trades/cpOrderHistory
+### subscribe order trading result
+***order request***
 
-request with Headers:    
+| request             | description                 |
+| :------------------- | :------------------- |
+| subscribe:apiOrder   | subscribe order trading result     |
+| unsubscribe:apiOrder | unsubscribe order trading result |
 
-X-API-TOKEN:token（acquired from login）
+ ***params of order trading result***
 
-***request params***
-
-| NAME     | REQUIRED | TYPE    | DESCRIPTION          | DEFAULT | VALUES RANGE |
-| :------- | :------- | :------ | :---------------- | :------ | :----------- |
-| cp       |          | string  | counter party name             | -       |              |
-| symbol   |          | string  | crypto pair name          | -       |              |
-| status   |          | string  | Order Status | -       |              |
-| from     | Y        | integer    | time started          | -       |              |
-| to       | Y        | integer    | time ended          | -       |              |
-| pageNo   |          | integer | page NO              | -       |              |
-
-***params of return***
-
-| NAME          | TYPE       | DESCRIPTION              |
+| NAME          | TYPE       | DESCRIBE              |
 | :------------ | :--------- | :-------------------- |
-| pageCount     | integer    | counts of pages                |
-| pageNo        | integer    | page NO                  |
-| pageSize      | integer    | page Size              |
-| total         | integer    | total amount                |
-| cpOrderid     | integer    | CP Order ID                    |
-| cp            | string     | counter party name                |
-| symbol        | string     | crypto pair name              |
-| orderId       | integer    | parent order ID              |
-| side          | string     | BUY OR SELL(Side)      |
+| event         | string     | event(API_ORDER)       |
+| cpOrderId     | integer    | CP order ID          |
+| symbol        | string     | crypto pairs name              |
+| orderId       | integer    | parent order ID                |
+| side          | string     | BUY or SELL(Side)]        |
 | status        | string     | Order Status     |
-| orderType     | string     | Order Type   |
-| orderResult   | string     | Order Result     |
+| orderType     | string     | Order Type  |
 | executeAmount | number     | executed Amount              |
-| orderPrice    | number     | order Price              |
 | executeVolume | number     | executed Volume              |
 | orderVolume   | number     | order Volume              |
-| pendingVolume | number     | pending Volume              |
+| pendingVolume | number     | pending Volume             |
+| executeTime   | integer    | executed Time               |
 | orderTime     | integer    | place order Time              |
-| executeTime   | integer    | executed Time              |
-| timeInForce   | string     | Time In Force) |
 | commission    | number     | commission                |
-| rejectReason  | string     | reject Reason              |
-| orderComment  | string     | comment                  |
+| timeInForce   | string     | Time In Force |
+| orderResult   | string     | Order Result    |
+| orderComment  | string     | comments                 |
 
-***example of return***
+  ***example of order trading result***
 
 ```
+  {
+  	"event": "API_ORDER",
+  	"data": {
+  		"cpOrders": [{
+  			"commission": "0.0100",
+  			"cp": "binance",
+  			"cpOrderId": "764451239273443359",
+  			"executeAmount": "177.1343336000000000",
+  			"executeTime": "1542703689751",
+  			"executeVolume": "0.04018000",
+  			"executions": [{
+  				"commission": "0.17713433",
+  				"cp": "binance",
+  				"cpExecutionid": "764451245254521375",
+  				"executeAmount": "177.1343336000000000",
+  				"executeComment": "CommissionAsset: USDT",
+  				"executePrice": "4408.52000000",
+  				"executeTime": "1542703689751",
+  				"executeVolume": "0.04018000",
+  				"side": -1,
+  				"symbol": "BTCUSDT"
+  			}],
+  			"orderComment": "764451230726985237.0",
+  			"orderResult": 3,
+  			"orderTime": "1542703689130",
+  			"orderType": 5,
+  			"orderVolume": "0.04018",
+  			"pendingVolume": "0.00000000",
+  			"side": -1,
+  			"status": 4,
+  			"symbol": "BTCUSDT",
+  			"timeInForce": 1
+  		}],
+  		"executeAmount": "177.1343336000000000",
+  		"executeTime": "1542703689751",
+  		"executeVolume": "0.04018000",
+  		"orderId": "764451239265054239",
+  		"orderResult": 5,
+  		"orderTime": "1542703689130",
+  		"orderType": 5,
+  		"orderVolume": "0.1",
+  		"pendingVolume": "0.05982000",
+  		"side": -1,
+  		"status": 4,
+  		"symbol": "BTCUSDT",
+  		"timeInForce": 1
+  	}
+  }
+```
+
+
+### subscribe aggregation quotation
+***request instruction***
+
+| request                      | description             |
+| :---------------------------- | :--------------- |
+| subscribe:apiAggregatedQuote:symbol   | subscribe aggregation quotation     |
+| unsubscribe:apiAggregatedQuote:symbol | unsubscribe aggregation quotation |
+
+ ***params of return***
+
+| NAME       | TYPE   | DESCRIBE        |
+| :--------- | :----- | :-------------- |
+| event      | string | event(API_AGGREGATED_QUOTE) |
+| cp         | string | counter party name                |
+| symbol     | string | crypto pair name              |
+| price      | number | price          |
+| volume     | number | volume           |
+
+ ***example of return***
+
+```
+ {
+ 	"event": "API_AGGREGATED_QUOTE",
+ 	"data": {
+ 		"asks": [{
+ 			"cp": "okex",
+ 			"price": "5378.18262",
+ 			"volume": "0.00100"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5378.31774",
+ 			"volume": "1.00000"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5378.50576",
+ 			"volume": "0.20000"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5378.67577",
+ 			"volume": "1.00000"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5379.02941",
+ 			"volume": "1.00000"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5421.76768",
+ 			"volume": "0.01488"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5422.36364",
+ 			"volume": "0.00547"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5425.82829",
+ 			"volume": "1.88220"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5425.87879",
+ 			"volume": "0.50000"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5427.13132",
+ 			"volume": "1.17530"
+ 		}, {
+ 			"cp": "huobi",
+ 			"price": "5429.43435",
+ 			"volume": "0.06310"
+ 		}, {
+ 			"cp": "huobi",
+ 			"price": "5429.44445",
+ 			"volume": "0.07530"
+ 		}],
+ 		"bids": [{
+ 			"cp": "okex",
+ 			"price": "5376.75877",
+ 			"volume": "1.37200"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5373.53419",
+ 			"volume": "0.20828"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5373.25302",
+ 			"volume": "0.00100"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5372.76346",
+ 			"volume": "0.86400"
+ 		}, {
+ 			"cp": "okex",
+ 			"price": "5372.56748",
+ 			"volume": "0.22866"
+ 		}, {
+ 			"cp": "huobi",
+ 			"price": "5318.87400",
+ 			"volume": "0.19130"
+ 		}, {
+ 			"cp": "huobi",
+ 			"price": "5317.31970",
+ 			"volume": "2.30760"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.43910",
+ 			"volume": "1.19375"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.42920",
+ 			"volume": "0.05459"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.41930",
+ 			"volume": "2.28811"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.40940",
+ 			"volume": "0.20774"
+ 		}, {
+ 			"cp": "binance",
+ 			"price": "5311.37970",
+ 			"volume": "0.50000"
+ 		}],
+ 		"symbol": "BTCUSDT"
+ 	}
+ }
+```
+
+
+
+### subscribe risk
+***request instruction***
+
+| request                      | description             |
+| :---------------------------- | :--------------- |
+| subscribe:apiRiskPosition:all:book    | subscribe risk     (book:book abbreviation)    |
+| unsubscribe:apiRiskPosition:all:book  | unsubscribe risk   (book:book abbreviation)  |
+
+ ***params of return***
+
+| NAME       | TYPE   | DESCRIBE        |
+| :--------- | :----- | :-------------- |
+| event      | string | event (API_RISK_POSITION) |
+| book         | string | book abbreviation                |
+| cp     | string | counter party name            |
+| openAmount     | string | open amount              |
+| openVolume     | string | open volume              |
+| symbol     | string | crypto pair name              |
+
+
+
+ ***example of return***
+ ```
 {
-  "data": {
-    "pageCount": 1,
-    "pageNo": 1,
-    "pageSize": 100,
-    "records": [
-      {
-        "commission": "0.0100",
-        "cp": "huobi",
-        "cpOrderid": "765093754133560863",
-        "executeAmount": "0",
-        "executeTime": "0",
-        "executeVolume": "0",
-        "orderComment": "765093748992762389.0",
-        "orderId": "765093754133560351",
-        "orderResult": 1,
-        "orderTime": "1542780282870",
-        "orderType": 5,
-        "orderVolume": "0.0157",
-        "pendingVolume": "0.0157",
-        "side": 1,
-        "status": 9,
-        "symbol": "BTCUSDT",
-        "timeInForce": 1
-      },
-      {
-        "commission": "0.0100",
-        "cp": "huobi",
-        "cpOrderid": "765093385278077471",
-        "executeAmount": "0",
-        "executeTime": "0",
-        "executeVolume": "0",
-        "orderComment": "765093382953764373.0",
-        "orderId": "765093385278076959",
-        "orderResult": 1,
-        "orderTime": "1542780238899",
-        "orderType": 5,
-        "orderVolume": "0.0157",
-        "pendingVolume": "0.0157",
-        "side": 1,
-        "status": 9,
-        "symbol": "BTCUSDT",
-        "timeInForce": 1
-      },
-      {
-        "commission": "0.0100",
-        "cp": "huobi",
-        "cpOrderid": "765089110191781407",
-        "executeAmount": "0",
-        "executeTime": "0",
-        "executeVolume": "0",
-        "orderComment": "765089109550140949.0",
-        "orderId": "765089110191780895",
-        "orderResult": 1,
-        "orderTime": "1542779729270",
-        "orderType": 5,
-        "orderVolume": "0.0156",
-        "pendingVolume": "0.0156",
-        "side": 1,
-        "status": 9,
-        "symbol": "BTCUSDT",
-        "timeInForce": 1
-      }
-    ],
-    "total": 3
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-### get CP history list of executed orders
-GET  /api/v1/trades/cpExecutionHistory
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***request params***
-
-| NAME     | REQUIRED | TYPE    | DESCRIPTION | DEFAULT | VALUES RANGE |
-| :------- | :------- | :------ | :------- | :------ | :----------- |
-| cp       |          | string   | counter party name    | -       |              |
-| symbol   |          | string   | crypto pair name | -       |              |
-| from     | Y        | integer  | time started | -       |              |
-| to       | Y        | integer  | time ended | -       |              |
-| pageNo   |          | integer  | page NO     | -       |              |
-
-***返回参数***
-
-| NAME           | TYPE       | DESCRIPTION       |
-| :------------- | :--------- | :------------- |
-| pageCount      | integer       | counts of pages         |
-| pageNo         | integer       | page NO           |
-| pageSize       | integer       | page size       |
-| total          | integer       | total amount         |
-| executeId      | integer       | executed ID       |
-| cp             | string     | couter party name          |
-| symbol         | string     | crypto pair name    |
-| cpOrderId      | integer       | CP order ID         |
-| side           | string     | BUY OR SELL(Side |
-| executePrice   | number     | executed Price           |
-| executeVolume  | number     | executed Volume       |
-| executeAmount  | number     | executed Amount       |
-| executeTime    | integer       | executed Time       |
-| commission     | number     | commission         |
-| executeComment | string     | comment           |
-
-***example of return***
-
-```
-{
-  "data": {
-    "pageCount": 3,
-    "pageNo": 1,
-    "pageSize": 100,
-    "records": [
-      {
-        "commission": "0.18669821",
-        "cp": "binance",
-        "cpOrderId": "763796819208573471",
-        "executeAmount": "186.6982104",
-        "executeComment": "CommissionAsset: USDT",
-        "executeId": "763796828092109855",
-        "executePrice": "5369.52",
-        "executeTime": "1542625677137",
-        "executeVolume": "0.03477",
-        "side": -1,
-        "symbol": "BTCUSDT"
-      },
-      {
-        "commission": "0.00002807",
-        "cp": "binance",
-        "cpOrderId": "763795745399653919",
-        "executeAmount": "150.785454",
-        "executeComment": "CommissionAsset: BTC",
-        "executeId": "763795753830207007",
-        "executePrice": "5371",
-        "executeTime": "1542625549089",
-        "executeVolume": "0.028074",
-        "side": 1,
-        "symbol": "BTCUSDT"
-      },
-      {
-        "commission": "0.00000192",
-        "cp": "binance",
-        "cpOrderId": "763795745399653919",
-        "executeAmount": "10.30146292",
-        "executeComment": "CommissionAsset: BTC",
-        "executeId": "763795753830206495",
-        "executePrice": "5370.94",
-        "executeTime": "1542625549089",
-        "executeVolume": "0.001918",
-        "side": 1,
-        "symbol": "BTCUSDT"
-      }
-    ],
-    "total": 3
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-### get book info
-GET /api/v1/risk/books
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***params of return***
-
-| NAME  | TYPE   | DESCRIBE |
-| :---- | :----- | :------- |
-| name | string | abbreviation  |
-
-***example of return***
-
-```
-{
+  "event": "API_RISK_POSITION",
   "data": [
     {
-      "name": "B"
-    },
-    {
-      "name": "C"
-    },
-    {
-      "name": "D"
-    }
-  ],
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-### get account info
-GET /api/v1/market/cpAccountInfo
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***request params***
-
-| NAME     | REQUIRED | TYPE   | DESCRIPTION | DEFAULT | VALUES RANGE |
-| :------- | :------- | :----- | :------- | :------ | :----------- |
-| cp      | Y        | string | counter party name    |         |              |
-
-***params of return***
-
-| NAME  | TYPE   | DESCRIPTION |
-| :---- | :----- | :------- |
-| cp     | string | counter party name    |
-| tradeable | boolean | tradeable    |
-| currency | string | currency    |
-| free | number | free to use amount    |
-| frozen | number | frozen amount    |
-
-***example of return***
-
-```
-{
-  "data": {
-    "balance": [
-      {
-        "currency": "USDT",
-        "free": "123.561222104000005444",
-        "frozen": "123.561222104000005444"
-      },
-      {
-        "currency": "BTC",
-        "free": "0.009982505720491022",
-        "frozen": "0.009982505720491022"
-      },
-      {
-        "currency": "ETH",
-        "free": "0.0499",
-        "frozen": "0.0499"
-      },
-      {
-        "currency": "BCH",
-        "free": "0",
-        "frozen": "0"
-      },
-      {
-        "currency": "XRP",
-        "free": "0",
-        "frozen": "0"
-      },
-      {
-        "currency": "LTC",
-        "free": "0",
-        "frozen": "0"
-      },
-      {
-        "currency": "ETC",
-        "free": "0",
-        "frozen": "0"
-      },
-      {
-        "currency": "EOS",
-        "free": "0",
-        "frozen": "0"
-      },
-      {
-        "currency": "XLM",
-        "free": "0",
-        "frozen": "0"
-      },
-      {
-        "currency": "BCD",
-        "free": "0",
-        "frozen": "0"
-      }
-    ],
-    "cp": "huobi",
-    "tradeable": true
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
-
-### get-risk-info
-GET /api/v1/risk/positions
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***request params***
-
-| NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
-| :------- | :------- | :----- | :------- | :------ | :----------- |
-| book      | Y        | string | book abbreviation    |         |              |
-
-***params of return***
-
-| NAME  | TYPE   | DESCRIBE |
-| :---- | :----- | :------- |
-| books | array | book array  |
-| book | string | book abbreviation    |
-| cps | array |  cp array |
-| cp | string | cp name    |
-| floatingProfit | number | floating profit    |
-| openAmount | number | open amount    |
-| openVolume | number | open volume    |
-| symbol | string | crypto pair name    |
-
-
-***example of return***
-
-```
-{
-  "data": [
-    {
-      "books": [
-        {
-          "book": "B",
-          "cps": [
-            {
-              "costRate": "3750.40641464",
-              "cp": "binance",
-              "floatingProfit": "11.43150209",
-              "openAmount": "266.428871696500",
-              "openVolume": "-0.071040000000",
-              "symbol": "BTCUSDT10"
-            },
-            {
-              "costRate": "0",
-              "cp": "huobi",
-              "floatingProfit": "0",
-              "openAmount": "0.000000000000",
-              "openVolume": "0.000000000000",
-              "symbol": "BTCUSDT10"
-            },
-            {
-              "costRate": "3732.57952708",
-              "cp": "okex",
-              "floatingProfit": "4.31672038",
-              "openAmount": "113.881001371500",
-              "openVolume": "-0.030510000000",
-              "symbol": "BTCUSDT10"
-            }
-          ]
-        }
-      ],
-      "costRate": "3745.05044871",
-      "floatingProfit": "16.25007656",
-      "openAmount": "380.309873068000",
-      "openVolume": "-0.101550000000",
+      "book": "B",
+      "cp": "binance",
+      "openAmount": "266.428871696500",
+      "openVolume": "-0.071040000000",
       "symbol": "BTCUSDT10"
-    },
-    {
-      "books": [
-        {
-          "book": "B",
-          "cps": [
-            {
-              "costRate": "120.02809500",
-              "cp": "huobi",
-              "floatingProfit": "0.08664285",
-              "openAmount": "3.600842850000",
-              "openVolume": "-0.030000000000",
-              "symbol": "ETHUSDT"
-            }
-          ]
-        }
-      ],
-      "costRate": "120.02809500",
-      "floatingProfit": "0.09384285",
-      "openAmount": "3.600842850000",
-      "openVolume": "-0.030000000000",
-      "symbol": "ETHUSDT"
     }
-  ],
-  "result": "SUCCESS",
-  "type": "API"
+  ]
 }
-```
-
-
-
-### get-statement-info
-GET /api/v1/risk/statements
-
-request with Headers:    
-
-X-API-TOKEN:token（acquired from login）
-
-***request params***
-
-| NAME     | REQUIRED | TYPE   | DESCRIBE | DEFAULT | VALUES RANGE |
-| :------- | :------- | :----- | :------- | :------ | :----------- |
-| book      |         | string | book   abbreviation  |         |              |
-| symbol      |         | string | crypto pair name    |         |              |
-| from      | Y        | integer | from datetime    |         |              |
-| to      | Y        | integer | to datetime    |         |              |
-| pageNo      |         | integer | page no    |     1    |              |
-
-***params of return***
-
-| NAME           | TYPE       | DESCRIBE       |
-| :------------- | :--------- | :------------- |
-| pageCount      | integer       | page count         |
-| pageNo         | integer       | page no           |
-| pageSize       | integer       | page size       |
-| total          | integer       | total         |
-| books | array | book array |
-| book | string | book abbreviation    |
-| cp | string | cp name    |
-| symbol | string | crypto pair name    |
-| openAmount | number | open amount    |
-| openVolume | number | open volume    |
-| stateTime | integer | state time    |
-| mtmPl | number |  mtm pl  |
-| mtmQuote | number |  mtm quote |
-
-
-
-***example of return***
-
-```
-{
-  "data": {
-    "pageCount": 1,
-    "pageNo": 1,
-    "pageSize": 100,
-    "records": [
-      {
-        "book": "B",
-        "cp": "okex",
-        "mtmPl": "3.696945598500",
-        "mtmQuote": "4020.806600000000",
-        "openAmount": "199.393995767500",
-        "openVolume": "-0.050510000000",
-        "stateTime": "1545667217419",
-        "symbol": "BTCUSDT10"
-      },
-      {
-        "book": "B",
-        "cp": "binance",
-        "mtmPl": "8.752132224500",
-        "mtmQuote": "4020.806600000000",
-        "openAmount": "239.613091457500",
-        "openVolume": "-0.061770000000",
-        "stateTime": "1545667217418",
-        "symbol": "BTCUSDT10"
-      },
-      {
-        "book": "B",
-        "cp": "huobi",
-        "mtmPl": "0.000000000000",
-        "mtmQuote": "4020.806600000000",
-        "openAmount": "0.000000000000",
-        "openVolume": "0.000000000000",
-        "stateTime": "1545667217417",
-        "symbol": "BTCUSDT10"
-      }
-    ],
-    "total": 3
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
-```
+ ```

@@ -1,4 +1,4 @@
-# Websocket接口信息(2018-11-20)
+# Websocket接口信息(2018-12-28)
 
 WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务器全双工通信，使得数据可以快速地双向传播。通过一次简单的握手就可以建立客户端和服务器连接，服务器根据业务规则可以主动推送信息给客户端。
 
@@ -15,10 +15,12 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 | :---------------------------- | -------------------- |
 | [subscribe:apiOrder](#订阅订单成交结果)             | 订阅订单成交结果     |
 | [unsubscribe:apiOrder](#订阅订单成交结果)           | 取消订阅订单成交结果 |
-| [subscribe:apiQuote:symbol](#订阅行情深度)    | 订阅市场行情深度     (symbol:币对名称)    |
-| [unsubscribe:apiQuote:symbol](#订阅行情深度)  | 取消市场订阅行情深度   (symbol:币对名称)  |
+| [subscribe:apiQuote:symbol](#订阅行情深度)    | 订阅行情深度     (symbol:币对名称)    |
+| [unsubscribe:apiQuote:symbol](#订阅行情深度)  | 取消订阅行情深度   (symbol:币对名称)  |
 | [subscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)    | 订阅聚合行情深度     (symbol:币对名称)    |
 | [unsubscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)  | 取消订阅聚合行情深度   (symbol:币对名称)  |
+| [subscribe:apiRiskPosition:all:book](#订阅风控详情)    | 订阅风控详情     (book:账簿名称)    |
+| [unsubscribe:apiRiskPosition:all:book](#取消订阅风控详情)  | 取消订阅风控详情   (book:账簿名称)  |
 | [ping](#保持空闲连接)| 心跳命令 |
 
 
@@ -28,15 +30,15 @@ wss://demo.bthub.com:444/api/realtime?X-API-TOKEN=WHZWUFAxWlV0bzdMMzl5N1dmYy1z
 
 X-API-TOKEN:token(通过login获得）
 
-### 订阅市场行情深度
-***请求指令***
+### 订阅行情深度
+***汇率请求指令***
 
 | 请求指令                      | 描述             |
 | :---------------------------- | :--------------- |
-| subscribe:apiQuote:symbol   | 订阅市场行情深度     |
-| unsubscribe:apiQuote:symbol | 取消订阅市场行情深度 |
+| subscribe:apiQuote:symbol   | 订阅行情深度     |
+| unsubscribe:apiQuote:symbol | 取消订阅行情深度 |
 
- ***推送返回参数***
+ ***汇率推送返回参数***
 
 | NAME       | TYPE   | DESCRIBE        |
 | :--------- | :----- | :-------------- |
@@ -47,7 +49,7 @@ X-API-TOKEN:token(通过login获得）
 | price      | number | 价格          |
 | volume     | number  | 数量           |
 
- ***推送返回参数示例***
+ ***汇率推送返回参数示例***
 
 ```
  {
@@ -175,14 +177,14 @@ X-API-TOKEN:token(通过login获得）
   }
 ```
 ### 订阅聚合行情深度
-***请求指令***
+***汇率请求指令***
 
 | 请求指令                      | 描述             |
 | :---------------------------- | :--------------- |
-| subscribe:apiAggregatedQuote:symbol   | 订阅聚合市场行情深度     |
-| unsubscribe:apiAggregatedQuote:symbol | 取消订阅聚合市场行情深度 |
+| subscribe:apiAggregatedQuote:symbol   | 订阅聚合行情深度     |
+| unsubscribe:apiAggregatedQuote:symbol | 取消订阅聚合行情深度 |
 
- ***推送返回参数***
+ ***汇率推送返回参数***
 
 | NAME       | TYPE   | DESCRIBE        |
 | :--------- | :----- | :-------------- |
@@ -192,7 +194,7 @@ X-API-TOKEN:token(通过login获得）
 | price      | number | 价格          |
 | volume     | number | 数量           |
 
- ***推送返回参数示例***
+ ***汇率推送返回参数示例***
 
 ```
  {
@@ -301,3 +303,40 @@ X-API-TOKEN:token(通过login获得）
  }
 ```
 
+
+### 订阅风控详情
+***风控请求指令***
+
+| 请求指令                      | 描述             |
+| :---------------------------- | :--------------- |
+| subscribe:apiRiskPosition:all:book    | 订阅风控详情     (book:账簿缩写)    |
+| unsubscribe:apiRiskPosition:all:book  | 取消订阅风控详情   (book:账簿缩写)  |
+
+ ***风控推送返回参数***
+
+| NAME       | TYPE   | DESCRIBE        |
+| :--------- | :----- | :-------------- |
+| event      | string | 事件(API_RISK_POSITION) |
+| book         | string | 账簿缩写                |
+| cp     | string | 交易对手缩写              |
+| openAmount     | string | 净头寸              |
+| openVolume     | string | 金额              |
+| symbol     | string | 币对名称              |
+
+
+
+ ***风控推送返回参数示例***
+ ```
+{
+  "event": "API_RISK_POSITION",
+  "data": [
+    {
+      "book": "B",
+      "cp": "binance",
+      "openAmount": "266.428871696500",
+      "openVolume": "-0.071040000000",
+      "symbol": "BTCUSDT10"
+    }
+  ]
+}
+ ```
