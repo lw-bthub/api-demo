@@ -26,10 +26,10 @@
 | [/api/v1/risk/books](#get-book-info)  | GET  | get book info         |
 | [/api/v1/risk/positions](#get-risk-info)  | GET  | get risk info         |
 | [/api/v1/risk/statements](#get-statement-info)  | GET  | get statement info         |
-| [/api/v1/making/makingConfig](#get-marking-config)  | GET  | get marking config         |
-| [/api/v1/making/makingConfig](#add-marking-config)  | PUT  | add marking config         |
-| [/api/v1/making/makingConfig](#update-marking-config)  | POST  | update marking config         |
-| [/api/v1/making/makingConfig](#delete-marking-config)  | DELETE  | delete marking config         |
+| [/api/v1/making/makingConfig](#get-making-config)  | GET  | get making config         |
+| [/api/v1/making/makingConfig](#add-making-config)  | PUT  | add making config         |
+| [/api/v1/making/makingConfig](#update-making-config)  | POST  | update making config         |
+| [/api/v1/making/makingConfig](#delete-making-config)  | DELETE  | delete making config         |
 
 ## Restful API
 ### login
