@@ -1311,7 +1311,7 @@ X-API-TOKEN:token（acquired from login）
 | stepHeight           | BigDecimal | Step Height             |
 | minSpread            | BigDecimal | Min Spread              |
 | maxVolume            | BigDecimal | Max Volume              |
-| priceAdjustType      | String     | Price Adjust Type       |
+| priceAdjustType      | String     | [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#user-content-priceadjusttype) |
 | bidVolumeAdjustRatio | BigDecimal | Bid Volume Adjust Ratio |
 | askVolumeAdjustRatio | BigDecimal | Ask Volume Adjust Ratio |
 | bidPriceAdjustRatio  | BigDecimal | Bid Price Adjust Ratio  |
@@ -1406,7 +1406,7 @@ X-API-TOKEN:token（acquired from login）
 | stepHeight           | Y        | BigDecimal | Step Height             |         | precision : 24, scale: 12 |
 | minSpread            | Y        | BigDecimal | Min Spread              |         | precision : 24, scale: 12 |
 | maxVolume            | Y        | BigDecimal | Max Volume              |         | precision : 24, scale: 12 |
-| priceAdjustType      | Y        | string     | Price Adjust Type       |         |                           |
+| priceAdjustType      | Y        | string     | [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#user-content-priceadjusttype) |         |                           |
 | bidVolumeAdjustRatio | Y        | BigDecimal | Bid Volume Adjust Ratio |         | precision : 5, scale: 4   |
 | askVolumeAdjustRatio | Y        | BigDecimal | Ask Volume Adjust Ratio |         | precision : 5, scale: 4   |
 | bidPriceAdjustRatio  |          | BigDecimal | Bid Price Adjust Ratio  | NULL    | precision : 5, scale: 4   |
@@ -1544,7 +1544,7 @@ X-API-TOKEN:token（acquired from login）
 | stepHeight           | Y        | BigDecimal | Step Height             |         | precision : 24, scale: 12 |
 | minSpread            | Y        | BigDecimal | Min Spread              |         | precision : 24, scale: 12 |
 | maxVolume            | Y        | BigDecimal | Max Volume              |         | precision : 24, scale: 12 |
-| priceAdjustType      | Y        | string     | Price Adjust Type       |         |                           |
+| priceAdjustType      | Y        | string     | [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#user-content-priceadjusttype) |         |                           |
 | bidVolumeAdjustRatio | Y        | BigDecimal | Bid Volume Adjust Ratio |         | precision : 5, scale: 4   |
 | askVolumeAdjustRatio | Y        | BigDecimal | Ask Volume Adjust Ratio |         | precision : 5, scale: 4   |
 | bidPriceAdjustRatio  |          | BigDecimal | Bid Price Adjust Ratio  | NULL    | precision : 5, scale: 4   |
