@@ -1315,7 +1315,7 @@ X-API-TOKEN:token（通过login获得）
 | stepHeight           | BigDecimal | 步长                |
 | minSpread            | BigDecimal | 最小点差            |
 | maxVolume            | BigDecimal | 最大交易数量        |
-| priceAdjustType      | String     | 价格调整类型        |
+| priceAdjustType      | String     | [价格调整类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-priceadjusttype)        |
 | bidVolumeAdjustRatio | BigDecimal | BID数量调整比例     |
 | askVolumeAdjustRatio | BigDecimal | ASK数量调整比例     |
 | bidPriceAdjustRatio  | BigDecimal | BID价格调整比例     |
@@ -1410,7 +1410,7 @@ X-API-TOKEN:token（通过login获得）
 | stepHeight           | Y        | BigDecimal | 步长                |         | 精度：24， 小数位数：12 |
 | minSpread            | Y        | BigDecimal | 最小点差            |         | 精度：24， 小数位数：12 |
 | maxVolume            | Y        | BigDecimal | 最大交易数量        |         | 精度：24， 小数位数：12 |
-| priceAdjustType      | Y        | string     | 价格调整类型        |         |                         |
+| priceAdjustType      | Y        | string     | [价格调整类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-priceadjusttype) |         |                         |
 | bidVolumeAdjustRatio | Y        | BigDecimal | BID数量调整比例     |         | 精度：5， 小数位数：4   |
 | askVolumeAdjustRatio | Y        | BigDecimal | ASK数量调整比例     |         | 精度：5， 小数位数：4   |
 | bidPriceAdjustRatio  |          | BigDecimal | BID价格调整比例     |         | 精度：5， 小数位数：4   |
@@ -1548,7 +1548,7 @@ X-API-TOKEN:token（通过login获得）
 | stepHeight           | Y        | BigDecimal | 步长                |         | 精度：24， 小数位数：12 |
 | minSpread            | Y        | BigDecimal | 最小点差            |         | 精度：24， 小数位数：12 |
 | maxVolume            | Y        | BigDecimal | 最大交易数量        |         | 精度：24， 小数位数：12 |
-| priceAdjustType      | Y        | string     | 价格调整类型        |         |                         |
+| priceAdjustType      | Y        | string     | [价格调整类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-priceadjusttype) |         |                         |
 | bidVolumeAdjustRatio | Y        | BigDecimal | BID数量调整比例     |         | 精度：5， 小数位数：4   |
 | askVolumeAdjustRatio | Y        | BigDecimal | ASK数量调整比例     |         | 精度：5， 小数位数：4   |
 | bidPriceAdjustRatio  |          | BigDecimal | BID价格调整比例     |         | 精度：5， 小数位数：4   |
