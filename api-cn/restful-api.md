@@ -1687,8 +1687,8 @@ X-API-TOKEN:token（通过login获得）
 
 | NAME                 | REQUIRED | TYPE       | DESCRIBE          | DEFAULT | VALUES RANGE |
 | :------------------- | :------- | :--------- | :---------------- | :------ | :----------- |
-| id                   | Y        | integer    | 交易对手缩写       |         |              |
-| version              | Y        | integer    | 币对名称           |         |              |
+| id                   | Y        | integer    | 配置ID            |         |              |
+| version              | Y        | integer    | 版本号           |         |              |
 
 
 ***返回参数***
