@@ -1341,53 +1341,55 @@ X-API-TOKEN:token（acquired from login）
 
 ```
 {
-	"data": [{
-		"basic": {
-			"baseCp": "bc",
-			"cp": "chainup",
-			"refCps": [
-				"bc",
-				"huobi",
-				"okex"
-			],
-			"symbol": "ETHUSDT"
-		},
-		"id": 17104898,
-		"level1": {
-			"askPriceAdjustRatio": "0.8",
-			"askPriceAdjustValue": "1",
-			"askVolumeAdjustRatio": "1",
-			"bidPriceAdjustRatio": "0.2",
-			"bidPriceAdjustValue": "0.5",
-			"bidVolumeAdjustRatio": "1",
-			"ladderDepth": 5,
-			"maxTradesRatio": "1",
-			"maxVolume": "2",
-			"minSpread": "2",
-			"minTradesRatio": "0.1",
-			"orderActive": false,
-			"orderFrequency": 60,
-			"priceAdjustType": "VALUE",
-			"quoteExpiration": "60000",
-			"stepHeight": "0.02",
-			"tickSize": "0.01",
-			"tradeSendRatio": "1",
-			"tradeVolumeDeduct": false,
-			"tradesActive": false
-		},
-		"level2": {
-			"ladderDepth": 5,
-			"maxDeviation": "0.5",
-			"maxVolume": "0.5",
-			"minSpread": "100",
-			"minThreshold": "40",
-			"minVolume": "0.1",
-			"orderActive": false,
-			"tickSize": "0.01"
-		},
-		"version": 2
-	}],
-	"type": "DATA"
+  "data": [
+    {
+      "basic": {
+        "baseCp": "bc",
+        "cp": "chainup",
+        "refCps": [
+          "bc",
+          "huobi",
+          "okex"
+        ],
+        "symbol": "ETHUSDT"
+      },
+      "id": 17104898,
+      "level1": {
+        "askPriceAdjustRatio": "0.8",
+        "askPriceAdjustValue": "1",
+        "askVolumeAdjustRatio": "1",
+        "bidPriceAdjustRatio": "0.2",
+        "bidPriceAdjustValue": "0.5",
+        "bidVolumeAdjustRatio": "1",
+        "ladderDepth": 5,
+        "maxTradesRatio": "1",
+        "maxVolume": "2",
+        "minSpread": "2",
+        "minTradesRatio": "0.1",
+        "orderActive": false,
+        "orderFrequency": 60,
+        "priceAdjustType": "VALUE",
+        "quoteExpiration": "60000",
+        "stepHeight": "0.02",
+        "tickSize": "0.01",
+        "tradeSendRatio": "1",
+        "tradeVolumeDeduct": false,
+        "tradesActive": false
+      },
+      "level2": {
+        "ladderDepth": 5,
+        "maxDeviation": "0.5",
+        "maxVolume": "0.5",
+        "minSpread": "100",
+        "minThreshold": "40",
+        "minVolume": "0.1",
+        "orderActive": false,
+        "tickSize": "0.01"
+      },
+      "version": 2
+    }
+  ],
+  "type": "DATA"
 }
 ```
 
@@ -1443,49 +1445,49 @@ X-API-TOKEN:token（acquired from login）
 
 ```
 {
-	"basic": {
-		"cp": "chainup",
-		"symbol": "ETHUSDT",
-		"refCps": [
-			"bc",
-			"huobi",
-			"okex"
-		],
-		"baseCp": null
-	},
-	"level1": {
-		"ladderDepth": 5,
-		"tickSize": 0.01,
-		"stepHeight": 0.02,
-		"minSpread": 2,
-		"maxVolume": 2,
-		"priceAdjustType": "VALUE",
-		"bidVolumeAdjustRatio": 1,
-		"askVolumeAdjustRatio": 1,
-		"bidPriceAdjustRatio": 0.2,
-		"askPriceAdjustRatio": 0.8,
-		"bidPriceAdjustValue": 0.5,
-		"askPriceAdjustValue": 1,
-		"minTradesRatio": 0.1,
-		"maxTradesRatio": 1,
-		"orderFrequency": 60,
-		"quoteExpiration": 60000,
-		"tradeSendRatio": 1,
-		"tradeVolumeDeduct": false,
-		"orderActive": false,
-		"tradesActive": false
-	},
-	"level2": {
-		"minSpread": 100,
-		"ladderDepth": 5,
-		"tickSize": 0.01,
-		"maxDeviation": 0.5,
-		"minVolume": 0.1,
-		"maxVolume": 0.5,
-		"minThreshold": 40,
-		"orderActive": false
-	},
-	"version": null
+  "basic": {
+    "cp": "chainup",
+    "symbol": "ETHUSDT",
+    "refCps": [
+      "bc",
+      "huobi",
+      "okex"
+    ],
+    "baseCp": null
+  },
+  "level1": {
+    "ladderDepth": 5,
+    "tickSize": 0.01,
+    "stepHeight": 0.02,
+    "minSpread": 2,
+    "maxVolume": 2,
+    "priceAdjustType": "VALUE",
+    "bidVolumeAdjustRatio": 1,
+    "askVolumeAdjustRatio": 1,
+    "bidPriceAdjustRatio": 0.2,
+    "askPriceAdjustRatio": 0.8,
+    "bidPriceAdjustValue": 0.5,
+    "askPriceAdjustValue": 1,
+    "minTradesRatio": 0.1,
+    "maxTradesRatio": 1,
+    "orderFrequency": 60,
+    "quoteExpiration": 60000,
+    "tradeSendRatio": 1,
+    "tradeVolumeDeduct": false,
+    "orderActive": false,
+    "tradesActive": false
+  },
+  "level2": {
+    "minSpread": 100,
+    "ladderDepth": 5,
+    "tickSize": 0.01,
+    "maxDeviation": 0.5,
+    "minVolume": 0.1,
+    "maxVolume": 0.5,
+    "minThreshold": 40,
+    "orderActive": false
+  },
+  "version": null
 }
 ```
 
@@ -1585,49 +1587,49 @@ X-API-TOKEN:token（acquired from login）
 
 ```
 {
-	"basic": {
-		"cp": "chainup",
-		"symbol": "ETHUSDT",
-		"refCps": [
-			"bc",
-			"huobi",
-			"okex"
-		],
-		"baseCp": "bc"
-	},
-	"level1": {
-		"ladderDepth": 5,
-		"tickSize": 0.01,
-		"stepHeight": 0.02,
-		"minSpread": 2,
-		"maxVolume": 2,
-		"priceAdjustType": "VALUE",
-		"bidVolumeAdjustRatio": 1,
-		"askVolumeAdjustRatio": 1,
-		"bidPriceAdjustRatio": 0.2,
-		"askPriceAdjustRatio": 0.8,
-		"bidPriceAdjustValue": 0.5,
-		"askPriceAdjustValue": 1,
-		"minTradesRatio": 0.1,
-		"maxTradesRatio": 1,
-		"orderFrequency": 60,
-		"quoteExpiration": 60000,
-		"tradeSendRatio": 1,
-		"tradeVolumeDeduct": false,
-		"orderActive": false,
-		"tradesActive": false
-	},
-	"level2": {
-		"minSpread": 100,
-		"ladderDepth": 5,
-		"tickSize": 0.01,
-		"maxDeviation": 0.5,
-		"minVolume": 0.1,
-		"maxVolume": 0.5,
-		"minThreshold": 40,
-		"orderActive": false
-	},
-	"version": 1
+  "basic": {
+    "cp": "chainup",
+    "symbol": "ETHUSDT",
+    "refCps": [
+      "bc",
+      "huobi",
+      "okex"
+    ],
+    "baseCp": "bc"
+  },
+  "level1": {
+    "ladderDepth": 5,
+    "tickSize": 0.01,
+    "stepHeight": 0.02,
+    "minSpread": 2,
+    "maxVolume": 2,
+    "priceAdjustType": "VALUE",
+    "bidVolumeAdjustRatio": 1,
+    "askVolumeAdjustRatio": 1,
+    "bidPriceAdjustRatio": 0.2,
+    "askPriceAdjustRatio": 0.8,
+    "bidPriceAdjustValue": 0.5,
+    "askPriceAdjustValue": 1,
+    "minTradesRatio": 0.1,
+    "maxTradesRatio": 1,
+    "orderFrequency": 60,
+    "quoteExpiration": 60000,
+    "tradeSendRatio": 1,
+    "tradeVolumeDeduct": false,
+    "orderActive": false,
+    "tradesActive": false
+  },
+  "level2": {
+    "minSpread": 100,
+    "ladderDepth": 5,
+    "tickSize": 0.01,
+    "maxDeviation": 0.5,
+    "minVolume": 0.1,
+    "maxVolume": 0.5,
+    "minThreshold": 40,
+    "orderActive": false
+  },
+  "version": 1
 }
 ```
 
