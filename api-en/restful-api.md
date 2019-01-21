@@ -1404,41 +1404,41 @@ X-API-TOKEN:token（acquired from login）
 
 ***request params***
 
-| NAME                        | REQUIRED | TYPE       | DESCRIBE                | DEFAULT | VALUES RANGE                                |
-| :-------------------------- | :------- | :--------- | :---------------------- | :------ | :------------------------------------------ |
-| basic.cp                    | Y        | string     | CP (Abbreviation)       |         |                                             |
-| basic.symbol                | Y        | string     | Symbol                  |         |                                             |
-| basic.refCps                | Y        | array      | Ref Cps (Abbreviation)  |         |                                             |
-| basic.baseCp                |          | string     | Base Cp (Abbreviation)  | NULL    | Must be included in basic.refCps            |
-| level1.ladderDepth          | Y        | integer    | Ladder Depth            |         | Range: > 0 and <= 50                        |
-| level1.tickSize             | Y        | BigDecimal | Tick Size               |         | Range: > 0, Precision:24, Scale:12          |
-| level1.stepHeight           | Y        | BigDecimal | Step Height             |         | Range: > 0, Precision:24, Scale:12          |
-| level1.minSpread            | Y        | BigDecimal | Min Spread              |         | Range: > 0, Precision:24, Scale:12          |
-| level1.maxVolume            | Y        | BigDecimal | Max Volume              |         | Range: > 0, Precision:24, Scale:12          |
+| NAME                        | REQUIRED | TYPE       | DESCRIBE                | DEFAULT | VALUES RANGE                                           |
+| :-------------------------- | :------- | :--------- | :---------------------- | :------ | :----------------------------------------------------- |
+| basic.cp                    | Y        | string     | CP (Abbreviation)       |         |                                                        |
+| basic.symbol                | Y        | string     | Symbol                  |         |                                                        |
+| basic.refCps                | Y        | array      | Ref Cps (Abbreviation)  |         |                                                        |
+| basic.baseCp                |          | string     | Base Cp (Abbreviation)  | NULL    | Must be included in basic.refCps                       |
+| level1.ladderDepth          | Y        | integer    | Ladder Depth            |         | Range: > 0 and <= 50                                   |
+| level1.tickSize             | Y        | BigDecimal | Tick Size               |         | Range: > 0, Precision:24, Scale:12                     |
+| level1.stepHeight           | Y        | BigDecimal | Step Height             |         | Range: > 0, >= level1.tickSize, Precision:24, Scale:12 |
+| level1.minSpread            | Y        | BigDecimal | Min Spread              |         | Range: > 0, Precision:24, Scale:12                     |
+| level1.maxVolume            | Y        | BigDecimal | Max Volume              |         | Range: > 0, Precision:24, Scale:12                     |
 | level1.priceAdjustType      | Y        | string     | [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#user-content-priceadjusttype) |         |                           |
-| level1.bidVolumeAdjustRatio | Y        | BigDecimal | Bid Volume Adjust Ratio |         | Range: > 0 and <= 1, Precision:5, Scale:4   |
-| level1.askVolumeAdjustRatio | Y        | BigDecimal | Ask Volume Adjust Ratio |         | Range: > 0 and <= 1, Precision:5, Scale:4   |
-| level1.bidPriceAdjustRatio  |          | BigDecimal | Bid Price Adjust Ratio  | NULL    | Range: > 0 and <= 1, Precision:5, Scale:4   |
-| level1.askPriceAdjustRatio  |          | BigDecimal | Ask Price Adjust Ratio  | NULL    | Range: > 0 and <= 1, Precision:5, Scale:4   |
-| level1.bidPriceAdjustValue  |          | BigDecimal | Bid Price Adjust Value  | NULL    | Range: >= 0, Precision:24, Scale:12         |
-| level1.askPriceAdjustValue  |          | BigDecimal | Ask Price Adjust Value  | NULL    | Range: >= 0, Precision:24, Scale:12         |
-| level1.minTradesRatio       | Y        | BigDecimal | Min Trades Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2   |
-| level1.maxTradesRatio       | Y        | BigDecimal | Max Trades Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2   |
-| level1.orderFrequency       | Y        | integer    | Order Frequency/m       |         | Range: >= 0                                 |
-| level1.quoteExpiration      | Y        | long       | Quote Expiration/ms     |         | Range: >= 0 and <= 60000                    |
-| level1.tradeSendRatio       | Y        | BigDecimal | Trade Send Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2   |
-| level1.tradeVolumeDeduct    | Y        | boolean    | Trade Volume Deduct     |         |                                             |             
-| level1.orderActive          | Y        | boolean    | Order Active            |         |                                             |
-| level1.tradesActive         | Y        | boolean    | Trades Active           |         |                                             |
-| level2.minSpread            | Y        | BigDecimal | Min Spread              |         | Range: > 0, Precision:24, Scale:12          |
-| level2.ladderDepth          | Y        | byte       | Ladder Depth            |         | Range: > 0 and <= 50                        |
-| level2.tickSize             | Y        | BigDecimal | Tick Size               |         | Range: > 0, Precision:24, Scale:12          |
-| level2.maxDeviation         | Y        | BigDecimal | Max Deviation           |         | Range: > 0 and < 1, Precision:5, Scale:4    |
-| level2.minThreshold         | Y        | BigDecimal | Min Threshold           |         | Range: > 0, Precision:24, Scale:12          |
-| level2.minVolume            | Y        | BigDecimal | Min Volume              |         | Range: > 0, Precision:24, Scale:12          |
-| level2.maxVolume            | Y        | BigDecimal | Max Volume              |         | Range: > 0, Precision:24, Scale:12          |
-| level2.orderActive          | Y        | boolean    | Order Active            |         |                                             |
-| version                     |          | integer    | Version                 | NULL    |                                             |
+| level1.bidVolumeAdjustRatio | Y        | BigDecimal | Bid Volume Adjust Ratio |         | Range: > 0 and <= 1, Precision:5, Scale:4              |
+| level1.askVolumeAdjustRatio | Y        | BigDecimal | Ask Volume Adjust Ratio |         | Range: > 0 and <= 1, Precision:5, Scale:4              |
+| level1.bidPriceAdjustRatio  |          | BigDecimal | Bid Price Adjust Ratio  | NULL    | Range: > 0 and <= 1, Precision:5, Scale:4              |
+| level1.askPriceAdjustRatio  |          | BigDecimal | Ask Price Adjust Ratio  | NULL    | Range: > 0 and <= 1, Precision:5, Scale:4              |
+| level1.bidPriceAdjustValue  |          | BigDecimal | Bid Price Adjust Value  | NULL    | Range: >= 0, Precision:24, Scale:12                    |
+| level1.askPriceAdjustValue  |          | BigDecimal | Ask Price Adjust Value  | NULL    | Range: >= 0, Precision:24, Scale:12                    |
+| level1.minTradesRatio       | Y        | BigDecimal | Min Trades Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2              |
+| level1.maxTradesRatio       | Y        | BigDecimal | Max Trades Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2              |
+| level1.orderFrequency       | Y        | integer    | Order Frequency/m       |         | Range: >= 0                                            |
+| level1.quoteExpiration      | Y        | long       | Quote Expiration/ms     |         | Range: >= 0 and <= 60000                               |
+| level1.tradeSendRatio       | Y        | BigDecimal | Trade Send Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2              |
+| level1.tradeVolumeDeduct    | Y        | boolean    | Trade Volume Deduct     |         |                                                        |             
+| level1.orderActive          | Y        | boolean    | Order Active            |         |                                                        |
+| level1.tradesActive         | Y        | boolean    | Trades Active           |         |                                                        |
+| level2.minSpread            | Y        | BigDecimal | Min Spread              |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.ladderDepth          | Y        | byte       | Ladder Depth            |         | Range: > 0 and <= 50                                   |
+| level2.tickSize             | Y        | BigDecimal | Tick Size               |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.maxDeviation         | Y        | BigDecimal | Max Deviation           |         | Range: > 0 and < 1, Precision:5, Scale:4               |
+| level2.minThreshold         | Y        | BigDecimal | Min Threshold           |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.minVolume            | Y        | BigDecimal | Min Volume              |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.maxVolume            | Y        | BigDecimal | Max Volume              |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.orderActive          | Y        | boolean    | Order Active            |         |                                                        |
+| version                     |          | integer    | Version                 | NULL    |                                                        |
 
 
 ***example of request***
@@ -1548,39 +1548,39 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                        | REQUIRED | TYPE       | DESCRIBE                | DEFAULT | VALUES RANGE                                |
 | :-------------------------- | :------- | :--------- | :---------------------- | :------ | :------------------------------------------ |
-| basic.cp                    | Y        | string     | CP (Abbreviation)       |         |                                             |
-| basic.symbol                | Y        | string     | Symbol                  |         |                                             |
-| basic.refCps                | Y        | array      | Ref Cps (Abbreviation)  |         |                                             |
-| basic.baseCp                |          | string     | Base Cp (Abbreviation)  | NULL    | Must be included in basic.refCps            |
-| level1.ladderDepth          | Y        | integer    | Ladder Depth            |         | Range: > 0 and <= 50                        |
-| level1.tickSize             | Y        | BigDecimal | Tick Size               |         | Range: > 0, Precision:24, Scale:12          |
-| level1.stepHeight           | Y        | BigDecimal | Step Height             |         | Range: > 0, Precision:24, Scale:12          |
-| level1.minSpread            | Y        | BigDecimal | Min Spread              |         | Range: > 0, Precision:24, Scale:12          |
-| level1.maxVolume            | Y        | BigDecimal | Max Volume              |         | Range: > 0, Precision:24, Scale:12          |
+| basic.cp                    | Y        | string     | CP (Abbreviation)       |         |                                                        |
+| basic.symbol                | Y        | string     | Symbol                  |         |                                                        |
+| basic.refCps                | Y        | array      | Ref Cps (Abbreviation)  |         |                                                        |
+| basic.baseCp                |          | string     | Base Cp (Abbreviation)  | NULL    | Must be included in basic.refCps                       |
+| level1.ladderDepth          | Y        | integer    | Ladder Depth            |         | Range: > 0 and <= 50                                   |
+| level1.tickSize             | Y        | BigDecimal | Tick Size               |         | Range: > 0, Precision:24, Scale:12                     |
+| level1.stepHeight           | Y        | BigDecimal | Step Height             |         | Range: > 0, >= level1.tickSize, Precision:24, Scale:12 |
+| level1.minSpread            | Y        | BigDecimal | Min Spread              |         | Range: > 0, Precision:24, Scale:12                     |
+| level1.maxVolume            | Y        | BigDecimal | Max Volume              |         | Range: > 0, Precision:24, Scale:12                     |
 | level1.priceAdjustType      | Y        | string     | [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#user-content-priceadjusttype) |         |                           |
-| level1.bidVolumeAdjustRatio | Y        | BigDecimal | Bid Volume Adjust Ratio |         | Range: > 0 and <= 1, Precision:5, Scale:4   |
-| level1.askVolumeAdjustRatio | Y        | BigDecimal | Ask Volume Adjust Ratio |         | Range: > 0 and <= 1, Precision:5, Scale:4   |
-| level1.bidPriceAdjustRatio  |          | BigDecimal | Bid Price Adjust Ratio  | NULL    | Range: > 0 and <= 1, Precision:5, Scale:4   |
-| level1.askPriceAdjustRatio  |          | BigDecimal | Ask Price Adjust Ratio  | NULL    | Range: > 0 and <= 1, Precision:5, Scale:4   |
-| level1.bidPriceAdjustValue  |          | BigDecimal | Bid Price Adjust Value  | NULL    | Range: >= 0, Precision:24, Scale:12         |
-| level1.askPriceAdjustValue  |          | BigDecimal | Ask Price Adjust Value  | NULL    | Range: >= 0, Precision:24, Scale:12         |
-| level1.minTradesRatio       | Y        | BigDecimal | Min Trades Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2   |
-| level1.maxTradesRatio       | Y        | BigDecimal | Max Trades Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2   |
-| level1.orderFrequency       | Y        | integer    | Order Frequency/m       |         | Range: >= 0                                 |
-| level1.quoteExpiration      | Y        | long       | Quote Expiration/ms     |         | Range: >= 0 and <= 60000                    |
-| level1.tradeSendRatio       | Y        | BigDecimal | Trade Send Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2   |
-| level1.tradeVolumeDeduct    | Y        | boolean    | Trade Volume Deduct     |         |                                             |             
-| level1.orderActive          | Y        | boolean    | Order Active            |         |                                             |
-| level1.tradesActive         | Y        | boolean    | Trades Active           |         |                                             |
-| level2.minSpread            | Y        | BigDecimal | Min Spread              |         | Range: > 0, Precision:24, Scale:12          |
-| level2.ladderDepth          | Y        | byte       | Ladder Depth            |         | Range: > 0 and <= 50                        |
-| level2.tickSize             | Y        | BigDecimal | Tick Size               |         | Range: > 0, Precision:24, Scale:12          |
-| level2.maxDeviation         | Y        | BigDecimal | Max Deviation           |         | Range: > 0 and < 1, Precision:5, Scale:4    |
-| level2.minThreshold         | Y        | BigDecimal | Min Threshold           |         | Range: > 0, Precision:24, Scale:12          |
-| level2.minVolume            | Y        | BigDecimal | Min Volume              |         | Range: > 0, Precision:24, Scale:12          |
-| level2.maxVolume            | Y        | BigDecimal | Max Volume              |         | Range: > 0, Precision:24, Scale:12          |
-| level2.orderActive          | Y        | boolean    | Order Active            |         |                                             |
-| version                     | Y        | integer    | Version                 |         |                                             |
+| level1.bidVolumeAdjustRatio | Y        | BigDecimal | Bid Volume Adjust Ratio |         | Range: > 0 and <= 1, Precision:5, Scale:4              |
+| level1.askVolumeAdjustRatio | Y        | BigDecimal | Ask Volume Adjust Ratio |         | Range: > 0 and <= 1, Precision:5, Scale:4              |
+| level1.bidPriceAdjustRatio  |          | BigDecimal | Bid Price Adjust Ratio  | NULL    | Range: > 0 and <= 1, Precision:5, Scale:4              |
+| level1.askPriceAdjustRatio  |          | BigDecimal | Ask Price Adjust Ratio  | NULL    | Range: > 0 and <= 1, Precision:5, Scale:4              |
+| level1.bidPriceAdjustValue  |          | BigDecimal | Bid Price Adjust Value  | NULL    | Range: >= 0, Precision:24, Scale:12                    |
+| level1.askPriceAdjustValue  |          | BigDecimal | Ask Price Adjust Value  | NULL    | Range: >= 0, Precision:24, Scale:12                    |
+| level1.minTradesRatio       | Y        | BigDecimal | Min Trades Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2              |
+| level1.maxTradesRatio       | Y        | BigDecimal | Max Trades Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2              |
+| level1.orderFrequency       | Y        | integer    | Order Frequency/m       |         | Range: >= 0                                            |
+| level1.quoteExpiration      | Y        | long       | Quote Expiration/ms     |         | Range: >= 0 and <= 60000                               |
+| level1.tradeSendRatio       | Y        | BigDecimal | Trade Send Ratio        |         | Range: > 0 and <= 1, Precision:3, Scale:2              |
+| level1.tradeVolumeDeduct    | Y        | boolean    | Trade Volume Deduct     |         |                                                        |             
+| level1.orderActive          | Y        | boolean    | Order Active            |         |                                                        |
+| level1.tradesActive         | Y        | boolean    | Trades Active           |         |                                                        |
+| level2.minSpread            | Y        | BigDecimal | Min Spread              |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.ladderDepth          | Y        | byte       | Ladder Depth            |         | Range: > 0 and <= 50                                   |
+| level2.tickSize             | Y        | BigDecimal | Tick Size               |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.maxDeviation         | Y        | BigDecimal | Max Deviation           |         | Range: > 0 and < 1, Precision:5, Scale:4               |
+| level2.minThreshold         | Y        | BigDecimal | Min Threshold           |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.minVolume            | Y        | BigDecimal | Min Volume              |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.maxVolume            | Y        | BigDecimal | Max Volume              |         | Range: > 0, Precision:24, Scale:12                     |
+| level2.orderActive          | Y        | boolean    | Order Active            |         |                                                        |
+| version                     | Y        | integer    | Version                 |         |                                                        |
 
 
 ***example of request***
