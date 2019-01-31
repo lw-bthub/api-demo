@@ -1,4 +1,4 @@
-# 枚举列表(2018-11-20)
+# 枚举列表(2019-01-29)
 
 ##### OrderStatus:
 
@@ -38,4 +38,9 @@
 ##### PriceAdjustType
 ```
 [VALUE,PERCENTAGE]
+```
+
+##### TradesType
+```
+[TOB,MID]
 ```

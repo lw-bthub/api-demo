@@ -12,12 +12,19 @@ public class MakingConfigBasic {
     private String symbol;
     private List<String> refCps;
     private String baseCp;
+    private boolean orderActive;
+    private boolean tradesActive;
+    private boolean l2OrderActive;
 
-    public MakingConfigBasic(String cp, String symbol, List<String> refCps, String baseCp) {
+    public MakingConfigBasic(String cp, String symbol, List<String> refCps, String baseCp,
+                             boolean orderActive, boolean tradesActive, boolean l2OrderActive) {
         this.cp = cp;
         this.symbol = symbol;
         this.refCps = refCps;
         this.baseCp = baseCp;
+        this.orderActive = orderActive;
+        this.tradesActive = tradesActive;
+        this.l2OrderActive = l2OrderActive;
     }
 
     public String getCp() {
@@ -52,13 +59,40 @@ public class MakingConfigBasic {
         this.baseCp = baseCp;
     }
 
+    public boolean isOrderActive() {
+        return orderActive;
+    }
+
+    public void setOrderActive(boolean orderActive) {
+        this.orderActive = orderActive;
+    }
+
+    public boolean isTradesActive() {
+        return tradesActive;
+    }
+
+    public void setTradesActive(boolean tradesActive) {
+        this.tradesActive = tradesActive;
+    }
+
+    public boolean isL2OrderActive() {
+        return l2OrderActive;
+    }
+
+    public void setL2OrderActive(boolean l2OrderActive) {
+        this.l2OrderActive = l2OrderActive;
+    }
+
     @Override
     public String toString() {
         return "{"
                 + "\"cp\":\"" + this.cp + "\","
                 + "\"symbol\":\"" + this.symbol + "\","
                 + "\"refCps\":" + JSONArray.toJSONString(this.refCps) + ","
-                + "\"baseCp\":" + (StringUtils.isBlank(this.baseCp) ? null : "\"" + this.baseCp + "\"")
+                + "\"baseCp\":" + (StringUtils.isBlank(this.baseCp) ? null + "," : "\"" + this.baseCp + "\",")
+                + "\"orderActive\":" + this.orderActive + ","
+                + "\"tradesActive\":" + this.tradesActive + ","
+                + "\"l2OrderActive\":" + this.l2OrderActive
                 + "}".replaceAll("\\\\\"", "\"");
     }
 
@@ -68,6 +102,6 @@ public class MakingConfigBasic {
             add("huobi");
             add("okex");
         }};
-        return new MakingConfigBasic("chainup", "ETHUSDT", refCps, null);
+        return new MakingConfigBasic("chainup", "ETHUSDT", refCps, null, false, false, false);
     }
 }

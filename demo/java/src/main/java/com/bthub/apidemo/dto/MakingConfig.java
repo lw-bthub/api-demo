@@ -8,12 +8,14 @@ public class MakingConfig {
     private MakingConfigBasic basic;
     private MakingConfigL1 level1;
     private MakingConfigL2 level2;
+    private MakingConfigTrades trades;
     private int version;
 
-    public MakingConfig(MakingConfigBasic basic, MakingConfigL1 level1, MakingConfigL2 level2) {
+    public MakingConfig(MakingConfigBasic basic, MakingConfigL1 level1, MakingConfigL2 level2, MakingConfigTrades trades) {
         this.basic = basic;
         this.level1 = level1;
         this.level2 = level2;
+        this.trades = trades;
     }
 
     public MakingConfigBasic getBasic() {
@@ -40,6 +42,14 @@ public class MakingConfig {
         this.level2 = level2;
     }
 
+    public MakingConfigTrades getTrades() {
+        return trades;
+    }
+
+    public void setTrades(MakingConfigTrades trades) {
+        this.trades = trades;
+    }
+
     public int getVersion() {
         return version;
     }
@@ -49,7 +59,7 @@ public class MakingConfig {
     }
 
     public static MakingConfig init() {
-        return new MakingConfig(MakingConfigBasic.init(), MakingConfigL1.init(), MakingConfigL2.init());
+        return new MakingConfig(MakingConfigBasic.init(), MakingConfigL1.init(), MakingConfigL2.init(), MakingConfigTrades.init());
     }
 
     @Override
@@ -58,6 +68,7 @@ public class MakingConfig {
                 .append("basic", this.basic)
                 .append("level1", this.level1)
                 .append("level2", this.level2)
+                .append("trades", this.trades)
                 .append("version", this.version)
                 .toString();
     }

@@ -1,4 +1,4 @@
-# RestfulApi 接口信息(2019-01-21)
+# RestfulApi 接口信息(2019-01-29)
 
 REST，即Representational State Transfer的缩写，是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，正得到越来越多网站的采用。
 
@@ -1303,42 +1303,47 @@ X-API-TOKEN:token（通过login获得）
 
 ***返回参数***
 
-| NAME                        | TYPE       | DESCRIBE            |
-| :-------------------------- | :--------- | :------------------ |   
-| id                          | integer    | 配置ID              |
-| basic.cp                    | string     | 交易对手(缩写）     |
-| basic.symbol                | string     | 币对名称            |
-| basic.refCps                | array      | 流动性来源(缩写）   |
-| basic.baseCp                | string     | 基础LP(缩写）       |
-| level1.ladderDepth          | byte       | 深度                |
-| level1.tickSize             | BigDecimal | 最小价格单位        |
-| level1.stepHeight           | BigDecimal | 步长                |
-| level1.minSpread            | BigDecimal | 最小点差            |
-| level1.maxVolume            | BigDecimal | 最大交易数量        |
-| level1.priceAdjustType      | String     | [价格调整类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-priceadjusttype) |
-| level1.bidVolumeAdjustRatio | BigDecimal | BID数量调整比例     |
-| level1.askVolumeAdjustRatio | BigDecimal | ASK数量调整比例     |
-| level1.bidPriceAdjustRatio  | BigDecimal | BID价格调整比例     |
-| level1.askPriceAdjustRatio  | BigDecimal | ASK价格调整比例     |
-| level1.bidPriceAdjustValue  | BigDecimal | BID价格调整点数     |
-| level1.askPriceAdjustValue  | BigDecimal | ASK价格调整点数     |
-| level1.minTradesRatio       | BigDecimal | 最小成交比例        |
-| level1.maxTradesRatio       | BigDecimal | 最大成交比例        |
-| level1.orderFrequency       | integer    | 发送订单频率/分     |
-| level1.quoteExpiration      | long       | 汇率过期时间/毫秒   |
-| level1.tradeSendRatio       | BigDecimal | 成交概率            |
-| level1.tradeVolumeDeduct    | boolean    | 成交数量扣除        |
-| level1.orderActive          | boolean    | 发送订单            |
-| level1.tradesActive         | boolean    | 成交                |
-| level2.minSpread            | BigDecimal | 最小点差            |
-| level2.ladderDepth          | byte       | 深度                |
-| level2.tickSize             | BigDecimal | 最小价格单位        |
-| level2.maxDeviation         | BigDecimal | 最大偏离量          |
-| level2.minThreshold         | BigDecimal | 最小阈值            |
-| level2.minVolume            | BigDecimal | 最小交易数量        |
-| level2.maxVolume            | BigDecimal | 最大交易数量        |
-| level2.orderActive          | boolean    | 发送订单            |
-| version                     | integer    | 版本号              |
+| NAME                          | TYPE        | DESCRIBE            |
+| :---------------------------- | :---------- | :------------------ |   
+| id                            | integer     | 配置ID              |
+| basic.cp                      | string      | 交易对手(缩写）      |
+| basic.symbol                  | string      | 币对名称            |
+| basic.refCps                  | array       | 流动性来源(缩写）    |
+| basic.baseCp                  | string      | 基础LP(缩写）       |
+| basic.orderActive             | boolean     | 发送订单            |
+| basic.tradesActive            | boolean     | 成交                |
+| basic.l2OrderActive           | boolean     | Level2 发送订单     |
+| level1.ladderDepth            | byte        | 深度                |
+| level1.tickSize               | BigDecimal  | 最小价格单位         |
+| level1.stepHeight             | BigDecimal  | 步长                |
+| level1.minSpread              | BigDecimal  | 最小点差            |
+| level1.maxVolume              | BigDecimal  | 最大交易数量        |
+| level1.priceAdjustType        | String      | [价格调整类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-priceadjusttype) |
+| level1.bidVolumeAdjustRatio   | BigDecimal  | BID数量调整比例     |
+| level1.askVolumeAdjustRatio   | BigDecimal  | ASK数量调整比例     |
+| level1.bidPriceAdjustRatio    | BigDecimal  | BID价格调整比例     |
+| level1.askPriceAdjustRatio    | BigDecimal  | ASK价格调整比例     |
+| level1.bidPriceAdjustValue    | BigDecimal  | BID价格调整点数     |
+| level1.askPriceAdjustValue    | BigDecimal  | ASK价格调整点数     |
+| level1.orderFrequency         | integer     | 发送订单频率/分     |
+| level1.quoteExpiration        | long        | 汇率过期时间/毫秒   |
+| level2.minSpread              | BigDecimal  | 最小点差            |
+| level2.ladderDepth            | byte        | 深度                |
+| level2.tickSize               | BigDecimal  | 最小价格单位        |
+| level2.maxDeviation           | BigDecimal  | 最大偏离量          |
+| level2.minVolume              | BigDecimal  | 最小交易数量        |
+| level2.maxVolume              | BigDecimal  | 最大交易数量        |
+| level2.minThreshold           | BigDecimal  | 最小阈值            |
+| trades.tradesType             | String      | [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-tradestype) |
+| trades.tradeSendRatio         | BigDecimal  | 成交概率            |
+| trades.tradeVolumeDeduct      | boolean     | 成交数量扣除        |
+| trades.minTradesRatio         | BigDecimal  | 最小成交比例        |
+| trades.maxTradesRatio         | BigDecimal  | 最大成交比例        |
+| trades.tradePriceAdjustRatio  | BigDecimal  | 成交价格调整比例    |
+| trades.tradeRefSpread         | BigDecimal  | 成交参照点差        |
+| trades.minTradeVolume         | BigDecimal  | 最小交易量          |
+| trades.maxTradeVolume         | BigDecimal  | 最大交易量          |
+| version                       | integer     | 版本号              |
 
 
 ***返回参数示例***
@@ -1347,50 +1352,57 @@ X-API-TOKEN:token（通过login获得）
 {
   "data": [
     {
+      "id": 17104898,
       "basic": {
-        "baseCp": "bc",
         "cp": "chainup",
+        "symbol": "ETHUSDT",
         "refCps": [
           "bc",
           "huobi",
           "okex"
         ],
-        "symbol": "ETHUSDT"
+        "baseCp": "okex",
+        "orderActive": false,
+        "tradesActive": false,
+        "l2OrderActive": false
       },
-      "id": 17104898,
       "level1": {
-        "askPriceAdjustRatio": "0.8",
-        "askPriceAdjustValue": "1",
+        "ladderDepth": 5,
+        "tickSize": "0.01",
+        "stepHeight": "0.02",
+        "minSpread": "2",
+        "maxVolume": "2",
+        "priceAdjustType": "VALUE",
+        "bidVolumeAdjustRatio": "1",
         "askVolumeAdjustRatio": "1",
         "bidPriceAdjustRatio": "0.2",
+        "askPriceAdjustRatio": "0.8",
         "bidPriceAdjustValue": "0.5",
-        "bidVolumeAdjustRatio": "1",
-        "ladderDepth": 5,
-        "maxTradesRatio": "1",
-        "maxVolume": "2",
-        "minSpread": "2",
-        "minTradesRatio": "0.1",
-        "orderActive": false,
+        "askPriceAdjustValue": "1",
         "orderFrequency": 60,
-        "priceAdjustType": "VALUE",
-        "quoteExpiration": "60000",
-        "stepHeight": "0.02",
-        "tickSize": "0.01",
-        "tradeSendRatio": "1",
-        "tradeVolumeDeduct": false,
-        "tradesActive": false
+        "quoteExpiration": "60000"
       },
       "level2": {
-        "ladderDepth": 5,
-        "maxDeviation": "0.5",
-        "maxVolume": "0.5",
         "minSpread": "100",
-        "minThreshold": "40",
+        "ladderDepth": 5,
+        "tickSize": "0.01",
+        "maxDeviation": "0.5",
         "minVolume": "0.1",
-        "orderActive": false,
-        "tickSize": "0.01"
+        "maxVolume": "0.5",
+        "minThreshold": "40"
       },
-      "version": 2
+      "trades": {
+        "tradesType": "TOB",
+        "tradeSendRatio": "0.1",
+        "tradeVolumeDeduct": false,
+        "minTradesRatio": "0.1",
+        "maxTradesRatio": "0.1",
+        "tradePriceAdjustRatio": "0.1",
+        "tradeRefSpread": "0.1",
+        "minTradeVolume": "0.5",
+        "maxTradeVolume": "0.5"
+      },
+      "version": 1
     }
   ],
   "type": "DATA"
@@ -1408,41 +1420,46 @@ X-API-TOKEN:token（通过login获得）
 
 ***请求参数***
 
-| NAME                        | REQUIRED | TYPE       | DESCRIBE            | DEFAULT | VALUES RANGE                                                 |
-| :-------------------------- | :------- | :--------- | :------------------ | :------ | :----------------------------------------------------------- |
-| basic.cp                    | Y        | string     | 交易对手(缩写）     |         |                                                              |
-| basic.symbol                | Y        | string     | 币对名称            |         |                                                              |
-| basic.refCps                | Y        | array      | 流动性来源(缩写）   |         |                                                              |
-| basic.baseCp                |          | string     | 基础LP(缩写）       | NULL    | 必须包含于 basic.refCps                                      |
-| level1.ladderDepth          | Y        | integer    | 深度                |         | 取值范围：> 0 并且 <= 50                                     |
-| level1.tickSize             | Y        | BigDecimal | 最小价格单位        |         | 取值范围：> 0， 精度：24，小数位数：12                       |
-| level1.stepHeight           | Y        | BigDecimal | 步长                |         | 取值范围：> 0， >= level1.tickSize， 精度：24，小数位数：12  |
-| level1.minSpread            | Y        | BigDecimal | 最小点差            |         | 取值范围：> 0， 精度：24，小数位数：12                       |
-| level1.maxVolume            | Y        | BigDecimal | 最大交易数量        |         | 取值范围：> 0， 精度：24，小数位数：12                       |
-| level1.priceAdjustType      | Y        | string     | [价格调整类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-priceadjusttype) |         |                         |
-| level1.bidVolumeAdjustRatio | Y        | BigDecimal | BID数量调整比例     |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4              |
-| level1.askVolumeAdjustRatio | Y        | BigDecimal | ASK数量调整比例     |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4              |
-| level1.bidPriceAdjustRatio  |          | BigDecimal | BID价格调整比例     |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4              |
-| level1.askPriceAdjustRatio  |          | BigDecimal | ASK价格调整比例     |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4              |
-| level1.bidPriceAdjustValue  |          | BigDecimal | BID价格调整点数     |         | 取值范围：>= 0， 精度：24， 小数位数：12                     |
-| level1.askPriceAdjustValue  |          | BigDecimal | ASK价格调整点数     |         | 取值范围：>= 0， 精度：24， 小数位数：12                     |
-| level1.minTradesRatio       | Y        | BigDecimal | 最小成交比例        |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2              |
-| level1.maxTradesRatio       | Y        | BigDecimal | 最大成交比例        |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2              |
-| level1.orderFrequency       | Y        | integer    | 发送订单频率/分     |         | 取值范围：>= 0                                               |
-| level1.quoteExpiration      | Y        | long       | 汇率过期时间/毫秒   |         | 取值范围：>= 0 并且 <= 60000                                 |
-| level1.tradeSendRatio       | Y        | BigDecimal | 成交概率            |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2              |
-| level1.tradeVolumeDeduct    | Y        | boolean    | 成交数量扣除        |         |                                                              |
-| level1.orderActive          | Y        | boolean    | 发送订单            |         |                                                              |
-| level1.tradesActive         | Y        | boolean    | 成交                |         |                                                              |
-| level2.minSpread            | Y        | BigDecimal | 最小点差            |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.ladderDepth          | Y        | byte       | 深度                |         | 取值范围：> 0 并且 <= 50                                     |
-| level2.tickSize             | Y        | BigDecimal | 最小价格单位        |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.maxDeviation         | Y        | BigDecimal | 最大偏离量          |         | 取值范围：> 0 并且 < 1， 精度：5， 小数位数：4               |
-| level2.minThreshold         | Y        | BigDecimal | 最小阈值            |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.minVolume            | Y        | BigDecimal | 最小交易数量        |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.maxVolume            | Y        | BigDecimal | 最大交易数量        |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.orderActive          | Y        | boolean    | 发送订单            |         |                                                              |
-| version                     |          | integer    | 版本                | NULL    |                                                              |
+| NAME                         | REQUIRED | TYPE       | DESCRIBE            | DEFAULT | VALUES RANGE                                                 |
+| :--------------------------- | :------- | :--------- | :------------------ | :------ | :----------------------------------------------------------- |
+| basic.cp                     | Y        | string     | 交易对手(缩写）      |         |                                                              |
+| basic.symbol                 | Y        | string     | 币对名称             |         |                                                             |
+| basic.refCps                 | Y        | array      | 流动性来源(缩写）    |         |                                                              |
+| basic.baseCp                 |          | string     | 基础LP(缩写）        | NULL    | 必须包含于 basic.refCps                                      |
+| basic.orderActive            | Y        | boolean    | 发送订单             |         |                                                             |
+| basic.tradesActive           | Y        | boolean    | 成交                 |         |                                                             |
+| basic.l2OrderActive          | Y        | boolean    | Level2 发送订单      |         |                                                             |
+| level1.ladderDepth           | Y        | integer    | 深度                 |         | 取值范围：> 0 并且 <= 50                                     |
+| level1.tickSize              | Y        | BigDecimal | 最小价格单位         |         | 取值范围：> 0， 精度：24，小数位数：12                        |
+| level1.stepHeight            | Y        | BigDecimal | 步长                 |         | 取值范围：> 0， >= level1.tickSize， 精度：24，小数位数：12   |
+| level1.minSpread             | Y        | BigDecimal | 最小点差             |         | 取值范围：> 0， 精度：24，小数位数：12                        |
+| level1.maxVolume             | Y        | BigDecimal | 最大交易数量         |         | 取值范围：> 0， 精度：24，小数位数：12                        |
+| level1.priceAdjustType       | Y        | string     | [价格调整类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-priceadjusttype) |         |                         |
+| level1.bidVolumeAdjustRatio  | Y        | BigDecimal | BID数量调整比例      |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4               |
+| level1.askVolumeAdjustRatio  | Y        | BigDecimal | ASK数量调整比例      |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4               |
+| level1.bidPriceAdjustRatio   |          | BigDecimal | BID价格调整比例      |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4               |
+| level1.askPriceAdjustRatio   |          | BigDecimal | ASK价格调整比例      |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4               |
+| level1.bidPriceAdjustValue   |          | BigDecimal | BID价格调整点数      |         | 取值范围：>= 0， 精度：24， 小数位数：12                      |
+| level1.askPriceAdjustValue   |          | BigDecimal | ASK价格调整点数      |         | 取值范围：>= 0， 精度：24， 小数位数：12                      |
+| level1.orderFrequency        | Y        | integer    | 发送订单频率/分      |         | 取值范围：>= 0                                               |
+| level1.quoteExpiration       | Y        | long       | 汇率过期时间/毫秒    |         | 取值范围：>= 0 并且 <= 60000                                 |
+| level2.minSpread             | Y        | BigDecimal | 最小点差             |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| level2.ladderDepth           | Y        | byte       | 深度                |          | 取值范围：> 0 并且 <= 50                                     |
+| level2.tickSize              | Y        | BigDecimal | 最小价格单位         |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| level2.maxDeviation          | Y        | BigDecimal | 最大偏离量           |         | 取值范围：> 0 并且 < 1， 精度：5， 小数位数：4                |
+| level2.minVolume             | Y        | BigDecimal | 最小交易数量         |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| level2.maxVolume             | Y        | BigDecimal | 最大交易数量         |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| level2.minThreshold          | Y        | BigDecimal | 最小阈值             |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| trades.tradesType            | Y        | string     | [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-tradestype) |         |                         |
+| trades.tradeSendRatio        | Y        | BigDecimal | 成交概率             |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2               |
+| trades.tradeVolumeDeduct     | Y        | boolean    | 成交数量扣除         |         |                                                             |
+| trades.minTradesRatio        | Y        | BigDecimal | 最小成交比例         |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2               |
+| trades.maxTradesRatio        | Y        | BigDecimal | 最大成交比例         |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2               |
+| trades.tradePriceAdjustRatio | Y        | BigDecimal | 成交价格调整比例     |         | 取值范围：> 0 并且 < 1， 精度：5， 小数位数：4                |
+| trades.tradeRefSpread        | Y        | BigDecimal | 成交参照点差         |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| trades.minTradeVolume        | Y        | BigDecimal | 最小交易量           |         | 取值范围：>= 0 ， 精度：24， 小数位数：12                    |
+| trades.maxTradeVolume        | Y        | BigDecimal | 最大交易量           |         | 取值范围：>= 0， 精度：24， 小数位数：12                      |
+| version                      |          | integer    | 版本                | NULL     |                                                             |
 
 
 ***请求参数示例***
@@ -1457,39 +1474,46 @@ X-API-TOKEN:token（通过login获得）
       "huobi",
       "okex"
     ],
-    "baseCp": null
+    "baseCp": "okex",
+    "orderActive": false,
+    "tradesActive": false,
+    "l2OrderActive": false
   },
   "level1": {
     "ladderDepth": 5,
-    "tickSize": 0.01,
-    "stepHeight": 0.02,
-    "minSpread": 2,
-    "maxVolume": 2,
+    "tickSize": "0.01",
+    "stepHeight": "0.02",
+    "minSpread": "2",
+    "maxVolume": "2",
     "priceAdjustType": "VALUE",
-    "bidVolumeAdjustRatio": 1,
-    "askVolumeAdjustRatio": 1,
-    "bidPriceAdjustRatio": 0.2,
-    "askPriceAdjustRatio": 0.8,
-    "bidPriceAdjustValue": 0.5,
-    "askPriceAdjustValue": 1,
-    "minTradesRatio": 0.1,
-    "maxTradesRatio": 1,
+    "bidVolumeAdjustRatio": "1",
+    "askVolumeAdjustRatio": "1",
+    "bidPriceAdjustRatio": null,
+    "askPriceAdjustRatio": null,
+    "bidPriceAdjustValue": "0.5",
+    "askPriceAdjustValue": "1",
     "orderFrequency": 60,
-    "quoteExpiration": 60000,
-    "tradeSendRatio": 1,
-    "tradeVolumeDeduct": false,
-    "orderActive": false,
-    "tradesActive": false
+    "quoteExpiration": "60000"
   },
   "level2": {
-    "minSpread": 100,
+    "minSpread": "100",
     "ladderDepth": 5,
-    "tickSize": 0.01,
-    "maxDeviation": 0.5,
-    "minVolume": 0.1,
-    "maxVolume": 0.5,
-    "minThreshold": 40,
-    "orderActive": false
+    "tickSize": "0.01",
+    "maxDeviation": "0.5",
+    "minVolume": "0.1",
+    "maxVolume": "0.5",
+    "minThreshold": "40"
+  },
+  "trades": {
+    "tradesType": "TOB",
+    "tradeSendRatio": "0.1",
+    "tradeVolumeDeduct": false,
+    "minTradesRatio": "0.1",
+    "maxTradesRatio": "0.1",
+    "tradePriceAdjustRatio": "0.1",
+    "tradeRefSpread": "0.1",
+    "minTradeVolume": "0.5",
+    "maxTradeVolume": "0.5"
   },
   "version": null
 }
@@ -1550,41 +1574,46 @@ X-API-TOKEN:token（通过login获得）
 
 ***请求参数***
 
-| NAME                        | REQUIRED | TYPE       | DESCRIBE            | DEFAULT | VALUES RANGE                                                 |
-| :-------------------------- | :------- | :--------- | :------------------ | :------ | :----------------------------------------------------------- |
-| basic.cp                    | Y        | string     | 交易对手(缩写）     |         |                                                              |
-| basic.symbol                | Y        | string     | 币对名称            |         |                                                              |
-| basic.refCps                | Y        | array      | 流动性来源(缩写）   |         |                                                              |
-| basic.baseCp                |          | string     | 基础LP(缩写）       | NULL    | 必须包含于 basic.refCps                                      |
-| level1.ladderDepth          | Y        | integer    | 深度                |         | 取值范围：> 0 并且 <= 50                                     |
-| level1.tickSize             | Y        | BigDecimal | 最小价格单位        |         | 取值范围：> 0， 精度：24，小数位数：12                       |
-| level1.stepHeight           | Y        | BigDecimal | 步长                |         | 取值范围：> 0， >= level1.tickSize， 精度：24，小数位数：12  |
-| level1.minSpread            | Y        | BigDecimal | 最小点差            |         | 取值范围：> 0， 精度：24，小数位数：12                       |
-| level1.maxVolume            | Y        | BigDecimal | 最大交易数量        |         | 取值范围：> 0， 精度：24，小数位数：12                       |
-| level1.priceAdjustType      | Y        | string     | [价格调整类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-priceadjusttype) |         |                         |
-| level1.bidVolumeAdjustRatio | Y        | BigDecimal | BID数量调整比例     |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4              |
-| level1.askVolumeAdjustRatio | Y        | BigDecimal | ASK数量调整比例     |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4              |
-| level1.bidPriceAdjustRatio  |          | BigDecimal | BID价格调整比例     |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4              |
-| level1.askPriceAdjustRatio  |          | BigDecimal | ASK价格调整比例     |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4              |
-| level1.bidPriceAdjustValue  |          | BigDecimal | BID价格调整点数     |         | 取值范围：>= 0， 精度：24， 小数位数：12                     |
-| level1.askPriceAdjustValue  |          | BigDecimal | ASK价格调整点数     |         | 取值范围：>= 0， 精度：24， 小数位数：12                     |
-| level1.minTradesRatio       | Y        | BigDecimal | 最小成交比例        |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2              |
-| level1.maxTradesRatio       | Y        | BigDecimal | 最大成交比例        |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2              |
-| level1.orderFrequency       | Y        | integer    | 发送订单频率/分     |         | 取值范围：>= 0                                               |
-| level1.quoteExpiration      | Y        | long       | 汇率过期时间/毫秒   |         | 取值范围：>= 0 并且 <= 60000                                 |
-| level1.tradeSendRatio       | Y        | BigDecimal | 成交概率            |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2              |
-| level1.tradeVolumeDeduct    | Y        | boolean    | 成交数量扣除        |         |                                                              |
-| level1.orderActive          | Y        | boolean    | 发送订单            |         |                                                              |
-| level1.tradesActive         | Y        | boolean    | 成交                |         |                                                              |
-| level2.minSpread            | Y        | BigDecimal | 最小点差            |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.ladderDepth          | Y        | byte       | 深度                |         | 取值范围：> 0 并且 <= 50                                     |
-| level2.tickSize             | Y        | BigDecimal | 最小价格单位        |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.maxDeviation         | Y        | BigDecimal | 最大偏离量          |         | 取值范围：> 0 并且 < 1， 精度：5， 小数位数：4               |
-| level2.minThreshold         | Y        | BigDecimal | 最小阈值            |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.minVolume            | Y        | BigDecimal | 最小交易数量        |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.maxVolume            | Y        | BigDecimal | 最大交易数量        |         | 取值范围：> 0， 精度：24， 小数位数：12                      |
-| level2.orderActive          | Y        | boolean    | 发送订单            |         |                                                              |
-| version                     | Y        | integer    | 版本                |         |                                                              |
+| NAME                         | REQUIRED | TYPE       | DESCRIBE            | DEFAULT | VALUES RANGE                                                 |
+| :--------------------------- | :------- | :--------- | :------------------ | :------ | :----------------------------------------------------------- |
+| basic.cp                     | Y        | string     | 交易对手(缩写）      |         |                                                              |
+| basic.symbol                 | Y        | string     | 币对名称             |         |                                                             |
+| basic.refCps                 | Y        | array      | 流动性来源(缩写）    |         |                                                              |
+| basic.baseCp                 |          | string     | 基础LP(缩写）        | NULL    | 必须包含于 basic.refCps                                      |
+| basic.orderActive            | Y        | boolean    | 发送订单             |         |                                                             |
+| basic.tradesActive           | Y        | boolean    | 成交                 |         |                                                             |
+| basic.l2OrderActive          | Y        | boolean    | Level2 发送订单      |         |                                                             |
+| level1.ladderDepth           | Y        | integer    | 深度                 |         | 取值范围：> 0 并且 <= 50                                     |
+| level1.tickSize              | Y        | BigDecimal | 最小价格单位         |         | 取值范围：> 0， 精度：24，小数位数：12                        |
+| level1.stepHeight            | Y        | BigDecimal | 步长                 |         | 取值范围：> 0， >= level1.tickSize， 精度：24，小数位数：12   |
+| level1.minSpread             | Y        | BigDecimal | 最小点差             |         | 取值范围：> 0， 精度：24，小数位数：12                        |
+| level1.maxVolume             | Y        | BigDecimal | 最大交易数量         |         | 取值范围：> 0， 精度：24，小数位数：12                        |
+| level1.priceAdjustType       | Y        | string     | [价格调整类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-priceadjusttype) |         |                         |
+| level1.bidVolumeAdjustRatio  | Y        | BigDecimal | BID数量调整比例      |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4               |
+| level1.askVolumeAdjustRatio  | Y        | BigDecimal | ASK数量调整比例      |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4               |
+| level1.bidPriceAdjustRatio   |          | BigDecimal | BID价格调整比例      |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4               |
+| level1.askPriceAdjustRatio   |          | BigDecimal | ASK价格调整比例      |         | 取值范围：> 0 并且 <= 1， 精度：5， 小数位数：4               |
+| level1.bidPriceAdjustValue   |          | BigDecimal | BID价格调整点数      |         | 取值范围：>= 0， 精度：24， 小数位数：12                      |
+| level1.askPriceAdjustValue   |          | BigDecimal | ASK价格调整点数      |         | 取值范围：>= 0， 精度：24， 小数位数：12                      |
+| level1.orderFrequency        | Y        | integer    | 发送订单频率/分      |         | 取值范围：>= 0                                               |
+| level1.quoteExpiration       | Y        | long       | 汇率过期时间/毫秒    |         | 取值范围：>= 0 并且 <= 60000                                 |
+| level2.minSpread             | Y        | BigDecimal | 最小点差             |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| level2.ladderDepth           | Y        | byte       | 深度                |          | 取值范围：> 0 并且 <= 50                                     |
+| level2.tickSize              | Y        | BigDecimal | 最小价格单位         |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| level2.maxDeviation          | Y        | BigDecimal | 最大偏离量           |         | 取值范围：> 0 并且 < 1， 精度：5， 小数位数：4                |
+| level2.minVolume             | Y        | BigDecimal | 最小交易数量         |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| level2.maxVolume             | Y        | BigDecimal | 最大交易数量         |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| level2.minThreshold          | Y        | BigDecimal | 最小阈值             |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| trades.tradesType            | Y        | string     | [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#user-content-tradestype) |         |                         |
+| trades.tradeSendRatio        | Y        | BigDecimal | 成交概率             |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2               |
+| trades.tradeVolumeDeduct     | Y        | boolean    | 成交数量扣除         |         |                                                             |
+| trades.minTradesRatio        | Y        | BigDecimal | 最小成交比例         |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2               |
+| trades.maxTradesRatio        | Y        | BigDecimal | 最大成交比例         |         | 取值范围：> 0 并且 <= 1， 精度：3， 小数位数：2               |
+| trades.tradePriceAdjustRatio | Y        | BigDecimal | 成交价格调整比例     |         | 取值范围：> 0 并且 < 1， 精度：5， 小数位数：4                |
+| trades.tradeRefSpread        | Y        | BigDecimal | 成交参照点差         |         | 取值范围：> 0， 精度：24， 小数位数：12                       |
+| trades.minTradeVolume        | Y        | BigDecimal | 最小交易量           |         | 取值范围：>= 0 ， 精度：24， 小数位数：12                    |
+| trades.maxTradeVolume        | Y        | BigDecimal | 最大交易量           |         | 取值范围：>= 0， 精度：24， 小数位数：12                      |
+| version                      | Y        | integer    | 版本                 |         |                                                             |
 
 
 ***请求参数示例***
@@ -1599,39 +1628,46 @@ X-API-TOKEN:token（通过login获得）
       "huobi",
       "okex"
     ],
-    "baseCp": "bc"
+    "baseCp": "okex",
+    "orderActive": false,
+    "tradesActive": false,
+    "l2OrderActive": false
   },
   "level1": {
     "ladderDepth": 5,
-    "tickSize": 0.01,
-    "stepHeight": 0.02,
-    "minSpread": 2,
-    "maxVolume": 2,
+    "tickSize": "0.01",
+    "stepHeight": "0.02",
+    "minSpread": "2",
+    "maxVolume": "2",
     "priceAdjustType": "VALUE",
-    "bidVolumeAdjustRatio": 1,
-    "askVolumeAdjustRatio": 1,
-    "bidPriceAdjustRatio": 0.2,
-    "askPriceAdjustRatio": 0.8,
-    "bidPriceAdjustValue": 0.5,
-    "askPriceAdjustValue": 1,
-    "minTradesRatio": 0.1,
-    "maxTradesRatio": 1,
+    "bidVolumeAdjustRatio": "1",
+    "askVolumeAdjustRatio": "1",
+    "bidPriceAdjustRatio": null,
+    "askPriceAdjustRatio": null,
+    "bidPriceAdjustValue": "0.5",
+    "askPriceAdjustValue": "1",
     "orderFrequency": 60,
-    "quoteExpiration": 60000,
-    "tradeSendRatio": 1,
-    "tradeVolumeDeduct": false,
-    "orderActive": false,
-    "tradesActive": false
+    "quoteExpiration": "60000"
   },
   "level2": {
-    "minSpread": 100,
+    "minSpread": "100",
     "ladderDepth": 5,
-    "tickSize": 0.01,
-    "maxDeviation": 0.5,
-    "minVolume": 0.1,
-    "maxVolume": 0.5,
-    "minThreshold": 40,
-    "orderActive": false
+    "tickSize": "0.01",
+    "maxDeviation": "0.5",
+    "minVolume": "0.1",
+    "maxVolume": "0.5",
+    "minThreshold": "40"
+  },
+  "trades": {
+    "tradesType": "TOB",
+    "tradeSendRatio": "0.1",
+    "tradeVolumeDeduct": false,
+    "minTradesRatio": "0.1",
+    "maxTradesRatio": "0.1",
+    "tradePriceAdjustRatio": "0.1",
+    "tradeRefSpread": "0.1",
+    "minTradeVolume": "0.5",
+    "maxTradeVolume": "0.5"
   },
   "version": 1
 }

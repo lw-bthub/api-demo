@@ -19,14 +19,8 @@ public class MakingConfigL1 {
     private BigDecimal askPriceAdjustRatio;
     private BigDecimal bidPriceAdjustValue;
     private BigDecimal askPriceAdjustValue;
-    private BigDecimal minTradesRatio;
-    private BigDecimal maxTradesRatio;
     private int orderFrequency;
     private long quoteExpiration;
-    private BigDecimal tradeSendRatio;
-    private boolean tradeVolumeDeduct;
-    private boolean orderActive;
-    private boolean tradesActive;
 
     public byte getLadderDepth() {
         return ladderDepth;
@@ -124,22 +118,6 @@ public class MakingConfigL1 {
         this.askPriceAdjustValue = askPriceAdjustValue;
     }
 
-    public BigDecimal getMinTradesRatio() {
-        return minTradesRatio;
-    }
-
-    public void setMinTradesRatio(BigDecimal minTradesRatio) {
-        this.minTradesRatio = minTradesRatio;
-    }
-
-    public BigDecimal getMaxTradesRatio() {
-        return maxTradesRatio;
-    }
-
-    public void setMaxTradesRatio(BigDecimal maxTradesRatio) {
-        this.maxTradesRatio = maxTradesRatio;
-    }
-
     public int getOrderFrequency() {
         return orderFrequency;
     }
@@ -154,38 +132,6 @@ public class MakingConfigL1 {
 
     public void setQuoteExpiration(long quoteExpiration) {
         this.quoteExpiration = quoteExpiration;
-    }
-
-    public BigDecimal getTradeSendRatio() {
-        return tradeSendRatio;
-    }
-
-    public void setTradeSendRatio(BigDecimal tradeSendRatio) {
-        this.tradeSendRatio = tradeSendRatio;
-    }
-
-    public boolean isTradeVolumeDeduct() {
-        return tradeVolumeDeduct;
-    }
-
-    public void setTradeVolumeDeduct(boolean tradeVolumeDeduct) {
-        this.tradeVolumeDeduct = tradeVolumeDeduct;
-    }
-
-    public boolean isOrderActive() {
-        return orderActive;
-    }
-
-    public void setOrderActive(boolean orderActive) {
-        this.orderActive = orderActive;
-    }
-
-    public boolean isTradesActive() {
-        return tradesActive;
-    }
-
-    public void setTradesActive(boolean tradesActive) {
-        this.tradesActive = tradesActive;
     }
 
     @Override
@@ -203,14 +149,8 @@ public class MakingConfigL1 {
                 .append("askPriceAdjustRatio", this.askPriceAdjustRatio)
                 .append("bidPriceAdjustValue", this.bidPriceAdjustValue)
                 .append("askPriceAdjustValue", this.askPriceAdjustValue)
-                .append("minTradesRatio", this.minTradesRatio)
-                .append("maxTradesRatio", this.maxTradesRatio)
                 .append("orderFrequency", this.orderFrequency)
                 .append("quoteExpiration", this.quoteExpiration)
-                .append("tradeSendRatio", this.tradeSendRatio)
-                .append("tradeVolumDeduct", this.tradeVolumeDeduct)
-                .append("orderActive", this.orderActive)
-                .append("tradesActive", this.tradesActive)
                 .toString();
     }
 
@@ -228,14 +168,8 @@ public class MakingConfigL1 {
         level1.setAskPriceAdjustRatio(new BigDecimal("0.8"));
         level1.setBidPriceAdjustValue(new BigDecimal("0.5"));
         level1.setAskPriceAdjustValue(BigDecimal.ONE);
-        level1.setMinTradesRatio(new BigDecimal("0.1"));
-        level1.setMaxTradesRatio(BigDecimal.ONE);
         level1.setOrderFrequency(60);
         level1.setQuoteExpiration(60000);
-        level1.setTradeSendRatio(BigDecimal.ONE);
-        level1.setTradeVolumeDeduct(false);
-        level1.setOrderActive(false);
-        level1.setTradesActive(false);
         return level1;
     }
 }

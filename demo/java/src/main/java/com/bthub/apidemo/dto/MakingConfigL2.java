@@ -14,7 +14,6 @@ public class MakingConfigL2 {
     private BigDecimal minVolume;
     private BigDecimal maxVolume;
     private BigDecimal minThreshold;
-    private boolean orderActive;
 
     public BigDecimal getMinSpread() {
         return minSpread;
@@ -72,14 +71,6 @@ public class MakingConfigL2 {
         this.maxVolume = maxVolume;
     }
 
-    public boolean isOrderActive() {
-        return orderActive;
-    }
-
-    public void setOrderActive(boolean orderActive) {
-        this.orderActive = orderActive;
-    }
-
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
@@ -90,7 +81,6 @@ public class MakingConfigL2 {
                 .append("minVolume", this.minVolume)
                 .append("maxVolume", this.maxVolume)
                 .append("minThreshold", this.minThreshold)
-                .append("orderActive", this.orderActive)
                 .toString();
     }
 
@@ -99,11 +89,10 @@ public class MakingConfigL2 {
         level2.setMinSpread(new BigDecimal(100));
         level2.setLadderDepth((byte) 5);
         level2.setTickSize(new BigDecimal("0.01"));
-        level2.setMaxDeviation(BigDecimal.ONE);
+        level2.setMaxDeviation(new BigDecimal("0.5"));
         level2.setMinVolume(new BigDecimal("0.1"));
         level2.setMaxVolume(new BigDecimal("0.5"));
         level2.setMinThreshold(new BigDecimal(40));
-        level2.setOrderActive(false);
         return level2;
     }
 }
