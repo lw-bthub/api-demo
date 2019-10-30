@@ -65,17 +65,17 @@ public class RestServiceImpl {
         return mapper.readValue(IOUtils.toString(inputStream, "utf8"), SYMBOL_TYPE);
     }
 
-    public String placeOrder(String token, String cp, double orderPrice, String orderType, double orderVolume, String side, String symbol, String timeInForce) throws IOException {
-        String template = "{\"cp\": \"%s\",\"orderPrice\": %s,\"orderType\": \"%s\",\"orderVolume\": %s,\"side\": \"%s\",\"symbol\": \"%s\",\"timeInForce\": \"%s\"}";
-        String json = String.format(template, cp, orderPrice, orderType, orderVolume, side, symbol, timeInForce);
-        System.out.println("place order json: " + json);
+    public String placeOrder(String token, String param) throws IOException {
+//        String template = "{\"cp\": \"%s\",\"orderPrice\": %s,\"orderType\": \"%s\",\"orderVolume\": %s,\"side\": \"%s\",\"symbol\": \"%s\",\"timeInForce\": \"%s\"}";
+//        String json = String.format(template, cp, orderPrice, orderType, orderVolume, side, symbol, timeInForce);
+        System.out.println("request place order json: " + param);
         URL url = new URL(PREFIX + "/api/v1/trades/place");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("X-API-TOKEN", token);
         con.setRequestProperty("Content-Type", "application/json");
         con.setDoOutput(true);
-        IOUtils.write(json, con.getOutputStream(), "utf8");
+        IOUtils.write(param, con.getOutputStream(), "utf8");
         InputStream inputStream = con.getInputStream();
         return IOUtils.toString(inputStream, "utf8");
     }

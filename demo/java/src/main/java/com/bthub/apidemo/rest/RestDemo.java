@@ -36,10 +36,10 @@ public class RestDemo {
         param = "{\"cp\":\"ampex\",\"frequency\":20,\"l1Config\":\"EOSUSDT\",\"l1ConfigType\":\"SOURCE_LIQUIDITY\",\"l1LadderDepth\":15,\"l1MaxDeviation\":\"0.03\",\"l1MinSpread\":\"0.001\",\"l1OrderActive\":false,\"l1StepHeight\":\"0.0001\",\"l1TickSize\":\"0.0001\",\"l2LadderDepth\":30,\"l2MaxDeviation\":\"0.1\",\"l2MaxVolume\":\"1000\",\"l2MinSpread\":\"0.0213\",\"l2MinThreshold\":\"0.0073\",\"l2MinVolume\":\"100\",\"l2OrderActive\":false,\"l2TickSize\":\"0.0001\",\"maxTradeVolumeRatio\":\"0.05\",\"minTradeVolumeRatio\":\"0.01\",\"symbol\":\"EOSUSDT\",\"tradeActive\":false,\"tradePriceAdjustRatio\":\"0.2\",\"tradePriceType\":\"LIQUIDITY_DEMANDER\",\"tradeRefSpread\":\"0.008\",\"tradeSendRatio\":\"0.9\",\"tradeType\":\"MID\",\"tradeVolumeDeduct\":false,\"tradeVolumeLowerLimit\":\"0.1\",\"tradeVolumeUpperLimit\":\"20\"}";
         System.out.println("save makingConfig: " + service.saveMakingConfig(token,param));
 
-//
-//        // placeOrder
-//        System.out.println("placeOrder: " + service.placeOrder(token, "", 6400, "MARKET", 0.01, "BUY", "BTCUSDT", "IOC"));
-//
+        // placeOrder
+        param = "{\"book\":\"\",\"clientOrderId\":\"0001\",\"cps\":[\"bc\",\"huobi\",\"okex\"],\"slippage\":0.01,\"orderPrice\":0,\"orderType\":\"SLIPPAGE\",\"orderVolume\":0.01,\"side\":\"BUY\",\"symbol\":\"BTCUSDT\",\"timeInForce\":\"IOC\"}";
+        System.out.println("placeOrder: " + service.placeOrder(token, param));
+
 //        // orderHistory
 //        System.out.println("orderHistory: " + service.orderHistory(token, null, null, "", 1542668400000L, 1542753600000L, 1));
 //
