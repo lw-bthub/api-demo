@@ -196,9 +196,9 @@ public class RestServiceImpl {
         return IOUtils.toString(inputStream, "utf8");
     }
 
-    public String deleteMakingConfig(String token, int id, int version) throws IOException {
-        String params = "id=" + id + "&version=" + version;
-        URL url = new URL(PREFIX + "/api/v1/making/makingConfigs?" + params);
+    public String deleteMakingConfig(String token, String cp, String symbol) throws IOException {
+        String params = "cp=" + cp + "&symbol=" + symbol;
+        URL url = new URL(PREFIX + "/api/v1/making/makingConfigs/delete?" + params);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("DELETE");
         con.setRequestProperty("X-API-TOKEN", token);

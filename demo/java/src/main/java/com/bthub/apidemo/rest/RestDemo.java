@@ -29,14 +29,12 @@ public class RestDemo {
         String param = "{\"frequency\":20,\"l1Config\":\"EOSUSDT\",\"l1ConfigType\":\"SOURCE_LIQUIDITY\",\"l1LadderDepth\":15,\"l1MaxDeviation\":\"0.03\",\"l1MinSpread\":\"0.001\",\"l1OrderActive\":false,\"l1StepHeight\":\"0.0001\",\"l1TickSize\":\"0.0001\",\"l2LadderDepth\":30,\"l2MaxDeviation\":\"0.1\",\"l2MaxVolume\":\"1000\",\"l2MinSpread\":\"0.0213\",\"l2MinThreshold\":\"0.0073\",\"l2MinVolume\":\"100\",\"l2OrderActive\":false,\"l2TickSize\":\"0.0001\",\"maxTradeVolumeRatio\":\"0.05\",\"minTradeVolumeRatio\":\"0.01\",\"tradeActive\":false,\"tradePriceAdjustRatio\":\"0.2\",\"tradePriceType\":\"LIQUIDITY_DEMANDER\",\"tradeRefSpread\":\"0.008\",\"tradeSendRatio\":\"0.9\",\"tradeType\":\"MID\",\"tradeVolumeDeduct\":false,\"tradeVolumeLowerLimit\":\"0.1\",\"tradeVolumeUpperLimit\":\"20\"}";
         System.out.println("update makingConfig: " + service.updateMakingConfig(token,"ampex","EOSUSDT", param));
 
-//        // addMakingConfig
-//        System.out.println("add makingConfig: " + service.saveOrUpdateMakingConfig(token, MakingConfig.init(), false));
-//
+        //deleteMakingConfig
+        System.out.println("delete makingConfig: " + service.deleteMakingConfig(token, "ampex", "EOSUSDT"));
 
-//
-//        // deleteMakingConfig
-//        System.out.println("search makingConfig: " + service.deleteMakingConfig(token, 17104898, 2));
-
+        //addMakingConfig
+        param = "{\"cp\":\"ampex\",\"frequency\":20,\"l1Config\":\"EOSUSDT\",\"l1ConfigType\":\"SOURCE_LIQUIDITY\",\"l1LadderDepth\":15,\"l1MaxDeviation\":\"0.03\",\"l1MinSpread\":\"0.001\",\"l1OrderActive\":false,\"l1StepHeight\":\"0.0001\",\"l1TickSize\":\"0.0001\",\"l2LadderDepth\":30,\"l2MaxDeviation\":\"0.1\",\"l2MaxVolume\":\"1000\",\"l2MinSpread\":\"0.0213\",\"l2MinThreshold\":\"0.0073\",\"l2MinVolume\":\"100\",\"l2OrderActive\":false,\"l2TickSize\":\"0.0001\",\"maxTradeVolumeRatio\":\"0.05\",\"minTradeVolumeRatio\":\"0.01\",\"symbol\":\"EOSUSDT\",\"tradeActive\":false,\"tradePriceAdjustRatio\":\"0.2\",\"tradePriceType\":\"LIQUIDITY_DEMANDER\",\"tradeRefSpread\":\"0.008\",\"tradeSendRatio\":\"0.9\",\"tradeType\":\"MID\",\"tradeVolumeDeduct\":false,\"tradeVolumeLowerLimit\":\"0.1\",\"tradeVolumeUpperLimit\":\"20\"}";
+        System.out.println("save makingConfig: " + service.saveMakingConfig(token,param));
 
 //
 //        // placeOrder
