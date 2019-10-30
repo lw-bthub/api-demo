@@ -1,7 +1,6 @@
 package com.bthub.apidemo.rest;
 
 import com.bthub.apidemo.dto.Cp;
-import com.bthub.apidemo.dto.MakingConfig;
 import com.bthub.apidemo.dto.RestMessage;
 import com.bthub.apidemo.dto.Symbol;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -162,7 +161,7 @@ public class RestServiceImpl {
 
     public String getMakingConfig(String token, String cp, String symbol) throws IOException {
         String params = "cp=" + cp + "&symbol=" + symbol;
-        URL url = new URL(PREFIX + "/api/v1/making/makingConfig?" + params);
+        URL url = new URL(PREFIX + "/api/v1/making/makingConfigs?" + params);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("X-API-TOKEN", token);
@@ -170,24 +169,36 @@ public class RestServiceImpl {
         return IOUtils.toString(inputStream, "utf8");
     }
 
-    public String saveOrUpdateMakingConfig(String token, MakingConfig config, boolean isUpdate) throws IOException {
-        System.out.println(config.toString());
-        URL url = new URL(PREFIX + "/api/v1/making/makingConfig");
+    public String saveMakingConfig(String token,String param) throws IOException {
+        URL url = new URL(PREFIX + "/api/v1/making/makingConfigs/create");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        if (isUpdate) con.setRequestMethod("PUT");
-        else con.setRequestMethod("POST");
+        con.setRequestMethod("POST");
         con.setRequestProperty("X-API-TOKEN", token);
         con.setRequestProperty("Content-Type", "application/json");
         con.setDoOutput(true);
         con.setDoInput(true);
-        IOUtils.write(config.toString(), con.getOutputStream(), "utf8");
+        IOUtils.write(param, con.getOutputStream(), "utf8");
+        InputStream inputStream = con.getInputStream();
+        return IOUtils.toString(inputStream, "utf8");
+    }
+
+    public String updateMakingConfig(String token,String cp,String symbol, String param) throws IOException {
+        String params = "cp=" + cp + "&symbol=" + symbol;
+        URL url = new URL(PREFIX + "/api/v1/making/makingConfigs/update?"+ params);
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("POST");
+        con.setRequestProperty("X-API-TOKEN", token);
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setDoOutput(true);
+        con.setDoInput(true);
+        IOUtils.write(param, con.getOutputStream(), "utf8");
         InputStream inputStream = con.getInputStream();
         return IOUtils.toString(inputStream, "utf8");
     }
 
     public String deleteMakingConfig(String token, int id, int version) throws IOException {
         String params = "id=" + id + "&version=" + version;
-        URL url = new URL(PREFIX + "/api/v1/making/makingConfig?" + params);
+        URL url = new URL(PREFIX + "/api/v1/making/makingConfigs?" + params);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("DELETE");
         con.setRequestProperty("X-API-TOKEN", token);
