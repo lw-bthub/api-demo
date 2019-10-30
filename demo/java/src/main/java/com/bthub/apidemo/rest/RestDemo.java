@@ -37,7 +37,7 @@ public class RestDemo {
         System.out.println("save makingConfig: " + service.saveMakingConfig(token,param));
 
         // placeOrder
-        param = "{\"book\":\"\",\"clientOrderId\":\"0001\",\"cps\":[\"bc\",\"huobi\",\"okex\"],\"slippage\":0.01,\"orderPrice\":0,\"orderType\":\"SLIPPAGE\",\"orderVolume\":0.01,\"side\":\"BUY\",\"symbol\":\"BTCUSDT\",\"timeInForce\":\"IOC\"}";
+        param = "{\"book\":\"B\",\"clientOrderId\":\"0001\",\"cps\":[\"bc\",\"huobi\",\"okex\"],\"slippage\":0.01,\"orderPrice\":0,\"orderType\":\"SLIPPAGE\",\"orderVolume\":0.01,\"side\":\"BUY\",\"symbol\":\"BTCUSDT\",\"timeInForce\":\"IOC\"}";
         System.out.println("placeOrder: " + service.placeOrder(token, param));
 
 //        // orderHistory
