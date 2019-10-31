@@ -41,19 +41,19 @@ public class RestDemo {
 //        System.out.println("placeOrder: " + service.placeOrder(token, param));
 
         // orderHistory
-        System.out.println("orderHistory: " + service.orderHistory(token, null, null, "", 1572451200000L, 1572537599000L, 1));
+//        System.out.println("orderHistory: " + service.orderHistory(token, null, null, "", 1572451200000L, 1572537599000L, 1));
 
         // orderDetail
-        System.out.println("orderDetail: " + service.orderDetail(token, 1014509338802274837L));
+//        System.out.println("orderDetail: " + service.orderDetail(token, 1014509338802274837L));
 //
 //        // cpOrderHistory
-//        System.out.println("cpOrderHistory: " + service.cpOrderHistory(token, "", "", "", 1542668400000L, 1542753600000L, 1));
+//        System.out.println("cpOrderHistory: " + service.cpOrderHistory(token, "", "", "", 1572451200000L, 1572537599000L, 1));
 //
 //        // cpExecutionHistory
-//        System.out.println("cpExecutionHistory: " + service.cpExecutionHistory(token, "", "", 1542668400000L, 1542753600000L, 1));
+//        System.out.println("cpExecutionHistory: " + service.cpExecutionHistory(token, "", "", 1572451200000L, 1572537599000L, 1));
 //
 //        // cpExecutionDetail
-//        System.out.println("cpExecutionDetail: " + service.cpExecutionDetail(token, 764554782160463903L));
+        System.out.println("cpExecutionDetail: " + service.cpExecutionDetail(token, 1014509338802275349L));
 
     }
 
