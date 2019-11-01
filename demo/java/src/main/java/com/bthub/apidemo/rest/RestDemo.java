@@ -14,13 +14,13 @@ public class RestDemo {
         System.out.println("token:"+token);
 
         // cpAccount
-//        System.out.println("cpAccount: " + service.cpAccount(token, "huobi"));
+        System.out.println("cpAccount: " + service.cpAccount(token, "huobi"));
 
         // cps
-//        System.out.println("cps: " + service.cps(token));
+        System.out.println("cps: " + service.cps(token));
 
         // symbols
-//        System.out.println("symbols: " + service.symbols(token));
+        System.out.println("symbols: " + service.symbols(token));
 
         // getMakingConfig
         System.out.println("search makingConfig: " + service.getMakingConfig(token, "ampex", "EOSUSDT"));
