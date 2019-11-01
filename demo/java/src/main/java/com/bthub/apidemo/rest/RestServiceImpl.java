@@ -159,6 +159,54 @@ public class RestServiceImpl {
         return IOUtils.toString(inputStream, "utf8");
     }
 
+    public String getSourceLiquidityConfig(String token,String symbol) throws IOException {
+        String params = "symbol=" + symbol;
+        URL url = new URL(PREFIX + "/api/v1/making/sourceLiquidityConfigs?" + params);
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("X-API-TOKEN", token);
+        InputStream inputStream = con.getInputStream();
+        return IOUtils.toString(inputStream, "utf8");
+    }
+
+    public String updateSourceLiquidityConfig(String token,String symbol,String name,String param) throws IOException {
+        String params = "symbol=" + symbol + "&name=" + name;
+        URL url = new URL(PREFIX + "/api/v1/making/sourceLiquidityConfigs/update?"+ params);
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("POST");
+        con.setRequestProperty("X-API-TOKEN", token);
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setDoOutput(true);
+        con.setDoInput(true);
+        IOUtils.write(param, con.getOutputStream(), "utf8");
+        InputStream inputStream = con.getInputStream();
+        return IOUtils.toString(inputStream, "utf8");
+    }
+
+    public String saveSourceLiquidityConfig(String token,String param) throws IOException {
+        URL url = new URL(PREFIX + "/api/v1/making/sourceLiquidityConfigs/create");
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("POST");
+        con.setRequestProperty("X-API-TOKEN", token);
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setDoOutput(true);
+        con.setDoInput(true);
+        IOUtils.write(param, con.getOutputStream(), "utf8");
+        InputStream inputStream = con.getInputStream();
+        return IOUtils.toString(inputStream, "utf8");
+    }
+
+    public String deleteSourceLiquidityConfig(String token, String name, String symbol) throws IOException {
+        String params = "name=" + name + "&symbol=" + symbol;
+        URL url = new URL(PREFIX + "/api/v1/making/sourceLiquidityConfigs/delete?" + params);
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("DELETE");
+        con.setRequestProperty("X-API-TOKEN", token);
+        InputStream inputStream = con.getInputStream();
+        return IOUtils.toString(inputStream, "utf8");
+    }
+
+
     public String getMakingConfig(String token, String cp, String symbol) throws IOException {
         String params = "cp=" + cp + "&symbol=" + symbol;
         URL url = new URL(PREFIX + "/api/v1/making/makingConfigs?" + params);
