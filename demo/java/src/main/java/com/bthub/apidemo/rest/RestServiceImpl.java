@@ -173,7 +173,7 @@ public class RestServiceImpl {
         String params = "symbol=" + symbol + "&name=" + name;
         URL url = new URL(PREFIX + "/api/v1/making/sourceLiquidityConfigs/update?"+ params);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("POST");
+        con.setRequestMethod("PUT");
         con.setRequestProperty("X-API-TOKEN", token);
         con.setRequestProperty("Content-Type", "application/json");
         con.setDoOutput(true);
@@ -234,7 +234,7 @@ public class RestServiceImpl {
         String params = "cp=" + cp + "&symbol=" + symbol;
         URL url = new URL(PREFIX + "/api/v1/making/makingConfigs/update?"+ params);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("POST");
+        con.setRequestMethod("PUT");
         con.setRequestProperty("X-API-TOKEN", token);
         con.setRequestProperty("Content-Type", "application/json");
         con.setDoOutput(true);
