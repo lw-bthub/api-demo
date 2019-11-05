@@ -1302,8 +1302,8 @@ X-API-TOKEN:token（通过login获得）
 
 | NAME     | REQUIRED | TYPE   | DESCRIBE        | DEFAULT | VALUES RANGE |
 | :------- | :------- | :----- | :-------------- | :------ | :----------- |
-| cp       |          | string | 交易对手(缩写） |         |              |
-| symbol   |          | string | 币对名称        |         |              |
+| cp       |          | string | 交易对手(缩写）      |                     |              |
+| symbol   |          | string | 币对名称                   |                      |              |
 
 ***返回参数***
 
@@ -1315,12 +1315,12 @@ X-API-TOKEN:token（通过login获得）
 | l1OrderActive                 |boolean      |  L1 发送订单             |
 | tradeActive                   |boolean      |  成交                    |
 | l2OrderActive                 |boolean      |  L2 发送订单             |
-| l1ConfigType                  |string       |  [配置类型 ](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |
-| l1Config                      |string       |  配置                    |
-| l1TickSize                    |BigDecimal   |  最小价格单位             | 
-| l1LadderDepth                 |byte         |  深度                    |
-| l1StepHeight                  |BigDecimal   |  步长                    |  
-| l1MinSpread                   |BigDecimal   |  最小点差                 |  
+| l1ConfigType                  |string       |  L1 [配置类型 ](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |
+| l1Config                      |string       |  L1 配置                    |
+| l1TickSize                    |BigDecimal   |  L1 最小价格单位             | 
+| l1LadderDepth                 |byte         |  L1 深度                    |
+| l1StepHeight                  |BigDecimal   |  L1 步长                    |  
+| l1MinSpread                   |BigDecimal   |  L1 最小点差                 |  
 | l1MaxDeviation                |BigDecimal   |  最大偏离量               |  
 | tradeType                     |string       |  [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |
 | tradePriceType                |string       |  [成交价格类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |
@@ -1331,13 +1331,13 @@ X-API-TOKEN:token（通过login获得）
 | tradeSendRatio                |BigDecimal   |  成交概率                    |  
 | tradeVolumeDeduct             |boolean      |  成交数量扣除                |
 | maxTradeVolumeRatio           |BigDecimal   |  最大成交比例               |  
-| l2MinSpread                   |BigDecimal   |  最小点差                   |  
-| l2LadderDepth                 |byte         |  深度                       |
-| l2TickSize                    |BigDecimal   |  最小价格单位              |  
-| l2MaxDeviation                |BigDecimal   |  最大偏离量                |  
-| l2MinThreshold                |BigDecimal   |  最小阈值                  |  
-| l2MinVolume                   |BigDecimal   |  最小交易数量              |  
-| l2MaxVolume                   |BigDecimal   |  最大交易数量              |  
+| l2MinSpread                   |BigDecimal   |  L2 最小点差                   |  
+| l2LadderDepth                 |byte         |  L2 深度                       |
+| l2TickSize                    |BigDecimal   |  L2 最小价格单位              |  
+| l2MaxDeviation                |BigDecimal   |  L2 最大偏离量                |  
+| l2MinThreshold                |BigDecimal   |  L2 最小阈值                  |  
+| l2MinVolume                   |BigDecimal   |  L2 最小交易数量              |  
+| l2MaxVolume                   |BigDecimal   |  L2 最大交易数量              |  
 
 
 ***example of return***
@@ -1529,13 +1529,13 @@ X-API-TOKEN:token（acquired from login）
 | l1OrderActive                 | Y        |boolean      |  L1 发送订单             |         |                                                        |
 | tradeActive                   | Y        |boolean      |  成交                    |         |                                                        |
 | l2OrderActive                 | Y        |boolean      |  L2 发送订单             |         |                                                        |
-| l1ConfigType                  | Y        |string       |  [配置类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
-| l1Config                      | Y        |string       |  配置                    |         |  Must be included in source liquidity config                                            |
-| l1TickSize                    | Y        |BigDecimal   |  最小价格单位             |         |  Range: > 0, Precision:24, Scale:12                                                      | 
-| l1LadderDepth                 | Y        |byte         |  深度                    |         |  Range: > 0                                                      |
-| l1StepHeight                  | Y        |BigDecimal   |  步长                    |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MinSpread                   | Y        |BigDecimal   |  最小点差                |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MaxDeviation                | Y        |BigDecimal   |  最大偏离量              |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
+| l1ConfigType                  | Y        |string       |  L1 [配置类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
+| l1Config                      | Y        |string       |  L1 配置                    |         |  Must be included in source liquidity config                                            |
+| l1TickSize                    | Y        |BigDecimal   |  L1 最小价格单位             |         |  Range: > 0, Precision:24, Scale:12                                                      | 
+| l1LadderDepth                 | Y        |byte         |  L1 深度                    |         |  Range: > 0                                                      |
+| l1StepHeight                  | Y        |BigDecimal   |  L1 步长                    |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MinSpread                   | Y        |BigDecimal   |  L1 最小点差                |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MaxDeviation                | Y        |BigDecimal   |  L1 最大偏离量              |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
 | tradeType                     | Y        |string       |  [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
 | tradePriceType                | Y        |string       |  [成交价格类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
 | tradePriceAdjustRatio         | Y        |BigDecimal   |  成交价格调整比例         |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
@@ -1546,13 +1546,13 @@ X-API-TOKEN:token（acquired from login）
 | tradeVolumeDeduct             | Y        |boolean      |  成交数量扣除             |         |                                 |
 | maxTradeVolumeRatio           | Y        |BigDecimal   |  最大成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
 | minTradeVolumeRatio           | Y        |BigDecimal   |  最小成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| l2MinSpread                   | Y        |BigDecimal   |  最小点差                 |         | Range: > 0, Precision:24, Scale:12                                                       | 
-| l2LadderDepth                 | Y        |byte         |  深度                     |         | Range: > 0, Precision:4, Scale:0                                                       |
-| l2TickSize                    | Y        |BigDecimal   |  最小价格单位              |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MaxDeviation                | Y        |BigDecimal   |  最大偏差                 |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
-| l2MinThreshold                | Y        |BigDecimal   |  最小阈值                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MinVolume                   | Y        |BigDecimal   |  最小数量                 |         | Range: >= 0, Precision:24, Scale:12                                                      |  
-| l2MaxVolume                   | Y        |BigDecimal   |  最大数量                 |         | Range: >= 0, Precision:24, Scale:12   
+| l2MinSpread                   | Y        |BigDecimal   |  L2 最小点差                 |         | Range: > 0, Precision:24, Scale:12                                                       | 
+| l2LadderDepth                 | Y        |byte         |  L2 深度                     |         | Range: > 0, Precision:4, Scale:0                                                       |
+| l2TickSize                    | Y        |BigDecimal   |  L2 最小价格单位              |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MaxDeviation                | Y        |BigDecimal   |  L2 最大偏差                 |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
+| l2MinThreshold                | Y        |BigDecimal   |  L2 最小阈值                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MinVolume                   | Y        |BigDecimal   |  L2 最小数量                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MaxVolume                   | Y        |BigDecimal   |  L2 最大数量                 |         | Range: > 0, Precision:24, Scale:12   
 
 
 ***请求参数示例***
@@ -1655,13 +1655,13 @@ X-API-TOKEN:token（通过login获得）
 | l1OrderActive                 | Y        |boolean      |  L1 发送订单                |         |                                                        |
 | tradeActive                   | Y        |boolean      |  成交                             |         |                                                        |
 | l2OrderActive                 | Y        |boolean      |  L2 发送订单             |         |                                                        |
-| l1ConfigType                  | Y        |string       |  配置类型 [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
-| l1Config                      | Y        |string       |  配置                    |         |  Must be included in source liquidity config                                            |
-| l1TickSize                    | Y        |BigDecimal   |  最小价格单位             |         |  Range: > 0, Precision:24, Scale:12                                                      | 
-| l1LadderDepth                 | Y        |byte         |  深度                    |         |  Range: > 0                                                      |
-| l1StepHeight                  | Y        |BigDecimal   |  步长                    |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MinSpread                   | Y        |BigDecimal   |  最小点差                |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MaxDeviation                | Y        |BigDecimal   |  最大偏离量              |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
+| l1ConfigType                  | Y        |string       |  L1 配置类型 [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
+| l1Config                      | Y        |string       |  L1 配置                    |         |  Must be included in source liquidity config                                            |
+| l1TickSize                    | Y        |BigDecimal   |  L1 最小价格单位             |         |  Range: > 0, Precision:24, Scale:12                                                      | 
+| l1LadderDepth                 | Y        |byte         |  L1 深度                    |         |  Range: > 0                                                      |
+| l1StepHeight                  | Y        |BigDecimal   |  L1 步长                    |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MinSpread                   | Y        |BigDecimal   |  L1 最小点差                |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MaxDeviation                | Y        |BigDecimal   |  L1 最大偏离量              |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
 | tradeType                     | Y        |string       |  [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
 | tradePriceType                | Y        |string       |  [成交价格类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
 | tradePriceAdjustRatio         | Y        |BigDecimal   |  成交价格调整比例         |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
@@ -1672,13 +1672,13 @@ X-API-TOKEN:token（通过login获得）
 | tradeVolumeDeduct             | Y        |boolean      |  成交数量扣除             |         |                                 |
 | maxTradeVolumeRatio           | Y        |BigDecimal   |  最大成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
 | minTradeVolumeRatio           | Y        |BigDecimal   |  最小成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| l2MinSpread                   | Y        |BigDecimal   |  最小点差                 |         | Range: > 0, Precision:24, Scale:12                                                       | 
-| l2LadderDepth                 | Y        |byte         |  深度                     |         | Range: > 0, Precision:4, Scale:0                                                       |
-| l2TickSize                    | Y        |BigDecimal   |  最小价格单位              |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MaxDeviation                | Y        |BigDecimal   |  最大偏差                 |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
-| l2MinThreshold                | Y        |BigDecimal   |  最小阈值                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MinVolume                   | Y        |BigDecimal   |  最小数量                 |         | Range: >= 0, Precision:24, Scale:12                                                      |  
-| l2MaxVolume                   | Y        |BigDecimal   |  最大数量                 |         | Range: >= 0, Precision:24, Scale:12      
+| l2MinSpread                   | Y        |BigDecimal   |  L2 最小点差                 |         | Range: > 0, Precision:24, Scale:12                                                       | 
+| l2LadderDepth                 | Y        |byte         |  L2 深度                     |         | Range: > 0, Precision:4, Scale:0                                                       |
+| l2TickSize                    | Y        |BigDecimal   |  L2 最小价格单位              |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MaxDeviation                | Y        |BigDecimal   |  L2 最大偏差                 |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
+| l2MinThreshold                | Y        |BigDecimal   |  L2 最小阈值                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MinVolume                   | Y        |BigDecimal   |  L2 最小数量                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MaxVolume                   | Y        |BigDecimal   |  L2 最大数量                 |         | Range: > 0, Precision:24, Scale:12      
 
 
 ***请求参数示例***
