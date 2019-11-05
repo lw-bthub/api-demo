@@ -11,17 +11,17 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 
 ## 接口列表
 
-| 请求指令                      | 描述                 |
-| :---------------------------- | -------------------- |
-| [subscribe:apiOrder](#订阅订单成交结果)             | 订阅订单成交结果     |
-| [unsubscribe:apiOrder](#订阅订单成交结果)           | 取消订阅订单成交结果 |
-| [subscribe:apiQuote:symbol](#订阅行情深度)    | 订阅行情深度     (symbol:币对名称)    |
-| [unsubscribe:apiQuote:symbol](#订阅行情深度)  | 取消订阅行情深度   (symbol:币对名称)  |
-| [subscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)    | 订阅聚合行情深度     (symbol:币对名称)    |
-| [unsubscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)  | 取消订阅聚合行情深度   (symbol:币对名称)  |
-| [subscribe:apiRiskPosition:all:book](#订阅风控详情)    | 订阅风控详情     (book:账簿名称)    |
-| [unsubscribe:apiRiskPosition:all:book](#取消订阅风控详情)  | 取消订阅风控详情   (book:账簿名称)  |
-| [ping](#保持空闲连接)| 心跳命令 |
+| 请求指令                                                   | 描述                                     |
+|:-----------------------------------------------------------|:-----------------------------------------|
+| [subscribe:apiOrder](#订阅订单成交结果)                    | 订阅订单成交结果                         |
+| [unsubscribe:apiOrder](#订阅订单成交结果)                  | 取消订阅订单成交结果                     |
+| [subscribe:apiQuote:symbol](#订阅行情深度)                 | 订阅行情深度     (symbol:币对名称)       |
+| [unsubscribe:apiQuote:symbol](#订阅行情深度)               | 取消订阅行情深度   (symbol:币对名称)     |
+| [subscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度)   | 订阅聚合行情深度     (symbol:币对名称)   |
+| [unsubscribe:apiAggregatedQuote:symbol](#订阅聚合行情深度) | 取消订阅聚合行情深度   (symbol:币对名称) |
+| [subscribe:apiRiskPosition:all:book](#订阅风控详情)        | 订阅风控详情     (book:账簿名称)         |
+| [unsubscribe:apiRiskPosition:all:book](#取消订阅风控详情)  | 取消订阅风控详情   (book:账簿名称)       |
+| [ping](#保持空闲连接)                                      | 心跳命令                                 |
 
 
 ## WEBSOCKET API
@@ -33,21 +33,21 @@ X-API-TOKEN:token(通过login获得）
 ### 订阅行情深度
 ***汇率请求指令***
 
-| 请求指令                      | 描述             |
-| :---------------------------- | :--------------- |
+| 请求指令                    | 描述             |
+|:----------------------------|:-----------------|
 | subscribe:apiQuote:symbol   | 订阅行情深度     |
 | unsubscribe:apiQuote:symbol | 取消订阅行情深度 |
 
  ***汇率推送返回参数***
 
 | NAME       | TYPE   | DESCRIBE        |
-| :--------- | :----- | :-------------- |
+|:-----------|:-------|:----------------|
 | event      | string | 事件(API_QUOTE) |
 | commission | number | 手续费          |
-| cp         | string | 交易对手名称                |
-| symbol     | string | 交易币对名称              |
-| price      | number | 价格          |
-| volume     | number  | 数量           |
+| cp         | string | 交易对手名称    |
+| symbol     | string | 交易币对名称    |
+| price      | number | 价格            |
+| volume     | number | 数量            |
 
  ***汇率推送返回参数示例***
 
@@ -97,32 +97,32 @@ X-API-TOKEN:token(通过login获得）
 ***订单请求指令***
 
 | 请求指令             | 描述                 |
-| :------------------- | :------------------- |
+|:---------------------|:---------------------|
 | subscribe:apiOrder   | 订阅订单成交结果     |
 | unsubscribe:apiOrder | 取消订阅订单成交结果 |
 
  ***订单成交推送返回参数***
 
-| NAME          | TYPE       | DESCRIBE              |
-| :------------ | :--------- | :-------------------- |
-| event         | string     | 事件(API_ORDER)       |
-| cpOrderId     | integer    | CP 订单ID          |
-| symbol        | string     | 交易币对名称              |
-| accountId     | integer    | 账户ID                |
-| orderId       | integer    | 父订单                |
-| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)        |
-| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
-| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |
-| executeAmount | number     | 成交金额              |
-| executeVolume | number     | 成交数量              |
-| orderVolume   | number     | 订单数量              |
-| pendingVolume | number     | 未成交数量             |
-| executeTime   | integer    | 成交时间               |
-| orderTime     | integer    | 订单时间              |
-| commission    | number     | 手续费                |
-| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
-| orderResult   | string     | [结果(OrderResult)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
-| orderComment  | string     | 备注                  |
+| NAME          | TYPE    | DESCRIBE                                                                          |
+|:--------------|:--------|:----------------------------------------------------------------------------------|
+| event         | string  | 事件(API_ORDER)                                                                   |
+| cpOrderId     | integer | CP 订单ID                                                                         |
+| symbol        | string  | 交易币对名称                                                                      |
+| accountId     | integer | 账户ID                                                                            |
+| orderId       | integer | 父订单                                                                            |
+| side          | string  | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)        |
+| status        | string  | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
+| orderType     | string  | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)   |
+| executeAmount | number  | 成交金额                                                                          |
+| executeVolume | number  | 成交数量                                                                          |
+| orderVolume   | number  | 订单数量                                                                          |
+| pendingVolume | number  | 未成交数量                                                                        |
+| executeTime   | integer | 成交时间                                                                          |
+| orderTime     | integer | 订单时间                                                                          |
+| commission    | number  | 手续费                                                                            |
+| timeInForce   | string  | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/enum.md) |
+| orderResult   | string  | [结果(OrderResult)](https://github.com/lw-bthub/api-demo/blob/master/enum.md)     |
+| orderComment  | string  | 备注                                                                              |
 
   ***订单成交结果推送返回参数示例***
 
@@ -138,7 +138,6 @@ X-API-TOKEN:token(通过login获得）
   			"executeTime": "1542703689751",
   			"executeVolume": "0.04018000",
   			"executions": [{
-  				"commission": "0.17713433",
   				"cp": "binance",
   				"cpExecutionid": "764451245254521375",
   				"executeAmount": "177.1343336000000000",
@@ -179,20 +178,20 @@ X-API-TOKEN:token(通过login获得）
 ### 订阅聚合行情深度
 ***汇率请求指令***
 
-| 请求指令                      | 描述             |
-| :---------------------------- | :--------------- |
+| 请求指令                              | 描述                 |
+|:--------------------------------------|:---------------------|
 | subscribe:apiAggregatedQuote:symbol   | 订阅聚合行情深度     |
 | unsubscribe:apiAggregatedQuote:symbol | 取消订阅聚合行情深度 |
 
  ***汇率推送返回参数***
 
-| NAME       | TYPE   | DESCRIBE        |
-| :--------- | :----- | :-------------- |
-| event      | string | 事件(API_AGGREGATED_QUOTE) |
-| cp         | string | 交易对手名称                |
-| symbol     | string | 交易币对名称              |
-| price      | number | 价格          |
-| volume     | number | 数量           |
+| NAME   | TYPE   | DESCRIBE                   |
+|:-------|:-------|:---------------------------|
+| event  | string | 事件(API_AGGREGATED_QUOTE) |
+| cp     | string | 交易对手名称               |
+| symbol | string | 交易币对名称               |
+| price  | number | 价格                       |
+| volume | number | 数量                       |
 
  ***汇率推送返回参数示例***
 
@@ -307,21 +306,21 @@ X-API-TOKEN:token(通过login获得）
 ### 订阅风控详情
 ***风控请求指令***
 
-| 请求指令                      | 描述             |
-| :---------------------------- | :--------------- |
-| subscribe:apiRiskPosition:all:book    | 订阅风控详情     (book:账簿缩写)    |
-| unsubscribe:apiRiskPosition:all:book  | 取消订阅风控详情   (book:账簿缩写)  |
+| 请求指令                             | 描述                               |
+|:-------------------------------------|:-----------------------------------|
+| subscribe:apiRiskPosition:all:book   | 订阅风控详情     (book:账簿缩写)   |
+| unsubscribe:apiRiskPosition:all:book | 取消订阅风控详情   (book:账簿缩写) |
 
  ***风控推送返回参数***
 
-| NAME       | TYPE   | DESCRIBE        |
-| :--------- | :----- | :-------------- |
+| NAME       | TYPE   | DESCRIBE                |
+|:-----------|:-------|:------------------------|
 | event      | string | 事件(API_RISK_POSITION) |
-| book         | string | 账簿缩写                |
-| cp     | string | 交易对手缩写              |
-| openAmount     | string | 净头寸              |
-| openVolume     | string | 金额              |
-| symbol     | string | 币对名称              |
+| book       | string | 账簿缩写                |
+| cp         | string | 交易对手缩写            |
+| openAmount | string | 净头寸                  |
+| openVolume | string | 金额                    |
+| symbol     | string | 币对名称                |
 
 
 

@@ -12,6 +12,20 @@ public class RestDemo {
         String token = service.getToken("Jerry02", "123456");
         if(StringUtils.isBlank(token)) return;
         System.out.println("token:"+token);
+        
+        // getMakingConfig
+        System.out.println("search makingConfig: " + service.getMakingConfig(token, "ampex", "EOSUSDT"));
+
+        // updateMakingConfig
+        String param = "{\"frequency\":20,\"l1Config\":\"EOSUSDT\",\"l1ConfigType\":\"SOURCE_LIQUIDITY\",\"l1LadderDepth\":15,\"l1MaxDeviation\":\"0.03\",\"l1MinSpread\":\"0.001\",\"l1OrderActive\":false,\"l1StepHeight\":\"0.0001\",\"l1TickSize\":\"0.0001\",\"l2LadderDepth\":30,\"l2MaxDeviation\":\"0.1\",\"l2MaxVolume\":\"1000\",\"l2MinSpread\":\"0.0213\",\"l2MinThreshold\":\"0.0073\",\"l2MinVolume\":\"100\",\"l2OrderActive\":false,\"l2TickSize\":\"0.0001\",\"maxTradeVolumeRatio\":\"1\",\"minTradeVolumeRatio\":\"1\",\"tradeActive\":false,\"tradePriceAdjustRatio\":\"0.2\",\"tradePriceType\":\"LIQUIDITY_DEMANDER\",\"tradeRefSpread\":\"0.008\",\"tradeSendRatio\":\"1\",\"tradeType\":\"MID\",\"tradeVolumeDeduct\":false,\"tradeVolumeLowerLimit\":\"0.1\",\"tradeVolumeUpperLimit\":\"20\"}";
+        System.out.println("update makingConfig: " + service.updateMakingConfig(token,"ampex","EOSUSDT", param));
+
+        //deleteMakingConfig
+        System.out.println("delete makingConfig: " + service.deleteMakingConfig(token, "ampex", "EOSUSDT"));
+
+        //addMakingConfig
+        param = "{\"cp\":\"ampex\",\"frequency\":20,\"l1Config\":\"EOSUSDT\",\"l1ConfigType\":\"SOURCE_LIQUIDITY\",\"l1LadderDepth\":15,\"l1MaxDeviation\":\"0.03\",\"l1MinSpread\":\"0.001\",\"l1OrderActive\":false,\"l1StepHeight\":\"0.0001\",\"l1TickSize\":\"0.0001\",\"l2LadderDepth\":30,\"l2MaxDeviation\":\"0.1\",\"l2MaxVolume\":\"1000\",\"l2MinSpread\":\"0.0213\",\"l2MinThreshold\":\"0.0073\",\"l2MinVolume\":\"100\",\"l2OrderActive\":false,\"l2TickSize\":\"0.0001\",\"maxTradeVolumeRatio\":\"1\",\"minTradeVolumeRatio\":\"1\",\"symbol\":\"EOSUSDT\",\"tradeActive\":false,\"tradePriceAdjustRatio\":\"0.2\",\"tradePriceType\":\"LIQUIDITY_DEMANDER\",\"tradeRefSpread\":\"0.008\",\"tradeSendRatio\":\"1\",\"tradeType\":\"MID\",\"tradeVolumeDeduct\":false,\"tradeVolumeLowerLimit\":\"0.1\",\"tradeVolumeUpperLimit\":\"20\"}";
+        System.out.println("save makingConfig: " + service.saveMakingConfig(token,param));
 
         // cpAccount
         System.out.println("cpAccount: " + service.cpAccount(token, "huobi"));
@@ -22,19 +36,6 @@ public class RestDemo {
         // symbols
         System.out.println("symbols: " + service.symbols(token));
 
-        // getMakingConfig
-        System.out.println("search makingConfig: " + service.getMakingConfig(token, "ampex", "EOSUSDT"));
-
-        // updateMakingConfig
-        String param = "{\"frequency\":20,\"l1Config\":\"EOSUSDT\",\"l1ConfigType\":\"SOURCE_LIQUIDITY\",\"l1LadderDepth\":15,\"l1MaxDeviation\":\"0.03\",\"l1MinSpread\":\"0.001\",\"l1OrderActive\":false,\"l1StepHeight\":\"0.0001\",\"l1TickSize\":\"0.0001\",\"l2LadderDepth\":30,\"l2MaxDeviation\":\"0.1\",\"l2MaxVolume\":\"1000\",\"l2MinSpread\":\"0.0213\",\"l2MinThreshold\":\"0.0073\",\"l2MinVolume\":\"100\",\"l2OrderActive\":false,\"l2TickSize\":\"0.0001\",\"maxTradeVolumeRatio\":\"0.05\",\"minTradeVolumeRatio\":\"0.01\",\"tradeActive\":false,\"tradePriceAdjustRatio\":\"0.2\",\"tradePriceType\":\"LIQUIDITY_DEMANDER\",\"tradeRefSpread\":\"0.008\",\"tradeSendRatio\":\"0.9\",\"tradeType\":\"MID\",\"tradeVolumeDeduct\":false,\"tradeVolumeLowerLimit\":\"0.1\",\"tradeVolumeUpperLimit\":\"20\"}";
-        System.out.println("update makingConfig: " + service.updateMakingConfig(token,"ampex","EOSUSDT", param));
-
-        //deleteMakingConfig
-        System.out.println("delete makingConfig: " + service.deleteMakingConfig(token, "ampex", "EOSUSDT"));
-
-        //addMakingConfig
-        param = "{\"cp\":\"ampex\",\"frequency\":20,\"l1Config\":\"EOSUSDT\",\"l1ConfigType\":\"SOURCE_LIQUIDITY\",\"l1LadderDepth\":15,\"l1MaxDeviation\":\"0.03\",\"l1MinSpread\":\"0.001\",\"l1OrderActive\":false,\"l1StepHeight\":\"0.0001\",\"l1TickSize\":\"0.0001\",\"l2LadderDepth\":30,\"l2MaxDeviation\":\"0.1\",\"l2MaxVolume\":\"1000\",\"l2MinSpread\":\"0.0213\",\"l2MinThreshold\":\"0.0073\",\"l2MinVolume\":\"100\",\"l2OrderActive\":false,\"l2TickSize\":\"0.0001\",\"maxTradeVolumeRatio\":\"0.05\",\"minTradeVolumeRatio\":\"0.01\",\"symbol\":\"EOSUSDT\",\"tradeActive\":false,\"tradePriceAdjustRatio\":\"0.2\",\"tradePriceType\":\"LIQUIDITY_DEMANDER\",\"tradeRefSpread\":\"0.008\",\"tradeSendRatio\":\"0.9\",\"tradeType\":\"MID\",\"tradeVolumeDeduct\":false,\"tradeVolumeLowerLimit\":\"0.1\",\"tradeVolumeUpperLimit\":\"20\"}";
-        System.out.println("save makingConfig: " + service.saveMakingConfig(token,param));
 
         //getSourceLiquidityConfig
         System.out.println("get sourceLiquidityConfig: " + service.getSourceLiquidityConfig(token,"ETHUSDT"));
@@ -49,6 +50,7 @@ public class RestDemo {
         //addSourceLiquidityConfig
         param ="{\"askPriceAdjustRatio\":\"60\",\"askPriceAdjustValue\":\"80\",\"askVolumeAdjustRatio\":\"40\",\"baseCp\":\"huobi\",\"bidPriceAdjustRatio\":\"50\",\"bidPriceAdjustValue\":\"70\",\"bidVolumeAdjustRatio\":\"30\",\"maxVolume\":\"10\",\"maxVolumeRatio\":\"20\",\"name\":\"ETHUSDT1\",\"priceAdjustType\":\"VALUE\",\"refCps\":[\"bc\",\"huobi\"],\"symbol\":\"ETHUSDT\"}";
         System.out.println("save SourceLiquidityConfig: " + service.saveSourceLiquidityConfig(token,param));
+        
         //placeOrder
         param = "{\"book\":\"\",\"clientOrderId\":\"0001\",\"cps\":[\"bc\",\"huobi\",\"okex\"],\"slippage\":0.01,\"orderPrice\":0,\"orderType\":\"SLIPPAGE\",\"orderVolume\":0.01,\"side\":\"BUY\",\"symbol\":\"BTCUSDT\",\"timeInForce\":\"IOC\"}";
         System.out.println("placeOrder: " + service.placeOrder(token, param));

@@ -11,17 +11,17 @@
 
 ## API LIST
 
-| request                       | description                 |
-| :---------------------------- | -------------------- |
-| [subscribe:apiOrder](#subscribe-order-trading-result)             | subscribe order trading result     |
-| [unsubscribe:apiOrder](#subscribe-order-trading-result)           | unsubscribe order trading result |
-| [subscribe:apiQuote:symbol](#subscribe-market-quotation)    | subscribe market quotation     (symbol:crypto pairs name)    |
-| [unsubscribe:apiQuote:symbol](#subscribe-market-quotation)  | unsubscribe market quotation     (symbol:crypto pairs name)  |
-| [subscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)    | subscribe aggregation quotation    (symbol:crypto pairs name)    |
-| [unsubscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)  | unsubscribe aggregation quotation   (symbol:crypto pairs name)    |
-| [subscribe:apiRiskPosition:all:book](#subscribe-risk)    | subscribe risk     (book: book abbreviation)  |
-| [unsubscribe:apiRiskPosition:all:book](#subscribe-risk)  | unsubscribe risk   (book: book abbreviation)  |
-| [ping]| heart beat |
+| request                                                                   | description                                                    |
+|:--------------------------------------------------------------------------|:---------------------------------------------------------------|
+| [subscribe:apiOrder](#subscribe-order-trading-result)                     | subscribe order trading result                                 |
+| [unsubscribe:apiOrder](#subscribe-order-trading-result)                   | unsubscribe order trading result                               |
+| [subscribe:apiQuote:symbol](#subscribe-market-quotation)                  | subscribe market quotation     (symbol:crypto pairs name)      |
+| [unsubscribe:apiQuote:symbol](#subscribe-market-quotation)                | unsubscribe market quotation     (symbol:crypto pairs name)    |
+| [subscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation)   | subscribe aggregation quotation    (symbol:crypto pairs name)  |
+| [unsubscribe:apiAggregatedQuote:symbol](#subscribe-aggregation-quotation) | unsubscribe aggregation quotation   (symbol:crypto pairs name) |
+| [subscribe:apiRiskPosition:all:book](#subscribe risk)                     | subscribe risk    (book: book abbreviation)                    |
+| [unsubscribe:apiRiskPosition:all:book](#subscribe risk)                   | unsubscribe risk   (book: book abbreviation)                   |
+| [ping]                                                                    | heart beat                                                     |
 
 
 ## WEBSOCKET API for creating connection
@@ -33,21 +33,21 @@ X-API-TOKEN:token(acquired from login）
 ### subscribe market quotation
 ***request instruction***
 
-| request                      | description        |
-| :---------------------------- | :--------------- |
-| subscribe:apiQuote:symbol   | subscribe new market quotation     |
+| request                     | description                      |
+|:----------------------------|:---------------------------------|
+| subscribe:apiQuote:symbol   | subscribe new market quotation   |
 | unsubscribe:apiQuote:symbol | unsubscribe new market quotation |
 
  ***params of return***
 
-| NAME       | TYPE   | DESCRIBE        |
-| :--------- | :----- | :-------------- |
-| event      | string | event(API_QUOTE) |
-| commission | number | commission fee   |
-| cp         | string | counter party name      |
-| symbol     | string | crypto pairs name       |
-| price      | number | price          |
-| volume     | number  | volume           |
+| NAME       | TYPE   | DESCRIBE           |
+|:-----------|:-------|:-------------------|
+| event      | string | event(API_QUOTE)   |
+| commission | number | commission fee     |
+| cp         | string | counter party name |
+| symbol     | string | crypto pairs name  |
+| price      | number | price              |
+| volume     | number | volume             |
 
  ***example of return***
 
@@ -97,32 +97,32 @@ X-API-TOKEN:token(acquired from login）
 ### subscribe order trading result
 ***order request***
 
-| request             | description                 |
-| :------------------- | :------------------- |
-| subscribe:apiOrder   | subscribe order trading result     |
+| request              | description                      |
+|:---------------------|:---------------------------------|
+| subscribe:apiOrder   | subscribe order trading result   |
 | unsubscribe:apiOrder | unsubscribe order trading result |
 
  ***params of order trading result***
 
-| NAME          | TYPE       | DESCRIBE              |
-| :------------ | :--------- | :-------------------- |
-| event         | string     | event(API_ORDER)       |
-| cpOrderId     | integer    | CP order ID          |
-| symbol        | string     | crypto pairs name              |
-| orderId       | integer    | parent order ID                |
-| side          | string     | BUY or SELL(Side)]        |
-| status        | string     | Order Status     |
-| orderType     | string     | Order Type  |
-| executeAmount | number     | executed Amount              |
-| executeVolume | number     | executed Volume              |
-| orderVolume   | number     | order Volume              |
-| pendingVolume | number     | pending Volume             |
-| executeTime   | integer    | executed Time               |
-| orderTime     | integer    | place order Time              |
-| commission    | number     | commission                |
-| timeInForce   | string     | Time In Force |
-| orderResult   | string     | Order Result    |
-| orderComment  | string     | comments                 |
+| NAME          | TYPE    | DESCRIBE           |
+|:--------------|:--------|:-------------------|
+| event         | string  | event(API_ORDER)   |
+| cpOrderId     | integer | CP order ID        |
+| symbol        | string  | crypto pairs name  |
+| orderId       | integer | parent order ID    |
+| side          | string  | BUY or SELL(Side)] |
+| status        | string  | Order Status       |
+| orderType     | string  | Order Type         |
+| executeAmount | number  | executed Amount    |
+| executeVolume | number  | executed Volume    |
+| orderVolume   | number  | order Volume       |
+| pendingVolume | number  | pending Volume     |
+| executeTime   | integer | executed Time      |
+| orderTime     | integer | place order Time   |
+| commission    | number  | commission         |
+| timeInForce   | string  | Time In Force      |
+| orderResult   | string  | Order Result       |
+| orderComment  | string  | comments           |
 
   ***example of order trading result***
 
@@ -138,7 +138,6 @@ X-API-TOKEN:token(acquired from login）
   			"executeTime": "1542703689751",
   			"executeVolume": "0.04018000",
   			"executions": [{
-  				"commission": "0.17713433",
   				"cp": "binance",
   				"cpExecutionid": "764451245254521375",
   				"executeAmount": "177.1343336000000000",
@@ -181,20 +180,20 @@ X-API-TOKEN:token(acquired from login）
 ### subscribe aggregation quotation
 ***request instruction***
 
-| request                      | description             |
-| :---------------------------- | :--------------- |
-| subscribe:apiAggregatedQuote:symbol   | subscribe aggregation quotation     |
+| request                               | description                       |
+|:--------------------------------------|:----------------------------------|
+| subscribe:apiAggregatedQuote:symbol   | subscribe aggregation quotation   |
 | unsubscribe:apiAggregatedQuote:symbol | unsubscribe aggregation quotation |
 
  ***params of return***
 
-| NAME       | TYPE   | DESCRIBE        |
-| :--------- | :----- | :-------------- |
-| event      | string | event(API_AGGREGATED_QUOTE) |
-| cp         | string | counter party name                |
-| symbol     | string | crypto pair name              |
-| price      | number | price          |
-| volume     | number | volume           |
+| NAME   | TYPE   | DESCRIBE                    |
+|:-------|:-------|:----------------------------|
+| event  | string | event(API_AGGREGATED_QUOTE) |
+| cp     | string | counter party name          |
+| symbol | string | crypto pair name            |
+| price  | number | price                       |
+| volume | number | volume                      |
 
  ***example of return***
 
@@ -310,21 +309,21 @@ X-API-TOKEN:token(acquired from login）
 ### subscribe risk
 ***request instruction***
 
-| request                      | description             |
-| :---------------------------- | :--------------- |
-| subscribe:apiRiskPosition:all:book    | subscribe risk     (book:book abbreviation)    |
-| unsubscribe:apiRiskPosition:all:book  | unsubscribe risk   (book:book abbreviation)  |
+| request                              | description                                 |
+|:-------------------------------------|:--------------------------------------------|
+| subscribe:apiRiskPosition:all:book   | subscribe risk     (book:book abbreviation) |
+| unsubscribe:apiRiskPosition:all:book | unsubscribe risk   (book:book abbreviation) |
 
  ***params of return***
 
-| NAME       | TYPE   | DESCRIBE        |
-| :--------- | :----- | :-------------- |
+| NAME       | TYPE   | DESCRIBE                  |
+|:-----------|:-------|:--------------------------|
 | event      | string | event (API_RISK_POSITION) |
-| book         | string | book abbreviation                |
-| cp     | string | counter party name            |
-| openAmount     | string | open amount              |
-| openVolume     | string | open volume              |
-| symbol     | string | crypto pair name              |
+| book       | string | book abbreviation         |
+| cp         | string | counter party name        |
+| openAmount | string | open amount               |
+| openVolume | string | open volume               |
+| symbol     | string | crypto pair name          |
 
 
 
