@@ -1314,7 +1314,7 @@ X-API-TOKEN:token（通过login获得）
 | frequency                     |integer      |  发送订单频率/分          |
 | l1OrderActive                 |boolean      |  L1 发送订单             |
 | tradeActive                   |boolean      |  成交                    |
-| l2OrderActive               |boolean        |  L2 发送订单             |
+| l2OrderActive                 |boolean      |  L2 发送订单             |
 | l1ConfigType                  |string       |  [配置类型 ](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |
 | l1Config                      |string       |  配置                    |
 | l1TickSize                    |BigDecimal   |  最小价格单位             | 
@@ -1639,7 +1639,7 @@ X-API-TOKEN:token（acquired from login）
 
 
 ### 修改做市配置
-PUT /api/v1/making/makingConfigs
+PUT /api/v1/making/makingConfigs/update
 
 请求时必须带Headers:    
 
@@ -1650,10 +1650,10 @@ X-API-TOKEN:token（通过login获得）
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :------- | :---------- | :------------------------ | :------ | :----------------------------------------------------- |
 | cp                            | Y        |string       |  交易对手(缩写）         |         |  Must be included in cp                                |
-| symbol                        | Y        |string       |  币对名称   |            |                                                        | 
-| frequency                     | Y        |integer      |  发送频率/分             |         | Range: > 0                                             |
-| l1OrderActive                 | Y        |boolean      |  L1 发送订单             |         |                                                        |
-| tradeActive                   | Y        |boolean      |  成交                    |         |                                                        |
+| symbol                        | Y        |string       |  币对名称                      |            |                                                        | 
+| frequency                     | Y        |integer      |  发送频率/分                 |         | Range: > 0                                             |
+| l1OrderActive                 | Y        |boolean      |  L1 发送订单                |         |                                                        |
+| tradeActive                   | Y        |boolean      |  成交                             |         |                                                        |
 | l2OrderActive                 | Y        |boolean      |  L2 发送订单             |         |                                                        |
 | l1ConfigType                  | Y        |string       |  配置类型 [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
 | l1Config                      | Y        |string       |  配置                    |         |  Must be included in source liquidity config                                            |
@@ -1684,56 +1684,34 @@ X-API-TOKEN:token（通过login获得）
 ***请求参数示例***
 ```
 {
-  "basic": {
-    "cp": "xxx",
-    "symbol": "ETHUSDT",
-    "refCps": [
-      "bc",
-      "huobi",
-      "okex"
-    ],
-    "baseCp": "okex",
-    "orderActive": false,
-    "tradesActive": false,
-    "l2OrderActive": false
-  },
-  "level1": {
-    "ladderDepth": 5,
-    "tickSize": "0.01",
-    "stepHeight": "0.02",
-    "minSpread": "2",
-    "maxVolume": "2",
-    "priceAdjustType": "VALUE",
-    "bidVolumeAdjustRatio": "1",
-    "askVolumeAdjustRatio": "1",
-    "bidPriceAdjustRatio": null,
-    "askPriceAdjustRatio": null,
-    "bidPriceAdjustValue": "0.5",
-    "askPriceAdjustValue": "1",
-    "orderFrequency": 60,
-    "quoteExpiration": "60000"
-  },
-  "level2": {
-    "minSpread": "100",
-    "ladderDepth": 5,
-    "tickSize": "0.01",
-    "maxDeviation": "0.5",
-    "minVolume": "0.1",
-    "maxVolume": "0.5",
-    "minThreshold": "40"
-  },
-  "trades": {
-    "tradesType": "TOB",
-    "tradeSendRatio": "0.1",
-    "tradeVolumeDeduct": false,
-    "minTradesRatio": "0.1",
-    "maxTradesRatio": "0.1",
-    "tradePriceAdjustRatio": "0.1",
-    "tradeRefSpread": "0.1",
-    "minTradeVolume": "0.5",
-    "maxTradeVolume": "0.5"
-  },
-  "version": 1
+  "frequency": 20,
+  "l1Config": "EOSUSDT",
+  "l1ConfigType": "SOURCE_LIQUIDITY",
+  "l1LadderDepth": 15,
+  "l1MaxDeviation": "0.03",
+  "l1MinSpread": "0.001",
+  "l1OrderActive": false,
+  "l1StepHeight": "0.0001",
+  "l1TickSize": "0.0001",
+  "l2LadderDepth": 30,
+  "l2MaxDeviation": "0.1",
+  "l2MaxVolume": "1000",
+  "l2MinSpread": "0.0213",
+  "l2MinThreshold": "0.0073",
+  "l2MinVolume": "100",
+  "l2OrderActive": false,
+  "l2TickSize": "0.0001",
+  "maxTradeVolumeRatio": "1",
+  "minTradeVolumeRatio": "1",
+  "tradeActive": false,
+  "tradePriceAdjustRatio": "0.2",
+  "tradePriceType": "LIQUIDITY_DEMANDER",
+  "tradeRefSpread": "0.008",
+  "tradeSendRatio": "1",
+  "tradeType": "MID",
+  "tradeVolumeDeduct": false,
+  "tradeVolumeLowerLimit": "0.1",
+  "tradeVolumeUpperLimit": "20"
 }
 ```
 
@@ -1793,7 +1771,7 @@ X-API-TOKEN:token（通过login获得）
 
 
 ### 删除做市配置
-DELETE /api/v1/making/makingConfig
+DELETE /api/v1/making/makingConfigs/delete
 
 请求时必须带Headers:    
 
@@ -1803,8 +1781,8 @@ X-API-TOKEN:token（通过login获得）
 
 | NAME                 | REQUIRED | TYPE       | DESCRIBE   | DEFAULT | VALUES RANGE |
 | :------------------- | :------- | :--------- | :--------- | :------ | :----------- |
-| id                   | Y        | integer    | 配置ID     |         |              |
-| version              | Y        | integer    | 版本号     |         |              |
+| cp                   | Y        | string     | 对手名称         |                    |                                |
+| symbol               | Y        | string     | 币对                |                     |                                |
 
 
 ***返回参数***
@@ -1960,7 +1938,7 @@ X-API-TOKEN:token（acquired from login）
 | askPriceAdjustRatio           | N        |BigDecimal   |  Ask价格调整比例 |       | Range: > 0 & <= 100   Precision:4, Scale:2                       |
 | bidPriceAdjustValue           | N        |BigDecimal   |  Bid价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
 | askPriceAdjustValue           | N        |BigDecimal   |  Ask价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
-| priceAdjustType               | Y        |string       |  价格调整类型 [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)|         |                                                        |
+| priceAdjustType               | Y        |string       |  [价格调整类型 ](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)|         |                                                        |
 
 
 ***请求参数示例***
@@ -2056,10 +2034,10 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :------- | :---------- | :------------------------ | :------ | :----------------------------------------------------- |
-| name                          | Y        |string       |  交易对手名称            |         |                                                        |
-| symbol                        | Y        |string       |  交易币对名称            |         |                                                        |
-| baseCp                        |          |string       |  基础LP                 |         |                                                        |
-| refCps                        | Y        |array        |  流动性来源              |         |                                                        |
+| name                          | Y        |string       |  交易对手名称            |                  |                                                        |
+| symbol                        | Y        |string       |  交易币对名称            |                  |                                                        |
+| baseCp                        |          |string       |  基础LP           |        |                                                        |
+| refCps                        | Y        |array        |  流动性来源                 |                  |                                                        |
 | bidVolumeAdjustRatio          | Y        |BigDecimal   |  Bid数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
 | askVolumeAdjustRatio          | Y        |BigDecimal   |  Ask数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
 | maxVolume                     | Y        |BigDecimal   |  最大数量                |         | Range: > 0   Precision:24, Scale:12                    |
@@ -2174,8 +2152,8 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                 | REQUIRED | TYPE       | DESCRIBE          | DEFAULT | VALUES RANGE |
 | :------------------- | :------- | :--------- | :---------------- | :------ | :----------- |
-| name                 | Y        |string      |  名称           |         |                                  |
-| symbol               | Y        |string      |  币对         |         |                                  | 
+| name                 | Y        |string      |  名称                             |                     |                                  |
+| symbol               | Y        |string      |  币对                             |                     |                                  | 
 
 
 ***params of return***

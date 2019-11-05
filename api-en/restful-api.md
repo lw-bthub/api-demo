@@ -1635,7 +1635,7 @@ X-API-TOKEN:token（acquired from login）
 
 
 ### update-making-config
-PUT /api/v1/making/makingConfig
+PUT /api/v1/making/makingConfigs/update
 
 request with Headers:    
 
@@ -1777,8 +1777,8 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                 | REQUIRED | TYPE       | DESCRIBE          | DEFAULT | VALUES RANGE |
 | :------------------- | :------- | :--------- | :---------------- | :------ | :----------- |
-| cp                   | Y        |string      |  CP(UPDATE=FALSE)       |         |  Must be included in cp                                |
-| symbol               | Y        |string      |  Symbol(UPDATE=FALSE)   |         |                                                        | 
+| cp                   | Y        |string      |  CP               |         |  Must be included in cp                                |
+| symbol               | Y        |string      |  Symbol           |         |                                                        | 
 
 
 ***params of return***
@@ -1934,7 +1934,7 @@ X-API-TOKEN:token（acquired from login）
 | askPriceAdjustRatio           | N        |BigDecimal   |  ask price adjust ratio |        | Range: > 0 & <= 100   Precision:4, Scale:2             |
 | bidPriceAdjustValue           | N        |BigDecimal   |  bid price adjust value |        |  Range: >= 0   Precision:24, Scale:12                                                      |
 | askPriceAdjustValue           | N        |BigDecimal   |  ask price adjust value |        |  Range: >= 0   Precision:24, Scale:12                                                      |
-| priceAdjustType               | Y        |string       |  price adjust type [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)     |         |                                                        |
+| priceAdjustType               | Y        |string       |  [price adjust type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)     |         |                                                        |
 
 
 ***请求参数示例***
@@ -2147,8 +2147,8 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                 | REQUIRED | TYPE       | DESCRIBE          | DEFAULT | VALUES RANGE |
 | :------------------- | :------- | :--------- | :---------------- | :------ | :----------- |
-| name                 | Y        |string      |  Name           |         |                                  |
-| symbol               | Y        |string      |  Symbol         |         |                                  | 
+| name                 | Y        |string      |  Name             |         |                                  |
+| symbol               | Y        |string      |  Symbol           |         |                                  | 
 
 
 ***params of return***
