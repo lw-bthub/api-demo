@@ -1305,35 +1305,35 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                          | TYPE        | DESCRIBE                  |
 | :---------------------------- | :---------- | :------------------------ |
-| cp                            |string       | :  CP                     |
-| symbol                        |string       | :  Symbol                 | 
-| frequency                     |integer      | :  Frequency/m            |
-| l1OrderActive                 |boolean      | :  L1 Order Active        |
-| tradeActive                   |boolean      | :  Trades Active          |
-| l2OrderActive                 |boolean      | :  L2 Order Active        |
-| l1ConfigType                  |string       | :  Config Type [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |
-| l1Config                      |string       | :  Config                 |
-| l1TickSize                    |BigDecimal   | :  Tick Size              | 
-| l1LadderDepth                 |byte         | :  Depth                  |
-| l1StepHeight                  |BigDecimal   | :  Step Height            |  
-| l1MinSpread                   |BigDecimal   | :  Min Spread             |  
-| l1MaxDeviation                |BigDecimal   | :  Max Deviation          |  
-| tradeType                     |string       | :  Trades Type [Making Tick Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |
-| tradePriceType                |string       | :  Trades Price Type [Lp Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |
-| tradePriceAdjustRatio         |BigDecimal   | :  Trade Price Adjust Ratio |  
-| tradeRefSpread                |BigDecimal   | :  Trade Ref Spread         |  
-| tradeVolumeUpperLimit         |BigDecimal   | :  Max Trade Volume         |  
-| tradeVolumeLowerLimit         |BigDecimal   | :  Min Trade Volume         |  
-| tradeSendRatio                |BigDecimal   | :  Trade Send Ratio         |  
-| tradeVolumeDeduct             |boolean      | :  Trade Volume Deduct |
-| maxTradeVolumeRatio           |BigDecimal   | :  Max Trades Ratio        |  
-| l2MinSpread                   |BigDecimal   | :  Min Spread              |  
-| l2LadderDepth                 |byte         | :  Depth                   |
-| l2TickSize                    |BigDecimal   | :  Tick Size              |  
-| l2MaxDeviation                |BigDecimal   | :  Max Deviation          |  
-| l2MinThreshold                |BigDecimal   | :  Min Threshold          |  
-| l2MinVolume                   |BigDecimal   | :  Min Volume             |  
-| l2MaxVolume                   |BigDecimal   | :  Max Volume             |  
+| cp                            |string       |  CP                     |
+| symbol                        |string       |  Symbol                 | 
+| frequency                     |integer      |  Frequency/m            |
+| l1OrderActive                 |boolean      |  L1 Order Active        |
+| tradeActive                   |boolean      |  Trades Active          |
+| l2OrderActive                 |boolean      |  L2 Order Active        |
+| l1ConfigType                  |string       |  [Config Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |
+| l1Config                      |string       |  Config                 |
+| l1TickSize                    |BigDecimal   |  Tick Size              | 
+| l1LadderDepth                 |byte         |  Depth                  |
+| l1StepHeight                  |BigDecimal   |  Step Height            |  
+| l1MinSpread                   |BigDecimal   |  Min Spread             |  
+| l1MaxDeviation                |BigDecimal   |  Max Deviation          |  
+| tradeType                     |string       |  [Trades Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |
+| tradePriceType                |string       |  [Trades Price Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |
+| tradePriceAdjustRatio         |BigDecimal   |  Trade Price Adjust Ratio |  
+| tradeRefSpread                |BigDecimal   |  Trade Ref Spread         |  
+| tradeVolumeUpperLimit         |BigDecimal   |  Max Trade Volume         |  
+| tradeVolumeLowerLimit         |BigDecimal   |  Min Trade Volume         |  
+| tradeSendRatio                |BigDecimal   |  Trade Send Ratio         |  
+| tradeVolumeDeduct             |boolean      |  Trade Volume Deduct |
+| maxTradeVolumeRatio           |BigDecimal   |  Max Trades Ratio        |  
+| l2MinSpread                   |BigDecimal   |  Min Spread              |  
+| l2LadderDepth                 |byte         |  Depth                   |
+| l2TickSize                    |BigDecimal   |  Tick Size              |  
+| l2MaxDeviation                |BigDecimal   |  Max Deviation          |  
+| l2MinThreshold                |BigDecimal   |  Min Threshold          |  
+| l2MinVolume                   |BigDecimal   |  Min Volume             |  
+| l2MaxVolume                   |BigDecimal   |  Max Volume             |  
 
 
 ***example of return***
@@ -1519,36 +1519,36 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :-------| :---------- | :------------------------  | :------ | :----------------------------------------------------- |
-| cp                            | Y        |string       | :  CP(UPDATE=FALSE)       |         |  Must be included in cp                                |
-| symbol                        | Y        |string       | :  Symbol(UPDATE=FALSE)   |         |                                                        | 
-| frequency                     | Y        |integer      | :  Frequency/m            |         | Range: > 0                                             |
-| l1OrderActive                 | Y        |boolean      | :  L1 Order Active        |         |                                                        |
-| tradeActive                   | Y        |boolean      | :  Trades Active          |         |                                                        |
-| l2OrderActive                 | Y        |boolean      | :  L2 Order Active        |         |                                                        |
-| l1ConfigType                  | Y        |string       | :  Config Type [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
-| l1Config                      | Y        |string       | :  Config                 |         |  Must be included in source liquidity config                                            |
-| l1TickSize                    | Y        |BigDecimal   | :  Tick Size              |         |  Range: > 0, Precision:24, Scale:12                                                      | 
-| l1LadderDepth                 | Y        |byte         | :  Depth                  |         |  Range: > 0                                                      |
-| l1StepHeight                  | Y        |BigDecimal   | :  Step Height            |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MinSpread                   | Y        |BigDecimal   | :  Min Spread             |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MaxDeviation                | Y        |BigDecimal   | :  Max Deviation          |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
-| tradeType                     | Y        |string       | :  Trades Type [Making Tick Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
-| tradePriceType                | Y        |string       | :  Trades Price Type [Lp Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
-| tradePriceAdjustRatio         | Y        |BigDecimal   | :  Trade Price Adjust Ratio |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
-| tradeRefSpread                | Y        |BigDecimal   | :  Trade Ref Spread         |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeVolumeUpperLimit         | Y        |BigDecimal   | :  Max Trade Volume         |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeVolumeLowerLimit         | Y        |BigDecimal   | :  Min Trade Volume         |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeSendRatio                | Y        |BigDecimal   | :  Trade Send Ratio         |         | Range: > 0 & <= 100  Precision:3, Scale:0                                                      |  
-| tradeVolumeDeduct             | Y        |boolean      | :  Trade Volume Deduct      |         |                                 |
-| maxTradeVolumeRatio           | Y        |BigDecimal   | :  Max Trades Ratio         |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| minTradeVolumeRatio           | Y        |BigDecimal   | :  Min Trades Ratio         |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| l2MinSpread                   | Y        |BigDecimal   | :  Min Spread               |         | Range: > 0, Precision:24, Scale:12                                                       | 
-| l2LadderDepth                 | Y        |byte         | :  Depth                    |         | Range: > 0, Precision:4, Scale:0                                                       |
-| l2TickSize                    | Y        |BigDecimal   | :  Tick Size                |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MaxDeviation                | Y        |BigDecimal   | :  Max Deviation            |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
-| l2MinThreshold                | Y        |BigDecimal   | :  Min Threshold            |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MinVolume                   | Y        |BigDecimal   | :  Min Volume               |         | Range: >= 0, Precision:24, Scale:12                                                      |  
-| l2MaxVolume                   | Y        |BigDecimal   | :  Max Volume               |         | Range: >= 0, Precision:24, Scale:12                                                      |                                                         |
+| cp                            | Y        |string       |  CP(UPDATE=FALSE)       |         |  Must be included in cp                                |
+| symbol                        | Y        |string       |  Symbol(UPDATE=FALSE)   |         |                                                        | 
+| frequency                     | Y        |integer      |  Frequency/m            |         | Range: > 0                                             |
+| l1OrderActive                 | Y        |boolean      |  L1 Order Active        |         |                                                        |
+| tradeActive                   | Y        |boolean      |  Trades Active          |         |                                                        |
+| l2OrderActive                 | Y        |boolean      |  L2 Order Active        |         |                                                        |
+| l1ConfigType                  | Y        |string       |  [Config Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
+| l1Config                      | Y        |string       |  Config                 |         |  Must be included in source liquidity config                                            |
+| l1TickSize                    | Y        |BigDecimal   |  Tick Size              |         |  Range: > 0, Precision:24, Scale:12                                                      | 
+| l1LadderDepth                 | Y        |byte         |  Depth                  |         |  Range: > 0                                                      |
+| l1StepHeight                  | Y        |BigDecimal   |  Step Height            |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MinSpread                   | Y        |BigDecimal   |  Min Spread             |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MaxDeviation                | Y        |BigDecimal   |  Max Deviation          |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
+| tradeType                     | Y        |string       |  [Trades Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
+| tradePriceType                | Y        |string       |  [Trades Price Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
+| tradePriceAdjustRatio         | Y        |BigDecimal   |  Trade Price Adjust Ratio |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
+| tradeRefSpread                | Y        |BigDecimal   |  Trade Ref Spread         |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeVolumeUpperLimit         | Y        |BigDecimal   |  Max Trade Volume         |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeVolumeLowerLimit         | Y        |BigDecimal   |  Min Trade Volume         |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeSendRatio                | Y        |BigDecimal   |  Trade Send Ratio         |         | Range: > 0 & <= 100  Precision:3, Scale:0                                                      |  
+| tradeVolumeDeduct             | Y        |boolean      |  Trade Volume Deduct      |         |                                 |
+| maxTradeVolumeRatio           | Y        |BigDecimal   |  Max Trades Ratio         |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
+| minTradeVolumeRatio           | Y        |BigDecimal   |  Min Trades Ratio         |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
+| l2MinSpread                   | Y        |BigDecimal   |  Min Spread               |         | Range: > 0, Precision:24, Scale:12                                                       | 
+| l2LadderDepth                 | Y        |byte         |  Depth                    |         | Range: > 0, Precision:4, Scale:0                                                       |
+| l2TickSize                    | Y        |BigDecimal   |  Tick Size                |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MaxDeviation                | Y        |BigDecimal   |  Max Deviation            |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
+| l2MinThreshold                | Y        |BigDecimal   |  Min Threshold            |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MinVolume                   | Y        |BigDecimal   |  Min Volume               |         | Range: >= 0, Precision:24, Scale:12                                                      |  
+| l2MaxVolume                   | Y        |BigDecimal   |  Max Volume               |         | Range: >= 0, Precision:24, Scale:12                                                      |                                                         |
 
 
 ***example of request***
@@ -1645,36 +1645,36 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :-------| :---------- | :------------------------  | :------ | :----------------------------------------------------- |
-| cp                            | Y        |string       | :  CP(UPDATE=FALSE)       |         |  Must be included in cp                                |
-| symbol                        | Y        |string       | :  Symbol(UPDATE=FALSE)   |         |                                                        | 
-| frequency                     | Y        |integer      | :  Frequency/m            |         | Range: > 0                                             |
-| l1OrderActive                 | Y        |boolean      | :  L1 Order Active        |         |                                                        |
-| tradeActive                   | Y        |boolean      | :  Trades Active          |         |                                                        |
-| l2OrderActive                 | Y        |boolean      | :  L2 Order Active        |         |                                                        |
-| l1ConfigType                  | Y        |string       | :  Config Type [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
-| l1Config                      | Y        |string       | :  Config                 |         |  Must be included in source liquidity config                                            |
-| l1TickSize                    | Y        |BigDecimal   | :  Tick Size              |         |  Range: > 0, Precision:24, Scale:12                                                      | 
-| l1LadderDepth                 | Y        |byte         | :  Depth                  |         |  Range: > 0                                                      |
-| l1StepHeight                  | Y        |BigDecimal   | :  Step Height            |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MinSpread                   | Y        |BigDecimal   | :  Min Spread             |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MaxDeviation                | Y        |BigDecimal   | :  Max Deviation          |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
-| tradeType                     | Y        |string       | :  Trades Type [Making Tick Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
-| tradePriceType                | Y        |string       | :  Trades Price Type [Lp Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
-| tradePriceAdjustRatio         | Y        |BigDecimal   | :  Trade Price Adjust Ratio |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
-| tradeRefSpread                | Y        |BigDecimal   | :  Trade Ref Spread         |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeVolumeUpperLimit         | Y        |BigDecimal   | :  Max Trade Volume         |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeVolumeLowerLimit         | Y        |BigDecimal   | :  Min Trade Volume         |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeSendRatio                | Y        |BigDecimal   | :  Trade Send Ratio         |         | Range: > 0 & <= 100  Precision:3, Scale:0                                                      |  
-| tradeVolumeDeduct             | Y        |boolean      | :  Trade Volume Deduct      |         |                                 |
-| maxTradeVolumeRatio           | Y        |BigDecimal   | :  Max Trades Ratio         |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| minTradeVolumeRatio           | Y        |BigDecimal   | :  Min Trades Ratio         |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| l2MinSpread                   | Y        |BigDecimal   | :  Min Spread               |         | Range: > 0, Precision:24, Scale:12                                                       | 
-| l2LadderDepth                 | Y        |byte         | :  Depth                    |         | Range: > 0, Precision:4, Scale:0                                                       |
-| l2TickSize                    | Y        |BigDecimal   | :  Tick Size                |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MaxDeviation                | Y        |BigDecimal   | :  Max Deviation            |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
-| l2MinThreshold                | Y        |BigDecimal   | :  Min Threshold            |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MinVolume                   | Y        |BigDecimal   | :  Min Volume               |         | Range: >= 0, Precision:24, Scale:12                                                      |  
-| l2MaxVolume                   | Y        |BigDecimal   | :  Max Volume               |         | Range: >= 0, Precision:24, Scale:12                                                      |                                                         |
+| cp                            | Y        |string       |  CP(UPDATE=FALSE)       |         |  Must be included in cp                                |
+| symbol                        | Y        |string       |  Symbol(UPDATE=FALSE)   |         |                                                        | 
+| frequency                     | Y        |integer      |  Frequency/m            |         | Range: > 0                                             |
+| l1OrderActive                 | Y        |boolean      |  L1 Order Active        |         |                                                        |
+| tradeActive                   | Y        |boolean      |  Trades Active          |         |                                                        |
+| l2OrderActive                 | Y        |boolean      |  L2 Order Active        |         |                                                        |
+| l1ConfigType                  | Y        |string       |  [Config Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
+| l1Config                      | Y        |string       |  Config                 |         |  Must be included in source liquidity config                                            |
+| l1TickSize                    | Y        |BigDecimal   |  Tick Size              |         |  Range: > 0, Precision:24, Scale:12                                                      | 
+| l1LadderDepth                 | Y        |byte         |  Depth                  |         |  Range: > 0                                                      |
+| l1StepHeight                  | Y        |BigDecimal   |  Step Height            |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MinSpread                   | Y        |BigDecimal   |  Min Spread             |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MaxDeviation                | Y        |BigDecimal   |  Max Deviation          |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
+| tradeType                     | Y        |string       |  [Trades Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
+| tradePriceType                | Y        |string       |  [Trades Price Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
+| tradePriceAdjustRatio         | Y        |BigDecimal   |  Trade Price Adjust Ratio |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
+| tradeRefSpread                | Y        |BigDecimal   |  Trade Ref Spread         |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeVolumeUpperLimit         | Y        |BigDecimal   |  Max Trade Volume         |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeVolumeLowerLimit         | Y        |BigDecimal   |  Min Trade Volume         |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeSendRatio                | Y        |BigDecimal   |  Trade Send Ratio         |         | Range: > 0 & <= 100  Precision:3, Scale:0                                                      |  
+| tradeVolumeDeduct             | Y        |boolean      |  Trade Volume Deduct      |         |                                 |
+| maxTradeVolumeRatio           | Y        |BigDecimal   |  Max Trades Ratio         |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
+| minTradeVolumeRatio           | Y        |BigDecimal   |  Min Trades Ratio         |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
+| l2MinSpread                   | Y        |BigDecimal   |  Min Spread               |         | Range: > 0, Precision:24, Scale:12                                                       | 
+| l2LadderDepth                 | Y        |byte         |  Depth                    |         | Range: > 0, Precision:4, Scale:0                                                       |
+| l2TickSize                    | Y        |BigDecimal   |  Tick Size                |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MaxDeviation                | Y        |BigDecimal   |  Max Deviation            |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
+| l2MinThreshold                | Y        |BigDecimal   |  Min Threshold            |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MinVolume                   | Y        |BigDecimal   |  Min Volume               |         | Range: >= 0, Precision:24, Scale:12                                                      |  
+| l2MaxVolume                   | Y        |BigDecimal   |  Max Volume               |         | Range: >= 0, Precision:24, Scale:12                                                      |                                                         |
 
 
 ***example of request***
@@ -1777,8 +1777,8 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                 | REQUIRED | TYPE       | DESCRIBE          | DEFAULT | VALUES RANGE |
 | :------------------- | :------- | :--------- | :---------------- | :------ | :----------- |
-| cp                   | Y        |string      | :  CP(UPDATE=FALSE)       |         |  Must be included in cp                                |
-| symbol               | Y        |string      | :  Symbol(UPDATE=FALSE)   |         |                                                        | 
+| cp                   | Y        |string      |  CP(UPDATE=FALSE)       |         |  Must be included in cp                                |
+| symbol               | Y        |string      |  Symbol(UPDATE=FALSE)   |         |                                                        | 
 
 
 ***params of return***
@@ -1843,26 +1843,26 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME     | REQUIRED | TYPE   | DESCRIBE          | DEFAULT | VALUES RANGE |
 | :------- | :------- | :----- | :---------------- | :------ | :----------- |
-| symbol              | Y      |string             | : Symbol| :            |
+| symbol              | Y      |string             | : Symbol|            |
 
 ***params of return***
 
 | NAME                          | TYPE        | DESCRIBE                  |
 | :---------------------------- | :---------- | :------------------------ |
-| cp                            |string       | :  CP                     |
-| name                          |string       | :  name                   | 
-| symbol                        |string       | :  symbol                 |
-| refCps                        |array        | :  ref cp                 |
-| baseCp                        |BigDecimal   | :  base cp                |
-| bidVolumeAdjustRatio          |BigDecimal   | :  bid volume adjust ratio |
-| askVolumeAdjustRatio          |BigDecimal   | :  ask volume adjust ratio |
-| maxVolume                     |BigDecimal   | :  max volume              |
-| maxVolumeRatio                |BigDecimal   | :  max volume ratio        |
-| bidPriceAdjustRatio           |BigDecimal   | :  bid price adjust ratio  |
-| askPriceAdjustRatio           |BigDecimal   | :  ask price adjust ratio  |
-| bidPriceAdjustValue           |BigDecimal   | :  bid price adjust value  |
-| askPriceAdjustValue           |BigDecimal   | :  ask price adjust value  |
-| priceAdjustType               |string       | :  price adjust type       |
+| cp                            |string       |  CP                     |
+| name                          |string       |  name                   | 
+| symbol                        |string       |  symbol                 |
+| refCps                        |array        |  ref cp                 |
+| baseCp                        |BigDecimal   |  base cp                |
+| bidVolumeAdjustRatio          |BigDecimal   |  bid volume adjust ratio |
+| askVolumeAdjustRatio          |BigDecimal   |  ask volume adjust ratio |
+| maxVolume                     |BigDecimal   |  max volume              |
+| maxVolumeRatio                |BigDecimal   |  max volume ratio        |
+| bidPriceAdjustRatio           |BigDecimal   |  bid price adjust ratio  |
+| askPriceAdjustRatio           |BigDecimal   |  ask price adjust ratio  |
+| bidPriceAdjustValue           |BigDecimal   |  bid price adjust value  |
+| askPriceAdjustValue           |BigDecimal   |  ask price adjust value  |
+| priceAdjustType               |string       |  price adjust type       |
 
 ***example of return***
 
@@ -1922,19 +1922,19 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :------- | :---------- | :------------------------ | :------ | :----------------------------------------------------- |
-| name                          | Y        |string       | :  name                   |         |                                                        |
-| symbol                        | Y        |string       | :  symbol                 |         |                                                        |
-| baseCp                        |          |string       | :  symbol                 |         |                                                        |
-| refCps                        | Y        |array        | :  symbol                 |         |                                                        |
-| bidVolumeAdjustRatio          | Y        |BigDecimal   | :  bid volume adjust ratio|         | Range: > 0 & <= 100   Precision:4, Scale:2             |
-| askVolumeAdjustRatio          | Y        |BigDecimal   | :  ask volume adjust ratio|         | Range: > 0 & <= 100   Precision:4, Scale:2             |
-| maxVolume                     | Y        |BigDecimal   | :  max volume             |         | Range: > 0   Precision:24, Scale:12                    |
-| maxVolumeRatio                | Y        |BigDecimal   | :  max volume ratio       |        | Range: > 0 & < 100   Precision:2, Scale:0               |
-| bidPriceAdjustRatio           | N        |BigDecimal   | :  bid price adjust ratio |        | Range: > 0 & <= 100   Precision:4, Scale:2              |
-| askPriceAdjustRatio           | N        |BigDecimal   | :  ask price adjust ratio |        | Range: > 0 & <= 100   Precision:4, Scale:2             |
-| bidPriceAdjustValue           | N        |BigDecimal   | :  bid price adjust value |        |  Range: >= 0   Precision:24, Scale:12                                                      |
-| askPriceAdjustValue           | N        |BigDecimal   | :  ask price adjust value |        |  Range: >= 0   Precision:24, Scale:12                                                      |
-| priceAdjustType               | Y        |string       | :  price adjust type [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)     |         |                                                        |
+| name                          | Y        |string       |  name                   |         |                                                        |
+| symbol                        | Y        |string       |  symbol                 |         |                                                        |
+| baseCp                        |          |string       |  base cp                |         |                                                        |
+| refCps                        | Y        |array        |  ref cps                |         |                                                        |
+| bidVolumeAdjustRatio          | Y        |BigDecimal   |  bid volume adjust ratio|         | Range: > 0 & <= 100   Precision:4, Scale:2             |
+| askVolumeAdjustRatio          | Y        |BigDecimal   |  ask volume adjust ratio|         | Range: > 0 & <= 100   Precision:4, Scale:2             |
+| maxVolume                     | Y        |BigDecimal   |  max volume             |         | Range: > 0   Precision:24, Scale:12                    |
+| maxVolumeRatio                | Y        |BigDecimal   |  max volume ratio       |        | Range: > 0 & < 100   Precision:2, Scale:0               |
+| bidPriceAdjustRatio           | N        |BigDecimal   |  bid price adjust ratio |        | Range: > 0 & <= 100   Precision:4, Scale:2              |
+| askPriceAdjustRatio           | N        |BigDecimal   |  ask price adjust ratio |        | Range: > 0 & <= 100   Precision:4, Scale:2             |
+| bidPriceAdjustValue           | N        |BigDecimal   |  bid price adjust value |        |  Range: >= 0   Precision:24, Scale:12                                                      |
+| askPriceAdjustValue           | N        |BigDecimal   |  ask price adjust value |        |  Range: >= 0   Precision:24, Scale:12                                                      |
+| priceAdjustType               | Y        |string       |  price adjust type [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)     |         |                                                        |
 
 
 ***请求参数示例***
@@ -2030,19 +2030,19 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :------- | :---------- | :------------------------ | :------ | :----------------------------------------------------- |
-| name                          | Y        |string       | :  Name                   |         |                                                        |
-| symbol                        | Y        |string       | :  Symbol                 |         |                                                        |
-| baseCp                        |          |string       | :  base Cp                |         |                                                        |
-| refCps                        | Y        |array        | :  ref Cps                |         |                                                        |
-| bidVolumeAdjustRatio          | Y        |BigDecimal   | :  bid volume adjust ratio|         | Range: > 0 & <= 100   Precision:4, Scale:2             |
-| askVolumeAdjustRatio          | Y        |BigDecimal   | :  ask volume adjust ratio|         | Range: > 0 & <= 100   Precision:4, Scale:2             |
-| maxVolume                     | Y        |BigDecimal   | :  max volume             |         | Range: > 0   Precision:24, Scale:12                    |
-| maxVolumeRatio                | Y        |BigDecimal   | :  max volume ratio       |         | Range: > 0 & < 100   Precision:2, Scale:0              |
-| bidPriceAdjustRatio           | N        |BigDecimal   | :  bid price adjust ratio |         | Range: > 0 & <= 100   Precision:4, Scale:2             |
-| askPriceAdjustRatio           | N        |BigDecimal   | :  ask price adjust ratio |         | Range: > 0 & <= 100   Precision:4, Scale:2             |
-| bidPriceAdjustValue           | N        |BigDecimal   | :  bid price adjust value |         |  Range: >= 0   Precision:24, Scale:12                                                      |
-| askPriceAdjustValue           | N        |BigDecimal   | :  ask price adjust value |         |  Range: >= 0   Precision:24, Scale:12                                                      |
-| priceAdjustType               | Y        |string       | :  price adjust type [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)     |         |                                                        |
+| name                          | Y        |string       |  Name                   |         |                                                        |
+| symbol                        | Y        |string       |  Symbol                 |         |                                                        |
+| baseCp                        |          |string       |  base Cp                |         |                                                        |
+| refCps                        | Y        |array        |  ref Cps                |         |                                                        |
+| bidVolumeAdjustRatio          | Y        |BigDecimal   |  bid volume adjust ratio|         | Range: > 0 & <= 100   Precision:4, Scale:2             |
+| askVolumeAdjustRatio          | Y        |BigDecimal   |  ask volume adjust ratio|         | Range: > 0 & <= 100   Precision:4, Scale:2             |
+| maxVolume                     | Y        |BigDecimal   |  max volume             |         | Range: > 0   Precision:24, Scale:12                    |
+| maxVolumeRatio                | Y        |BigDecimal   |  max volume ratio       |         | Range: > 0 & < 100   Precision:2, Scale:0              |
+| bidPriceAdjustRatio           | N        |BigDecimal   |  bid price adjust ratio |         | Range: > 0 & <= 100   Precision:4, Scale:2             |
+| askPriceAdjustRatio           | N        |BigDecimal   |  ask price adjust ratio |         | Range: > 0 & <= 100   Precision:4, Scale:2             |
+| bidPriceAdjustValue           | N        |BigDecimal   |  bid price adjust value |         |  Range: >= 0   Precision:24, Scale:12                                                      |
+| askPriceAdjustValue           | N        |BigDecimal   |  ask price adjust value |         |  Range: >= 0   Precision:24, Scale:12                                                      |
+| priceAdjustType               | Y        |string       |  price adjust type [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)     |         |                                                        |
 
 
 ***example of request***
@@ -2147,8 +2147,8 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                 | REQUIRED | TYPE       | DESCRIBE          | DEFAULT | VALUES RANGE |
 | :------------------- | :------- | :--------- | :---------------- | :------ | :----------- |
-| name                 | Y        |string      | :  Name           |         |                                  |
-| symbol               | Y        |string      | :  Symbol         |         |                                  | 
+| name                 | Y        |string      |  Name           |         |                                  |
+| symbol               | Y        |string      |  Symbol         |         |                                  | 
 
 
 ***params of return***

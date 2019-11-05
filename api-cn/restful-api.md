@@ -32,10 +32,10 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 | [/api/v1/making/makingConfigs/create](#新增做市配置)  | POST  | 新增做市配置         |
 | [/api/v1/making/makingConfigs/update](#修改做市配置)  | PUT  | 修改做市配置         |
 | [/api/v1/making/makingConfigs/delete](#删除做市配置)  | DELETE  | 删除做市配置         |
-| [/api/v1/making/sourceLiquidityConfigs](#获取数据源)  | GET  | 获取数据源         |
-| [/api/v1/making/sourceLiquidityConfigs/create](#增加数据源)  | POST  | 增加数据源         |
-| [/api/v1/making/sourceLiquidityConfigs/update](#修改数据源)  | PUT  | 更新数据源         |
-| [/api/v1/making/sourceLiquidityConfigs/delete](#删除数据源)  | DELETE  | 删除数据源         |
+| [/api/v1/making/sourceLiquidityConfigs](#获取流动性来源配置)  | GET  | 获取流动性来源配置         |
+| [/api/v1/making/sourceLiquidityConfigs/create](#增加流动性来源配置)  | POST  | 增加流动性来源配置         |
+| [/api/v1/making/sourceLiquidityConfigs/update](#修改流动性来源配置)  | PUT  | 更新流动性来源配置         |
+| [/api/v1/making/sourceLiquidityConfigs/delete](#删除流动性来源配置)  | DELETE  | 删除流动性来源配置         |
 
 
 ## Restful API
@@ -1309,35 +1309,35 @@ X-API-TOKEN:token（通过login获得）
 
 | NAME                          | TYPE        | DESCRIBE                  |
 | :---------------------------- | :---------- | :------------------------ |
-| cp                            |string       | :  CP                     |
-| symbol                        |string       | :  商品名称                | 
-| frequency                     |integer      | :  发送订单频率/分          |
-| l1OrderActive                 |boolean      | :  L1 发送订单             |
-| tradeActive                   |boolean      | :  成交                    |
-| l2OrderActive                 |boolean      | :  L2 发送订单             |
-| l1ConfigType                  |string       | :  配置类型 [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |
-| l1Config                      |string       | :  配置                    |
-| l1TickSize                    |BigDecimal   | :  最小价格单位             | 
-| l1LadderDepth                 |byte         | :  深度                    |
-| l1StepHeight                  |BigDecimal   | :  步长                    |  
-| l1MinSpread                   |BigDecimal   | :  最小点差                 |  
-| l1MaxDeviation                |BigDecimal   | :  最大偏离量               |  
-| tradeType                     |string       | :  成交类型 [Making Tick Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |
-| tradePriceType                |string       | :  成交价格类型 [Lp Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |
-| tradePriceAdjustRatio         |BigDecimal   | :  成交价格调整比例            |  
-| tradeRefSpread                |BigDecimal   | :  成交参照点差                |  
-| tradeVolumeUpperLimit         |BigDecimal   | :  最大交易量                  |  
-| tradeVolumeLowerLimit         |BigDecimal   | :  最小交易量                  |  
-| tradeSendRatio                |BigDecimal   | :  成交概率                    |  
-| tradeVolumeDeduct             |boolean      | :  成交数量扣除                |
-| maxTradeVolumeRatio           |BigDecimal   | :  最大成交比例               |  
-| l2MinSpread                   |BigDecimal   | :  最小点差                   |  
-| l2LadderDepth                 |byte         | :  深度                       |
-| l2TickSize                    |BigDecimal   | :  最小价格单位              |  
-| l2MaxDeviation                |BigDecimal   | :  最大偏离量                |  
-| l2MinThreshold                |BigDecimal   | :  最小阈值                  |  
-| l2MinVolume                   |BigDecimal   | :  最小交易数量              |  
-| l2MaxVolume                   |BigDecimal   | :  最大交易数量              |  
+| cp                            |string       |  CP                     |
+| symbol                        |string       |  商品名称                | 
+| frequency                     |integer      |  发送订单频率/分          |
+| l1OrderActive                 |boolean      |  L1 发送订单             |
+| tradeActive                   |boolean      |  成交                    |
+| l2OrderActive               |boolean        |  L2 发送订单             |
+| l1ConfigType                  |string       |  [配置类型 ](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |
+| l1Config                      |string       |  配置                    |
+| l1TickSize                    |BigDecimal   |  最小价格单位             | 
+| l1LadderDepth                 |byte         |  深度                    |
+| l1StepHeight                  |BigDecimal   |  步长                    |  
+| l1MinSpread                   |BigDecimal   |  最小点差                 |  
+| l1MaxDeviation                |BigDecimal   |  最大偏离量               |  
+| tradeType                     |string       |  [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |
+| tradePriceType                |string       |  [成交价格类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |
+| tradePriceAdjustRatio         |BigDecimal   |  成交价格调整比例            |  
+| tradeRefSpread                |BigDecimal   |  成交参照点差                |  
+| tradeVolumeUpperLimit         |BigDecimal   |  最大交易量                  |  
+| tradeVolumeLowerLimit         |BigDecimal   |  最小交易量                  |  
+| tradeSendRatio                |BigDecimal   |  成交概率                    |  
+| tradeVolumeDeduct             |boolean      |  成交数量扣除                |
+| maxTradeVolumeRatio           |BigDecimal   |  最大成交比例               |  
+| l2MinSpread                   |BigDecimal   |  最小点差                   |  
+| l2LadderDepth                 |byte         |  深度                       |
+| l2TickSize                    |BigDecimal   |  最小价格单位              |  
+| l2MaxDeviation                |BigDecimal   |  最大偏离量                |  
+| l2MinThreshold                |BigDecimal   |  最小阈值                  |  
+| l2MinVolume                   |BigDecimal   |  最小交易数量              |  
+| l2MaxVolume                   |BigDecimal   |  最大交易数量              |  
 
 
 ***example of return***
@@ -1523,36 +1523,36 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :------- | :---------- | :------------------------ | :------ | :----------------------------------------------------- |
-| cp                            | Y        |string       | :  交易对手(缩写）         |         |  Must be included in cp                                |
-| symbol                        | Y        |string       | :  币对名称   |            |                                                        | 
-| frequency                     | Y        |integer      | :  发送频率/分             |         | Range: > 0                                             |
-| l1OrderActive                 | Y        |boolean      | :  L1 发送订单             |         |                                                        |
-| tradeActive                   | Y        |boolean      | :  成交                    |         |                                                        |
-| l2OrderActive                 | Y        |boolean      | :  L2 发送订单             |         |                                                        |
-| l1ConfigType                  | Y        |string       | :  配置类型 [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
-| l1Config                      | Y        |string       | :  配置                    |         |  Must be included in source liquidity config                                            |
-| l1TickSize                    | Y        |BigDecimal   | :  最小价格单位             |         |  Range: > 0, Precision:24, Scale:12                                                      | 
-| l1LadderDepth                 | Y        |byte         | :  深度                    |         |  Range: > 0                                                      |
-| l1StepHeight                  | Y        |BigDecimal   | :  步长                    |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MinSpread                   | Y        |BigDecimal   | :  最小点差                |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MaxDeviation                | Y        |BigDecimal   | :  最大偏离量              |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
-| tradeType                     | Y        |string       | :  成交类型 [Making Tick Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
-| tradePriceType                | Y        |string       | :  成交价格类型 [Lp Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
-| tradePriceAdjustRatio         | Y        |BigDecimal   | :  成交价格调整比例         |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
-| tradeRefSpread                | Y        |BigDecimal   | :  成交参照点差             |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeVolumeUpperLimit         | Y        |BigDecimal   | :  最大交易量               |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeVolumeLowerLimit         | Y        |BigDecimal   | :  最小交易量               |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeSendRatio                | Y        |BigDecimal   | :  成交概率                 |         | Range: > 0 & <= 100  Precision:3, Scale:0                                                      |  
-| tradeVolumeDeduct             | Y        |boolean      | :  成交数量扣除             |         |                                 |
-| maxTradeVolumeRatio           | Y        |BigDecimal   | :  最大成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| minTradeVolumeRatio           | Y        |BigDecimal   | :  最小成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| l2MinSpread                   | Y        |BigDecimal   | :  最小点差                 |         | Range: > 0, Precision:24, Scale:12                                                       | 
-| l2LadderDepth                 | Y        |byte         | :  深度                     |         | Range: > 0, Precision:4, Scale:0                                                       |
-| l2TickSize                    | Y        |BigDecimal   | :  最小价格单位              |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MaxDeviation                | Y        |BigDecimal   | :  最大偏差                 |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
-| l2MinThreshold                | Y        |BigDecimal   | :  最小阈值                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MinVolume                   | Y        |BigDecimal   | :  最小数量                 |         | Range: >= 0, Precision:24, Scale:12                                                      |  
-| l2MaxVolume                   | Y        |BigDecimal   | :  最大数量                 |         | Range: >= 0, Precision:24, Scale:12   
+| cp                            | Y        |string       |  交易对手(缩写）         |         |  Must be included in cp                                |
+| symbol                        | Y        |string       |  币对名称   |            |                                                        | 
+| frequency                     | Y        |integer      |  发送频率/分             |         | Range: > 0                                             |
+| l1OrderActive                 | Y        |boolean      |  L1 发送订单             |         |                                                        |
+| tradeActive                   | Y        |boolean      |  成交                    |         |                                                        |
+| l2OrderActive                 | Y        |boolean      |  L2 发送订单             |         |                                                        |
+| l1ConfigType                  | Y        |string       |  [配置类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
+| l1Config                      | Y        |string       |  配置                    |         |  Must be included in source liquidity config                                            |
+| l1TickSize                    | Y        |BigDecimal   |  最小价格单位             |         |  Range: > 0, Precision:24, Scale:12                                                      | 
+| l1LadderDepth                 | Y        |byte         |  深度                    |         |  Range: > 0                                                      |
+| l1StepHeight                  | Y        |BigDecimal   |  步长                    |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MinSpread                   | Y        |BigDecimal   |  最小点差                |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MaxDeviation                | Y        |BigDecimal   |  最大偏离量              |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
+| tradeType                     | Y        |string       |  [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
+| tradePriceType                | Y        |string       |  [成交价格类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
+| tradePriceAdjustRatio         | Y        |BigDecimal   |  成交价格调整比例         |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
+| tradeRefSpread                | Y        |BigDecimal   |  成交参照点差             |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeVolumeUpperLimit         | Y        |BigDecimal   |  最大交易量               |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeVolumeLowerLimit         | Y        |BigDecimal   |  最小交易量               |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeSendRatio                | Y        |BigDecimal   |  成交概率                 |         | Range: > 0 & <= 100  Precision:3, Scale:0                                                      |  
+| tradeVolumeDeduct             | Y        |boolean      |  成交数量扣除             |         |                                 |
+| maxTradeVolumeRatio           | Y        |BigDecimal   |  最大成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
+| minTradeVolumeRatio           | Y        |BigDecimal   |  最小成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
+| l2MinSpread                   | Y        |BigDecimal   |  最小点差                 |         | Range: > 0, Precision:24, Scale:12                                                       | 
+| l2LadderDepth                 | Y        |byte         |  深度                     |         | Range: > 0, Precision:4, Scale:0                                                       |
+| l2TickSize                    | Y        |BigDecimal   |  最小价格单位              |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MaxDeviation                | Y        |BigDecimal   |  最大偏差                 |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
+| l2MinThreshold                | Y        |BigDecimal   |  最小阈值                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MinVolume                   | Y        |BigDecimal   |  最小数量                 |         | Range: >= 0, Precision:24, Scale:12                                                      |  
+| l2MaxVolume                   | Y        |BigDecimal   |  最大数量                 |         | Range: >= 0, Precision:24, Scale:12   
 
 
 ***请求参数示例***
@@ -1649,36 +1649,36 @@ X-API-TOKEN:token（通过login获得）
 
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :------- | :---------- | :------------------------ | :------ | :----------------------------------------------------- |
-| cp                            | Y        |string       | :  交易对手(缩写）         |         |  Must be included in cp                                |
-| symbol                        | Y        |string       | :  币对名称   |            |                                                        | 
-| frequency                     | Y        |integer      | :  发送频率/分             |         | Range: > 0                                             |
-| l1OrderActive                 | Y        |boolean      | :  L1 发送订单             |         |                                                        |
-| tradeActive                   | Y        |boolean      | :  成交                    |         |                                                        |
-| l2OrderActive                 | Y        |boolean      | :  L2 发送订单             |         |                                                        |
-| l1ConfigType                  | Y        |string       | :  配置类型 [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
-| l1Config                      | Y        |string       | :  配置                    |         |  Must be included in source liquidity config                                            |
-| l1TickSize                    | Y        |BigDecimal   | :  最小价格单位             |         |  Range: > 0, Precision:24, Scale:12                                                      | 
-| l1LadderDepth                 | Y        |byte         | :  深度                    |         |  Range: > 0                                                      |
-| l1StepHeight                  | Y        |BigDecimal   | :  步长                    |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MinSpread                   | Y        |BigDecimal   | :  最小点差                |         |  Range: > 0, Precision:24, Scale:12                                                      |  
-| l1MaxDeviation                | Y        |BigDecimal   | :  最大偏离量              |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
-| tradeType                     | Y        |string       | :  成交类型 [Making Tick Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
-| tradePriceType                | Y        |string       | :  成交价格类型 [Lp Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
-| tradePriceAdjustRatio         | Y        |BigDecimal   | :  成交价格调整比例         |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
-| tradeRefSpread                | Y        |BigDecimal   | :  成交参照点差             |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeVolumeUpperLimit         | Y        |BigDecimal   | :  最大交易量               |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeVolumeLowerLimit         | Y        |BigDecimal   | :  最小交易量               |         | Range: > 0, Precision:24, Scale:12                                                       |  
-| tradeSendRatio                | Y        |BigDecimal   | :  成交概率                 |         | Range: > 0 & <= 100  Precision:3, Scale:0                                                      |  
-| tradeVolumeDeduct             | Y        |boolean      | :  成交数量扣除             |         |                                 |
-| maxTradeVolumeRatio           | Y        |BigDecimal   | :  最大成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| minTradeVolumeRatio           | Y        |BigDecimal   | :  最小成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
-| l2MinSpread                   | Y        |BigDecimal   | :  最小点差                 |         | Range: > 0, Precision:24, Scale:12                                                       | 
-| l2LadderDepth                 | Y        |byte         | :  深度                     |         | Range: > 0, Precision:4, Scale:0                                                       |
-| l2TickSize                    | Y        |BigDecimal   | :  最小价格单位              |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MaxDeviation                | Y        |BigDecimal   | :  最大偏差                 |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
-| l2MinThreshold                | Y        |BigDecimal   | :  最小阈值                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MinVolume                   | Y        |BigDecimal   | :  最小数量                 |         | Range: >= 0, Precision:24, Scale:12                                                      |  
-| l2MaxVolume                   | Y        |BigDecimal   | :  最大数量                 |         | Range: >= 0, Precision:24, Scale:12      
+| cp                            | Y        |string       |  交易对手(缩写）         |         |  Must be included in cp                                |
+| symbol                        | Y        |string       |  币对名称   |            |                                                        | 
+| frequency                     | Y        |integer      |  发送频率/分             |         | Range: > 0                                             |
+| l1OrderActive                 | Y        |boolean      |  L1 发送订单             |         |                                                        |
+| tradeActive                   | Y        |boolean      |  成交                    |         |                                                        |
+| l2OrderActive                 | Y        |boolean      |  L2 发送订单             |         |                                                        |
+| l1ConfigType                  | Y        |string       |  配置类型 [Making Order Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingordertype) |         |               |
+| l1Config                      | Y        |string       |  配置                    |         |  Must be included in source liquidity config                                            |
+| l1TickSize                    | Y        |BigDecimal   |  最小价格单位             |         |  Range: > 0, Precision:24, Scale:12                                                      | 
+| l1LadderDepth                 | Y        |byte         |  深度                    |         |  Range: > 0                                                      |
+| l1StepHeight                  | Y        |BigDecimal   |  步长                    |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MinSpread                   | Y        |BigDecimal   |  最小点差                |         |  Range: > 0, Precision:24, Scale:12                                                      |  
+| l1MaxDeviation                | Y        |BigDecimal   |  最大偏离量              |         |  Range: > 0 & < 100, Precision:4, Scale:2                                                 |  
+| tradeType                     | Y        |string       |  [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |         |                  |
+| tradePriceType                | Y        |string       |  [成交价格类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |         |                             |
+| tradePriceAdjustRatio         | Y        |BigDecimal   |  成交价格调整比例         |         | Range: > 0 & < 100, Precision:4, Scale:2                                                       |  
+| tradeRefSpread                | Y        |BigDecimal   |  成交参照点差             |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeVolumeUpperLimit         | Y        |BigDecimal   |  最大交易量               |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeVolumeLowerLimit         | Y        |BigDecimal   |  最小交易量               |         | Range: > 0, Precision:24, Scale:12                                                       |  
+| tradeSendRatio                | Y        |BigDecimal   |  成交概率                 |         | Range: > 0 & <= 100  Precision:3, Scale:0                                                      |  
+| tradeVolumeDeduct             | Y        |boolean      |  成交数量扣除             |         |                                 |
+| maxTradeVolumeRatio           | Y        |BigDecimal   |  最大成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
+| minTradeVolumeRatio           | Y        |BigDecimal   |  最小成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
+| l2MinSpread                   | Y        |BigDecimal   |  最小点差                 |         | Range: > 0, Precision:24, Scale:12                                                       | 
+| l2LadderDepth                 | Y        |byte         |  深度                     |         | Range: > 0, Precision:4, Scale:0                                                       |
+| l2TickSize                    | Y        |BigDecimal   |  最小价格单位              |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MaxDeviation                | Y        |BigDecimal   |  最大偏差                 |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
+| l2MinThreshold                | Y        |BigDecimal   |  最小阈值                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MinVolume                   | Y        |BigDecimal   |  最小数量                 |         | Range: >= 0, Precision:24, Scale:12                                                      |  
+| l2MaxVolume                   | Y        |BigDecimal   |  最大数量                 |         | Range: >= 0, Precision:24, Scale:12      
 
 
 ***请求参数示例***
@@ -1858,7 +1858,7 @@ X-API-TOKEN:token（通过login获得）
 ```
 
 
-### 获取数据源
+### 获取流动性来源配置
 GET /v1/making/sourceLiquidityConfigs
 
 request with Headers:    
@@ -1869,26 +1869,26 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME     | REQUIRED | TYPE   | DESCRIBE          | DEFAULT | VALUES RANGE |
 | :------- | :------- | :----- | :---------------- | :------ | :----------- |
-| symbol              | Y      |string             | : Symbol| :            |
+| symbol              | Y      |string             | : Symbol|            |
 
 ***params of return***
 
 | NAME                          | TYPE        | DESCRIBE                  |
 | :---------------------------- | :---------- | :------------------------ |
-| cp                            |string       | :  交易对手名称            |
-| name                          |string       | :  名称                   | 
-| symbol                        |string       | :  币对                   |
-| refCps                        |array        | :  关联交易对手            |
-| baseCp                        |BigDecimal   | :  基础交易对手            |
-| bidVolumeAdjustRatio          |BigDecimal   | :  Bid数量调整比例         |
-| askVolumeAdjustRatio          |BigDecimal   | :  Ask数量调整比例         |
-| maxVolume                     |BigDecimal   | :  最大数量                |
-| maxVolumeRatio                |BigDecimal   | :  最大数量比例            |
-| bidPriceAdjustRatio           |BigDecimal   | :  Bid价格调整比例         |
-| askPriceAdjustRatio           |BigDecimal   | :  Ask价格调整比例         |
-| bidPriceAdjustValue           |BigDecimal   | :  Bid价格调整             |
-| askPriceAdjustValue           |BigDecimal   | :  Ask价格调整             |
-| priceAdjustType               |string       | :  价格调整类型            |
+| cp                            |string       |  交易对手名称            |
+| name                          |string       |  名称                   | 
+| symbol                        |string       |  币对                   |
+| refCps                        |array        |  关联交易对手            |
+| baseCp                        |BigDecimal   |  基础交易对手            |
+| bidVolumeAdjustRatio          |BigDecimal   |  Bid数量调整比例         |
+| askVolumeAdjustRatio          |BigDecimal   |  Ask数量调整比例         |
+| maxVolume                     |BigDecimal   |  最大数量                |
+| maxVolumeRatio                |BigDecimal   |  最大数量比例            |
+| bidPriceAdjustRatio           |BigDecimal   |  Bid价格调整比例         |
+| askPriceAdjustRatio           |BigDecimal   |  Ask价格调整比例         |
+| bidPriceAdjustValue           |BigDecimal   |  Bid价格调整             |
+| askPriceAdjustValue           |BigDecimal   |  Ask价格调整             |
+| priceAdjustType               |string       |  价格调整类型            |
 
 ***example of return***
 
@@ -1937,7 +1937,7 @@ X-API-TOKEN:token（acquired from login）
 
 
 
-### 增加数据源
+### 增加流动性来源配置
 POST /v1/making/sourceLiquidityConfigs/create
 
 request with Headers:    
@@ -1948,19 +1948,19 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :------- | :---------- | :------------------------ | :------ | :----------------------------------------------------- |
-| name                          | Y        |string       | :  名称                   |         |                                                        |
-| symbol                        | Y        |string       | :  交易币对名称            |         |                                                        |
-| baseCp                        |          |string       | :  基础LP                 |         |                                                        |
-| refCps                        | Y        |array        | :  流动性来源              |         |                                                        |
-| bidVolumeAdjustRatio          | Y        |BigDecimal   | :  Bid数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
-| askVolumeAdjustRatio          | Y        |BigDecimal   | :  Ask数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
-| maxVolume                     | Y        |BigDecimal   | :  最大数量                |         | Range: > 0   Precision:24, Scale:12                    |
-| maxVolumeRatio                | Y        |BigDecimal   | :  最大数量比例            |        | Range: > 0 & < 100   Precision:2, Scale:0               |
-| bidPriceAdjustRatio           | N        |BigDecimal   | :  Bid价格调整比例 |       | Range: > 0 & <= 100   Precision:4, Scale:2                       |
-| askPriceAdjustRatio           | N        |BigDecimal   | :  Ask价格调整比例 |       | Range: > 0 & <= 100   Precision:4, Scale:2                       |
-| bidPriceAdjustValue           | N        |BigDecimal   | :  Bid价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
-| askPriceAdjustValue           | N        |BigDecimal   | :  Ask价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
-| priceAdjustType               | Y        |string       | :  价格调整类型 [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)|         |                                                        |
+| name                          | Y        |string       |  名称                   |         |                                                        |
+| symbol                        | Y        |string       |  交易币对名称            |         |                                                        |
+| baseCp                        |          |string       |  基础LP                 |         |                                                        |
+| refCps                        | Y        |array        |  流动性来源              |         |                                                        |
+| bidVolumeAdjustRatio          | Y        |BigDecimal   |  Bid数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
+| askVolumeAdjustRatio          | Y        |BigDecimal   |  Ask数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
+| maxVolume                     | Y        |BigDecimal   |  最大数量                |         | Range: > 0   Precision:24, Scale:12                    |
+| maxVolumeRatio                | Y        |BigDecimal   |  最大数量比例            |        | Range: > 0 & < 100   Precision:2, Scale:0               |
+| bidPriceAdjustRatio           | N        |BigDecimal   |  Bid价格调整比例 |       | Range: > 0 & <= 100   Precision:4, Scale:2                       |
+| askPriceAdjustRatio           | N        |BigDecimal   |  Ask价格调整比例 |       | Range: > 0 & <= 100   Precision:4, Scale:2                       |
+| bidPriceAdjustValue           | N        |BigDecimal   |  Bid价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
+| askPriceAdjustValue           | N        |BigDecimal   |  Ask价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
+| priceAdjustType               | Y        |string       |  价格调整类型 [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)|         |                                                        |
 
 
 ***请求参数示例***
@@ -2045,7 +2045,7 @@ X-API-TOKEN:token（acquired from login）
 ```
 
 
-### 修改数据源
+### 修改流动性来源配置
 PUT /v1/making/sourceLiquidityConfigs/update
 
 request with Headers:    
@@ -2056,19 +2056,19 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                          | REQUIRED | TYPE        | DESCRIBE                  | DEFAULT | VALUES RANGE                                           |
 | :---------------------------- | :------- | :---------- | :------------------------ | :------ | :----------------------------------------------------- |
-| name                          | Y        |string       | :  交易对手名称            |         |                                                        |
-| symbol                        | Y        |string       | :  交易币对名称            |         |                                                        |
-| baseCp                        |          |string       | :  基础LP                 |         |                                                        |
-| refCps                        | Y        |array        | :  流动性来源              |         |                                                        |
-| bidVolumeAdjustRatio          | Y        |BigDecimal   | :  Bid数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
-| askVolumeAdjustRatio          | Y        |BigDecimal   | :  Ask数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
-| maxVolume                     | Y        |BigDecimal   | :  最大数量                |         | Range: > 0   Precision:24, Scale:12                    |
-| maxVolumeRatio                | Y        |BigDecimal   | :  最大数量比例            |        | Range: > 0 & < 100   Precision:2, Scale:0               |
-| bidPriceAdjustRatio           | N        |BigDecimal   | :  Bid价格调整比例 |       | Range: > 0 & <= 100   Precision:4, Scale:2                       |
-| askPriceAdjustRatio           | N        |BigDecimal   | :  Ask价格调整比例 |       | Range: > 0 & <= 100   Precision:4, Scale:2                       |
-| bidPriceAdjustValue           | N        |BigDecimal   | :  Bid价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
-| askPriceAdjustValue           | N        |BigDecimal   | :  Ask价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
-| priceAdjustType               | Y        |string       | :  价格调整类型 [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)|         |                                                        |
+| name                          | Y        |string       |  交易对手名称            |         |                                                        |
+| symbol                        | Y        |string       |  交易币对名称            |         |                                                        |
+| baseCp                        |          |string       |  基础LP                 |         |                                                        |
+| refCps                        | Y        |array        |  流动性来源              |         |                                                        |
+| bidVolumeAdjustRatio          | Y        |BigDecimal   |  Bid数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
+| askVolumeAdjustRatio          | Y        |BigDecimal   |  Ask数量调整比例|        | Range: > 0 & <= 100   Precision:4, Scale:2                       |
+| maxVolume                     | Y        |BigDecimal   |  最大数量                |         | Range: > 0   Precision:24, Scale:12                    |
+| maxVolumeRatio                | Y        |BigDecimal   |  最大数量比例            |        | Range: > 0 & < 100   Precision:2, Scale:0               |
+| bidPriceAdjustRatio           | N        |BigDecimal   |  Bid价格调整比例 |       | Range: > 0 & <= 100   Precision:4, Scale:2                       |
+| askPriceAdjustRatio           | N        |BigDecimal   |  Ask价格调整比例 |       | Range: > 0 & <= 100   Precision:4, Scale:2                       |
+| bidPriceAdjustValue           | N        |BigDecimal   |  Bid价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
+| askPriceAdjustValue           | N        |BigDecimal   |  Ask价格调整值 |        |  Range: >= 0   Precision:24, Scale:12                             |
+| priceAdjustType               | Y        |string       |  价格调整类型 [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)|         |                                                        |
 
 
 ***example of request***
@@ -2163,7 +2163,7 @@ X-API-TOKEN:token（acquired from login）
 
 
 
-### 删除数据源
+### 删除流动性来源配置
 DELETE /v1/making/sourceLiquidityConfigs/delete
 
 request with Headers:
@@ -2174,8 +2174,8 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME                 | REQUIRED | TYPE       | DESCRIBE          | DEFAULT | VALUES RANGE |
 | :------------------- | :------- | :--------- | :---------------- | :------ | :----------- |
-| name                 | Y        |string      | :  名称           |         |                                  |
-| symbol               | Y        |string      | :  币对         |         |                                  | 
+| name                 | Y        |string      |  名称           |         |                                  |
+| symbol               | Y        |string      |  币对         |         |                                  | 
 
 
 ***params of return***
