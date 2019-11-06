@@ -1326,7 +1326,8 @@ X-API-TOKEN:token（acquired from login）
 | tradeVolumeLowerLimit         |number       |  Min Trade Volume         |  
 | tradeSendRatio                |number       |  Trade Send Ratio         |  
 | tradeVolumeDeduct             |boolean      |  Trade Volume Deduct |
-| maxTradeVolumeRatio           |number       |  L2 Max Trades Ratio        |  
+| maxTradeVolumeRatio           |number       |  Max Trades Ratio        | 
+| minTradeVolumeRatio           |number       |  Min Trades Ratio        |   
 | l2MinSpread                   |number       |  L2 Min Spread              |  
 | l2LadderDepth                 |byte         |  L2 Depth                   |
 | l2TickSize                    |number       |  L2 Tick Size              |  

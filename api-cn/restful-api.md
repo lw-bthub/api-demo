@@ -1325,12 +1325,13 @@ X-API-TOKEN:token（通过login获得）
 | tradeType                     |string       |  [成交类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#makingticktype)  |
 | tradePriceType                |string       |  [成交价格类型](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#lptype)  |
 | tradePriceAdjustRatio         |number       |  成交价格调整比例            |  
-| tradeRefSpread                |BigDnumber      成交参照点差                |  
+| tradeRefSpread                |BigDnumber   |   成交参照点差                |  
 | tradeVolumeUpperLimit         |number       |  最大交易量                  |  
 | tradeVolumeLowerLimit         |number       |  最小交易量                  |  
 | tradeSendRatio                |number       |  成交概率                    |  
 | tradeVolumeDeduct             |boolean      |  成交数量扣除                |
 | maxTradeVolumeRatio           |number       |  最大成交比例               |  
+| minTradeVolumeRatio           |number       |  最小成交比例               |  
 | l2MinSpread                   |number       |  L2 最小点差                   |  
 | l2LadderDepth                 |byte         |  L2 深度                       |
 | l2TickSize                    |number       |  L2 最小价格单位              |  
@@ -1548,8 +1549,8 @@ X-API-TOKEN:token（acquired from login）
 | minTradeVolumeRatio           | Y        |number       |  最小成交比例             |         | Range: > 0 & <= 100   Precision:3, Scale:0                                                    |  
 | l2MinSpread                   | Y        |number       |  L2 最小点差                 |         | Range: > 0, Precision:24, Scale:12                                                       | 
 | l2LadderDepth                 | Y        |byte         |  L2 深度                     |         | Range: > 0, Precision:4, Scale:0                                                       |
-| l2TickSize                    | Y        |number       |  L2 最小价格单位              |         | Range: > 0, Precision:24, Scale:12                                                      |  
-| l2MaxDeviation                | Y        |number       |  L2 最大偏差                 |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
+| l2TickSize                    | Y        |number       |  L2 最小价格单位         |         | Range: > 0, Precision:24, Scale:12                                                      |  
+| l2MaxDeviation                | Y        |number       |  L2 最大偏离量            |         | Range: > 0 & < 100, Precision:4, Scale:2                                                      |  
 | l2MinThreshold                | Y        |number       |  L2 最小阈值                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
 | l2MinVolume                   | Y        |number       |  L2 最小数量                 |         | Range: > 0, Precision:24, Scale:12                                                      |  
 | l2MaxVolume                   | Y        |number       |  L2 最大数量                 |         | Range: > 0, Precision:24, Scale:12   
