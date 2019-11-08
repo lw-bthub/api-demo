@@ -2042,7 +2042,7 @@ X-API-TOKEN:token（acquired from login）
 | askPriceAdjustRatio           | N        |number       |  ask price adjust ratio |         | Range: > 0 & <= 100   Precision:4, Scale:2             |
 | bidPriceAdjustValue           | N        |number       |  bid price adjust value |         |  Range: >= 0   Precision:24, Scale:12                                                      |
 | askPriceAdjustValue           | N        |number       |  ask price adjust value |         |  Range: >= 0   Precision:24, Scale:12                                                      |
-| priceAdjustType               | Y        |string       |  price adjust type [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)     |         |                                                        |
+| priceAdjustType               | Y        |string       |  [Price Adjust Type](https://github.com/lw-bthub/api-demo/blob/master/api-en/enum.md#priceadjusttype)     |         |                                                        |
 
 
 ***example of request***
