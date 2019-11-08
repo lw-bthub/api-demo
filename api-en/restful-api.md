@@ -2047,7 +2047,6 @@ X-API-TOKEN:token（acquired from login）
 
 ***example of request***
 ```
-```
 {
   "cp": "xxx",
   "frequency": 20,
