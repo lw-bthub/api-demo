@@ -261,10 +261,11 @@ RequestBody:（order）
 
 | NAME          | REQUIRED | TYPE       | DESCRIBE              | DEFAULT | VALUES RANGE |
 | :------------ | :------- | :--------- | :-------------------- | :------ | :----------- |
-| cp            |          | string     | 交易对手名称            |         |              |
+| cps            |         | array      | 交易对手名称            |         |              |
 | book          |          | string     | 账簿                    |         |              |
 | symbol        | Y        | string     | 交易币对名称            |         |              |
 | orderPrice    | Y        | number     | 订单价格               |         |              |
+| slippage      |          | number     | 滑点                 |         |              |
 | orderVolume   | Y        | number     | 订单数量               |         |              |
 | side          | Y        | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |         |              |
 | orderType     | Y        | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |         |              |

@@ -258,10 +258,11 @@ RequestBody:（order）
 
 | NAME          | REQUIRED | TYPE       | DESCRIPTION              | DEFAULT | VALUES RANGE |
 | :------------ | :------- | :--------- | :-------------------- | :------ | :----------- |
-| cp            |          | string     | counter party name            |         |              |
+| cps           |          | array      | counter party name            |         |              |
 | book          |          | string     | book                    |         |              |
 | symbol        | Y        | string     | crypto pair name            |         |              |
 | orderPrice    | Y        | number     | order Price               |         |              |
+| slippage      |          | number     | slippage                 |         |              |
 | orderVolume   | Y        | number     | order Volume               |         |              |
 | side          | Y        | string     | BUY or SELL(Side)       |         |              |
 | orderType     | Y        | string     | Order Type)   |         |              |
