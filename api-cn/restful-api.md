@@ -276,13 +276,16 @@ RequestBody:（order）
 
 ```
 {
-  "orderPrice": 0,
-  "orderType": "MARKET",
-  "orderVolume": 0.1,
-  "side": "BUY",
-  "symbol": "BTCUSDT",
-  "timeInForce": "IOC"
-  "clientOrderId": "1"
+	"book": "",
+	"clientOrderId": "0001",
+	"cps": ["bc", "huobi", "okex"],
+	"slippage": 0.01,
+	"orderPrice": 0,
+	"orderType": "SLIPPAGE",
+	"orderVolume": 0.01,
+	"side": "SELL",
+	"symbol": "BTCUSDT",
+	"timeInForce": "IOC"
 }
 ```
 
@@ -306,67 +309,45 @@ RequestBody:（order）
 | orderTime     | integer    | 订单时间              |
 | executeTime   | integer    | 成交时间                  |
 | clientOrderId | string     | 客户端订单ID                  |
+| commission    | number     | 手续费         |
 
 ***返回参数示例***
 
 ```
 {
-  "data": {
-    "order": {
-      "clientOrderId": "1"
-      "cpOrders": [
-        {
-          "commission": "0.0010",
-          "cp": "xxx",
-          "cpOrderId": "764537366881774633",
-          "executeAmount": "0",
-          "executeTime": "0",
-          "executeVolume": "0",
-          "orderComment": "764537362455412757.0",
-          "orderTime": "1542713956341",
-          "orderType": 5,
-          "orderVolume": "0.03538015",
-          "pendingVolume": "0.00000000",
-          "side": 1,
-          "status": 1,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        },
-        {
-          "commission": "0.0010",
-          "cp": "xxx",
-          "cpOrderId": "764537366881774121",
-          "executeAmount": "0",
-          "executeTime": "0",
-          "executeVolume": "0",
-          "orderComment": "764537365559204373.0",
-          "orderTime": "1542713956341",
-          "orderType": 5,
-          "orderVolume": "0.0262",
-          "pendingVolume": "0.0000",
-          "side": 1,
-          "status": 1,
-          "symbol": "BTCUSDT",
-          "timeInForce": 1
-        }
-      ],
-      "executeAmount": "0",
-      "executeTime": "0",
-      "executeVolume": "0",
-      "orderId": "764537366881773609",
-      "orderTime": "1542713956341",
-      "orderType": 5,
-      "orderVolume": "0.1",
-      "pendingVolume": "0.03841985",
-      "side": 1,
-      "status": 1,
-      "symbol": "BTCUSDT",
-      "timeInForce": 1
-    },
-    "orderResult": "SUCCESS"
-  },
-  "result": "SUCCESS",
-  "type": "API"
+	"data": {
+		"order": {
+			"clientOrderId": "0001",
+			"cpOrders": [{
+				"commission": "0",
+				"cp": "binance",
+				"cpOrderId": "1022333915667835925",
+				"executeAmount": "0",
+				"executeTime": "0",
+				"executeVolume": "0",
+				"orderComment": "bands,1022333914200245293.0",
+				"orderTime": "1573445699770",
+				"orderType": "SLIPPAGE",
+				"orderVolume": "0.01",
+				"pendingVolume": "0",
+				"side": "SELL",
+				"status": "PENDING",
+				"symbol": "BTCUSDT",
+				"timeInForce": "IOC"
+			}],
+			"executeAmount": "0",
+			"executeTime": "0",
+			"executeVolume": "0",
+			"orderId": "1022333915667835413",
+			"orderTime": "1573445699770",
+			"orderVolume": "0.01",
+			"pendingVolume": "0",
+			"symbol": "BTCUSDT"
+		},
+		"orderResult": "SUCCESS"
+	},
+	"result": "SUCCESS",
+	"type": "API"
 }
 ```
 
