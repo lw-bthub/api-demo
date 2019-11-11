@@ -17,16 +17,16 @@ public class RestDemo {
 		System.out.println("token:" + token);
 
 		// cps
-		System.out.println("cps: " + service.cps(token));
+//		System.out.println("cps: " + service.cps(token));
 
 		// symbols
-		System.out.println("symbols: " + service.symbols(token));
+//		System.out.println("symbols: " + service.symbols(token));
 
 		// cpAccount
 //		System.out.println("cpAccount: " + service.cpAccount(token, "huobi"));
 
         // getMakingConfig
-//        System.out.println("search makingConfig: " + service.getMakingConfig(token, "ampex", "EOSUSDT"));
+        System.out.println("search makingConfig: " + service.getMakingConfig(token, "ampex", "EOSUSDT"));
 
         // updateMakingConfig
 //        param = "{\"cp\":\"ampex\",\"frequency\":2,\"l1Config\":\"EOSUSDT\",\"l1ConfigType\":\"SOURCE_LIQUIDITY\",\"l1LadderDepth\":2,\"l1MaxDeviation\":\"2\",\"l1MinSpread\":\"2\",\"l1OrderActive\":true,\"l1StepHeight\":\"2\",\"l1TickSize\":\"2\",\"l2LadderDepth\":2,\"l2MaxDeviation\":\"2\",\"l2MaxVolume\":\"2\",\"l2MinSpread\":\"2\",\"l2MinThreshold\":\"0.2\",\"l2MinVolume\":\"2\",\"l2OrderActive\":true,\"l2TickSize\":\"2\",\"maxTradeVolumeRatio\":\"2\",\"minTradeVolumeRatio\":\"2\",\"symbol\":\"EOSUSDT\",\"tradeActive\":true,\"tradePriceAdjustRatio\":\"2\",\"tradePriceType\":\"LIQUIDITY_DEMANDER\",\"tradeRefSpread\":\"2\",\"tradeSendRatio\":\"2\",\"tradeType\":\"MID\",\"tradeVolumeDeduct\":true,\"tradeVolumeLowerLimit\":\"2\",\"tradeVolumeUpperLimit\":\"2\"}";
@@ -54,8 +54,8 @@ public class RestDemo {
 //        System.out.println("save SourceLiquidityConfig: " + service.saveSourceLiquidityConfig(token,param));
         
         //placeOrder
-        param = "{\"book\":\"\",\"clientOrderId\":\"0001\",\"cps\":[\"bc\",\"huobi\",\"okex\"],\"slippage\":0.01,\"orderPrice\":0,\"orderType\":\"SLIPPAGE\",\"orderVolume\":0.01,\"side\":\"SELL\",\"symbol\":\"BTCUSDT\",\"timeInForce\":\"IOC\"}";
-        System.out.println("placeOrder: " + service.placeOrder(token, param));
+//        param = "{\"book\":\"\",\"clientOrderId\":\"0001\",\"cps\":[\"bc\",\"huobi\",\"okex\"],\"slippage\":0.01,\"orderPrice\":0,\"orderType\":\"SLIPPAGE\",\"orderVolume\":0.01,\"side\":\"SELL\",\"symbol\":\"BTCUSDT\",\"timeInForce\":\"IOC\"}";
+//        System.out.println("placeOrder: " + service.placeOrder(token, param));
 
         //orderHistory
 //        System.out.println("orderHistory: " + service.orderHistory(token, null, null, "", 1572969600000L, 1573142399000L, 1));

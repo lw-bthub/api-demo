@@ -325,7 +325,6 @@ RequestBody:（order）
 				"executeAmount": "0",
 				"executeTime": "0",
 				"executeVolume": "0",
-				"orderComment": "bands,1022333914200245293.0",
 				"orderTime": "1573445699770",
 				"orderType": "SLIPPAGE",
 				"orderVolume": "0.01",
@@ -1291,7 +1290,7 @@ X-API-TOKEN:token（通过login获得）
 
 | NAME                          | TYPE        | DESCRIBE                  |
 | :---------------------------- | :---------- | :------------------------ |
-| cp                            |string       |  CP                     |
+| cp                            |string       |  交易对手                     |
 | symbol                        |string       |  商品名称                | 
 | frequency                     |integer      |  发送订单频率/分          |
 | l1OrderActive                 |boolean      |  L1 发送订单             |

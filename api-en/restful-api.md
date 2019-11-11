@@ -321,7 +321,6 @@ RequestBody:（order）
 				"executeAmount": "0",
 				"executeTime": "0",
 				"executeVolume": "0",
-				"orderComment": "bands,1022333914200245293.0",
 				"orderTime": "1573445699770",
 				"orderType": "SLIPPAGE",
 				"orderVolume": "0.01",
