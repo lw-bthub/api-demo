@@ -681,71 +681,76 @@ X-API-TOKEN:token（acquired from login）
  ***example of return***
 
 ```
- {
-  "data": {
-    "pageCount": 1,
-    "pageNo": 1,
-    "pageSize": 100,
-    "records": [
-      {
-        "commission": "0.0100",
-        "cp": "xxx",
-        "cpOrderid": "0",
-        "executeAmount": "45.7905",
-        "executeTime": "1542783740595",
-        "executeVolume": "0.01",
-        "orderComment": "765122751453824021.0",
-        "orderId": "765122754566440991",
-        "orderResult": 3,
-        "orderTime": "1542783739991",
-        "orderType": 5,
-        "orderVolume": "0.01",
-        "pendingVolume": "0",
-        "side": -1,
-        "status": 4,
-        "symbol": "BTCUSDT",
-        "timeInForce": 1
-      },
-      {
-        "cp": "xxx",
-        "cpOrderid": "0",
-        "executeAmount": "0",
-        "executeTime": "0",
-        "executeVolume": "0",
-        "orderId": "765093754133560351",
-        "orderResult": 1,
-        "orderTime": "1542780282870",
-        "orderType": 5,
-        "orderVolume": "0.1",
-        "pendingVolume": "0.1",
-        "side": 1,
-        "status": 9,
-        "symbol": "BTCUSDT",
-        "timeInForce": 1
-      },
-      {
-        "cp": "xxx",
-        "cpOrderid": "0",
-        "executeAmount": "0",
-        "executeTime": "0",
-        "executeVolume": "0",
-        "orderId": "765093385278076959",
-        "orderResult": 1,
-        "orderTime": "1542780238899",
-        "orderType": 5,
-        "orderVolume": "0.1",
-        "pendingVolume": "0.1",
-        "side": 1,
-        "status": 9,
-        "symbol": "BTCUSDT",
-        "timeInForce": 1
-      }
-    ],
-    "total": 3
-  },
-  "result": "SUCCESS",
-  "type": "API"
-}
+  {
+    "data": {
+      "pageCount": 54,
+      "pageNo": 1,
+      "pageSize": 100,
+      "records": [
+        {
+          "commission": "0",
+          "cp": "chaoex",
+          "cpOrderid": "0",
+          "executeAmount": "24598.46717",
+          "executeTime": "1573458255000",
+          "executeVolume": "126.836",
+          "orderId": "1022439221994129429",
+          "orderPrice": "194.43",
+          "orderResult": "FILLED",
+          "orderTime": "1573458253262",
+          "orderType": "LIMIT",
+          "orderVolume": "126.836",
+          "pendingVolume": "0",
+          "side": "BUY",
+          "status": "EXECUTED",
+          "symbol": "ETHUSDT",
+          "timeInForce": "GTC"
+        },
+        {
+          "commission": "0",
+          "cp": "chaoex",
+          "cpOrderid": "0",
+          "executeAmount": "23426.4013",
+          "executeTime": "1573458249000",
+          "executeVolume": "118.48",
+          "orderId": "1022439182139724309",
+          "orderPrice": "198.51",
+          "orderResult": "FILLED",
+          "orderTime": "1573458248511",
+          "orderType": "LIMIT",
+          "orderVolume": "118.48",
+          "pendingVolume": "0",
+          "side": "BUY",
+          "status": "EXECUTED",
+          "symbol": "ETHUSDT",
+          "timeInForce": "GTC"
+        },
+        {
+          "commission": "0",
+          "cp": "chaoex",
+          "cpOrderid": "0",
+          "executeAmount": "2738.87999",
+          "executeTime": "1573458246000",
+          "executeVolume": "14.43",
+          "orderId": "1022439154633435669",
+          "orderPrice": "205.02",
+          "orderResult": "PARTIAL",
+          "orderTime": "1573458245232",
+          "orderType": "LIMIT",
+          "orderVolume": "107.914",
+          "pendingVolume": "93.484",
+          "rejectReason": "Success",
+          "side": "BUY",
+          "status": "CANCELLED",
+          "symbol": "ETHUSDT",
+          "timeInForce": "GTC"
+        }
+      ],
+      "total": 5393
+    },
+    "result": "SUCCESS",
+    "type": "API"
+  }
 ```
 
 ### get CP history list of placed orders
