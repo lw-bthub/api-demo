@@ -267,9 +267,9 @@ RequestBody:（order）
 | orderPrice    | Y        | number     | 订单价格               |         |              |
 | slippage      |          | number     | 滑点                 |         |              |
 | orderVolume   | Y        | number     | 订单数量               |         |              |
-| side          | Y        | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |         |              |
-| orderType     | Y        | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |         |              |
-| timeInForce   | Y        | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |         |              |
+| side          | Y        | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)        |         |              |
+| orderType     | Y        | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |         |              |
+| timeInForce   | Y        | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |         |              |
 | clientOrderId |          | string     | 客户端订单ID                    |         |              |
 
 ***请求参数示例***
@@ -301,11 +301,11 @@ RequestBody:（order）
 | executeVolume | number     | 成交数量              |
 | orderVolume   | number     | 订单数量              |
 | pendingVolume | number     | 未成交数量              |
-| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |
-| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |
-| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)     |
-| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
-| orderResult   | string     | [投递结果类型(DealingResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
+| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)        |
+| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |
+| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)     |
+| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
+| orderResult   | string     | [投递结果类型(DealingResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderresult) |
 | orderTime     | integer    | 订单时间              |
 | executeTime   | integer    | 成交时间                  |
 | clientOrderId | string     | 客户端订单ID                  |
@@ -375,10 +375,10 @@ X-API-TOKEN:token（通过login获得）
 | executeVolume | number     | 成交数量              |
 | orderVolume   | number     | 订单数量              |
 | pendingVolume | number     | 未成交数量              |
-| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |
-| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |
-| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)     |
-| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
+| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)        |
+| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |
+| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)     |
+| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
 | orderTime     | integer    | 订单时间              |
 | executeTime   | integer    | 成交时间              |
 | clientOrderId | string     | 客户端订单ID              |
@@ -491,10 +491,10 @@ X-API-TOKEN:token（acquired from login）
 | executeVolume | number     | 成交数量              |
 | orderVolume   | number     | 订单数量              |
 | pendingVolume | number     | 未成交数量              |
-| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |
-| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |
-| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)     |
-| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
+| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)        |
+| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |
+| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)     |
+| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
 | orderTime     | integer    | 订单时间              |
 | executeTime   | integer    | 成交时间              |
 | clientOrderId | string     | 客户端订单ID              |
@@ -601,7 +601,7 @@ X-API-TOKEN:token（通过login获得）
 | :------------- | :--------- | :------------- |
 | cp             | string     | 交易对手名称          |
 | symbol         | string     | 交易币对名称       |
-| side           | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
+| side           | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side) |
 | executeAmount  | number     | 成交金额       |
 | executePrice   | number     | 成交价格       |
 | cpExecutionid  | number     | CP约定ID       |
@@ -649,7 +649,7 @@ X-API-TOKEN:token（通过login获得）
 | :------- | :------- | :------ | :---------------- | :------ | :----------- |
 | cp       |          | string   | 交易对手名称             | -       |              |
 | symbol   |          | string | 货币对名称          | -       |              |
-| status   |          | string  | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) | -       |              |
+| status   |          | string  | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus) | -       |              |
 | from     | Y        | integer    | 开始时间          | -       |              |
 | to       | Y        | integer    | 结束时间          | -       |              |
 | pageNo   |          | integer | 页码              | -       |              |
@@ -666,10 +666,10 @@ X-API-TOKEN:token（通过login获得）
 | cp            | string     | 交易对手名称              |
 | symbol        | string     | 币对名称             |
 | orderId       | integer    | 父订单ID              |
-| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |
-| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)     |
-| orderResult   | string     | [结果(OrderResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)     |
-| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |
+| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)        |
+| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)     |
+| orderResult   | string     | [投递结果类型(DealingResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderresult)     |
+| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |
 | orderPrice    | number     | 订单价格              |
 | executeAmount | number     | 成交金额              |
 | orderVolume   | number     | 订单数量              |
@@ -677,7 +677,7 @@ X-API-TOKEN:token（通过login获得）
 | executeVolume | number     | 成交数量              |
 | executeTime   | integer    | 成交时间              |
 | orderTime     | integer    | 订单时间              |
-| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
+| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
 | commission    | number     | 手续费                |
 | rejectReason  | string     | 拒绝原因              |
 | orderComment  | string     | 备注                  |
@@ -765,7 +765,7 @@ X-API-TOKEN:token（通过login获得）
 | :------- | :------- | :------ | :---------------- | :------ | :----------- |
 | cp       |          | string  | 交易对手名称             | -       |              |
 | symbol   |          | string  | 交易币对名称          | -       |              |
-| status   |          | string  | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) | -       |              |
+| status   |          | string  | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus) | -       |              |
 | from     | Y        | integer    | 开始时间          | -       |              |
 | to       | Y        | integer    | 结束时间          | -       |              |
 | pageNo   |          | integer | 页码              | -       |              |
@@ -782,10 +782,10 @@ X-API-TOKEN:token（通过login获得）
 | cp            | string     | 交易对手名称                |
 | symbol        | string     | 交易币对名称              |
 | orderId       | integer    | 父订单ID              |
-| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)        |
-| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)     |
-| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)   |
-| orderResult   | string     | [结果(OrderResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md)     |
+| side          | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)       |
+| status        | string     | [状态(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)     |
+| orderType     | string     | [订单类型(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |
+| orderResult   | string     | [投递结果类型(DealingResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderresult)     |
 | executeAmount | number     | 成交金额              |
 | orderPrice    | number     | 订单价格              |
 | executeVolume | number     | 成交数量              |
@@ -793,7 +793,7 @@ X-API-TOKEN:token（通过login获得）
 | pendingVolume | number     | 未成交数量              |
 | orderTime     | integer    | 订单时间              |
 | executeTime   | integer    | 成交时间              |
-| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
+| timeInForce   | string     | [过期类型(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
 | commission    | number     | 手续费                |
 | rejectReason  | string     | 拒绝原因              |
 | orderComment  | string     | 备注                  |
@@ -900,8 +900,8 @@ X-API-TOKEN:token（通过login获得）
 | executeId      | integer       | 成交ID       |
 | cp             | string     | 交易对手名称          |
 | symbol         | string     | 交易币对名称    |
-| cpOrderId      | integer       | CP订单ID         |
-| side           | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md) |
+| cpOrderId      | integer    | CP订单ID         |
+| side           | string     | [买卖方向(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side) |
 | executePrice   | number     | 价格           |
 | executeVolume  | number     | 成交数量       |
 | executeAmount  | number     | 成交金额       |

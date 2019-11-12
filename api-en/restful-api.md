@@ -264,9 +264,9 @@ RequestBody:（order）
 | orderPrice    | Y        | number     | order Price               |         |              |
 | slippage      |          | number     | slippage                 |         |              |
 | orderVolume   | Y        | number     | order Volume               |         |              |
-| side          | Y        | string     | BUY or SELL(Side)       |         |              |
-| orderType     | Y        | string     | Order Type)   |         |              |
-| timeInForce   | Y        | string     | Time In Force) |         |              |
+| side          | Y        | string     | [BUY or SELL(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)      |         |              |
+| orderType     | Y        | string     | [Order Type(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)  |         |              |
+| timeInForce   | Y        | string     | [Time InForce(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |         |              |
 | clientOrderId |          | string     | clinet order id |         |              |
 
 ***example of request***
@@ -298,11 +298,11 @@ RequestBody:（order）
 | executeVolume | number     | executed Volume              |
 | orderVolume   | number     | order Volume              |
 | pendingVolume | number     | pending Volume              |
-| side          | string     | BUY or SELL(Side)]       |
-| orderType     | string     | Order Type  |
-| status        | string     | Order Status     |
-| timeInForce   | string     | Time In Force |
-| orderResult   | string     | Dealing Result |
+| side          | string     | [BUY or SELL(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)]       |
+| orderType     | string     | [Order Type(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)  |
+| status        | string     | [Order Status(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)     |
+| timeInForce   | string     | [Time InForce(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
+| orderResult   | string     | [Dealing Result(DealingResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#dealingresult) |
 | orderTime     | integer    | place order Time              |
 | executeTime   | integer    | executed Time                  |
 | clientOrderId | string     | clinet order id                  |
@@ -371,10 +371,10 @@ X-API-TOKEN:token（acquired from login）
 | executeVolume | number     | executed Volume              |
 | orderVolume   | number     | order Volume              |
 | pendingVolume | number     | pending Volume              |
-| side          | string     | BUY OR SELL(Side)        |
-| orderType     | string     | Order Type   |
-| status        | string     | Order Status     |
-| timeInForce   | string     | Time In Force) |
+| side          | string     | [BUY or SELL(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)        |
+| orderType     | string     | [Order Type(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |
+| status        | string     | [Order Status(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)     |
+| timeInForce   | string     | [Time InForce(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
 | orderTime     | integer    | place order Time              |
 | executeTime   | integer    | executed Time              |
 | clientOrderId | string     | client order ID              |
@@ -487,10 +487,10 @@ X-API-TOKEN:token（acquired from login）
 | executeVolume | number     | executed Volume              |
 | orderVolume   | number     | order Volume              |
 | pendingVolume | number     | pending Volume              |
-| side          | string     | BUY OR SELL(Side)        |
-| orderType     | string     | Order Type   |
-| status        | string     | Order Status     |
-| timeInForce   | string     | Time In Force) |
+| side          | string     | [BUY or SELL(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)        |
+| orderType     | string     | [Order Type(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |
+| status        | string     | [Order Status(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)     |
+| timeInForce   | string     | [Time InForce(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
 | orderTime     | integer    | place order Time              |
 | executeTime   | integer    | executed Time              |
 | clientOrderId | string     | client order ID              |
@@ -597,7 +597,7 @@ X-API-TOKEN:token（acquired from login）
 | :------------- | :--------- | :------------- |
 | cp             | string     | counter party name          |
 | symbol         | string     | crypto pair name       |
-| side           | string     | BUY OR SELL(Side) |
+| side           | string     | [BUY or SELL(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side) |
 | executeAmount  | number     | executed Amount       |
 | executePrice   | number     | executed Price       |
 | cpExecutionid  | number     | CP execution ID       |
@@ -645,7 +645,7 @@ X-API-TOKEN:token（acquired from login）
 | :------- | :------- | :------ | :---------------- | :------ | :----------- |
 | cp       |          | string   | counter party name             | -       |              |
 | symbol   |          | string | crypto pair name          | -       |              |
-| status   |          | string  | Order Status | -       |              |
+| status   |          | string  | [Order Status(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus) | -       |              |
 | from     | Y        | integer    | time started         | -       |              |
 | to       | Y        | integer    | time ended         | -       |              |
 | pageNo   |          | integer | page NO              | -       |              |
@@ -662,10 +662,10 @@ X-API-TOKEN:token（acquired from login）
 | cp            | string     | counter party name              |
 | symbol        | string     | crypto pair name             |
 | orderId       | integer    | parent ID              |
-| side          | string     | BUY OR SELL(Side)       |
-| status        | string     | Order Status    |
-| orderResult   | string     | Order Result    |
-| orderType     | string     | Order Type   |
+| side          | string     | [BUY or SELL(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)       |
+| status        | string     | [Order Status(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)    |
+| orderResult   | string     | [Dealing Result(DealingResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#dealingresult)    |
+| orderType     | string     | [Order Type(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |
 | orderPrice    | number     | order Price              |
 | executeAmount | number     | executed Amount              |
 | orderVolume   | number     | order Volume              |
@@ -673,7 +673,7 @@ X-API-TOKEN:token（acquired from login）
 | executeVolume | number     | executed Volume              |
 | executeTime   | integer    | executed Time              |
 | orderTime     | integer    | place order Time              |
-| timeInForce   | string     | Time In Force |
+| timeInForce   | string     | [Time InForce(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
 | commission    | number     | commission                |
 | rejectReason  | string     | reject Reason              |
 | orderComment  | string     | comment                  |
@@ -761,9 +761,9 @@ X-API-TOKEN:token（acquired from login）
 | :------- | :------- | :------ | :---------------- | :------ | :----------- |
 | cp       |          | string  | counter party name             | -       |              |
 | symbol   |          | string  | crypto pair name          | -       |              |
-| status   |          | string  | Order Status | -       |              |
-| from     | Y        | integer    | time started          | -       |              |
-| to       | Y        | integer    | time ended          | -       |              |
+| status   |          | string  | [Order Status(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus) | -       |              |
+| from     | Y        | integer | time started          | -       |              |
+| to       | Y        | integer | time ended          | -       |              |
 | pageNo   |          | integer | page NO              | -       |              |
 
 ***params of return***
@@ -778,10 +778,10 @@ X-API-TOKEN:token（acquired from login）
 | cp            | string     | counter party name                |
 | symbol        | string     | crypto pair name              |
 | orderId       | integer    | parent order ID              |
-| side          | string     | BUY OR SELL(Side)      |
-| status        | string     | Order Status     |
-| orderType     | string     | Order Type   |
-| orderResult   | string     | Order Result     |
+| side          | string     | [BUY or SELL(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side)      |
+| status        | string     | [Order Status(OrderStatus)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#orderstatus)     |
+| orderType     | string     | [Order Type(OrderType)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#ordertype)   |
+| orderResult   | string     | [Dealing Result(DealingResult)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#dealingresult)    |
 | executeAmount | number     | executed Amount              |
 | orderPrice    | number     | order Price              |
 | executeVolume | number     | executed Volume              |
@@ -789,7 +789,7 @@ X-API-TOKEN:token（acquired from login）
 | pendingVolume | number     | pending Volume              |
 | orderTime     | integer    | place order Time              |
 | executeTime   | integer    | executed Time              |
-| timeInForce   | string     | Time In Force) |
+| timeInForce   | string     | [Time InForce(TimeInForce)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#timeinforce) |
 | commission    | number     | commission                |
 | rejectReason  | string     | reject Reason              |
 | orderComment  | string     | comment                  |
@@ -889,15 +889,15 @@ X-API-TOKEN:token（acquired from login）
 
 | NAME           | TYPE       | DESCRIPTION       |
 | :------------- | :--------- | :------------- |
-| pageCount      | integer       | counts of pages         |
-| pageNo         | integer       | page NO           |
-| pageSize       | integer       | page size       |
-| total          | integer       | total amount         |
-| executeId      | integer       | executed ID       |
+| pageCount      | integer    | counts of pages         |
+| pageNo         | integer    | page NO           |
+| pageSize       | integer    | page size       |
+| total          | integer    | total amount         |
+| executeId      | integer    | executed ID       |
 | cp             | string     | couter party name          |
 | symbol         | string     | crypto pair name    |
-| cpOrderId      | integer       | CP order ID         |
-| side           | string     | BUY OR SELL(Side |
+| cpOrderId      | integer    | CP order ID         |
+| side           | string     | [BUY or SELL(Side)](https://github.com/lw-bthub/api-demo/blob/master/api-cn/enum.md#side) |
 | executePrice   | number     | executed Price           |
 | executeVolume  | number     | executed Volume       |
 | executeAmount  | number     | executed Amount       |
@@ -1101,7 +1101,7 @@ X-API-TOKEN:token（acquired from login）
 | books | array | book array  |
 | book | string | book abbreviation    |
 | cps | array |  cp array |
-| cp | string | cp name    |
+| cp  | string | cp name    |
 | floatingProfit | number | floating profit    |
 | openAmount | number | open amount    |
 | openVolume | number | open volume    |
