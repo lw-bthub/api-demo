@@ -21,7 +21,7 @@
 ##### OrderType:
 
 ```
-[LIMIT,MARKET]
+[LIMIT,MARKET,SLIPPAGE]
 ```
 
 ##### OrderResult

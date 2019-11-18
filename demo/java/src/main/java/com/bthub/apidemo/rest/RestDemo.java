@@ -44,10 +44,10 @@ public class RestDemo {
 
         //updateSourceLiquidityConfig
         param ="{\"askPriceAdjustRatio\":\"3\",\"askPriceAdjustValue\":\"3\",\"askVolumeAdjustRatio\":\"3\",\"baseCp\":\"huobi\",\"bidPriceAdjustRatio\":\"3\",\"bidPriceAdjustValue\":\"3\",\"bidVolumeAdjustRatio\":\"3\",\"maxVolume\":\"3\",\"maxVolumeRatio\":\"3\",\"name\":\"ETHUSDT3\",\"priceAdjustType\":\"VALUE\",\"refCps\":[\"huobi\"]}";
-        System.out.println("update sourceLiquidityConfig: " + service.updateSourceLiquidityConfig(token,"ETHUSDT","ETHUSDT1",param));
+        System.out.println("update sourceLiquidityConfig: " + service.updateSourceLiquidityConfig(token,"ETHUSDT","ETHUSDT3",param));
 
         //deleteMakingConfig
-        System.out.println("delete makingConfig: " + service.deleteSourceLiquidityConfig(token, "ETHUSDT1", "ETHUSDT"));
+        System.out.println("delete makingConfig: " + service.deleteSourceLiquidityConfig(token, "ETHUSDT3", "ETHUSDT"));
 
         //addSourceLiquidityConfig
         param ="{\"askPriceAdjustRatio\":\"2\",\"askPriceAdjustValue\":\"2\",\"askVolumeAdjustRatio\":\"2\",\"baseCp\":\"huobi\",\"bidPriceAdjustRatio\":\"2\",\"bidPriceAdjustValue\":\"2\",\"bidVolumeAdjustRatio\":\"2\",\"maxVolume\":\"2\",\"maxVolumeRatio\":\"2\",\"name\":\"ETHUSDT1\",\"priceAdjustType\":\"VALUE\",\"refCps\":[\"huobi\"],\"symbol\":\"ETHUSDT\"}";
